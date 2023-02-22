@@ -6,6 +6,7 @@ public class Wizard implements HeroTemplate {
     private int XP;
     private int level;
     private int HP;
+    private final String NAME = "Wizard";
 
     public double Mana = 0;
 
@@ -87,4 +88,9 @@ public class Wizard implements HeroTemplate {
     public boolean hasAbility(Enum ability) {
         return (boolean) abilities.get(ability);
     }
+    @Override
+    public String getName() {
+        return NAME;
+    }
 }
+

@@ -6,6 +6,7 @@ class Druid implements HeroTemplate {
     private int XP;
     private int level;
     private int HP;
+    private final String NAME = "Druid";
 
     public enum Ability { Herbalist, Alchemy, Rituals, AnimalCompanion, ForestLife, StrongSpirit, Thunder, DragonBorn, NewPath, Moonlight }
 
@@ -70,5 +71,9 @@ class Druid implements HeroTemplate {
 
     public boolean hasAbility(Enum ability) {
         return (boolean) abilities.get(ability);
+    }
+    @Override
+    public String getName() {
+        return NAME;
     }
 }

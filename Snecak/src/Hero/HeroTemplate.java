@@ -1,4 +1,4 @@
-package Hero;
+package hero;
 
 public interface HeroTemplate {
     int getXP();

@@ -20,7 +20,9 @@ public class Map {
 
         }
     }
-
+public String getPlayerLocation (Player player){
+      return map[player.getX()][player.getY()];
+}
 
     public void addPlayer(Player player) {
         player.setX(Width /2);
@@ -59,8 +61,6 @@ public class Map {
         }  else {
         System.out.println("Invalid move: off the edge of the map.");
     }
-
-
     }
     public void addStructure(int x, int y, String structure) {
         if (map[x][y] != null) {

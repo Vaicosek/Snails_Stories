@@ -1,12 +1,9 @@
-package Hero;
+package hero;
 
-import Abilities.HeroAbility;
-import Abilities.MagicalPower;
+import abilities.HeroAbility;
+import abilities.MagicalPower;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
 import java.util.Scanner;
 
 public class Wizard implements HeroTemplate {

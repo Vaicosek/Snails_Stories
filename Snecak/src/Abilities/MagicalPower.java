@@ -1,8 +1,7 @@
-package Abilities;
+package abilities;
 
 
-import Hero.HeroTemplate;
-import Hero.Wizard;
+import hero.HeroTemplate;
 
 public class MagicalPower extends HeroAbility {
     private HeroTemplate hero;

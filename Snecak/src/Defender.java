@@ -7,6 +7,7 @@ class Defender implements HeroTemplate {
     private int level;
     private int HP;
 
+    private final String NAME = "Defender";
     public enum Ability {Taunt, HPI, HPII, Turtle, StoneSkin, StrongHandas, Warrior, Shields, BlackSmith, MonsterHunter}
 
     public Defender(int XP, int level, int HP) {
@@ -70,5 +71,9 @@ class Defender implements HeroTemplate {
 
     public boolean hasAbility(Enum ability) {
         return (boolean) abilities.get(ability);
+    }
+    @Override
+    public String getName() {
+        return NAME;
     }
 }

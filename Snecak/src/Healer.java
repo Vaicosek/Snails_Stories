@@ -6,6 +6,7 @@ class Healer implements HeroTemplate {
     private int XP;
     private int level;
     private int HP;
+    private final String NAME = "Healer";
 
     public enum Ability {LIGHT, INQUISITOR, MAGICAL_POWER, PURGE, MAGICAL_SHIELD, HOLY_FIRE, RESURRECTION, HealingI, HealingII, HealingIII}
 
@@ -71,5 +72,9 @@ class Healer implements HeroTemplate {
 
     public boolean hasAbility(Enum ability) {
         return (boolean) abilities.get(ability);
+    }
+    @Override
+    public String getName() {
+        return NAME;
     }
 }

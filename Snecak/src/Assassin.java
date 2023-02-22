@@ -6,6 +6,7 @@ class Assassin implements HeroTemplate {
     private int XP;
     private int level;
     private int HP;
+    private final String NAME = "Assassin";
 
     public enum Ability {Quiet, Shadow, LightArmor, Rage, PoisonI, PoisonII, ShadowClone, Marksman, Smoke, NightOwl}
 
@@ -71,5 +72,10 @@ class Assassin implements HeroTemplate {
 
     public boolean hasAbility(Enum ability) {
         return (boolean) abilities.get(ability);
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
     }
 }

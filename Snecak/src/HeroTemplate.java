@@ -6,5 +6,5 @@ public interface HeroTemplate {
     int getHP();
     void setHP(int HP);
     boolean hasAbility(Enum ability);
-
+String getName();
 }

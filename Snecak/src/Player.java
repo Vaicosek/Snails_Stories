@@ -80,7 +80,7 @@ public class Player {
     }
     public void pickHero() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please choose your hero:");
+        System.out.println("Please choose your hero by pressing number:");
         System.out.println("1. Assassin");
         System.out.println("2. Defender");
         System.out.println("3. Healer");
@@ -99,8 +99,6 @@ public class Player {
             }
         }
     }
-
-
     public HeroTemplate getHero() {
         return hero;
     }
