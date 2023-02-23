@@ -1,3 +1,5 @@
+package item;
+
 public class Item {
     private String name;
     private int quantity;
@@ -32,14 +34,5 @@ public class Item {
     public void setType(ItemType type) {
         this.type = type;
     }
-    public enum ItemType {
-        CONSUMABLE,
-        WEAPON,
-        ARMOR,
-        OTHER
-    }
-
-
-
     }
 

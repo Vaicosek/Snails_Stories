@@ -1,3 +1,5 @@
+import item.Item;
+
 import java.util.List;
 
 public interface PlayerTemplate {
