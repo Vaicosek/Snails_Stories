@@ -1,4 +1,4 @@
-package item;
+package itemshandling;
 
 public enum ItemType {
     CONSUMABLE,

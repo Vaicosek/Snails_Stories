@@ -15,10 +15,7 @@ public class Map {
         this.map = new String[Height][Width];
         this.deckOfCards = new DeckOfCards();
         this.players = new ArrayList<Player>();
-        for (int i = 0; i < Height; i++) {
-            Arrays.fill(map[i], null);
-
-        }
+        map [Height/2][Width/2] = deckOfCards.getDefaultLocation();
     }
 public String getPlayerLocation (Player player){
       return map[player.getX()][player.getY()];
@@ -48,6 +45,7 @@ public String getPlayerLocation (Player player){
 
             if (x == (Width /2) && y == (Height /2)) {
                 System.out.println("You are now at the Fountain");
+
             }
             else if (map[x][y] == null) {
                 map[x][y] = deckOfCards.drawRandomBiomeCard();
@@ -62,13 +60,4 @@ public String getPlayerLocation (Player player){
         System.out.println("Invalid move: off the edge of the map.");
     }
     }
-    public void addStructure(int x, int y, String structure) {
-        if (map[x][y] != null) {
-            map[x][y] += " with " + structure;
-        } else {
-            map[x][y] = structure;
-        }
-    }
-
-
 }

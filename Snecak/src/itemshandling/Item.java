@@ -1,4 +1,4 @@
-package item;
+package itemshandling;
 
 public class Item {
     private String name;

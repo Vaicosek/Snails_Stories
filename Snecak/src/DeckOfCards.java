@@ -6,7 +6,6 @@ import java.util.Random;
 public class DeckOfCards {
 
     private List<String> biomeDeck;
-    private List<String> structureDeck;
     private Random random;
 
     public DeckOfCards() {
@@ -21,15 +20,13 @@ public class DeckOfCards {
         biomeDeck.add("Swamp");
         biomeDeck.add("Plain");
         biomeDeck.add("Tundra");
-
-        structureDeck = new ArrayList<>();
-        structureDeck.add("Cave");
-        structureDeck.add("Tower");
-        structureDeck.add("Castle");
-        structureDeck.add("Village");
-        structureDeck.add("Town");
-        structureDeck.add("Ruin");
-        structureDeck.add("Dungeon");
+        biomeDeck.add("Cave");
+        biomeDeck.add("Tower");
+        biomeDeck.add("Castle");
+        biomeDeck.add("Village");
+        biomeDeck.add("Town");
+        biomeDeck.add("Ruin");
+        biomeDeck.add("Dungeon");
 
         random = new Random();
     }
@@ -37,11 +34,9 @@ public class DeckOfCards {
     public String drawRandomBiomeCard() {
         return drawRandomCard(biomeDeck);
     }
-
-    public String drawRandomStructureCard() {
-        return drawRandomCard(structureDeck);
+    public String getDefaultLocation  (){
+        return "Fountain";
     }
-
     private String drawRandomCard(List<String> deck) {
         Collections.shuffle(deck);
         int index = random.nextInt(deck.size());

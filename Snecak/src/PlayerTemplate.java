@@ -1,4 +1,4 @@
-import item.Item;
+import itemshandling.Item;
 
 import java.util.List;
 

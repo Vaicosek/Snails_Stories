@@ -1,5 +1,5 @@
-import item.Item;
-import item.ItemType;
+import itemshandling.Item;
+import itemshandling.ItemType;
 
 import java.util.ArrayList;
 import java.util.List;

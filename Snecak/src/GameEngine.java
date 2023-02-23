@@ -22,6 +22,7 @@ public class GameEngine {
         for (Player player : players) {
             System.out.println(player.getName() + " is a " + player.getHero().getName());
         }
+        System.out.println("You woke up at fountain story teller will decide your starting Items");
         GameLoop();
     }
 GameEnginePlayerEnum  GetPlayerAction(Player player) {
@@ -33,15 +34,15 @@ GameEnginePlayerEnum  GetPlayerAction(Player player) {
 
         if (s.equals("1")) {
             return GameEnginePlayerEnum.MOVE_ON_MAP;
-        } else if (s == "2") {
+        } else if (s.equals ("2")) {
             return GameEnginePlayerEnum.SEARCH;
-        } else if (s == "3") {
+        } else if (s.equals ("3")) {
             return GameEnginePlayerEnum.FIGHT;
-        } else if (s == "4") {
+        } else if (s.equals ("4")) {
             return GameEnginePlayerEnum.FLEE;
-        } else if (s == "5") {
+        } else if (s.equals ("5")) {
             return GameEnginePlayerEnum.OPEN_INVENTORY;
-        } else if (s == "6") {
+        } else if (s.equals ("6")) {
             return GameEnginePlayerEnum.SKIP_YOUR_TURN;
         }
         else {
@@ -71,11 +72,12 @@ GameEnginePlayerEnum  GetPlayerAction(Player player) {
         String direction = "";
         System.out.print("Enter a direction (up, down, left, right) or press q to exit: ");
         direction = scanner.nextLine().toUpperCase();
-        if (direction == "Q") {
+        if (direction.equals("Q")) {
             return;
         }
         MovementDirectionEnum movementDirectionEnum = MovementDirectionEnum.valueOf(direction);
         gameMap.movePlayer(player, movementDirectionEnum);
+
     }
 }
 
