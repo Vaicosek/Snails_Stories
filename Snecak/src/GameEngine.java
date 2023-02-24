@@ -1,5 +1,6 @@
 import java.util.Scanner;
-
+import java.util.List;
+import java.util.Arrays;
 public class GameEngine {
     Player[] players;
     Map gameMap = new Map();
@@ -18,6 +19,7 @@ public class GameEngine {
             player.pickHero();
             players[i] = player;
             gameMap.addPlayer(player);
+
         }
         for (Player player : players) {
             System.out.println(player.getName() + " is a " + player.getHero().getName());
@@ -78,6 +80,23 @@ GameEnginePlayerEnum  GetPlayerAction(Player player) {
         MovementDirectionEnum movementDirectionEnum = MovementDirectionEnum.valueOf(direction);
         gameMap.movePlayer(player, movementDirectionEnum);
 
+    }
+    public double getGroupLevel() {
+        List<Player> playerList = Arrays.asList(players);
+        return calculateGroupLevel(playerList);
+    }
+    public static double calculateGroupLevel(List<Player> players) {
+        double totalLevels = 0.0;
+        int numPlayers = players.size();
+        for (Player player : players) {
+            totalLevels += player.getHero().getLevel();
+        }
+        if (numPlayers > 0) {
+            double groupLevel = totalLevels / numPlayers;
+            return groupLevel;
+        } else {
+            return 0;
+        }
     }
 }
 

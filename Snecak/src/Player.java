@@ -73,13 +73,16 @@ public class Player {
     public void increaseXP(int amount) {
         var actualXp = hero.getXP() + amount;
         if (actualXp >= 100) {
-            hero.setLevel(hero.getLevel() + 1); ;
-            hero.setXP(0) ;
+            hero.setLevel(hero.getLevel() + 1);
+
+            hero.setXP(0);
         }
     }
+
     public boolean isAlive() {
         return hero.getHP() > 0;
     }
+
     public void pickHero() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please choose your hero by pressing number:");
@@ -101,6 +104,7 @@ public class Player {
             }
         }
     }
+
     public HeroTemplate getHero() {
         return hero;
     }

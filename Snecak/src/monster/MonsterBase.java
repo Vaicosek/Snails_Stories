@@ -7,42 +7,42 @@ public abstract class MonsterBase {
     public static final int TIER_4 = 4;
     public static final int TIER_5 = 5;
     public int HP;
-    public int Damage;
     public int GroupLevel;
     public int tier;
     public String Name;
 
 
-
     public MonsterBase(int tier, int GroupLevel) {
         this.tier = tier;
-        this.GroupLevel = GroupLevel;
         switch (tier) {
             case TIER_1 -> {
-                HP = 40 * GroupLevel;
-                Damage = GroupLevel/2;
+                HP = 20 * GroupLevel;
+
             }
             case TIER_2 -> {
-                HP = 60 * GroupLevel;
-                Damage = 2 + GroupLevel;
+                HP = 30 * GroupLevel;
+
             }
             case TIER_3 -> {
-                HP = 80 * GroupLevel;
-                Damage = 3 + GroupLevel;
+                HP = 40 * GroupLevel;
+
             }
             case TIER_4 -> {
-                HP = 100 * GroupLevel;
-                Damage = 4 + GroupLevel;
+                HP = 50 * GroupLevel;
+
             }
             case TIER_5 -> {
-                HP = 2000;
-                Damage = 5 * GroupLevel;
+                HP = 1000 * GroupLevel;
+
             }
         }
     }
-    public int Attack () {
-        Dice.getNextRoll() * Damage;
 
+    public int Attack() {
+        var i = Dice.getNextNumber(1, TIER_1* 10  + (10 * GroupLevel) +1);
+        return i;
     }
 
 }
+
+
