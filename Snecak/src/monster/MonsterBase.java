@@ -1,19 +1,25 @@
 package monster;
 
+import java.util.ArrayList;
+
 public abstract class MonsterBase {
-    public static final int TIER_1 = 1;
-    public static final int TIER_2 = 2;
-    public static final int TIER_3 = 3;
-    public static final int TIER_4 = 4;
-    public static final int TIER_5 = 5;
+
+    private static final int TIER_1 = 1;
+    private static final int TIER_2 = 2;
+    private static final int TIER_3 = 3;
+    private static final int TIER_4 = 4;
+    private static final int TIER_5 = 5;
     public int HP;
     public int GroupLevel;
     public int tier;
+
     public String Name;
 
 
     public MonsterBase(int tier, int GroupLevel) {
         this.tier = tier;
+        Name = getRandomName();
+
         switch (tier) {
             case TIER_1 -> {
                 HP = 20 * GroupLevel;
@@ -35,14 +41,21 @@ public abstract class MonsterBase {
                 HP = 1000 * GroupLevel;
 
             }
+
         }
     }
 
-    public int Attack() {
-        var i = Dice.getNextNumber(1, TIER_1* 10  + (10 * GroupLevel) +1);
-        return i;
+    protected ArrayList<String> names;
+
+    String getRandomName() {
+        var i = Dice.getNextNumber(0, names.size());
+        return names.get(i);
     }
 
+    public int Attack() {
+        var i = Dice.getNextNumber(1, tier * 10 + (10 * GroupLevel));
+        return i;
+    }
 }
 
 

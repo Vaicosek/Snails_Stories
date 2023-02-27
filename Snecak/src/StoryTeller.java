@@ -1,5 +1,6 @@
 import itemshandling.Item;
 import itemshandling.ItemType;
+import players.Player;
 
 import java.util.ArrayList;
 import java.util.List;
