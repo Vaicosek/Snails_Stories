@@ -11,9 +11,16 @@ public class MonsterTier1 extends MonsterBase {
 
         names = new ArrayList<String>(
                 Arrays.asList(
-                        "Goblin",
                         "Chicken",
-                        "Rat"));
+                        "Rat",
+                        "Bat",
+                        "Snake",
+                       " Lizard",
+                       " Beetle",
+                       " Frog",
+                       " Crab",
+                       " Scorpion"
+                        ));
 
     }
 

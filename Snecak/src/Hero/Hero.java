@@ -38,7 +38,7 @@ public class Hero implements HeroTemplate {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You can gain the  ability by pressing number");
 
-        if (CheckAllAbilitiesUnlocked() == true) {
+        if (CheckAllAbilitiesUnlocked()) {
             System.out.println("You have unlocked all abilities");
             return;
         }
@@ -60,18 +60,15 @@ public class Hero implements HeroTemplate {
     }
 
     private boolean CheckAllAbilitiesUnlocked() {
-        Boolean allUnlocked = true;
+        boolean allUnlocked = true;
         for (HeroAbility ability : Abilities) {
-            if (ability.IsUnlocked == false) {
+            if (!ability.IsUnlocked) {
                 allUnlocked = false;
                 break;
             }
         }
 
-        if (allUnlocked == true) {
-            return true;
-        }
-        return false;
+        return allUnlocked;
     }
 
     public int getXP() {
