@@ -53,8 +53,7 @@ public abstract class MonsterBase {
     }
 
     public int Attack() {
-        var i = Dice.getNextNumber(1, tier * 10 + (10 * GroupLevel));
-        return i;
+        return Dice.getNextNumber(1, tier * 10 + (10 * GroupLevel));
     }
 }
 

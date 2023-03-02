@@ -96,13 +96,13 @@ public class GameEngine {
 
     }
 
-    public double getGroupLevel() {
+    public int getGroupLevel() {
         List<Player> playerList = Arrays.asList(players);
         return calculateGroupLevel(playerList);
     }
 
-    public static double calculateGroupLevel(List<Player> players) {
-        double totalLevels = 0.0;
+    public static int calculateGroupLevel(List<Player> players) {
+        int totalLevels = 0;
         int numPlayers = players.size();
         for (Player player : players) {
             totalLevels += player.getHero().getLevel();
