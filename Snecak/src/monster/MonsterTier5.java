@@ -5,10 +5,8 @@ import java.util.Arrays;
 
 public class MonsterTier5 extends MonsterBase {
 
-
-    public MonsterTier5(int GroupLevel) {
-        super(1, GroupLevel);
-
+    @Override
+    void InitilizeName() {
         names = new ArrayList<String>(
                 Arrays.asList(
                         "Dragon",
@@ -20,6 +18,11 @@ public class MonsterTier5 extends MonsterBase {
                         "Machine",
                         "Juggernaut",
                         "Demon Lord"));
+    }
+
+    public MonsterTier5(int GroupLevel) {
+        super(5, GroupLevel);
+
 
     }
 

@@ -2,7 +2,7 @@ package players;
 
 import hero.*;
 import itemshandling.Item;
-import mapvariables.Map;
+
 
 import java.util.Scanner;
 import java.util.ArrayList;

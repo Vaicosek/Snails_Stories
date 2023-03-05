@@ -1,7 +1,7 @@
 package engine;
 
-import engine.MovementDirectionEnum;
 import mapvariables.Map;
+import monster.MonsterBase;
 import players.Player;
 
 import java.util.Scanner;
@@ -18,7 +18,7 @@ public class GameEngine {
 
     public void GameStart() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter number of players (2-8): ");
+        System.out.print("Enter number of players (1-8): ");
         int numPlayers = scanner.nextInt();
         scanner.nextLine();
         players = new Player[numPlayers];
@@ -41,25 +41,39 @@ public class GameEngine {
 
     GameEnginePlayerEnum GetPlayerAction(Player player) {
         while (true) {
-            System.out.println("Location : " + gameMap.getPlayerLocation(player) + "\n HP :" + player.getHero().getHP());
+            System.out.println("Location : " + gameMap.getPlayerLocation(player).Name + "\n HP :" + player.getHero().getHP());
             System.out.println("Choose your action : 1. Move, 2. Search, 3. Fight, 4. Flee, 5. Open inventory or 6. skip your turn");
             Scanner scanner = new Scanner(System.in);
             String s = scanner.next();
 
-            if (s.equals("1")) {
-                return GameEnginePlayerEnum.MOVE_ON_MAP;
-            } else if (s.equals("2")) {
-                return GameEnginePlayerEnum.SEARCH;
-            } else if (s.equals("3")) {
-                return GameEnginePlayerEnum.FIGHT;
-            } else if (s.equals("4")) {
-                return GameEnginePlayerEnum.FLEE;
-            } else if (s.equals("5")) {
-                return GameEnginePlayerEnum.OPEN_INVENTORY;
-            } else if (s.equals("6")) {
-                return GameEnginePlayerEnum.SKIP_YOUR_TURN;
-            } else {
-                System.out.println("Invalid input try again");
+            switch (s) {
+                case "1" -> {
+                    return GameEnginePlayerEnum.MOVE_ON_MAP;
+                }
+                case "2" -> {
+                    return GameEnginePlayerEnum.SEARCH;
+                }
+                case "3" -> {
+                    if (gameMap.getPlayerLocation(player).monsters.isEmpty()) {
+                        System.out.println("There is nothing to fight here");
+                        break;
+                    }
+                    return GameEnginePlayerEnum.FIGHT;
+                }
+                case "4" -> {
+                    if (gameMap.getPlayerLocation(player).monsters.isEmpty()) {
+                        System.out.println("There is nothing to flee from");
+                        break;
+                    }
+                    return GameEnginePlayerEnum.FLEE;
+                }
+                case "5" -> {
+                    return GameEnginePlayerEnum.OPEN_INVENTORY;
+                }
+                case "6" -> {
+                    return GameEnginePlayerEnum.SKIP_YOUR_TURN;
+                }
+                default -> System.out.println("Invalid input try again");
             }
         }
     }
@@ -73,17 +87,17 @@ public class GameEngine {
 
                 var action = GetPlayerAction(player);
                 if (action == GameEnginePlayerEnum.MOVE_ON_MAP) {
-                    Move(player);
+                    move(player);
 
                 }
                 if (action == GameEnginePlayerEnum.FIGHT) {
-
+                    fight(player, gameMap.getPlayerLocation(player).monsters);
                 }
             }
         }
     }
 
-    public void Move(Player player) {
+    public void move(Player player) {
         Scanner scanner = new Scanner(System.in);
         String direction = "";
         System.out.print("Enter a direction (up, down, left, right) or press q to exit: ");
@@ -91,10 +105,71 @@ public class GameEngine {
         if (direction.equals("Q")) {
             return;
         }
-        MovementDirectionEnum movementDirectionEnum = MovementDirectionEnum.valueOf(direction);
-        gameMap.movePlayer(player, movementDirectionEnum);
 
+        MovementDirectionEnum movementDirectionEnum;
+        try {
+            movementDirectionEnum = MovementDirectionEnum.valueOf(direction);
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+            move(player);
+            return;
+        }
+
+        try {
+
+            gameMap.movePlayer(player, movementDirectionEnum);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
     }
+
+
+    public void fight(Player player, List<MonsterBase> monsters) {
+
+        while (player.getHero().getHP() > 0) {
+
+            if (monsters.isEmpty()) break;
+
+            MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
+
+            //     System.out.println("Your turn to attack!");
+            //    boolean useAbility = false;
+            //     System.out.println("Do you want to use an ability? (y/n)");
+            //     String input = Scanner.nextLine().trim();
+            //    if (input.equalsIgnoreCase("y")) {
+            //         useAbility = true;
+            //}
+            //     if (useAbility) {
+            //       player.getHero().powers();
+            // int damageDealt = player.getHero().useAbility(ability, currentMonster);
+            //    System.out.printf("You used %s and dealt %d damage to %s!%n", ability.getName(), damageDealt, currentMonster.getName());
+
+            int damageDealt = player.getHero().getAttack();
+            currentMonster.HP -= damageDealt;
+            System.out.printf("You hit %s for %d damage!%n", currentMonster.getName(), damageDealt);
+
+
+            if (currentMonster.getHP() <= 0) {
+                System.out.printf("%s has been defeated!%n", currentMonster.getName());
+                monsters.remove(currentMonster);
+                continue;
+            }
+
+            for (MonsterBase monster : monsters) {
+                if (player.getHero().getHP() <= 0) {
+                    break;
+                }
+
+                System.out.printf("%s's turn to attack!%n", monster.getName());
+                int monsterDamage = monster.Attack();
+                player.getHero().setHP(player.getHero().getHP() - monsterDamage);
+                System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
+            }
+        }
+    }
+
 
     public int getGroupLevel() {
         List<Player> playerList = Arrays.asList(players);
@@ -113,5 +188,6 @@ public class GameEngine {
             return 0;
         }
     }
+
 }
 

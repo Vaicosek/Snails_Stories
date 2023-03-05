@@ -19,6 +19,6 @@ public interface HeroTemplate {
     String getName();
     void SetMana(int Mana);
 
-
+    public void powers();
 
 }

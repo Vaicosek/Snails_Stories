@@ -2,6 +2,7 @@ package mapvariables;
 
 import engine.GameEngine;
 import engine.MovementDirectionEnum;
+import jdk.jshell.spi.ExecutionControl;
 import mapvariables.BiomeModel;
 import monster.MonsterFactory;
 import players.Player;
@@ -20,7 +21,7 @@ public class Map {
     MonsterFactory monsterFactory;
 
     public Map(GameEngine gameEngine) {
-        monsterFactory = new MonsterFactory(this,gameEngine);
+        monsterFactory = new MonsterFactory(this, gameEngine);
         this.Height = 40;
         this.Width = 40;
         this.map = new BiomeModel[Height][Width];
@@ -39,9 +40,10 @@ public class Map {
         players.add(player);
     }
 
-    public void movePlayer(Player player, MovementDirectionEnum direction) {
+    public void movePlayer(Player player, MovementDirectionEnum direction) throws Exception {
         int x = player.getX();
         int y = player.getY();
+
 
         if (direction == MovementDirectionEnum.UP) {
             x -= 1;
@@ -52,22 +54,29 @@ public class Map {
         } else if (direction == MovementDirectionEnum.RIGHT) {
             y += 1;
         }
+        else
+            throw new Exception("Invalid Enum Value");
 
-        if (x >= 0 && x < Height && y >= 0 && y < Width) {
 
-            if (x == (Width / 2) && y == (Height / 2)) {
-                System.out.println("You are now at the Fountain");
 
-            } else if (map[x][y] == null) {
-                map[x][y] = deckOfCards.drawRandomBiomeCard();
-                System.out.println("The biome picked is: " + map[x][y]);
-
-            } else if (map[x][y] != null) {
-                System.out.println("You are now at :" + map[x][y]);
-            }
-
-        } else {
+        if (checkMapBoundaries(x, y)) {
             System.out.println("Invalid move: off the edge of the map.");
+            return;
         }
+        player.setX(x);
+        player.setY(y);
+
+
+        if (map[x][y] == null) {
+            map[x][y] = deckOfCards.drawRandomBiomeCard();
+            map[x][y].monsters = monsterFactory.CreateMonsters(players.size());
+        }
+
     }
+
+    Boolean checkMapBoundaries(int x, int y) {
+        return !(x >= 0 && x < Height && y >= 0 && y < Width);
+    }
+
 }
+
