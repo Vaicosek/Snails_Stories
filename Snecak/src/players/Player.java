@@ -11,9 +11,6 @@ import java.util.List;
 public class Player {
     private HeroTemplate hero;
     private String name;
-    private int x;
-    private int y;
-
 
     private List<Item> inventory;
 
@@ -27,22 +24,6 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     public List<Item> getInventory() {

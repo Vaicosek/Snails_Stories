@@ -4,6 +4,8 @@ import mapvariables.Map;
 import monster.MonsterBase;
 import players.Player;
 
+
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 import java.util.Arrays;
@@ -11,6 +13,7 @@ import java.util.Arrays;
 public class GameEngine {
     Player[] players;
     Map gameMap;
+    private GameStartedEventSource gameStartedEventSource = new GameStartedEventSource();
 
     public GameEngine() {
         gameMap = new Map(this);
@@ -29,20 +32,23 @@ public class GameEngine {
             player.setName(scanner.nextLine());
             player.pickHero();
             players[i] = player;
-            gameMap.addPlayer(player);
+
 
         }
         for (Player player : players) {
             System.out.println(player.getName() + " is a " + player.getHero().getName());
         }
         System.out.println("You woke up at fountain");
+
+        gameStartedEventSource.fireEvent(new GameStartedEvent());
+
         GameLoop();
     }
 
     GameEnginePlayerEnum GetPlayerAction(Player player) {
         while (true) {
             System.out.println("Location : " + gameMap.getPlayerLocation(player).Name + "\n HP :" + player.getHero().getHP());
-            System.out.println("Choose your action : 1. Move, 2. Search, 3. Fight, 4. Flee, 5. Open inventory or 6. skip your turn");
+            System.out.println("Choose your action : 1. Move, 2. Search, 3. Fight, 4. Open inventory or 5. skip your turn");
             Scanner scanner = new Scanner(System.in);
             String s = scanner.next();
 
@@ -57,20 +63,14 @@ public class GameEngine {
                     if (gameMap.getPlayerLocation(player).monsters.isEmpty()) {
                         System.out.println("There is nothing to fight here");
                         break;
+
                     }
                     return GameEnginePlayerEnum.FIGHT;
                 }
                 case "4" -> {
-                    if (gameMap.getPlayerLocation(player).monsters.isEmpty()) {
-                        System.out.println("There is nothing to flee from");
-                        break;
-                    }
-                    return GameEnginePlayerEnum.FLEE;
-                }
-                case "5" -> {
                     return GameEnginePlayerEnum.OPEN_INVENTORY;
                 }
-                case "6" -> {
+                case "5" -> {
                     return GameEnginePlayerEnum.SKIP_YOUR_TURN;
                 }
                 default -> System.out.println("Invalid input try again");
@@ -126,7 +126,15 @@ public class GameEngine {
     }
 
 
-    public void fight(Player player, List<MonsterBase> monsters) {
+    private void fight(Player player, List<MonsterBase> monsters) {
+
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.next();
+        System.out.println("You can choose if you Want to Flee now By Pressing Q");
+        if (s.equalsIgnoreCase("q")) {
+            flee();
+        }
+
 
         while (player.getHero().getHP() > 0) {
 
@@ -172,6 +180,10 @@ public class GameEngine {
         }
     }
 
+    private void flee() {
+
+    }
+
 
     public int getGroupLevel() {
         List<Player> playerList = Arrays.asList(players);
@@ -189,6 +201,19 @@ public class GameEngine {
         } else {
             return 0;
         }
+    }
+
+    public List<Player> getPlayers() {
+
+        return Arrays.asList(players);
+    }
+
+    public void registerListener(GameStartedListener listener) {
+        gameStartedEventSource.registerListener(listener);
+    }
+
+    public void unregisterListener(GameStartedListener listener) {
+        gameStartedEventSource.unregisterListener(listener);
     }
 
 }

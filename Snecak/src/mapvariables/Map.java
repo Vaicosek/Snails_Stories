@@ -1,7 +1,6 @@
 package mapvariables;
 
-import engine.GameEngine;
-import engine.MovementDirectionEnum;
+import engine.*;
 import jdk.jshell.spi.ExecutionControl;
 import mapvariables.BiomeModel;
 import monster.MonsterFactory;
@@ -9,8 +8,9 @@ import players.Player;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
-public class Map {
+public class Map implements GameStartedListener {
 
     public int Height;
     public int Width;
@@ -19,6 +19,7 @@ public class Map {
     private ArrayList<Player> players;
 
     MonsterFactory monsterFactory;
+    GameEngine gameEngine;
 
     public Map(GameEngine gameEngine) {
         monsterFactory = new MonsterFactory(this, gameEngine);
@@ -27,49 +28,40 @@ public class Map {
         this.map = new BiomeModel[Height][Width];
         this.deckOfCards = new DeckOfCards();
         this.players = new ArrayList<Player>();
+        this.gameEngine = gameEngine;
         map[Height / 2][Width / 2] = deckOfCards.getDefaultLocation();
+        gameEngine.registerListener(this);
     }
 
     public BiomeModel getPlayerLocation(Player player) {
-        return map[player.getX()][player.getY()];
-    }
-
-    public void addPlayer(Player player) {
-        player.setX(Width / 2);
-        player.setY(Height / 2);
-        players.add(player);
+        var pos = PlayerPosition.get(player);
+        return map[pos.x][pos.y];
     }
 
     public void movePlayer(Player player, MovementDirectionEnum direction) throws Exception {
-        int x = player.getX();
-        int y = player.getY();
-
+        var pos = PlayerPosition.get(player);
 
         if (direction == MovementDirectionEnum.UP) {
-            x -= 1;
+            pos.x -= 1;
         } else if (direction == MovementDirectionEnum.DOWN) {
-            x += 1;
+            pos.x += 1;
         } else if (direction == MovementDirectionEnum.LEFT) {
-            y -= 1;
+            pos.y -= 1;
         } else if (direction == MovementDirectionEnum.RIGHT) {
-            y += 1;
-        }
-        else
+            pos.y += 1;
+        } else
             throw new Exception("Invalid Enum Value");
 
 
-
-        if (checkMapBoundaries(x, y)) {
+        if (checkMapBoundaries(pos.x, pos.y)) {
             System.out.println("Invalid move: off the edge of the map.");
             return;
         }
-        player.setX(x);
-        player.setY(y);
 
 
-        if (map[x][y] == null) {
-            map[x][y] = deckOfCards.drawRandomBiomeCard();
-            map[x][y].monsters = monsterFactory.CreateMonsters(players.size());
+        if (map[pos.x][pos.y] == null) {
+            map[pos.x][pos.y] = deckOfCards.drawRandomBiomeCard();
+            map[pos.x][pos.y].monsters = monsterFactory.CreateMonsters(players.size());
         }
 
     }
@@ -78,5 +70,19 @@ public class Map {
         return !(x >= 0 && x < Height && y >= 0 && y < Width);
     }
 
+    HashMap<Player, PositionModel> PlayerPosition = new HashMap<>();
+
+    @Override
+    public void onGameStarted(GameStartedEvent event) {
+
+        for (var player : gameEngine.getPlayers()) {
+            PlayerPosition.put(player, new PositionModel(Width / 2, Height / 2));
+        }
+
+    }
+
+    public void destroy() {
+        gameEngine.unregisterListener(this);
+    }
 }
 
