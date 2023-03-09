@@ -7,19 +7,18 @@ public class MonsterTier1 extends MonsterBase {
 
 
     @Override
-    void InitilizeName() {
+    void InitializeName() {
         names = new ArrayList<String>(
                 Arrays.asList(
                         "Chicken",
                         "Rat",
                         "Bat",
                         "Snake",
-                        " Lizard",
-                        " Beetle",
-                        " Frog",
-                        " Crab",
-                        " Scorpion"
-                ));
+                        "Lizard",
+                        "Beetle",
+                        "Frog",
+                        "Crab",
+                        "Scorpion"));
 
     }
 

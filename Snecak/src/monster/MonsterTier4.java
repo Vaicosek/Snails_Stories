@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class MonsterTier4 extends MonsterBase {
 
     @Override
-    void InitilizeName() {
+    void InitializeName() {
         names = new ArrayList<String>(
                 Arrays.asList(
                         "Minotaur",
@@ -17,8 +17,7 @@ public class MonsterTier4 extends MonsterBase {
                         "Vampire",
                         "Hydra",
                         "Griffon",
-                        "Cerberus"
-                ));
+                        "Cerberus"));
     }
 
     public MonsterTier4(int GroupLevel) {

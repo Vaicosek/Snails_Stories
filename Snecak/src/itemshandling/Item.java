@@ -1,6 +1,6 @@
 package itemshandling;
 
-public class Item {
+public class Item implements ItemTemplate {
     private String name;
     private int quantity;
     private ItemType type;

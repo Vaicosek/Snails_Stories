@@ -15,36 +15,38 @@ public abstract class MonsterBase {
     public int HP;
     public int GroupLevel;
     public int tier;
+    public int MonsterXp;
 
     public String Name;
 
 
     public MonsterBase(int tier, int GroupLevel) {
         this.tier = tier;
-        InitilizeName();
+        InitializeName();
         Name = getRandomName();
         this.GroupLevel = GroupLevel;
+
 
         switch (tier) {
             case TIER_1 -> {
                 HP = 20 * GroupLevel;
-
+                MonsterXp = 10 + GroupLevel;
             }
             case TIER_2 -> {
                 HP = 30 * GroupLevel;
-
+                MonsterXp = 20 + (GroupLevel *2);
             }
             case TIER_3 -> {
                 HP = 40 * GroupLevel;
-
+                MonsterXp = 30 + (GroupLevel *2);
             }
             case TIER_4 -> {
                 HP = 50 * GroupLevel;
-
+                MonsterXp = 50 + (GroupLevel *2);
             }
             case TIER_5 -> {
                 HP = 1000 * GroupLevel;
-
+                MonsterXp = 200 + (GroupLevel * 10);
             }
 
         }
@@ -80,7 +82,7 @@ public abstract class MonsterBase {
     String getRandomName() {
         int i;
         try {
-            i = Dice.getNextNumber(0, names.size() - 1);
+            i = Dice.getNextNumber(1, names.size() - 1);
             return names.get(i);
         } catch (Exception e) {
             return "";
@@ -95,7 +97,7 @@ public abstract class MonsterBase {
         return HP;
     }
 
-    abstract void InitilizeName();
+    abstract void InitializeName();
 
 
 }

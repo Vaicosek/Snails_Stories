@@ -18,12 +18,12 @@ public class MonsterFactory {
     }
 
     public ArrayList<MonsterBase> CreateMonsters(int numPlayers) {
-        int[] tierProbabilities = {35, 24, 18, 14, 9};
+        int[] tierProbabilities = {35, 30, 20, 10, 5};
         int totalProbability = Arrays.stream(tierProbabilities).sum();
 
         ArrayList<MonsterBase> monsters = new ArrayList<>();
 
-        int numMonsters = numPlayers + 1; // Spawn one monster + 1 monster for each player
+        int numMonsters = numPlayers + 1;
         for (int i = 0; i < numMonsters; i++) {
             int rand = Dice.getNextNumber(1, totalProbability);
             int monsterTier = 0;

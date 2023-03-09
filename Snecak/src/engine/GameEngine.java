@@ -35,7 +35,7 @@ public class GameEngine {
         for (Player player : players) {
             System.out.println(player.getName() + " is a " + player.getHero().getName());
         }
-        System.out.println("You woke up at fountain story teller will decide your starting Items");
+        System.out.println("You woke up at fountain");
         GameLoop();
     }
 
@@ -148,11 +148,13 @@ public class GameEngine {
 
             int damageDealt = player.getHero().getAttack();
             currentMonster.HP -= damageDealt;
-            System.out.printf("You hit %s for %d damage!%n", currentMonster.getName(), damageDealt);
+            System.out.printf("You hit %s for %d damage! Remaining HP: %d%n", currentMonster.getName(), damageDealt, currentMonster.getHP());
 
 
             if (currentMonster.getHP() <= 0) {
                 System.out.printf("%s has been defeated!%n", currentMonster.getName());
+                System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
+                player.increaseXP(currentMonster.MonsterXp);
                 monsters.remove(currentMonster);
                 continue;
             }
@@ -165,7 +167,7 @@ public class GameEngine {
                 System.out.printf("%s's turn to attack!%n", monster.getName());
                 int monsterDamage = monster.Attack();
                 player.getHero().setHP(player.getHero().getHP() - monsterDamage);
-                System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
+                System.out.printf("%s hit you for %d damage! Your HP is now %d%n", monster.getName(), monsterDamage, player.getHero().getHP());
             }
         }
     }

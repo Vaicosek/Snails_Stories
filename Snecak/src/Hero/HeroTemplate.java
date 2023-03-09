@@ -20,5 +20,6 @@ public interface HeroTemplate {
     void SetMana(int Mana);
 
     public void powers();
+    public void gainAbility();
 
 }

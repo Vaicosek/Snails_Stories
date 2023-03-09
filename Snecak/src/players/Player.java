@@ -74,10 +74,17 @@ public class Player {
     public void increaseXP(int amount) {
         var actualXp = hero.getXP() + amount;
         if (actualXp >= 100) {
+            LevelUp();
             hero.setLevel(hero.getLevel() + 1);
-
             hero.setXP(0);
+
         }
+    }
+
+    private void LevelUp() {
+        hero.setHP((hero.getLevel() * 100));
+      //  System.out.println("LVL UP");
+       // hero.gainAbility();
     }
 
     public boolean isAlive() {
