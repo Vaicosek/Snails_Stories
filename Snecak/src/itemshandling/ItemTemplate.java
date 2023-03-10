@@ -12,4 +12,6 @@ public interface ItemTemplate {
     ItemType getType();
 
     void setType(ItemType type);
+
+    void InitializeName();
 }

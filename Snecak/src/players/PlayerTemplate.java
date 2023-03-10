@@ -1,6 +1,7 @@
 package players;
 
-import itemshandling.Item;
+import itemshandling.ItemBase;
+import itemshandling.ItemBase;
 
 import java.util.List;
 
@@ -29,13 +30,13 @@ public interface PlayerTemplate {
 
     void setY(int y);
 
-    List<Item> getInventory();
+    List<ItemBase> getInventory();
 
-    void addItem(Item item);
+    void addItem(ItemBase item);
 
-    void removeItem(Item item);
+    void removeItem(ItemBase item);
 
-    boolean hasItem(Item item);
+    boolean hasItem(ItemBase item);
 
     boolean hasItemByName(String itemName);
 }

@@ -1,7 +1,7 @@
 package players;
 
 import hero.*;
-import itemshandling.Item;
+import itemshandling.ItemBase;
 
 
 import java.util.Scanner;
@@ -12,10 +12,10 @@ public class Player {
     private HeroTemplate hero;
     private String name;
 
-    private List<Item> inventory;
+    private List<ItemBase> inventory;
 
     public Player() {
-        this.inventory = new ArrayList<Item>();
+        this.inventory = new ArrayList<ItemBase>();
     }
 
     public String getName() {
@@ -26,24 +26,24 @@ public class Player {
         this.name = name;
     }
 
-    public List<Item> getInventory() {
+    public List<ItemBase> getInventory() {
         return inventory;
     }
 
-    public void addItem(Item item) {
+    public void addItem(ItemBase item) {
         inventory.add(item);
     }
 
-    public void removeItem(Item item) {
+    public void removeItem(ItemBase item) {
         inventory.remove(item);
     }
 
-    public boolean hasItem(Item item) {
+    public boolean hasItem(ItemBase item) {
         return inventory.contains(item);
     }
 
     public boolean hasItemByName(String itemName) {
-        for (Item item : inventory) {
+        for (ItemBase item : inventory) {
             if (item.getName().equals(itemName)) {
                 return true;
             }

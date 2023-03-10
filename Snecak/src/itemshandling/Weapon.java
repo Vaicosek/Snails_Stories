@@ -1,7 +1,21 @@
 package itemshandling;
 
-public class Weapon extends Item {
-    public Weapon(String name, int quantity, ItemType type) {
-        super(name, quantity, type);
+public class Weapon extends ItemBase {
+
+
+    public Weapon(ItemType itemType) {
+        super(itemType);
     }
+
+    @Override
+    protected void initializeName() {
+
+    }
+
+    @Override
+    protected void initializeBonus() {
+
+    }
+
+
 }

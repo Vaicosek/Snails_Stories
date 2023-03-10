@@ -40,7 +40,7 @@ public class DeckOfCards {
     }
 
     public BiomeModel getDefaultLocation() {
-        var fountain =  new BiomeModel("Fountain");
+        var fountain = new BiomeModel("Fountain");
         fountain.monsters = new ArrayList<>();
         return fountain;
     }

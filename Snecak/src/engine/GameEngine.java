@@ -164,6 +164,7 @@ public class GameEngine {
                 System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
                 player.increaseXP(currentMonster.MonsterXp);
                 monsters.remove(currentMonster);
+                // DropItem();
                 continue;
             }
 

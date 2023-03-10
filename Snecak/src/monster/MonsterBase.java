@@ -34,15 +34,15 @@ public abstract class MonsterBase {
             }
             case TIER_2 -> {
                 HP = 30 * GroupLevel;
-                MonsterXp = 20 + (GroupLevel *2);
+                MonsterXp = 20 + (GroupLevel * 2);
             }
             case TIER_3 -> {
                 HP = 40 * GroupLevel;
-                MonsterXp = 30 + (GroupLevel *2);
+                MonsterXp = 30 + (GroupLevel * 2);
             }
             case TIER_4 -> {
                 HP = 50 * GroupLevel;
-                MonsterXp = 50 + (GroupLevel *2);
+                MonsterXp = 50 + (GroupLevel * 2);
             }
             case TIER_5 -> {
                 HP = 1000 * GroupLevel;
@@ -98,8 +98,6 @@ public abstract class MonsterBase {
     }
 
     abstract void InitializeName();
-
-
 }
 
 
