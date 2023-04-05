@@ -6,14 +6,24 @@ import java.util.ArrayList;
 
 public abstract class ItemBase {
 
-    private ItemType itemType;
+    private final ItemType itemType;
+
+    private static final int CONSUMABLE = 1;
+    private static final int WEAPON = 2;
+    private static final int ARMOR = 3;
+
+    public int type;
+
+    private int damage;
+    private int health;
+    private int protection;
     private String name;
-    private int bonus;
+
 
     public ItemBase(ItemType itemType) {
         this.itemType = itemType;
         initializeName();
-        initializeBonus();
+
     }
 
     public ItemType getItemType() {
@@ -24,20 +34,10 @@ public abstract class ItemBase {
         return name;
     }
 
-    public int getBonus() {
-        return bonus;
-    }
-
-    @Override
-    public String toString() {
-        return name + " (+" + bonus + ")";
-    }
-
     protected abstract void initializeName();
 
-    protected abstract void initializeBonus();
-
     protected ArrayList<String> ItemNames;
+
     String getRandomItemName() {
         int i;
         try {

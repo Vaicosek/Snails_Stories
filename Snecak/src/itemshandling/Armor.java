@@ -10,8 +10,5 @@ public class Armor extends ItemBase {
 
     }
 
-    @Override
-    protected void initializeBonus() {
 
-    }
 }

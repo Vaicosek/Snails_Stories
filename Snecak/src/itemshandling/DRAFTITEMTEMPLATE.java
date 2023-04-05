@@ -1,6 +1,7 @@
+/*
 package itemshandling;
 
-public interface ItemTemplate {
+public interface DRAFTITEMTEMPLATE {
     String getName();
 
     void setName(String name);
@@ -15,3 +16,4 @@ public interface ItemTemplate {
 
     void InitializeName();
 }
+*/

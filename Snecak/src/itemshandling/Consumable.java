@@ -1,6 +1,8 @@
 package itemshandling;
 
 public class Consumable extends ItemBase {
+    public int Type;
+
     public Consumable(ItemType itemType) {
         super(itemType);
     }
@@ -10,8 +12,5 @@ public class Consumable extends ItemBase {
 
     }
 
-    @Override
-    protected void initializeBonus() {
 
-    }
 }

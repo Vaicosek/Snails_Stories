@@ -11,11 +11,6 @@ public class Weapon extends ItemBase {
     protected void initializeName() {
 
     }
-
-    @Override
-    protected void initializeBonus() {
-
-    }
-
-
 }
+
+

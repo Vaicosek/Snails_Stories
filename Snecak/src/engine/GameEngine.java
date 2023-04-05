@@ -1,5 +1,6 @@
 package engine;
 
+import itemshandling.ItemBase;
 import mapvariables.Map;
 import monster.MonsterBase;
 import players.Player;
@@ -98,9 +99,9 @@ public class GameEngine {
     }
 
     public void move(Player player) {
+        System.out.print("Enter a direction (up, down, left, right) or press q to exit: ");
         Scanner scanner = new Scanner(System.in);
         String direction = "";
-        System.out.print("Enter a direction (up, down, left, right) or press q to exit: ");
         direction = scanner.nextLine().toUpperCase();
         if (direction.equals("Q")) {
             return;
@@ -127,10 +128,9 @@ public class GameEngine {
 
 
     private void fight(Player player, List<MonsterBase> monsters) {
-
-        Scanner scanner = new Scanner(System.in);
-        String s = scanner.next();
         System.out.println("You can choose if you Want to Flee now By Pressing Q");
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
         if (s.equalsIgnoreCase("q")) {
             flee();
         }
@@ -142,29 +142,29 @@ public class GameEngine {
 
             MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
 
-            //     System.out.println("Your turn to attack!");
-            //    boolean useAbility = false;
-            //     System.out.println("Do you want to use an ability? (y/n)");
-            //     String input = Scanner.nextLine().trim();
-            //    if (input.equalsIgnoreCase("y")) {
-            //         useAbility = true;
-            //}
-            //     if (useAbility) {
-            //       player.getHero().powers();
-            // int damageDealt = player.getHero().useAbility(ability, currentMonster);
-            //    System.out.printf("You used %s and dealt %d damage to %s!%n", ability.getName(), damageDealt, currentMonster.getName());
+            /*     System.out.println("Your turn to attack!");
+               boolean useAbility = false;
+                System.out.println("Do you want to use an ability? (y/n)");
+                 String input = Scanner.nextLine().trim();
+                if (input.equalsIgnoreCase("y")) {
+                     useAbility = true;
+            }
+                 if (useAbility) {
+                     player.getHero().powers();
+                     int damageDealt = player.getHero().useAbility(ability, currentMonster);
+                     System.out.printf("You used %s and dealt %d damage to %s!%n", ability.getName(), damageDealt, currentMonster.getName());
 
-            int damageDealt = player.getHero().getAttack();
-            currentMonster.HP -= damageDealt;
-            System.out.printf("You hit %s for %d damage! Remaining HP: %d%n", currentMonster.getName(), damageDealt, currentMonster.getHP());
-
+                     damageDealt = player.getHero().getAttack();
+                     currentMonster.HP -= damageDealt;
+                     System.out.printf("You hit %s for %d damage! Remaining HP: %d%n", currentMonster.getName(), damageDealt, currentMonster.getHP());
+                 }*/
 
             if (currentMonster.getHP() <= 0) {
                 System.out.printf("%s has been defeated!%n", currentMonster.getName());
                 System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
                 player.increaseXP(currentMonster.MonsterXp);
                 monsters.remove(currentMonster);
-                // DropItem();
+                /*ItemBase.DropItem();*/
                 continue;
             }
 
