@@ -15,7 +15,6 @@ public interface HeroTemplate {
 
     int getAttack();
 
-    int getDefense();
     String getName();
     void SetMana(int Mana);
 

@@ -8,4 +8,5 @@ public class PositionModel {
         this.x = x;
         this.y = y;
     }
+
 }

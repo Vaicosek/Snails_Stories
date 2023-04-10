@@ -81,6 +81,10 @@ public class Map implements GameStartedListener {
 
     }
 
+    public HashMap<Player, PositionModel> getPlayerPosition() {
+        return PlayerPosition;
+    }
+
     public void destroy() {
         gameEngine.unregisterListener(this);
     }

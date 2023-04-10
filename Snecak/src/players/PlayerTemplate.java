@@ -18,9 +18,6 @@ public interface PlayerTemplate {
 
     void setAttack(int attack);
 
-    int getDefense();
-
-    void setDefense(int defense);
 
     int getX();
 

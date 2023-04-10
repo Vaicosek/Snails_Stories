@@ -2,17 +2,19 @@ package players;
 
 import hero.*;
 import itemshandling.ItemBase;
+import mapvariables.PositionModel;
 
 
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private HeroTemplate hero;
+    private hero.HeroTemplate hero;
     private String name;
 
-    private List<ItemBase> inventory;
+    public List<ItemBase> inventory;
 
     public Player() {
         this.inventory = new ArrayList<ItemBase>();
@@ -64,7 +66,7 @@ public class Player {
 
     private void LevelUp() {
         hero.setHP((hero.getLevel() * 100));
-      //  System.out.println("LVL UP");
+        System.out.println("LVL UP");
        // hero.gainAbility();
     }
 
@@ -82,11 +84,11 @@ public class Player {
         System.out.println("5. Druid");
         int choice = scanner.nextInt();
         switch (choice) {
-            case 1 -> this.hero = new Assassin(0, 1, 100);
-            case 2 -> this.hero = new Defender(0, 1, 100);
-            case 3 -> this.hero = new Healer(0, 1, 100);
-            case 4 -> this.hero = new Wizard(0, 1, 100);
-            case 5 -> this.hero = new Druid(0, 1, 100);
+            case 1 -> this.hero = new hero.Assassin(0, 1, 100);
+            case 2 -> this.hero = new hero.Defender(0, 1, 100);
+            case 3 -> this.hero = new hero.Healer(0, 1, 100);
+            case 4 -> this.hero = new hero.Wizard(0, 1, 100);
+            case 5 -> this.hero = new hero.Druid(0, 1, 100);
             default -> {
                 System.out.println("Invalid choice, please try again.");
                 pickHero();
@@ -94,7 +96,8 @@ public class Player {
         }
     }
 
-    public HeroTemplate getHero() {
+    public hero.HeroTemplate getHero() {
         return hero;
     }
+
 }

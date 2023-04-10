@@ -2,6 +2,7 @@ package engine;
 
 import itemshandling.ItemBase;
 import mapvariables.Map;
+import mapvariables.PositionModel;
 import monster.MonsterBase;
 import players.Player;
 
@@ -135,6 +136,13 @@ public class GameEngine {
             flee();
         }
 
+        for (Player p : players) {
+            var pos = gameMap.getPlayerPosition().get(player);
+            if (p != player && gameMap.getPlayerPosition().get(p).x == pos.x && gameMap.getPlayerPosition().get(p).y == pos.y) {
+                // do something
+            }
+        }
+
 
         while (player.getHero().getHP() > 0) {
 
@@ -164,7 +172,7 @@ public class GameEngine {
                 System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
                 player.increaseXP(currentMonster.MonsterXp);
                 monsters.remove(currentMonster);
-                /*ItemBase.DropItem();*/
+                ItemBase.DropItem(player);
                 continue;
             }
 

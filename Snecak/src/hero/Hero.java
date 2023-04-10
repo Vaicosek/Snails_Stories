@@ -11,7 +11,6 @@ public class Hero implements HeroTemplate {
     protected int HP;
     protected String name;
     protected int Attack = 21 * getLevel();
-    protected int Defence;
     protected double Mana;
     protected ArrayList<HeroAbility> Abilities = new ArrayList<HeroAbility>();
 
@@ -118,11 +117,6 @@ public class Hero implements HeroTemplate {
     @Override
     public int getAttack() {
         return Attack;
-    }
-
-    @Override
-    public int getDefense() {
-        return Defence;
     }
 
     @Override

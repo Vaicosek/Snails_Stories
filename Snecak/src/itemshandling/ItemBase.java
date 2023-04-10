@@ -1,40 +1,31 @@
 package itemshandling;
 
 import monster.Dice;
+import players.Player;
 
 import java.util.ArrayList;
 
 public abstract class ItemBase {
 
-    private final ItemType itemType;
+    public ItemType itemType;
+    public int Damage;
+    public int Health;
+    public int Protection;
+    public String Name;
 
-    private static final int CONSUMABLE = 1;
-    private static final int WEAPON = 2;
-    private static final int ARMOR = 3;
-
-    public int type;
-
-    private int damage;
-    private int health;
-    private int protection;
-    private String name;
-
-
-    public ItemBase(ItemType itemType) {
+    public ItemBase(ItemType itemType,int damage, int health, int protection) {
         this.itemType = itemType;
-        initializeName();
+        Damage = damage;
+        Health = health;
+        Protection = protection;
+        Name = getRandomItemName();
+        InitializeName();
 
-    }
-
-    public ItemType getItemType() {
-        return itemType;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
-
-    protected abstract void initializeName();
 
     protected ArrayList<String> ItemNames;
 
@@ -48,5 +39,39 @@ public abstract class ItemBase {
         }
 
     }
+    public static ItemType getRandomItemType() {
+        int randomNumber = Dice.getNextNumber(1, 100);
+
+        if (randomNumber <= 60) {
+            return ItemType.CONSUMABLE;
+        } else if (randomNumber <= 80) {
+            return ItemType.ARMOR;
+        } else {
+            return ItemType.WEAPON;
+        }
+    }
+
+    public static void  DropItem(Player player) {
+        ItemType itemType = getRandomItemType();
+        switch (itemType) {
+            case CONSUMABLE -> {
+                Consumable consumable = new Consumable(0,0,0);
+                consumable.setRandomHealth(player);
+                player.addItem(consumable);
+            }
+            case ARMOR -> {
+                Armor armor = new Armor(0,0,0);
+                armor.setRandomProtection(player);
+                player.addItem(armor);
+            }
+            case WEAPON -> {
+                Weapon weapon = new Weapon(0,0,0);
+                weapon.setRandomDamage(player);
+                player.addItem(weapon);
+            }
+        }
+    }
+
+    protected abstract void InitializeName();
 }
 
