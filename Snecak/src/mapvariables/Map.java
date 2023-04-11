@@ -80,6 +80,9 @@ public class Map implements GameStartedListener {
         }
 
     }
+    public void addPlayer(Player player) {
+        players.add(player);
+    }
 
     public HashMap<Player, PositionModel> getPlayerPosition() {
         return PlayerPosition;

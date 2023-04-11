@@ -34,6 +34,7 @@ public class GameEngine {
             player.setName(scanner.nextLine());
             player.pickHero();
             players[i] = player;
+            gameMap.addPlayer(player);
 
 
         }
@@ -88,6 +89,10 @@ public class GameEngine {
                 }
 
                 var action = GetPlayerAction(player);
+                if (action == GameEnginePlayerEnum.SKIP_YOUR_TURN) {
+                    continue;
+                }
+
                 if (action == GameEnginePlayerEnum.MOVE_ON_MAP) {
                     move(player);
 
@@ -95,6 +100,8 @@ public class GameEngine {
                 if (action == GameEnginePlayerEnum.FIGHT) {
                     fight(player, gameMap.getPlayerLocation(player).monsters);
                 }
+
+
             }
         }
     }
@@ -136,13 +143,6 @@ public class GameEngine {
             flee();
         }
 
-        for (Player p : players) {
-            var pos = gameMap.getPlayerPosition().get(player);
-            if (p != player && gameMap.getPlayerPosition().get(p).x == pos.x && gameMap.getPlayerPosition().get(p).y == pos.y) {
-                // do something
-            }
-        }
-
 
         while (player.getHero().getHP() > 0) {
 
@@ -150,44 +150,45 @@ public class GameEngine {
 
             MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
 
-            /*     System.out.println("Your turn to attack!");
-               boolean useAbility = false;
-                System.out.println("Do you want to use an ability? (y/n)");
-                 String input = Scanner.nextLine().trim();
-                if (input.equalsIgnoreCase("y")) {
-                     useAbility = true;
-            }
-                 if (useAbility) {
-                     player.getHero().powers();
-                     int damageDealt = player.getHero().useAbility(ability, currentMonster);
-                     System.out.printf("You used %s and dealt %d damage to %s!%n", ability.getName(), damageDealt, currentMonster.getName());
+            //     System.out.println("Your turn to attack!");
+            //    boolean useAbility = false;
+            //     System.out.println("Do you want to use an ability? (y/n)");
+            //     String input = Scanner.nextLine().trim();
+            //    if (input.equalsIgnoreCase("y")) {
+            //         useAbility = true;
+            //}
+            //     if (useAbility) {
+            //       player.getHero().powers();
+            // int damageDealt = player.getHero().useAbility(ability, currentMonster);
+            //    System.out.printf("You used %s and dealt %d damage to %s!%n", ability.getName(), damageDealt, currentMonster.getName());
 
-                     damageDealt = player.getHero().getAttack();
-                     currentMonster.HP -= damageDealt;
-                     System.out.printf("You hit %s for %d damage! Remaining HP: %d%n", currentMonster.getName(), damageDealt, currentMonster.getHP());
-                 }*/
+            int damageDealt = player.getHero().getAttack();
+            currentMonster.HP -= damageDealt;
+            System.out.printf("You hit %s for %d damage!%n", currentMonster.getName(), damageDealt);
 
-            if (currentMonster.getHP() <= 0) {
-                System.out.printf("%s has been defeated!%n", currentMonster.getName());
-                System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
-                player.increaseXP(currentMonster.MonsterXp);
-                monsters.remove(currentMonster);
-                ItemBase.DropItem(player);
-                continue;
-            }
-
-            for (MonsterBase monster : monsters) {
-                if (player.getHero().getHP() <= 0) {
-                    break;
+                if (currentMonster.getHP() <= 0) {
+                    System.out.printf("%s has been defeated!%n", currentMonster.getName());
+                    System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
+                    player.increaseXP(currentMonster.MonsterXp);
+                    monsters.remove(currentMonster);
+                    ItemBase.DropItem(player);
+                    continue;
                 }
 
-                System.out.printf("%s's turn to attack!%n", monster.getName());
-                int monsterDamage = monster.Attack();
-                player.getHero().setHP(player.getHero().getHP() - monsterDamage);
-                System.out.printf("%s hit you for %d damage! Your HP is now %d%n", monster.getName(), monsterDamage, player.getHero().getHP());
+                for (MonsterBase monster : monsters) {
+                    if (player.getHero().getHP() <= 0) {
+                        break;
+                    }
+
+                    System.out.printf("%s's turn to attack!%n", monster.getName());
+                    int monsterDamage = monster.Attack();
+                    player.getHero().setHP(player.getHero().getHP() - monsterDamage);
+                    System.out.printf("%s hit you for %d damage! Your HP is now %d%n", monster.getName(), monsterDamage, player.getHero().getHP());
+                }
             }
         }
-    }
+
+
 
     private void flee() {
 
@@ -226,4 +227,3 @@ public class GameEngine {
     }
 
 }
-
