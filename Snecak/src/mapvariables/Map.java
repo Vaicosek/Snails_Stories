@@ -9,6 +9,7 @@ import players.Player;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Map implements GameStartedListener {
 
@@ -91,5 +92,17 @@ public class Map implements GameStartedListener {
     public void destroy() {
         gameEngine.unregisterListener(this);
     }
+
+    public List<Player> getPlayersAtLocation(int x, int y) {
+        List<Player> playersAtLocation = new ArrayList<>();
+        for (Player player : players) {
+            var pos = PlayerPosition.get(player);
+            if (pos.x == x && pos.y == y) {
+                playersAtLocation.add(player);
+            }
+        }
+        return playersAtLocation;
+    }
+
 }
 
