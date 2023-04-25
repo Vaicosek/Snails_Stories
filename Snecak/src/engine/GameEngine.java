@@ -50,7 +50,7 @@ public class GameEngine {
 
     GameEnginePlayerEnum GetPlayerAction(Player player) {
         while (true) {
-            System.out.println("Location : " + gameMap.getPlayerLocation(player).Name + "\n HP :" + player.getHero().getHP());
+            System.out.println("Player: " + player.getName() + " Location : " + gameMap.getPlayerLocation(player).Name + "\n HP :" + player.getHero().getHP());
             System.out.println("Choose your action : 1. Move, 2. Search, 3. Fight, 4. Open inventory or 5. skip your turn");
             Scanner scanner = new Scanner(System.in);
             String s = scanner.next();
@@ -99,6 +99,9 @@ public class GameEngine {
                 }
                 if (action == GameEnginePlayerEnum.FIGHT) {
                     fight(player, gameMap.getPlayerLocation(player).monsters);
+                }
+                if (action == GameEnginePlayerEnum.OPEN_INVENTORY) {
+                    System.out.println(player.getInventory());
                 }
 
 
@@ -153,24 +156,6 @@ public class GameEngine {
                 }
 
                 MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
-
-                // Player's turn
-                System.out.printf("It's %s's turn to attack!%n", player.getName());
-                int damageDealt = player.getHero().getAttack();
-                currentMonster.HP -= damageDealt;
-                System.out.printf("You hit %s for %d damage!%n", currentMonster.getName(), damageDealt);
-
-                if (currentMonster.getHP() <= 0) {
-                    System.out.printf("%s has been defeated!%n", currentMonster.getName());
-                    System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
-                    player.increaseXP(currentMonster.MonsterXp);
-                    monsters.remove(currentMonster);
-                    ItemBase.DropItem(player);
-                    currentMonsterIndex = 0; // Reset monster index
-                    continue;
-                }
-
-                // Other players' turn
                 for (int i = 1; i < players.size(); i++) {
                     Player currentPlayer = players.get((currentPlayerIndex + i) % players.size());
 
@@ -194,6 +179,23 @@ public class GameEngine {
                         }
                     }
                 }
+                // Player's turn
+                System.out.printf("It's %s's turn to attack!%n", player.getName());
+                int damageDealt = player.getHero().getAttack();
+                currentMonster.HP -= damageDealt;
+                System.out.printf("You hit %s for %d damage!%n", currentMonster.getName(), damageDealt);
+
+                if (currentMonster.getHP() <= 0) {
+                    System.out.printf("%s has been defeated!%n", currentMonster.getName());
+                    System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
+                    player.increaseXP(currentMonster.MonsterXp);
+                    monsters.remove(currentMonster);
+                    ItemBase.DropItem(player);
+                    currentMonsterIndex = 0; // Reset monster index
+                    continue;
+                }
+
+
 
                 // Monsters' turn
                 for (MonsterBase monster : monsters) {

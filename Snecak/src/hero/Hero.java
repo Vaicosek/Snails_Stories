@@ -10,7 +10,7 @@ public class Hero implements HeroTemplate {
     protected int level;
     protected int HP;
     protected String name;
-    protected int Attack = 200;
+    protected int Attack = 20;
     protected double Mana;
     protected ArrayList<HeroAbility> Abilities = new ArrayList<HeroAbility>();
 
