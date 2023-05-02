@@ -18,7 +18,7 @@ public class Armor extends ItemBase {
 
     @Override
     protected void InitializeName() {
-        ItemNames= new ArrayList<String>(Arrays.asList(
+        names= new ArrayList<String>(Arrays.asList(
                 // wizard armor
 
                 "robe of the archmagi",

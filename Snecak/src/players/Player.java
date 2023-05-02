@@ -1,11 +1,11 @@
 package players;
 
-import hero.*;
+import itemshandling.Consumable;
 import itemshandling.ItemBase;
-import mapvariables.PositionModel;
+import itemshandling.Weapon;
+import itemshandling.Armor;
 
 
-import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +28,24 @@ public class Player {
         this.name = name;
     }
 
-    public List<ItemBase> getInventory() {
-        return inventory;
-    }
+
+        public void getInventory() {
+            System.out.println("Inventory:");
+            for (ItemBase item : inventory) {
+                System.out.println("- " + item.getName());
+                if (item instanceof Weapon) {
+                    System.out.println("  Damage: " + item.getDamage());
+                } else if (item instanceof Armor) {
+                    System.out.println("  Protection: " + item.getProtection());
+                } else if (item instanceof Consumable) {
+                    System.out.println("  Health: " + item.getHealth());
+
+                }
+
+            }
+            return;
+        }
+
 
     public void addItem(ItemBase item) {
         inventory.add(item);

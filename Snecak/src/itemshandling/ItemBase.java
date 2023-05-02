@@ -18,8 +18,9 @@ public abstract class ItemBase {
         Damage = damage;
         Health = health;
         Protection = protection;
-        Name = getRandomItemName();
         InitializeName();
+        Name = getRandomItemName();
+
 
     }
 
@@ -27,13 +28,13 @@ public abstract class ItemBase {
         return Name;
     }
 
-    protected ArrayList<String> ItemNames;
+    protected ArrayList<String> names;
 
     String getRandomItemName() {
         int i;
         try {
-            i = Dice.getNextNumber(1, ItemNames.size() - 1);
-            return ItemNames.get(i);
+            i = Dice.getNextNumber(1, names.size() - 1);
+            return names.get(i);
         } catch (Exception e) {
             return "";
         }
@@ -73,5 +74,17 @@ public abstract class ItemBase {
     }
 
     protected abstract void InitializeName();
+
+    public int getDamage() {
+        return Damage;
+    }
+
+    public int getHealth() {
+        return Health;
+    }
+
+    public int getProtection() {
+        return Protection;
+    }
 }
 

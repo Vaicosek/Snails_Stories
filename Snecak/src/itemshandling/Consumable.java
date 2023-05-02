@@ -17,7 +17,7 @@ public class Consumable extends ItemBase {
     }
     @Override
     protected void InitializeName() {
-        ItemNames= new ArrayList<String>(Arrays.asList(
+        names= new ArrayList<String>(Arrays.asList(
                 // Food items
                 "Apple",
                 "Banana",

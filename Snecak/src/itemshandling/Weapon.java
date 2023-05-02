@@ -15,7 +15,7 @@ public class Weapon extends ItemBase {
     }
     @Override
     protected void InitializeName() {
-        ItemNames= new ArrayList<String>(Arrays.asList(
+        names= new ArrayList<String>(Arrays.asList(
                 // wizard weapons
                 "arcane staff",
                 "orb of force",
@@ -74,6 +74,8 @@ public class Weapon extends ItemBase {
         ));
 
     }
+
+
 }
 
 

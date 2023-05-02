@@ -101,7 +101,7 @@ public class GameEngine {
                     fight(player, gameMap.getPlayerLocation(player).monsters);
                 }
                 if (action == GameEnginePlayerEnum.OPEN_INVENTORY) {
-                    System.out.println(player.getInventory());
+                    player.getInventory();
                 }
 
 
