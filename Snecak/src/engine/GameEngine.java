@@ -5,9 +5,6 @@ import mapvariables.Map;
 import mapvariables.PositionModel;
 import monster.MonsterBase;
 import players.Player;
-
-
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 import java.util.Arrays;
@@ -137,90 +134,78 @@ public class GameEngine {
         }
     }
 
-        private void fight(Player player, List<MonsterBase> monsters) {
-            System.out.println("You can choose if you want to flee now by pressing Q");
-            Scanner scanner = new Scanner(System.in);
-            String s = scanner.nextLine();
-            if (s.equalsIgnoreCase("q")) {
-                flee();
+    private void fight(Player player, List<MonsterBase> monsters) {
+        System.out.println("You can choose if you want to flee now by pressing Q");
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        if (s.equalsIgnoreCase("q")) {
+            flee();
+        }
+
+        PositionModel playerPosition = gameMap.getPlayerPosition().get(player);
+        List<Player> players = gameMap.getPlayersAtLocation(playerPosition.x, playerPosition.y);
+        int currentPlayerIndex = players.indexOf(player);
+        int currentMonsterIndex = 0;
+
+        // Ask all players at the beginning of the fight if they want to join
+        for (Player currentPlayer : players) {
+            if (currentPlayer != player && currentPlayer.getHero().getHP() > 0) {
+                System.out.printf("%s, do you want to join the fight? (y/n)%n", currentPlayer.getName());
+                String input = scanner.nextLine().trim();
+                if (input.equalsIgnoreCase("y")) {
+                    System.out.printf("%s has joined the fight!%n", currentPlayer.getName());
+                }
             }
+        }
 
-            PositionModel playerPosition = gameMap.getPlayerPosition().get(player);
-            List<Player> players = gameMap.getPlayersAtLocation(playerPosition.x, playerPosition.y);
-            int currentPlayerIndex = players.indexOf(player);
-            int currentMonsterIndex = 0;
+        while (!monsters.isEmpty() && player.getHero().getHP() > 0) {
+            MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
 
-            while (player.getHero().getHP() > 0) {
-                if (monsters.isEmpty()) {
-                    break;
-                }
-
-                MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
-                for (int i = 1; i < players.size(); i++) {
-                    Player currentPlayer = players.get((currentPlayerIndex + i) % players.size());
-
-                    // Check if the current player's hero is alive and ask if they want to join the fight
-                    if (currentPlayer.getHero().getHP() > 0) {
-                        System.out.printf("%s, do you want to join the fight against %s? (y/n)%n", currentPlayer.getName(), currentMonster.getName());
-                        String input = scanner.nextLine().trim();
-                        if (input.equalsIgnoreCase("y")) {
-                            int damageDealtByOtherPlayer = currentPlayer.getHero().getAttack();
-                            currentMonster.HP -= damageDealtByOtherPlayer;
-                            System.out.printf("%s hit %s for %d damage!%n", currentPlayer.getName(), currentMonster.getName(), damageDealtByOtherPlayer);
-                            if (currentMonster.getHP() <= 0) {
-                                System.out.printf("%s has been defeated!%n", currentMonster.getName());
-                                System.out.printf("%s gained %d XP!%n", currentPlayer.getName(), currentMonster.MonsterXp);
-                                currentPlayer.increaseXP(currentMonster.MonsterXp);
-                                monsters.remove(currentMonster);
-                                ItemBase.DropItem(currentPlayer);
-                                currentMonsterIndex = 0; // Reset monster index
-                                break;
-                            }
-                        }
-                    }
-                }
-                // Player's turn
-                System.out.printf("It's %s's turn to attack!%n", player.getName());
-                int damageDealt = player.getHero().getAttack();
-                currentMonster.HP -= damageDealt;
-                System.out.printf("You hit %s for %d damage!%n", currentMonster.getName(), damageDealt);
-
-                if (currentMonster.getHP() <= 0) {
-                    System.out.printf("%s has been defeated!%n", currentMonster.getName());
-                    System.out.printf("You gained %d XP!%n", currentMonster.MonsterXp);
-                    player.increaseXP(currentMonster.MonsterXp);
-                    monsters.remove(currentMonster);
-                    ItemBase.DropItem(player);
-                    currentMonsterIndex = 0; // Reset monster index
+            // Loop through all players and let them attack the current monster
+            for (Player currentPlayer : players) {
+                if (currentPlayer.getHero().getHP() <= 0) {
                     continue;
                 }
 
-
-
-                // Monsters' turn
-                for (MonsterBase monster : monsters) {
-                    if (player.getHero().getHP() <= 0) {
-                        break;
-                    }
-
-                    int  monsterDamage = monster.Attack();
-                    player.getHero().setHP(player.getHero().getHP() - monsterDamage);
-                    System.out.printf("%s hit you for %d damage!%n", monster.getName(),  monsterDamage);
+                int damageDealt = currentPlayer.getHero().getAttack();
+                currentMonster.HP -= damageDealt;
+                System.out.printf("%s hit %s for %d damage!%n", currentPlayer.getName(), currentMonster.getName(), damageDealt);
+                if (currentMonster.getHP() <= 0) {
+                    System.out.printf("%s has been defeated!%n", currentMonster.getName());
+                    System.out.printf("%s gained %d XP!%n", currentPlayer.getName(), currentMonster.MonsterXp);
+                    currentPlayer.increaseXP(currentMonster.MonsterXp);
+                    monsters.remove(currentMonster);
+                    ItemBase.DropItem(currentPlayer);
+                    currentMonsterIndex = 0; // Reset monster index
+                    break; // Only one player can defeat the monster per turn
                 }
+            }
 
+            // Monsters' turn
+            for (MonsterBase monster : monsters) {
                 if (player.getHero().getHP() <= 0) {
-                    System.out.println("You have been defeated...");
-                    // TODO: handle game over
+                    break;
                 }
 
-                currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
-                currentMonsterIndex++;
+                int  monsterDamage = monster.Attack();
+                player.getHero().setHP(player.getHero().getHP() - monsterDamage);
+                System.out.printf("%s hit you for %d damage!%n", monster.getName(),  monsterDamage);
             }
 
-            if (player.getHero().getHP() > 0) {
-                System.out.println("You won the battle!");
+            if (player.getHero().getHP() <= 0) {
+                System.out.println("You have been defeated...");
+                // TODO: handle game over
+                break; // End the fight if the player has been defeated
             }
+
+            currentMonsterIndex++;
         }
+
+        if (player.getHero().getHP() > 0) {
+            System.out.println("You won the battle!");
+        }
+    }
+
 
 
 
