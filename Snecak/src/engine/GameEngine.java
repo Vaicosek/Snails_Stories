@@ -57,9 +57,6 @@ public class GameEngine {
                     return GameEnginePlayerEnum.MOVE_ON_MAP;
                 }
                 case "2" -> {
-                    return GameEnginePlayerEnum.SEARCH;
-                }
-                case "3" -> {
                     if (gameMap.getPlayerLocation(player).monsters.isEmpty()) {
                         System.out.println("There is nothing to fight here");
                         break;
@@ -67,10 +64,10 @@ public class GameEngine {
                     }
                     return GameEnginePlayerEnum.FIGHT;
                 }
-                case "4" -> {
+                case "3" -> {
                     return GameEnginePlayerEnum.OPEN_INVENTORY;
                 }
-                case "5" -> {
+                case "4" -> {
                     return GameEnginePlayerEnum.SKIP_YOUR_TURN;
                 }
                 default -> System.out.println("Invalid input try again");
