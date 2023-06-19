@@ -17,3 +17,4 @@ public class MagicalPower extends HeroAbility {
     }
 
 }
+

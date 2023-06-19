@@ -100,6 +100,16 @@ public class Hero implements HeroTemplate {
     }
 
     @Override
+    public void setMana(int Mana) {
+
+    }
+
+    @Override
+    public int getMana() {
+        return 0;
+    }
+
+    @Override
     public void setXP(int xp) {
         this.XP = xp;
     }

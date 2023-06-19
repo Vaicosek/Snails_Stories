@@ -1,5 +1,9 @@
 package hero;
 
+import abilities.HeroAbility;
+
+import java.util.List;
+
 public interface HeroTemplate {
     int getXP();
 
@@ -16,9 +20,16 @@ public interface HeroTemplate {
     int getAttack();
 
     String getName();
-    void SetMana(int Mana);
 
-    public void powers();
-    public void gainAbility();
+    void setMana(int Mana);
 
+    int getMana();
+
+    void SetMana(int mana);
+
+    List<HeroAbility> getAbilities();
+
+    void powers();
+
+    void gainAbility();
 }

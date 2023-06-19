@@ -1,4 +1,4 @@
-/*package itemshandling;
+package itemshandling;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +43,10 @@ public class Inventory {
                 case Weapon weapon -> System.out.println("  Damage: " + item.getDamage());
                 case Armor armor -> System.out.println("  Protection: " + item.getProtection());
                 case Consumable consumable -> System.out.println("  Health: " + item.getHealth());
-                default -> {}
+                default -> {
+                }
             }
         }
     }
-}*/
+}
+

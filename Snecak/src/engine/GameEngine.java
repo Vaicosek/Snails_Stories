@@ -1,5 +1,6 @@
 package engine;
 
+import hero.ActionSelector;
 import itemshandling.ItemBase;
 import mapvariables.Map;
 import mapvariables.PositionModel;
@@ -95,7 +96,7 @@ public class GameEngine {
                     fight(player, gameMap.getPlayerLocation(player).monsters);
                 }
                 if (action == GameEnginePlayerEnum.OPEN_INVENTORY) {
-                    player.getInventory();
+                    player.getInventory().printInventory();
                 }
 
 
@@ -164,6 +165,8 @@ public class GameEngine {
                     continue;
                 }
 
+                ActionSelector.chooseAction(currentPlayer);
+
                 int damageDealt = currentPlayer.getHero().getAttack();
                 currentMonster.HP -= damageDealt;
                 System.out.printf("%s hit %s for %d damage!%n", currentPlayer.getName(), currentMonster.getName(), damageDealt);
@@ -172,7 +175,7 @@ public class GameEngine {
                     System.out.printf("%s gained %d XP!%n", currentPlayer.getName(), currentMonster.MonsterXp);
                     currentPlayer.increaseXP(currentMonster.MonsterXp);
                     monsters.remove(currentMonster);
-                    ItemBase.DropItem(currentPlayer);
+                    ItemBase.DropItem(currentPlayer, currentPlayer.getInventory());
                     currentMonsterIndex = 0; // Reset monster index
                     break; // Only one player can defeat the monster per turn
                 }
@@ -188,6 +191,8 @@ public class GameEngine {
                 player.getHero().setHP(player.getHero().getHP() - monsterDamage);
                 System.out.printf("%s hit you for %d damage!%n", monster.getName(),  monsterDamage);
             }
+
+
 
             if (player.getHero().getHP() <= 0) {
                 System.out.println("You have been defeated...");

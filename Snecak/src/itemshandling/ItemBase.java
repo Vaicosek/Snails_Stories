@@ -52,23 +52,23 @@ public abstract class ItemBase {
         }
     }
 
-    public static void  DropItem(Player player) {
+    public static void DropItem(Player player, Inventory inventory) {
         ItemType itemType = getRandomItemType();
         switch (itemType) {
             case CONSUMABLE -> {
-                Consumable consumable = new Consumable(0,0,0);
+                Consumable consumable = new Consumable(0, 0, 0);
                 consumable.setRandomHealth(player);
-                player.addItem(consumable);
+                inventory.addItem(consumable);
             }
             case ARMOR -> {
-                Armor armor = new Armor(0,0,0);
+                Armor armor = new Armor(0, 0, 0);
                 armor.setRandomProtection(player);
-                player.addItem(armor);
+                inventory.addItem(armor);
             }
             case WEAPON -> {
-                Weapon weapon = new Weapon(0,0,0);
+                Weapon weapon = new Weapon(0, 0, 0);
                 weapon.setRandomDamage(player);
-                player.addItem(weapon);
+                inventory.addItem(weapon);
             }
         }
     }

@@ -1,9 +1,6 @@
 package players;
 
-import itemshandling.Consumable;
-import itemshandling.ItemBase;
-import itemshandling.Weapon;
-import itemshandling.Armor;
+import itemshandling.*;
 
 
 import java.util.Scanner;
@@ -14,10 +11,10 @@ public class Player {
     private hero.HeroTemplate hero;
     private String name;
 
-    public List<ItemBase> inventory;
+    private Inventory inventory;
 
     public Player() {
-        this.inventory = new ArrayList<ItemBase>();
+        this.inventory = new Inventory();
     }
 
     public String getName() {
@@ -29,42 +26,8 @@ public class Player {
     }
 
 
-        public void getInventory() {
-            System.out.println("Inventory:");
-            for (ItemBase item : inventory) {
-                System.out.println("- " + item.getName());
-                if (item instanceof Weapon) {
-                    System.out.println("  Damage: " + item.getDamage());
-                } else if (item instanceof Armor) {
-                    System.out.println("  Protection: " + item.getProtection());
-                } else if (item instanceof Consumable) {
-                    System.out.println("  Health: " + item.getHealth());
-
-                }
-
-            }
-        }
-
-
-    public void addItem(ItemBase item) {
-        inventory.add(item);
-    }
-
-    public void removeItem(ItemBase item) {
-        inventory.remove(item);
-    }
-
-    public boolean hasItem(ItemBase item) {
-        return inventory.contains(item);
-    }
-
-    public boolean hasItemByName(String itemName) {
-        for (ItemBase item : inventory) {
-            if (item.getName().equals(itemName)) {
-                return true;
-            }
-        }
-        return false;
+    public Inventory getInventory() {
+        return inventory;
     }
 
 
