@@ -49,7 +49,7 @@ public class GameEngine {
     GameEnginePlayerEnum GetPlayerAction(Player player) {
         while (true) {
             System.out.println("Player: " + player.getName() + " Location : " + gameMap.getPlayerLocation(player).Name + "\n HP :" + player.getHero().getHP());
-            System.out.println("Choose your action : 1. Move, 2. Search, 3. Fight, 4. Open inventory or 5. skip your turn");
+            System.out.println("Choose your action : 1. Move, 2. Fight, 3. Open inventory or 4. Skip your turn");
             Scanner scanner = new Scanner(System.in);
             String s = scanner.next();
 
@@ -165,11 +165,7 @@ public class GameEngine {
                     continue;
                 }
 
-                ActionSelector.chooseAction(currentPlayer);
-
-                int damageDealt = currentPlayer.getHero().getAttack();
-                currentMonster.HP -= damageDealt;
-                System.out.printf("%s hit %s for %d damage!%n", currentPlayer.getName(), currentMonster.getName(), damageDealt);
+                ActionSelector.chooseAction(currentPlayer, gameMap.getPlayerLocation(currentPlayer).monsters);
                 if (currentMonster.getHP() <= 0) {
                     System.out.printf("%s has been defeated!%n", currentMonster.getName());
                     System.out.printf("%s gained %d XP!%n", currentPlayer.getName(), currentMonster.MonsterXp);
@@ -187,12 +183,10 @@ public class GameEngine {
                     break;
                 }
 
-                int  monsterDamage = monster.Attack();
+                int monsterDamage = monster.Attack();
                 player.getHero().setHP(player.getHero().getHP() - monsterDamage);
-                System.out.printf("%s hit you for %d damage!%n", monster.getName(),  monsterDamage);
+                System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
             }
-
-
 
             if (player.getHero().getHP() <= 0) {
                 System.out.println("You have been defeated...");

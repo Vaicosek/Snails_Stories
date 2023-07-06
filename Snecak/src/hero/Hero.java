@@ -3,29 +3,31 @@ package hero;
 import abilities.HeroAbility;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Hero implements HeroTemplate {
-    protected int XP;
-    protected int level;
-    protected int HP;
-    protected String name;
-    protected int Attack = 20;
-    protected double Mana;
-    protected ArrayList<HeroAbility> Abilities = new ArrayList<HeroAbility>();
+    private int XP;
+    private int level;
+    private int HP;
+    private String name;
+    private int Attack = 20;
+    private double Mana;
+    private ArrayList<HeroAbility> abilities = new ArrayList<>();
 
     public Hero(int XP, int level, int HP) {
         this.XP = XP;
         this.level = level;
         this.HP = HP;
-
     }
+
     public void powers() {
         System.out.println("Possible abilities:");
-        for (HeroAbility ability : Abilities) {
-            System.out.print(ability.Name);
+        for (int i = 0; i < abilities.size(); i++) {
+            HeroAbility ability = abilities.get(i);
+            System.out.print((i + 1) + ". " + ability.getName());
 
-            if (ability.IsUnlocked) {
+            if (ability.isUnlocked()) {
                 System.out.println(" (already acquired)");
             } else {
                 System.out.println(" (not yet acquired)");
@@ -35,39 +37,52 @@ public class Hero implements HeroTemplate {
 
     public void gainAbility() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("You can gain the  ability by pressing number");
+        System.out.println("You can gain an ability by entering its number:");
 
-        if (CheckAllAbilitiesUnlocked()) {
-            System.out.println("You have unlocked all abilities");
+        if (checkAllAbilitiesUnlocked()) {
+            System.out.println("You have unlocked all abilities.");
             return;
         }
 
-        for (int i = 0; i < Abilities.size(); i++) {
-
-            HeroAbility ability = Abilities.get(i);
-            if (!ability.IsUnlocked) {
-                System.out.println(i + ". " + ability.Name);
-
+        for (int i = 0; i < abilities.size(); i++) {
+            HeroAbility ability = abilities.get(i);
+            if (!ability.isUnlocked()) {
+                System.out.println((i + 1) + ". " + ability.getName());
             }
         }
-        System.out.println("Enter the name of the ability you want to gain, or press 'q' to quit:");
-        String abilityName = scanner.nextLine();
 
-        if (abilityName.equalsIgnoreCase("q")) {
+        System.out.println("Enter the number of the ability you want to gain, or press 'q' to quit:");
+        String input = scanner.nextLine();
+
+        if (input.equalsIgnoreCase("q")) {
             return;
+        }
+
+        try {
+            int abilityIndex = Integer.parseInt(input) - 1;
+            if (abilityIndex >= 0 && abilityIndex < abilities.size()) {
+                HeroAbility selectedAbility = abilities.get(abilityIndex);
+                if (!selectedAbility.isUnlocked()) {
+                    selectedAbility.setUnlocked(true);
+                    System.out.println("You have gained the ability: " + selectedAbility.getName());
+                } else {
+                    System.out.println("You have already acquired that ability.");
+                }
+            } else {
+                System.out.println("Invalid ability number.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number or 'q' to quit.");
         }
     }
 
-    private boolean CheckAllAbilitiesUnlocked() {
-        boolean allUnlocked = true;
-        for (HeroAbility ability : Abilities) {
-            if (!ability.IsUnlocked) {
-                allUnlocked = false;
-                break;
+    private boolean checkAllAbilitiesUnlocked() {
+        for (HeroAbility ability : abilities) {
+            if (!ability.isUnlocked()) {
+                return false;
             }
         }
-
-        return allUnlocked;
+        return true;
     }
 
     public int getXP() {
@@ -133,4 +148,18 @@ public class Hero implements HeroTemplate {
     public void SetMana(int mana) {
         this.Mana = mana;
     }
+
+    @Override
+    public List<HeroAbility> getAbilities() {
+        List<HeroAbility> heroAbilities = new ArrayList<>();
+        for (HeroAbility ability : abilities) {
+
+            if (ability.isUnlocked()) {
+                heroAbilities.add(ability);
+            }
+        }
+        return heroAbilities;
+    }
+
+
 }
