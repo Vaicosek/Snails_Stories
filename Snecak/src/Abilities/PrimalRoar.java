@@ -1,4 +1,8 @@
 package abilities;
 
-public class PrimalRoar {
+public class PrimalRoar extends HeroAbility {
+    public PrimalRoar() {
+        setName("PrimalRoar");
+
+    }
 }

@@ -29,7 +29,5 @@ public interface HeroTemplate {
 
     List<HeroAbility> getAbilities();
 
-    void powers();
-
     void gainAbility();
 }

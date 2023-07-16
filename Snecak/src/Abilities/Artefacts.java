@@ -1,4 +1,8 @@
 package abilities;
 
-public class Artefacts {
+public class Artefacts extends HeroAbility {
+    public Artefacts() {
+        setName("Artefacts");
+
+    }
 }

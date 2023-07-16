@@ -1,6 +1,6 @@
 package engine;
 
-import hero.ActionSelector;
+import abilitiesmanagement.ActionSelector;
 import itemshandling.ItemBase;
 import mapvariables.Map;
 import mapvariables.PositionModel;
@@ -31,6 +31,7 @@ public class GameEngine {
             System.out.print("Enter name for player " + (i + 1) + ": ");
             player.setName(scanner.nextLine());
             player.pickHero();
+            player.LevelUp();
             players[i] = player;
             gameMap.addPlayer(player);
 

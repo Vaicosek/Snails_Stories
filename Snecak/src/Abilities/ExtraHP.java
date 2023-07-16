@@ -5,9 +5,9 @@ import hero.HeroTemplate;
 public class ExtraHP extends HeroAbility {
     private HeroTemplate hero;
 
-    public ExtraHP(HeroTemplate hero) {
-        Name = "ExtraHP";
-        this.hero = hero;
+    public ExtraHP() {
+      setName("ExtraHP");
+
     }
 
     public void Use() {

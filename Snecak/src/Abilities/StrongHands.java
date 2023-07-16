@@ -1,4 +1,8 @@
 package abilities;
 
-public class StrongHands {
+public class StrongHands extends HeroAbility {
+    public StrongHands() {
+        setName("StrongHands");
+
+    }
 }

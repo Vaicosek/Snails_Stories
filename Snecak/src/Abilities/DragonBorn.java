@@ -1,4 +1,7 @@
 package abilities;
 
-public class DragonBorn {
+public class DragonBorn extends HeroAbility {
+    public DragonBorn() {
+        setName("DragonBorn");
+    }
 }

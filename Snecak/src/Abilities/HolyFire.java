@@ -1,4 +1,8 @@
 package abilities;
 
-public class HolyFire {
+public class HolyFire extends HeroAbility {
+    public HolyFire() {
+        setName("HolyFire");
+
+    }
 }

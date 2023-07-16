@@ -1,4 +1,8 @@
 package abilities;
 
-public class Swarm {
+public class Swarm extends HeroAbility {
+    public Swarm() {
+        setName("Swarm");
+
+    }
 }

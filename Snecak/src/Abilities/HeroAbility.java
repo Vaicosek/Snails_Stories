@@ -3,32 +3,34 @@ package abilities;
 import hero.HeroTemplate;
 
 public class HeroAbility {
+
     private String name;
     private int damage;
-    private int cost;
+    private int manaCost;
     private boolean unlocked;
-
-    public HeroAbility(String name, int damage, int cost) {
-        this.name = name;
-        this.damage = damage;
-        this.cost = cost;
-        this.unlocked = false;
-    }
-
-    public void use(HeroTemplate hero) {
-
-    }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getDamage() {
         return damage;
     }
 
-    public int getCost() {
-        return cost;
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    public void setManaCost(int manaCost) {
+        this.manaCost = manaCost;
     }
 
     public boolean isUnlocked() {
@@ -38,4 +40,9 @@ public class HeroAbility {
     public void setUnlocked(boolean unlocked) {
         this.unlocked = unlocked;
     }
+
+    public void use(HeroTemplate hero) {
+    }
+
+
 }

@@ -1,4 +1,8 @@
 package abilities;
 
-public class Entangle {
+public class Entangle extends HeroAbility {
+    public Entangle() {
+        setName("Entangle");
+
+    }
 }

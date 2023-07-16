@@ -1,4 +1,8 @@
 package abilities;
 
-public class Shield {
+public class Shield extends HeroAbility {
+    public Shield() {
+        setName("Shield");
+
+    }
 }

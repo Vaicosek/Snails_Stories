@@ -1,4 +1,8 @@
 package abilities;
 
-public class DeathStrike {
+public class DeathStrike extends HeroAbility {
+    public DeathStrike() {
+        setName("DeathStrike");
+
+    }
 }

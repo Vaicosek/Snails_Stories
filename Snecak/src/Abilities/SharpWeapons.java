@@ -1,4 +1,8 @@
 package abilities;
 
-public class SharpWeapons {
+public class SharpWeapons extends HeroAbility {
+    public SharpWeapons() {
+        setName("SharpWeapons");
+
+    }
 }

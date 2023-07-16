@@ -1,5 +1,6 @@
 package players;
 
+import abilitiesmanagement.HeroAbilitiesManager;
 import itemshandling.*;
 
 
@@ -41,10 +42,10 @@ public class Player {
         }
     }
 
-    private void LevelUp() {
+    public void LevelUp() {
         hero.setHP((hero.getLevel() * 100));
         System.out.println("LVL UP");
-       // hero.gainAbility();
+       hero.gainAbility();
     }
 
     public boolean isAlive() {
@@ -61,18 +62,35 @@ public class Player {
         System.out.println("5. Druid");
         int choice = scanner.nextInt();
         switch (choice) {
-            case 1 -> this.hero = new hero.Assassin(0, 1, 100);
-            case 2 -> this.hero = new hero.Defender(0, 1, 100);
-            case 3 -> this.hero = new hero.Healer(0, 1, 100);
-            case 4 -> this.hero = new hero.Wizard(0, 1, 100);
-            case 5 -> this.hero = new hero.Druid(0, 1, 100);
+            case 1 -> {
+                this.hero = new hero.Assassin(0, 1, 100, HeroAbilitiesManager.getAssassinAbilities());
+
+            }
+            case 2 -> {
+                this.hero = new hero.Defender(0, 1, 100, HeroAbilitiesManager.getDefenderAbilities());
+
+            }
+            case 3 -> {
+                this.hero = new hero.Healer(0, 1, 100, HeroAbilitiesManager.getHealerAbilities());
+
+            }
+            case 4 -> {
+                this.hero = new hero.Wizard(0, 1, 100, HeroAbilitiesManager.getWizardAbilities());
+
+            }
+            case 5 -> {
+                this.hero = new hero.Druid(0, 1, 100, HeroAbilitiesManager.getDruidAbilities());
+
+            }
             default -> {
                 System.out.println("Invalid choice, please try again.");
                 pickHero();
             }
         }
     }
-
+    private void gainStartingAbility() {
+        hero.gainAbility();
+    }
     public hero.HeroTemplate getHero() {
         return hero;
     }

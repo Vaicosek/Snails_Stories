@@ -7,33 +7,33 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Hero implements HeroTemplate {
-    private int XP;
-    private int level;
-    private int HP;
-    private String name;
-    private int Attack = 20;
-    private double Mana;
-    private ArrayList<HeroAbility> abilities = new ArrayList<>();
+    protected int XP;
+    protected int level;
+    protected int HP;
+    protected String name;
+    protected int Attack = 20;
+    protected double Mana;
+    protected ArrayList<HeroAbility> abilities = new ArrayList<HeroAbility>();
 
-    public Hero(int XP, int level, int HP) {
+    public Hero(int XP, int level, int HP, List<HeroAbility> allAbilities) {
         this.XP = XP;
         this.level = level;
         this.HP = HP;
+        initializeAbilities(allAbilities);
     }
 
-    public void powers() {
-        System.out.println("Possible abilities:");
-        for (int i = 0; i < abilities.size(); i++) {
-            HeroAbility ability = abilities.get(i);
-            System.out.print((i + 1) + ". " + ability.getName());
+    private void initializeAbilities(List<HeroAbility> allAbilities) {
 
-            if (ability.isUnlocked()) {
-                System.out.println(" (already acquired)");
-            } else {
-                System.out.println(" (not yet acquired)");
-            }
+        for (HeroAbility ability : allAbilities) {
+            HeroAbility clonedAbility = new HeroAbility();
+            clonedAbility.setName(ability.getName());
+            clonedAbility.setDamage(ability.getDamage());
+            clonedAbility.setManaCost(ability.getManaCost());
+            clonedAbility.setUnlocked(false);
+            abilities.add(clonedAbility);
         }
     }
+
 
     public void gainAbility() {
         Scanner scanner = new Scanner(System.in);

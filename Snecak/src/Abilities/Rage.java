@@ -1,4 +1,7 @@
 package abilities;
 
-public class Rage {
+public class Rage extends HeroAbility {
+    public Rage() {
+        setName("Rage");
+    }
 }

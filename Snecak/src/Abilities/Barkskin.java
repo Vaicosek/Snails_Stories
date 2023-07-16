@@ -1,4 +1,8 @@
 package abilities;
 
-public class Barkskin {
+public class Barkskin extends HeroAbility {
+    public Barkskin() {
+        setName("Barkskin");
+
+    }
 }

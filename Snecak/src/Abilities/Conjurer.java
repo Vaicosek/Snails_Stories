@@ -1,4 +1,8 @@
 package abilities;
 
-public class Conjurer {
+public class Conjurer extends HeroAbility {
+    public Conjurer() {
+        setName("Conjurer");
+
+    }
 }

@@ -1,5 +1,8 @@
 package abilities;
 
-public class Focus {
+public class Focus extends HeroAbility {
+    public Focus() {
+        setName("Focus");
+    }
 
 }

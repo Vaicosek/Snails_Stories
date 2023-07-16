@@ -1,4 +1,4 @@
-package hero;
+package abilitiesmanagement;
 
 import abilities.HeroAbility;
 import itemshandling.ItemBase;
@@ -50,34 +50,40 @@ public class ActionSelector {
         List<HeroAbility> abilities = player.getHero().getAbilities();
         for (int i = 0; i < abilities.size(); i++) {
             HeroAbility ability = abilities.get(i);
-            System.out.println((i + 1) + ". " + ability.getName());
+            System.out.printf("%d. %s%n", i + 1, ability.getName());
         }
 
         // Prompt the player to choose an ability
         Scanner scanner = new Scanner(System.in);
-        int abilityIndex = scanner.nextInt();
+        String input = scanner.nextLine().trim(); // Read the whole line as a string
 
-        // Validate the ability index
-        if (abilityIndex < 1 || abilityIndex > abilities.size()) {
-            System.out.println("Invalid ability selection.");
+        try {
+            int abilityIndex = Integer.parseInt(input);
+            // Validate the ability index
+            if (abilityIndex < 1 || abilityIndex > abilities.size()) {
+                System.out.println("Invalid ability selection.");
+                performAbility(player, monsters); // Recursively call the method to prompt again
+                return;
+            }
+
+            // Use the selected ability
+            HeroAbility selectedAbility = abilities.get(abilityIndex - 1);
+            selectedAbility.use(player.getHero());
+
+            MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
+            int damageDealt = selectedAbility.getDamage();
+            currentMonster.HP -= damageDealt;
+            System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), selectedAbility.getName(), currentMonster.getName(), damageDealt);
+            if (currentMonster.getHP() <= 0) {
+                System.out.printf("%s has been defeated!%n", currentMonster.getName());
+                System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
+                player.increaseXP(currentMonster.MonsterXp);
+                monsters.remove(currentMonster);
+                ItemBase.DropItem(player, player.getInventory());
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid ability number.");
             performAbility(player, monsters); // Recursively call the method to prompt again
-            return;
-        }
-
-        // Use the selected ability
-        HeroAbility selectedAbility = abilities.get(abilityIndex - 1);
-        selectedAbility.use(player.getHero());
-
-        MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
-        int damageDealt = selectedAbility.getDamage();
-        currentMonster.HP -= damageDealt;
-        System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), selectedAbility.getName(), currentMonster.getName(), damageDealt);
-        if (currentMonster.getHP() <= 0) {
-            System.out.printf("%s has been defeated!%n", currentMonster.getName());
-            System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
-            player.increaseXP(currentMonster.MonsterXp);
-            monsters.remove(currentMonster);
-            ItemBase.DropItem(player, player.getInventory());
         }
     }
 }

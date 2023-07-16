@@ -1,4 +1,8 @@
 package abilities;
 
-public class Illusion {
+public class Illusion extends HeroAbility {
+    public Illusion() {
+        setName("Illusion");
+
+    }
 }

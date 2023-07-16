@@ -1,4 +1,7 @@
 package abilities;
 
-public class Evasion {
+public class Evasion extends HeroAbility {
+    public Evasion() {
+        setName("Evasion");
+    }
 }

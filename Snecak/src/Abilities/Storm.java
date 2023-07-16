@@ -1,4 +1,7 @@
 package abilities;
 
-public class Storm {
+public class Storm extends HeroAbility {
+    public Storm() {
+        setName("Storm");
+    }
 }

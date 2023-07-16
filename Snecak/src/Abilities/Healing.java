@@ -6,12 +6,12 @@ public class Healing extends HeroAbility {
     private HeroTemplate hero;
     private static final int MANA_COST = 30;
 
-    public Healing(HeroTemplate hero) {
-        Name = "Healing";
-        this.hero = hero;
+    public Healing() {
+       setName("Healing");
+
     }
 
-    public void Use() {
+    public void use(HeroTemplate hero) {
         int currentMana = hero.getMana();
         if (currentMana >= MANA_COST) {
             int maxHealth = hero.getHP();

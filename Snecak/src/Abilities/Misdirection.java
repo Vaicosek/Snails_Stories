@@ -1,4 +1,8 @@
 package abilities;
 
-public class Misdirection {
+public class Misdirection extends HeroAbility {
+    public Misdirection() {
+        setName("Misdirection");
+
+    }
 }
