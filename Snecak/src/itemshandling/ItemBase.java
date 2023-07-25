@@ -13,15 +13,13 @@ public abstract class ItemBase {
     public int Protection;
     public String Name;
 
-    public ItemBase(ItemType itemType,int damage, int health, int protection) {
+    public ItemBase(ItemType itemType, int damage, int health, int protection) {
         this.itemType = itemType;
         Damage = damage;
         Health = health;
         Protection = protection;
         InitializeName();
         Name = getRandomItemName();
-
-
     }
 
     public String getName() {
@@ -38,8 +36,12 @@ public abstract class ItemBase {
         } catch (Exception e) {
             return "";
         }
-
     }
+
+    public ItemType getItemType() {
+        return itemType;
+    }
+
     public static ItemType getRandomItemType() {
         int randomNumber = Dice.getNextNumber(1, 100);
 
@@ -87,4 +89,3 @@ public abstract class ItemBase {
         return Protection;
     }
 }
-

@@ -1,6 +1,10 @@
 package hero;
 
 import abilities.HeroAbility;
+import itemshandling.Armor;
+import itemshandling.Inventory;
+import itemshandling.Weapon;
+import monster.Dice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,19 +15,22 @@ public class Hero implements HeroTemplate {
     protected int level;
     protected int HP;
     protected String name;
-    protected int Attack = 20;
-    protected double Mana;
-    protected ArrayList<HeroAbility> abilities = new ArrayList<HeroAbility>();
+    protected int attack;
+
+    protected double mana;
+    protected ArrayList<HeroAbility> abilities = new ArrayList<>();
+    protected Weapon equippedWeapon;
+    protected Armor equippedArmor;
 
     public Hero(int XP, int level, int HP, List<HeroAbility> allAbilities) {
         this.XP = XP;
         this.level = level;
         this.HP = HP;
         initializeAbilities(allAbilities);
+        calculateAttack();
     }
 
     private void initializeAbilities(List<HeroAbility> allAbilities) {
-
         for (HeroAbility ability : allAbilities) {
             HeroAbility clonedAbility = new HeroAbility();
             clonedAbility.setName(ability.getName());
@@ -31,6 +38,15 @@ public class Hero implements HeroTemplate {
             clonedAbility.setManaCost(ability.getManaCost());
             clonedAbility.setUnlocked(false);
             abilities.add(clonedAbility);
+        }
+    }
+
+    private void calculateAttack() {
+        if (equippedWeapon != null) {
+            attack = Dice.getNextNumber(1, level * 10 + equippedWeapon.getDamage());
+        } else {
+
+            attack = Dice.getNextNumber(1, level * 10);
         }
     }
 
@@ -115,13 +131,13 @@ public class Hero implements HeroTemplate {
     }
 
     @Override
-    public void setMana(int Mana) {
-
+    public void setMana(int mana) {
+        this.mana = mana;
     }
 
     @Override
     public int getMana() {
-        return 0;
+        return (int) mana;
     }
 
     @Override
@@ -141,19 +157,18 @@ public class Hero implements HeroTemplate {
 
     @Override
     public int getAttack() {
-        return Attack;
+        return attack;
     }
 
     @Override
     public void SetMana(int mana) {
-        this.Mana = mana;
+        this.mana = mana;
     }
 
     @Override
     public List<HeroAbility> getAbilities() {
         List<HeroAbility> heroAbilities = new ArrayList<>();
         for (HeroAbility ability : abilities) {
-
             if (ability.isUnlocked()) {
                 heroAbilities.add(ability);
             }
@@ -161,5 +176,31 @@ public class Hero implements HeroTemplate {
         return heroAbilities;
     }
 
+    public void equipWeapon(Weapon weapon) {
+        this.equippedWeapon = weapon;
+        System.out.println("Equipped " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
+    }
 
+    public void unequipWeapon() {
+        if (this.equippedWeapon != null) {
+            System.out.println("Unequipped " + this.equippedWeapon.getName());
+            this.equippedWeapon = null;
+        } else {
+            System.out.println("No weapon equipped.");
+        }
+    }
+
+    public void equipArmor(Armor armor) {
+        this.equippedArmor = armor;
+        System.out.println("Equipped " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
+    }
+
+    public void unequipArmor() {
+        if (this.equippedArmor != null) {
+            System.out.println("Unequipped " + this.equippedArmor.getName());
+            this.equippedArmor = null;
+        } else {
+            System.out.println("No armor equipped.");
+        }
+    }
 }

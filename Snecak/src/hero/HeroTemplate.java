@@ -1,6 +1,8 @@
 package hero;
 
 import abilities.HeroAbility;
+import itemshandling.Armor;
+import itemshandling.Weapon;
 
 import java.util.List;
 
@@ -30,4 +32,12 @@ public interface HeroTemplate {
     List<HeroAbility> getAbilities();
 
     void gainAbility();
+
+    void equipWeapon(Weapon weapon);
+
+    void unequipWeapon();
+
+    void equipArmor(Armor armor);
+
+    void unequipArmor();
 }
