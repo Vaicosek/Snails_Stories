@@ -203,4 +203,11 @@ public class Hero implements HeroTemplate {
             System.out.println("No armor equipped.");
         }
     }
+
+    @Override
+    public void heal(int healthRestored) {
+        this.HP += healthRestored;
+        System.out.println("You have restored " + healthRestored + " health.");
+
+    }
 }
