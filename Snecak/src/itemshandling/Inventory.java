@@ -42,12 +42,12 @@ public class Inventory {
         System.out.println("Inventory:");
         for (ItemBase item : items) {
             System.out.println("- " + item.getName());
-            if (item instanceof Weapon) {
-                System.out.println("  Damage: " + item.getDamage());
-            } else if (item instanceof Armor) {
-                System.out.println("  Protection: " + item.getProtection());
-            } else if (item instanceof Consumable) {
-                System.out.println("  Health: " + item.getHealth());
+            switch (item) {
+                case Weapon weapon -> System.out.println("  Damage: " + item.getDamage());
+                case Armor armor -> System.out.println("  Protection: " + item.getProtection());
+                case Consumable consumable -> System.out.println("  Health: " + item.getHealth());
+                default -> {
+                }
             }
         }
     }

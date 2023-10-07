@@ -203,4 +203,8 @@ public class Hero implements HeroTemplate {
             System.out.println("No armor equipped.");
         }
     }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
 }
