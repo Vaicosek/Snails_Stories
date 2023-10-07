@@ -6,7 +6,7 @@ public class Fire extends HeroAbility {
     public Fire() {
         setName("Fire");
         setDamage(50); // Set the damage for the Fire ability
-        //setManaCost(30); // Set the mana cost for the Fire ability
+        setManaCost(30); // Set the mana cost for the Fire ability
     }
 
     public void use(HeroTemplate hero) {
