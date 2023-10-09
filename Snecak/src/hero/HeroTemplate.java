@@ -40,4 +40,6 @@ public interface HeroTemplate {
     void equipArmor(Armor armor);
 
     void unequipArmor();
+
+    void heal(int healthRestored);
 }

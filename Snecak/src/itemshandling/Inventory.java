@@ -29,6 +29,33 @@ public class Inventory {
         return items.contains(item);
     }
 
+    public void openInventoryMenu(HeroTemplate hero) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Inventory Menu:");
+            System.out.println("1. Equip Armor");
+            System.out.println("2. Equip Weapon");
+            System.out.println("3. Use Consumable");
+            System.out.println("4. Browse Inventory");
+            System.out.println("5. Quit Inventory");
+
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline
+
+            switch (choice) {
+                case 1 -> equipArmor(hero);
+                case 2 -> equipWeapon(hero);
+
+                case 4 -> printInventory();
+                case 5 -> {
+                    return; // Exit the inventory menu
+                }
+                default -> System.out.println("Invalid choice. Please choose a valid option.");
+            }
+        }
+    }
+
     public boolean hasItemByName(String itemName) {
         for (ItemBase item : items) {
             if (item.getName().equals(itemName)) {
@@ -49,6 +76,47 @@ public class Inventory {
                 default -> {
                 }
             }
+        }
+    }
+    public void useConsumable(HeroTemplate hero) {
+        List<Consumable> availableConsumables = new ArrayList<>();
+        System.out.println("Available Consumables:");
+        int index = 1;
+        for (ItemBase item : items) {
+            if (item.getItemType() == ItemType.CONSUMABLE) {
+                Consumable consumable = (Consumable) item;
+                availableConsumables.add(consumable);
+                System.out.println(index + ". " + consumable.getName() + " (Health: " + consumable.getHealth() + ")");
+                index++;
+            }
+        }
+
+        if (availableConsumables.isEmpty()) {
+            System.out.println("No consumables available in the inventory.");
+            return;
+        }
+
+        System.out.print("Enter the number of the consumable you want to use (or 'q' to cancel): ");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        if (input.equalsIgnoreCase("q")) {
+            return;
+        }
+
+        try {
+            int consumableIndex = Integer.parseInt(input) - 1;
+            if (consumableIndex >= 0 && consumableIndex < availableConsumables.size()) {
+                Consumable consumableToUse = availableConsumables.get(consumableIndex);
+                int healthRestored = consumableToUse.getHealth();
+                hero.heal(healthRestored); // Assuming there's a heal method in your HeroTemplate class
+                items.remove(consumableToUse); // Remove the used consumable from inventory
+                System.out.println(hero.getName() + " used " + consumableToUse.getName() + " and restored " + healthRestored + " health.");
+            } else {
+                System.out.println("Invalid choice. Please enter a valid number.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number or 'q' to cancel.");
         }
     }
 

@@ -1,6 +1,7 @@
 package engine;
 
 import abilitiesmanagement.ActionSelector;
+import itemshandling.Inventory;
 import itemshandling.ItemBase;
 import mapvariables.Map;
 import mapvariables.PositionModel;
@@ -11,6 +12,8 @@ import java.util.List;
 import java.util.Arrays;
 
 public class GameEngine {
+
+    private Inventory inventory = new Inventory();
     Player[] players;
     Map gameMap;
     private GameStartedEventSource gameStartedEventSource = new GameStartedEventSource();
@@ -97,7 +100,8 @@ public class GameEngine {
                     fight(player, gameMap.getPlayerLocation(player).monsters);
                 }
                 if (action == GameEnginePlayerEnum.OPEN_INVENTORY) {
-                    player.getInventory().printInventory();
+                    inventory.openInventoryMenu(player.getHero());
+
                 }
 
 
