@@ -147,8 +147,8 @@ public class GameEngine {
 
         PositionModel playerPosition = gameMap.getPlayerPosition().get(player);
         List<Player> players = gameMap.getPlayersAtLocation(playerPosition.x, playerPosition.y);
-        int currentPlayerIndex = players.indexOf(player);
         int currentMonsterIndex = 0;
+        int turnCounter = 0; // Initialize the turn counter to 0
 
         // Ask all players at the beginning of the fight if they want to join
         for (Player currentPlayer : players) {
@@ -171,6 +171,7 @@ public class GameEngine {
                 }
 
                 ActionSelector.chooseAction(currentPlayer, gameMap.getPlayerLocation(currentPlayer).monsters);
+
                 if (currentMonster.getHP() <= 0) {
                     System.out.printf("%s has been defeated!%n", currentMonster.getName());
                     System.out.printf("%s gained %d XP!%n", currentPlayer.getName(), currentMonster.MonsterXp);
@@ -180,6 +181,8 @@ public class GameEngine {
                     currentMonsterIndex = 0; // Reset monster index
                     break; // Only one player can defeat the monster per turn
                 }
+
+                turnCounter++; // Increment the turn counter after player's attack
             }
 
             // Monsters' turn
@@ -191,6 +194,8 @@ public class GameEngine {
                 int monsterDamage = monster.Attack();
                 player.getHero().setHP(player.getHero().getHP() - monsterDamage);
                 System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
+
+                turnCounter++; // Increment the turn counter after monster's attack
             }
 
             if (player.getHero().getHP() <= 0) {
@@ -206,6 +211,7 @@ public class GameEngine {
             System.out.println("You won the battle!");
         }
     }
+
 
 
 
