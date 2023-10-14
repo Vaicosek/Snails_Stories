@@ -1,5 +1,6 @@
 package abilities;
 
+import hero.Hero;
 import hero.HeroTemplate;
 
 public class HeroAbility {
@@ -45,4 +46,9 @@ public class HeroAbility {
     }
 
 
+    public void applyPassiveEffect(Hero hero) {
+    }
+
+    public void applyActiveEffect(Hero hero) {
+    }
 }

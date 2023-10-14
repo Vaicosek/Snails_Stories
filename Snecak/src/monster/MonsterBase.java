@@ -98,6 +98,22 @@ public abstract class MonsterBase {
     }
 
     abstract void InitializeName();
+
+    public void takeDamage(int damageDealt) {
+
+        if (damageDealt < 0) {
+            throw new IllegalArgumentException("Damage dealt cannot be negative.");
+        }
+
+
+        HP -= damageDealt;
+
+
+        if (HP <= 0) {
+            HP = 0;
+        }
+    }
+
 }
 
 
