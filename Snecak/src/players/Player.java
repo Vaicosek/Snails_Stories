@@ -2,6 +2,7 @@ package players;
 
 import abilitiesmanagement.HeroAbilitiesManager;
 import itemshandling.*;
+import mapvariables.PositionModel;
 
 
 import java.util.Scanner;
@@ -26,10 +27,11 @@ public class Player {
         this.name = name;
     }
 
-
     public Inventory getInventory() {
         return inventory;
     }
+
+    private PositionModel previousPosition;
 
 
     public void increaseXP(int amount) {
@@ -95,4 +97,11 @@ public class Player {
         return hero;
     }
 
+    public void setPreviousPosition(PositionModel previousPosition) {
+        this.previousPosition = previousPosition;
+    }
+
+    public PositionModel getPreviousPosition() {
+        return previousPosition;
+    }
 }

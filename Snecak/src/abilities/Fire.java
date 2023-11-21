@@ -1,6 +1,7 @@
 package abilities;
 
 import hero.HeroTemplate;
+import monster.Dice;
 import monster.MonsterBase;
 
 public class Fire extends HeroAbility {
@@ -22,6 +23,8 @@ public class Fire extends HeroAbility {
         if (currentMana >= manaCost && currentTurn >= turnCounter) {
             hero.setMana(currentMana - manaCost);
             System.out.println("Used " + getName() + "!");
+            int damage = Dice.getNextNumber(3, hero.getLevel() * 7);
+            setDamage(damage);
             applyActiveEffect(monster); // Apply the active effect to the selected monster
             turnCounter = currentTurn + remainingTurns; // Set the next turn when the ability can be used
         } else {
@@ -31,7 +34,7 @@ public class Fire extends HeroAbility {
 
     public void applyActiveEffect(MonsterBase monster) {
         if (remainingTurns > 0) {
-            int damageDealt = getDamage(); // Get the damage from the superclass
+            int damageDealt = Dice.getNextNumber(1,4);
 
 
             monster.takeDamage(damageDealt);

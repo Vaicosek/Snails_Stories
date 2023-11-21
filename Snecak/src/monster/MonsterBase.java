@@ -90,8 +90,20 @@ public abstract class MonsterBase {
     }
 
     public int Attack() {
-        return Dice.getNextNumber(1, tier * 10 + (10 * GroupLevel));
+        return Dice.getNextNumber(1, tier * 10 + (10 * GroupLevel)) * attackReduction;
     }
+    public int attackReduction = 0;
+
+    public void reduceAttack(int damageReduction) {
+        if (damageReduction < 0) {
+            throw new IllegalArgumentException("Damage reduction cannot be negative.");
+        }
+
+
+        attackReduction = damageReduction;
+
+    }
+
 
     public int getHP() {
         return HP;
@@ -113,6 +125,7 @@ public abstract class MonsterBase {
             HP = 0;
         }
     }
+
 
 }
 

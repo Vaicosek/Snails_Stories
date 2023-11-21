@@ -118,6 +118,8 @@ public class GameEngine {
             return;
         }
 
+        player.setPreviousPosition(gameMap.getPlayerPosition().get(player));
+
         MovementDirectionEnum movementDirectionEnum;
         try {
             movementDirectionEnum = MovementDirectionEnum.valueOf(direction);
@@ -142,7 +144,7 @@ public class GameEngine {
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
         if (s.equalsIgnoreCase("q")) {
-            flee();
+            flee(player);
         }
 
         PositionModel playerPosition = gameMap.getPlayerPosition().get(player);
@@ -216,9 +218,28 @@ public class GameEngine {
 
 
 
-    private void flee() {
+    private void flee(Player player) {
+        PositionModel currentPosition = gameMap.getPlayerPosition().get(player);
+        PositionModel previousPosition = player.getPreviousPosition();
 
+        // Check if the player has a previous position
+        if (previousPosition != null) {
+            System.out.printf("%s fled from %s to %s!%n", player.getName(), currentPosition, previousPosition);
+
+            // Move the player to the previous position
+            currentPosition.x = previousPosition.x;
+            currentPosition.y = previousPosition.y;
+
+            // Update the player's position in the map
+            gameMap.getPlayerPosition().put(player, currentPosition);
+
+            // Clear the player's previous position after fleeing
+
+        } else {
+            System.out.println("You cannot flee from the current location.");
+        }
     }
+
 
 
     public int getGroupLevel() {

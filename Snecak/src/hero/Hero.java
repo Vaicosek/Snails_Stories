@@ -204,6 +204,11 @@ public class Hero implements HeroTemplate {
         }
     }
 
+    @Override
+    public void heal(int healthRestored) {
+
+    }
+
     public void setAttack(int attack) {
         this.attack = attack;
     }
