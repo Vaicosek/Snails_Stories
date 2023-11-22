@@ -34,7 +34,7 @@ public class Fire extends HeroAbility {
 
     public void applyActiveEffect(MonsterBase monster) {
         if (remainingTurns > 0) {
-            int damageDealt = Dice.getNextNumber(1,4);
+            int damageDealt = Dice.getNextNumber(0,4);
 
 
             monster.takeDamage(damageDealt);
