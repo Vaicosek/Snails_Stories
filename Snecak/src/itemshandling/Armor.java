@@ -14,7 +14,9 @@ public class Armor extends ItemBase {
     public void setRandomProtection(Player player) {
         this.Protection = (int) (Math.floor(Math.random() * 30) + player.getHero().getLevel())/2;
     }
-
+    public void setRandomDamage(Player player) {
+        this.Damage = (int) (Math.floor(Math.random() * 30) + player.getHero().getLevel())/4;
+    }
 
     @Override
     protected void InitializeName() {

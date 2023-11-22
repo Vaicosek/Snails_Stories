@@ -15,6 +15,9 @@ public class Consumable extends ItemBase {
     public void setRandomHealth(Player player) {
         this.Health = (int) (Math.floor(Math.random() * 33) + player.getHero().getLevel());
     }
+    public void setRandomDamage(Player player) {
+        this.Damage = (int) (Math.floor(Math.random() * 30) + player.getHero().getLevel())/6;
+    }
     @Override
     protected void InitializeName() {
         names= new ArrayList<String>(Arrays.asList(

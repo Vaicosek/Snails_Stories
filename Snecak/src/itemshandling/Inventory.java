@@ -65,6 +65,15 @@ public class Inventory {
         return false;
     }
 
+    public ItemBase getItemByName(String itemName) {
+        for (ItemBase item : items) {
+            if (item.getName().equals(itemName)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public void printInventory() {
         System.out.println("Inventory:");
         for (ItemBase item : items) {

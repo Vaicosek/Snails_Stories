@@ -60,11 +60,13 @@ public abstract class ItemBase {
             case CONSUMABLE -> {
                 Consumable consumable = new Consumable(0, 0, 0);
                 consumable.setRandomHealth(player);
+                consumable.setRandomDamage(player);
                 inventory.addItem(consumable);
             }
             case ARMOR -> {
                 Armor armor = new Armor(0, 0, 0);
                 armor.setRandomProtection(player);
+                armor.setRandomDamage(player);
                 inventory.addItem(armor);
             }
             case WEAPON -> {

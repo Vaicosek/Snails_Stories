@@ -76,6 +76,9 @@ public abstract class MonsterBase {
     public String getName() {
         return Name;
     }
+    public int getTier() {
+        return tier;
+    }
 
     protected ArrayList<String> names;
 
