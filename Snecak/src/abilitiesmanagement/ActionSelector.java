@@ -36,6 +36,10 @@ public class ActionSelector {
         int damageDealt = player.getHero().getAttack();
         currentMonster.HP -= damageDealt;
         System.out.printf("%s hit %s for %d damage!%n", player.getName(), currentMonster.getName(), damageDealt);
+
+        // Trigger passive effects after the attack
+        player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
+
         if (currentMonster.getHP() <= 0) {
             System.out.printf("%s has been defeated!%n", currentMonster.getName());
             System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
@@ -68,12 +72,17 @@ public class ActionSelector {
 
             // Use the selected ability
             HeroAbility selectedAbility = abilities.get(abilityIndex - 1);
+
             selectedAbility.use(player.getHero());
 
             MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
             int damageDealt = selectedAbility.getDamage();
             currentMonster.HP -= damageDealt;
+
             System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), selectedAbility.getName(), currentMonster.getName(), damageDealt);
+
+            player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
+
             if (currentMonster.getHP() <= 0) {
                 System.out.printf("%s has been defeated!%n", currentMonster.getName());
                 System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
@@ -86,4 +95,5 @@ public class ActionSelector {
             performAbility(player, monsters); // Recursively call the method to prompt again
         }
     }
+
 }

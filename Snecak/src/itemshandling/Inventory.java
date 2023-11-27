@@ -31,6 +31,9 @@ public class Inventory {
 
     public void openInventoryMenu(HeroTemplate hero) {
         Scanner scanner = new Scanner(System.in);
+        boolean isStrongHandsUnlocked = hero.getAbilities().stream()
+                .anyMatch(ability -> ability.getName().equals("StrongHands") && ability.isUnlocked());
+
         while (true) {
             System.out.println("Inventory Menu:");
             System.out.println("1. Equip Armor");
@@ -39,6 +42,10 @@ public class Inventory {
             System.out.println("4. Browse Inventory");
             System.out.println("5. Quit Inventory");
 
+            if (isStrongHandsUnlocked) {
+                System.out.println("6. Equip SecondWeapon");
+            }
+
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline
@@ -46,15 +53,23 @@ public class Inventory {
             switch (choice) {
                 case 1 -> equipArmor(hero);
                 case 2 -> equipWeapon(hero);
-
+                case 3 -> useConsumable(hero);
                 case 4 -> printInventory();
                 case 5 -> {
-                    return; // Exit the inventory menu
+                    return;
+                }
+                case 6 -> {
+                    if (isStrongHandsUnlocked) {
+                        equipSecondWeapon(hero);
+                    } else {
+                        System.out.println("StrongHands ability is not yet unlocked!");
+                    }
                 }
                 default -> System.out.println("Invalid choice. Please choose a valid option.");
             }
         }
     }
+
 
     public boolean hasItemByName(String itemName) {
         for (ItemBase item : items) {
@@ -206,4 +221,43 @@ public class Inventory {
             System.out.println("Invalid input. Please enter a number or 'q' to cancel.");
         }
     }
+    public void equipSecondWeapon(HeroTemplate hero) {
+        List<Weapon> availableWeapons = new ArrayList<>();
+        System.out.println("Available Weapons for Second Slot:");
+        int index = 1;
+        for (ItemBase item : items) {
+            if (item.getItemType() == ItemType.WEAPON) {
+                Weapon weapon = (Weapon) item;
+                availableWeapons.add(weapon);
+                System.out.println(index + ". " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
+                index++;
+            }
+        }
+
+        if (availableWeapons.isEmpty()) {
+            System.out.println("No weapons available in the inventory for the second slot.");
+            return;
+        }
+
+        System.out.print("Enter the number of the weapon you want to equip in the second slot (or 'q' to cancel): ");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        if (input.equalsIgnoreCase("q")) {
+            return;
+        }
+
+        try {
+            int weaponIndex = Integer.parseInt(input) - 1;
+            if (weaponIndex >= 0 && weaponIndex < availableWeapons.size()) {
+                Weapon weapon2 = availableWeapons.get(weaponIndex);
+                hero.equipWeapon2(weapon2);
+            } else {
+                System.out.println("Invalid choice. Please enter a valid number.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number or 'q' to cancel.");
+        }
+    }
+
 }

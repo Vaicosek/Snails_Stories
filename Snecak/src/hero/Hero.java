@@ -1,10 +1,14 @@
 package hero;
 
 import abilities.HeroAbility;
+import abilities.Inquisition;
+import abilities.MonsterKiller;
+import abilities.SharpWeapons;
 import itemshandling.Armor;
 import itemshandling.Inventory;
 import itemshandling.Weapon;
 import monster.Dice;
+import monster.MonsterBase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +24,8 @@ public class Hero implements HeroTemplate {
     protected double mana;
     protected ArrayList<HeroAbility> abilities = new ArrayList<>();
     protected Weapon equippedWeapon;
+    protected Weapon equippedWeapon2;
+
     protected Armor equippedArmor;
 
     public Hero(int XP, int level, int HP, List<HeroAbility> allAbilities) {
@@ -42,14 +48,14 @@ public class Hero implements HeroTemplate {
     }
 
     private void calculateAttack() {
-        if (equippedWeapon != null) {
+        if (equippedWeapon != null && equippedWeapon2 != null) {
+            attack = Dice.getNextNumber(1, level * 10 + equippedWeapon.getDamage() + equippedWeapon2.getDamage());
+        } else if (equippedWeapon != null) {
             attack = Dice.getNextNumber(1, level * 10 + equippedWeapon.getDamage());
         } else {
-
             attack = Dice.getNextNumber(1, level * 10);
         }
     }
-
 
     public void gainAbility() {
         Scanner scanner = new Scanner(System.in);
@@ -90,6 +96,7 @@ public class Hero implements HeroTemplate {
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a number or 'q' to quit.");
         }
+        updateHeroBonuses();
     }
 
     private boolean checkAllAbilitiesUnlocked() {
@@ -118,6 +125,7 @@ public class Hero implements HeroTemplate {
         if (this.XP >= 100) {
             this.level++;
             this.XP = this.XP - 100;
+            gainAbility();
         }
     }
 
@@ -179,6 +187,17 @@ public class Hero implements HeroTemplate {
     public void equipWeapon(Weapon weapon) {
         this.equippedWeapon = weapon;
         System.out.println("Equipped " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
+
+        for (HeroAbility ability : abilities) {
+            if (ability.getName().equals("SharpWeapons") && ability.isUnlocked()) {
+                SharpWeapons sharpWeapons = new SharpWeapons();
+                sharpWeapons.passiveEffect(this);
+            }
+        }
+    }
+
+    public Weapon getEquippedWeapon() {
+        return equippedWeapon;
     }
 
     public void unequipWeapon() {
@@ -190,9 +209,31 @@ public class Hero implements HeroTemplate {
         }
     }
 
+    public void equipWeapon2(Weapon weapon) {
+        this.equippedWeapon2 = weapon;
+        System.out.println("Equipped " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
+        // Add any additional logic or effects related to equipping the second weapon
+    }
+
+
+
+    // New method to unequip the second weapon
+    public void unequipWeapon2() {
+        if (this.equippedWeapon2 != null) {
+            System.out.println("Unequipped " + this.equippedWeapon2.getName());
+            this.equippedWeapon2 = null;
+        } else {
+            System.out.println("No second weapon equipped.");
+        }
+    }
+
     public void equipArmor(Armor armor) {
         this.equippedArmor = armor;
         System.out.println("Equipped " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
+    }
+
+    public Armor getEquippedArmor() {
+        return equippedArmor;
     }
 
     public void unequipArmor() {
@@ -206,10 +247,32 @@ public class Hero implements HeroTemplate {
 
     @Override
     public void heal(int healthRestored) {
-
+        // Empty method body
     }
 
     public void setAttack(int attack) {
         this.attack = attack;
     }
+
+    public void usePassiveMonsterAbilities(MonsterBase monster, int currentTurn) {
+        Inquisition inquisition = new Inquisition();
+        MonsterKiller monsterKiller = new MonsterKiller();
+
+        if (inquisition.isUnlocked()) {
+            inquisition.use(this, monster, currentTurn);
+        }
+
+        if (monsterKiller.isUnlocked()) {
+            monsterKiller.use(this, monster, currentTurn);
+        }
+    }
+
+    public void updateHeroBonuses() {
+        for (HeroAbility ability : abilities) {
+            if (ability.isUnlocked()) {
+                ability.use(this);
+            }
+        }
+    }
 }
+

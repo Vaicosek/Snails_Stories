@@ -2,7 +2,9 @@ package hero;
 
 import abilities.HeroAbility;
 import itemshandling.Armor;
+import itemshandling.Inventory;
 import itemshandling.Weapon;
+import monster.MonsterBase;
 
 import java.util.List;
 
@@ -42,4 +44,9 @@ public interface HeroTemplate {
     void unequipArmor();
 
     void heal(int healthRestored);
+    void usePassiveMonsterAbilities(MonsterBase monster, int currentTurn);
+
+
+    void equipWeapon2(Weapon weapon2);
+
 }

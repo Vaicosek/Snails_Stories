@@ -7,12 +7,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Weapon extends ItemBase {
+    private int additionalDamage;
+
     public Weapon(int damage, int health, int protection) {
         super(ItemType.WEAPON, damage, health, protection);
+        this.additionalDamage = 0; // Initialize additional damage
     }
+
     public void setRandomDamage(Player player) {
-        this.Damage = (int) (Math.floor(Math.random() * 30) + player.getHero().getLevel())/2;
+        this.Damage = (int) (Math.floor(Math.random() * 30) + player.getHero().getLevel()) / 2;
     }
+
+    public void increaseDamage(int amount) {
+        this.additionalDamage += amount;
+    }
+
+    public int getTotalDamage() {
+        return getDamage() + this.additionalDamage;
+    }
+
     @Override
     protected void InitializeName() {
         names= new ArrayList<String>(Arrays.asList(

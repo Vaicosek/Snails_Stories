@@ -10,8 +10,10 @@ public class Ice extends HeroAbility {
 
     public Ice() {
         setName("Ice");
-        remainingTurns = 2; // Set the initial remaining turns for the Ice ability
-        turnCounter = 0; // Initialize the turn counter
+        setManaCost(20);
+        remainingTurns = 2;
+        turnCounter = 0;
+
     }
 
     public void use(HeroTemplate hero, MonsterBase monster, int currentTurn) {

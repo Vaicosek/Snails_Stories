@@ -2,6 +2,7 @@ package abilitiesmanagement;
 
 import abilities.HeroAbility;
 import hero.Hero;
+import monster.MonsterBase;
 
 import java.util.List;
 
@@ -20,11 +21,5 @@ public class AbilitiesEffects {
         }
     }
 
-    public void applyActiveEffects(Hero hero) {
-        for (HeroAbility ability : abilities) {
-            if (ability.isUnlocked()) {
-                ability.applyActiveEffect(hero);
-            }
-        }
-    }
 }
+
