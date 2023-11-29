@@ -59,7 +59,7 @@ public class HeroAbilitiesManager {
         wizardAbilities.add(new Fire());
         wizardAbilities.add(new StoneSkin());
         wizardAbilities.add(new MagicalPower());
-        wizardAbilities.add(new Artefacts());
+        wizardAbilities.add(new Sleep());
         wizardAbilities.add(new Ice());
         wizardAbilities.add(new Sparks());
 

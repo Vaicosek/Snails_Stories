@@ -51,4 +51,8 @@ public class HeroAbility {
 
     public void applyActiveEffect(Hero hero) {
     }
+
+    public boolean isSpellAreaEffect() {
+        return false; // By default, assume the spell doesn't target all monsters
+    }
 }
