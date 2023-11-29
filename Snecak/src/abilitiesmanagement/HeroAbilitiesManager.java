@@ -31,7 +31,7 @@ public class HeroAbilitiesManager {
         defenderAbilities.add(new StrongHands ());
         defenderAbilities.add(new Taunt ());
         defenderAbilities.add(new Turtle ());
-        defenderAbilities.add(new Shield ());
+        defenderAbilities.add(new Throw());
         defenderAbilities.add(new DragonBorn ());
         defenderAbilities.add(new Warrior ());
         defenderAbilities.add(new Bodyguard ());
@@ -47,7 +47,7 @@ public class HeroAbilitiesManager {
         healerAbilities.add(new Resurrection());
         healerAbilities.add(new Purge());
         healerAbilities.add(new Telekinesis());
-        healerAbilities.add(new DivaneSword());
+        healerAbilities.add(new DivineSword());
         healerAbilities.add(new HolyNova());
 
 
