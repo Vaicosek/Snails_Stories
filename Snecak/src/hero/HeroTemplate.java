@@ -2,7 +2,6 @@ package hero;
 
 import abilities.HeroAbility;
 import itemshandling.Armor;
-import itemshandling.Inventory;
 import itemshandling.Weapon;
 import monster.MonsterBase;
 
@@ -49,4 +48,5 @@ public interface HeroTemplate {
 
     void equipWeapon2(Weapon weapon2);
 
+   int getEquippedArmorProtection();
 }

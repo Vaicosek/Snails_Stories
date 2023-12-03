@@ -1,11 +1,7 @@
 package hero;
 
-import abilities.HeroAbility;
-import abilities.Inquisition;
-import abilities.MonsterKiller;
-import abilities.SharpWeapons;
+import abilities.*;
 import itemshandling.Armor;
-import itemshandling.Inventory;
 import itemshandling.Weapon;
 import monster.Dice;
 import monster.MonsterBase;
@@ -217,6 +213,7 @@ public class Hero implements HeroTemplate {
 
 
 
+
     // New method to unequip the second weapon
     public void unequipWeapon2() {
         if (this.equippedWeapon2 != null) {
@@ -232,8 +229,8 @@ public class Hero implements HeroTemplate {
         System.out.println("Equipped " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
     }
 
-    public Armor getEquippedArmor() {
-        return equippedArmor;
+    public int getEquippedArmorProtection() {
+        return equippedArmor.Protection;
     }
 
     public void unequipArmor() {
@@ -247,7 +244,7 @@ public class Hero implements HeroTemplate {
 
     @Override
     public void heal(int healthRestored) {
-        // Empty method body
+
     }
 
     public void setAttack(int attack) {
@@ -257,13 +254,17 @@ public class Hero implements HeroTemplate {
     public void usePassiveMonsterAbilities(MonsterBase monster, int currentTurn) {
         Inquisition inquisition = new Inquisition();
         MonsterKiller monsterKiller = new MonsterKiller();
+        CriticalHit criticalHit = new CriticalHit();
 
         if (inquisition.isUnlocked()) {
-            inquisition.use(this, monster, currentTurn);
+            inquisition.use(this, monster);
         }
 
         if (monsterKiller.isUnlocked()) {
-            monsterKiller.use(this, monster, currentTurn);
+            monsterKiller.use(this, monster);
+        }
+        if (criticalHit.isUnlocked()){
+            monsterKiller.use(this,monster);
         }
     }
 

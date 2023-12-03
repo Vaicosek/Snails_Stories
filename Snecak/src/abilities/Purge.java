@@ -16,7 +16,7 @@ public class Purge extends HeroAbility {
     public void use(HeroTemplate hero, MonsterBase monster, int currentTurn) {
         int currentMana = hero.getMana();
         int manaCost = getManaCost(); // Get the mana cost from the superclass
-        int threshold = (int) ((hero.getLevel()/2) * 0.05 * monster.getHP());
+        int threshold = (int) ((hero.getLevel()/2) * 0.6 * monster.getHP());
 
 
         if (currentMana >= manaCost && monster.getHP() <= threshold) {

@@ -193,8 +193,9 @@ public class GameEngine {
                     break;
                 }
 
-                int monsterDamage = monster.Attack();
-                player.getHero().setHP(player.getHero().getHP() - monsterDamage);
+                int reduction =  player.getHero().getEquippedArmorProtection();
+                int monsterDamage = (monster.Attack() - reduction);
+                player.getHero().setHP (player.getHero().getHP() - monsterDamage);
                 System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
 
                 turnCounter++; // Increment the turn counter after monster's attack

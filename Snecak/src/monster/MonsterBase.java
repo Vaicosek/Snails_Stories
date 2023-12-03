@@ -76,6 +76,7 @@ public abstract class MonsterBase {
     public String getName() {
         return Name;
     }
+
     public int getTier() {
         return tier;
     }
@@ -93,19 +94,25 @@ public abstract class MonsterBase {
     }
 
     public int Attack() {
-        return Dice.getNextNumber(1, tier * 10 + (10 * GroupLevel)) * attackReduction;
-    }
-    public int attackReduction = 0;
+        int damage;
 
+        if (tier == 5) {
+            // If it's tier 5, set damage between 20 and 60
+            damage = Dice.getNextNumber(20, 60)* attackReduction;
+        } else {
+            // For other tiers, use the default damage calculation
+            damage = Dice.getNextNumber(1, tier * 10 + (10 * GroupLevel))* attackReduction;
+        }
+
+        return damage;
+    }
     public void reduceAttack(int damageReduction) {
         if (damageReduction < 0) {
             throw new IllegalArgumentException("Damage reduction cannot be negative.");
         }
-
-
         attackReduction = damageReduction;
-
     }
+    public int attackReduction = 0;
 
 
     public int getHP() {
@@ -130,6 +137,6 @@ public abstract class MonsterBase {
     }
 
 
-}
 
+}
 

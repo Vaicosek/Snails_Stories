@@ -23,7 +23,7 @@ public class HeroAbilitiesManager {
         assassinAbilities.add(new Misdirection ());
         assassinAbilities.add(new Evasion ());
         assassinAbilities.add(new SharpWeapons());
-        assassinAbilities.add(new Bloodthirst());
+        assassinAbilities.add(new BloodPact());
 
         // Add abilities for Defender
         defenderAbilities.add(new ExtraHP());
@@ -33,7 +33,7 @@ public class HeroAbilitiesManager {
         defenderAbilities.add(new Turtle ());
         defenderAbilities.add(new Throw());
         defenderAbilities.add(new DragonBorn ());
-        defenderAbilities.add(new Warrior ());
+        defenderAbilities.add(new HammerSlam());
         defenderAbilities.add(new Bodyguard ());
         defenderAbilities.add(new Sacrifice());
 
@@ -57,7 +57,7 @@ public class HeroAbilitiesManager {
         wizardAbilities.add(new Conjurer());
         wizardAbilities.add(new Enchantment());
         wizardAbilities.add(new Fire());
-        wizardAbilities.add(new StoneSkin());
+        wizardAbilities.add(new MagicalProtection());
         wizardAbilities.add(new MagicalPower());
         wizardAbilities.add(new Sleep());
         wizardAbilities.add(new Ice());
@@ -70,7 +70,7 @@ public class HeroAbilitiesManager {
         druidAbilities.add(new Entangle());
         druidAbilities.add(new AnimalCompanion());
         druidAbilities.add(new Herbalist ());
-        druidAbilities.add(new Barkskin());
+        druidAbilities.add(new MagicalProtection());
         druidAbilities.add(new Swarm());
         druidAbilities.add(new MagicalPower());
         druidAbilities.add(new Thorns());

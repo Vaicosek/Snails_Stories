@@ -8,7 +8,7 @@ public class MonsterKiller extends HeroAbility {
         setName("MonsterKiller");
     }
 
-    public void use(HeroTemplate hero, MonsterBase monster, int currentTurn) {
+    public void use(HeroTemplate hero, MonsterBase monster) {
         int additionalDamage = 0;
         int monsterTier = monster.getTier();
 
