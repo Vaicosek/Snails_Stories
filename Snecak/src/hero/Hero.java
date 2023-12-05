@@ -181,6 +181,7 @@ public class Hero implements HeroTemplate {
     }
 
     public void equipWeapon(Weapon weapon) {
+        unequipWeapon();
         this.equippedWeapon = weapon;
         System.out.println("Equipped " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
 
@@ -200,28 +201,27 @@ public class Hero implements HeroTemplate {
         if (this.equippedWeapon != null) {
             System.out.println("Unequipped " + this.equippedWeapon.getName());
             this.equippedWeapon = null;
-        } else {
+        } /* else {
             System.out.println("No weapon equipped.");
-        }
+        } */
     }
+
 
     public void equipWeapon2(Weapon weapon) {
+        unequipWeapon2();
         this.equippedWeapon2 = weapon;
         System.out.println("Equipped " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
-        // Add any additional logic or effects related to equipping the second weapon
+
     }
 
 
-
-
-    // New method to unequip the second weapon
     public void unequipWeapon2() {
         if (this.equippedWeapon2 != null) {
             System.out.println("Unequipped " + this.equippedWeapon2.getName());
             this.equippedWeapon2 = null;
-        } else {
+        } /* else {
             System.out.println("No second weapon equipped.");
-        }
+        } */
     }
 
     public void equipArmor(Armor armor) {

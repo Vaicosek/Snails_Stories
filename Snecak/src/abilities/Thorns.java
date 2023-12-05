@@ -9,6 +9,7 @@ public class Thorns extends HeroAbility {
 
     public Thorns() {
         setName("Thorns");
+        setManaCost(50);
         remainingTurns = 5; // Set the initial remaining turns for the effect
         turnCounter = 0; // Initialize the turn counter
     }

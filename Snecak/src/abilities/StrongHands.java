@@ -18,8 +18,6 @@ public class StrongHands extends HeroAbility {
     }
 
     public void use(HeroTemplate hero) {
-        // Implement the logic for the StrongHands ability
-        // Call the inventory method to equip a second weapon
 
         inventory.openInventoryMenu(hero);
     }

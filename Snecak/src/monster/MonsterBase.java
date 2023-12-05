@@ -92,7 +92,7 @@ public abstract class MonsterBase {
             return "";
         }
     }
-
+    public int attackReduction = 0;
     public int Attack() {
         int damage;
 
@@ -112,7 +112,7 @@ public abstract class MonsterBase {
         }
         attackReduction = damageReduction;
     }
-    public int attackReduction = 0;
+
 
 
     public int getHP() {
