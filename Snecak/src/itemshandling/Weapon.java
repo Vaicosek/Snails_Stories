@@ -15,7 +15,7 @@ public class Weapon extends ItemBase {
     }
 
     public void setRandomDamage(Player player) {
-        this.Damage = (int) (Math.floor(Math.random() * 30) + player.getHero().getLevel()) / 2;
+        this.Damage = (int) (Math.floor(Math.random() * 15) * (player.getHero().getLevel() / 2));
     }
 
     public void increaseDamage(int amount) {

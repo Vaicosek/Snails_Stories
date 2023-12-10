@@ -23,6 +23,7 @@ public class Sparks extends HeroAbility {
             hero.setMana(currentMana - manaCost);
             System.out.println("Used " + getName() + "!");
             int damage = Dice.getNextNumber(2, hero.getLevel() * 12);
+            setDamage(damage);
             turnCounter = currentTurn + remainingTurns; // Set the next turn when the ability can be used
         } else {
             System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");

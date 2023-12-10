@@ -35,7 +35,7 @@ public class HeroAbilitiesManager {
         defenderAbilities.add(new DragonBorn ());
         defenderAbilities.add(new HammerSlam());
         defenderAbilities.add(new Bodyguard ());
-        defenderAbilities.add(new Sacrifice());
+        defenderAbilities.add(new Shout());
 
 
         // Add abilities for Healer
@@ -53,7 +53,7 @@ public class HeroAbilitiesManager {
 
         // Add abilities for Wizard
         wizardAbilities.add(new Illusion());
-        wizardAbilities.add(new Focus());
+        wizardAbilities.add(new MagicalExplosion());
         wizardAbilities.add(new Conjurer());
         wizardAbilities.add(new Enchantment());
         wizardAbilities.add(new Fire());
@@ -69,7 +69,7 @@ public class HeroAbilitiesManager {
         druidAbilities.add(new Storm());
         druidAbilities.add(new Entangle());
         druidAbilities.add(new AnimalCompanion());
-        druidAbilities.add(new Herbalist ());
+        druidAbilities.add(new Bite());
         druidAbilities.add(new MagicalProtection());
         druidAbilities.add(new Swarm());
         druidAbilities.add(new MagicalPower());

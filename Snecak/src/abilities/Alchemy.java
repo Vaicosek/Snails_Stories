@@ -5,4 +5,6 @@ public class Alchemy extends HeroAbility {
         setName("Alchemy");
 
     }
+
+   /* make method that will allow to create of alchemical properties, area damage ect */
 }
