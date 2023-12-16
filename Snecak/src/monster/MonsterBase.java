@@ -19,6 +19,10 @@ public abstract class MonsterBase {
 
     public String Name;
 
+    private boolean isEntangled;
+    private int entangleDuration;
+
+
 
     public MonsterBase(int tier, int GroupLevel) {
         this.tier = tier;
@@ -51,8 +55,6 @@ public abstract class MonsterBase {
 
         }
     }
-
-
     public static MonsterBase chooseMonster(List<MonsterBase> monsters) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose a monster to attack:");
@@ -112,9 +114,6 @@ public abstract class MonsterBase {
         }
         attackReduction = damageReduction;
     }
-
-
-
     public int getHP() {
         return HP;
     }
@@ -136,7 +135,16 @@ public abstract class MonsterBase {
         }
     }
 
-
-
+    public boolean isEntangled() {
+        return isEntangled;
+    }
+    public void setEntangled(boolean entangled, int duration) {
+        isEntangled = entangled;
+        if (entangled) {
+            entangleDuration = duration; // Set the entanglement duration
+        }
+    }
+    public int getDuration() {
+        return entangleDuration;
+    }
 }
-

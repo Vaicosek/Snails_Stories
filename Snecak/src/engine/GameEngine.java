@@ -171,6 +171,12 @@ public class GameEngine {
                 if (currentPlayer.getHero().getHP() <= 0) {
                     continue;
                 }
+                if (currentMonster.isEntangled() && currentMonster.getDuration() > 0) {
+                    System.out.println("The monster is entangled and skips its turn!");
+
+                    currentMonster.setEntangled(false, currentMonster.getDuration());
+                    break;
+                }
 
                 ActionSelector.chooseAction(currentPlayer, gameMap.getPlayerLocation(currentPlayer).monsters);
 
