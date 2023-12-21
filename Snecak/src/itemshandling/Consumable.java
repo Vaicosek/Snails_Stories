@@ -1,6 +1,7 @@
 package itemshandling;
 
 import hero.HeroTemplate;
+import monster.Dice;
 import players.Player;
 
 import java.util.ArrayList;
@@ -13,10 +14,10 @@ public class Consumable extends ItemBase {
     }
 
     public void setRandomHealth(Player player) {
-        this.Health = (int) (Math.floor(Math.random() * 33) + player.getHero().getLevel());
+        this.Health = Dice.getNextNumber(0,10 + (player.getHero().getLevel() * 10));
     }
     public void setRandomDamage(Player player) {
-        this.Damage = (int) (Math.floor(Math.random() * 30) + player.getHero().getLevel())/6;
+        this.Damage = Dice.getNextNumber(0,4 + player.getHero().getLevel());
     }
     @Override
     protected void InitializeName() {

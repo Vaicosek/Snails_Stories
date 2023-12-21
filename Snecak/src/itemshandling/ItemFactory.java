@@ -1,28 +1,30 @@
 package itemshandling;
 
+import players.Player;
+
 import java.util.Random;
     public class ItemFactory {
 
-        public ItemBase createItem(String itemType) {
-            if (itemType == null) {
-                return null; // Invalid input, return null
-            }
-
-            ItemBase newItem = null;
-            switch (itemType.toLowerCase()) {
-                case "weapon":
-                    newItem = createWeapon();
-                    break;
-                case "armor":
-                    newItem = createArmor();
-                    break;
-                case "consumable":
-                    newItem = createConsumable();
-                    break;
+        public static ItemBase createItem(Player player) {
+            ItemType itemType = ItemBase.getRandomItemType();
+            switch (itemType) {
+                case CONSUMABLE:
+                    Consumable consumable = new Consumable(0, 0, 0);
+                    consumable.setRandomHealth(player);
+                    consumable.setRandomDamage(player);
+                    return consumable;
+                case ARMOR:
+                    Armor armor = new Armor(0, 0, 0);
+                    armor.setRandomProtection(player);
+                    armor.setRandomDamage(player);
+                    return armor;
+                case WEAPON:
+                    Weapon weapon = new Weapon(0, 0, 0);
+                    weapon.setRandomDamage(player);
+                    return weapon;
                 default:
-                    System.out.println("Invalid item type: " + itemType);
+                    return null;
             }
-            return newItem;
         }
 
         private Weapon createWeapon() {

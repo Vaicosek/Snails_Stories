@@ -16,7 +16,7 @@ public class Armor extends ItemBase {
         this.Protection =  Dice.getNextNumber(0,6 + player.getHero().getLevel());
     }
     public void setRandomDamage(Player player) {
-        this.Damage = (int) (Math.floor(Math.random() * 20) + player.getHero().getLevel());
+        this.Damage = Dice.getNextNumber(0,4 + player.getHero().getLevel());
     }
 
     @Override

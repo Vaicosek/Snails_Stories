@@ -1,6 +1,7 @@
 package itemshandling;
 
 import hero.HeroTemplate;
+import monster.Dice;
 import players.Player;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class Weapon extends ItemBase {
     }
 
     public void setRandomDamage(Player player) {
-        this.Damage = (int) (Math.floor(Math.random() * 15) * (player.getHero().getLevel() / 2));
+        this.Damage = Dice.getNextNumber(0, (player.getHero().getLevel() * 11));
     }
 
     public void increaseDamage(int amount) {
