@@ -55,4 +55,8 @@ public class HeroAbility {
     public boolean isSpellAreaEffect() {
         return false; // By default, assume the spell doesn't target all monsters
     }
+
+    public boolean isSpellTaunt() {
+        return false; // By default
+    }
 }

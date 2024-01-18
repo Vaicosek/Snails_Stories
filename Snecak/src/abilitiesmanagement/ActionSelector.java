@@ -75,47 +75,67 @@ public class ActionSelector {
             selectedAbility = abilities.get(abilityIndex - 1);
 
             if (selectedAbility.isSpellAreaEffect()) {
-                HeroAbility finalSelectedAbility = selectedAbility;
-                monsters.forEach(monster -> {
-                    finalSelectedAbility.use(player.getHero());
-                    int damageDealt = finalSelectedAbility.getDamage();
-                    monster.HP -= damageDealt;
-                    System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), finalSelectedAbility.getName(), monster.getName(), damageDealt);
-                    player.getHero().usePassiveMonsterAbilities(monster, 0);
-
-                    if (monster.getHP() <= 0) {
-                        System.out.printf("%s has been defeated!%n", monster.getName());
-                        System.out.printf("%s gained %d XP!%n", player.getName(), monster.MonsterXp);
-                        player.increaseXP(monster.MonsterXp);
-                    }
-                });
-
-                monsters.removeIf(monster -> monster.getHP() <= 0);
-                monsters.forEach(monster -> ItemBase.DropItem(player, player.getInventory()));
-            }
-
-             else {
-                selectedAbility.use(player.getHero());
-
-                MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
-                int damageDealt = selectedAbility.getDamage();
-                currentMonster.HP -= damageDealt;
-
-                System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), selectedAbility.getName(), currentMonster.getName(), damageDealt);
-
-                player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
-
-                if (currentMonster.getHP() <= 0) {
-                    System.out.printf("%s has been defeated!%n", currentMonster.getName());
-                    System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
-                    player.increaseXP(currentMonster.MonsterXp);
-                    monsters.remove(currentMonster);
-                    ItemBase.DropItem(player, player.getInventory());
-                }
+                handleAreaEffectAbility(player, monsters, selectedAbility);
+            } else if (selectedAbility.isSpellTaunt()) {
+                handleTauntAbility(player, monsters, selectedAbility);
+            } else {
+                handleNormalAbility(player, monsters, selectedAbility);
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a valid ability number.");
             performAbility(player, monsters); // Recursively call the method to prompt again
+        }
+    }
+
+    private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, HeroAbility areaEffectAbility) {
+        // Implement logic for area effect abilities
+        areaEffectAbility.use(player.getHero());
+
+        monsters.forEach(monster -> {
+            int damageDealt = areaEffectAbility.getDamage();
+            monster.HP -= damageDealt;
+            System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), areaEffectAbility.getName(), monster.getName(), damageDealt);
+
+            player.getHero().usePassiveMonsterAbilities(monster, 0);
+
+            if (monster.getHP() <= 0) {
+                System.out.printf("%s has been defeated!%n", monster.getName());
+                System.out.printf("%s gained %d XP!%n", player.getName(), monster.MonsterXp);
+                player.increaseXP(monster.MonsterXp);
+            }
+        });
+
+        monsters.removeIf(monster -> monster.getHP() <= 0);
+        monsters.forEach(monster -> ItemBase.DropItem(player, player.getInventory()));
+    }
+
+    private static void handleTauntAbility(Player player, List<MonsterBase> monsters, HeroAbility tauntAbility) {
+        // Implement logic for taunt abilities
+        tauntAbility.use(player.getHero());
+
+        // Change the logic for monster targeting here
+        // For example, set a flag on monsters to target the player who used the taunt ability
+        // or modify the monster targeting logic accordingly
+    }
+
+    private static void handleNormalAbility(Player player, List<MonsterBase> monsters, HeroAbility normalAbility) {
+        // Implement logic for normal abilities
+        normalAbility.use(player.getHero());
+
+        MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
+        int damageDealt = normalAbility.getDamage();
+        currentMonster.HP -= damageDealt;
+
+        System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), normalAbility.getName(), currentMonster.getName(), damageDealt);
+
+        player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
+
+        if (currentMonster.getHP() <= 0) {
+            System.out.printf("%s has been defeated!%n", currentMonster.getName());
+            System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
+            player.increaseXP(currentMonster.MonsterXp);
+            monsters.remove(currentMonster);
+            ItemBase.DropItem(player, player.getInventory());
         }
     }
 }
