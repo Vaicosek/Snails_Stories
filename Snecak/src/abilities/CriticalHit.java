@@ -13,7 +13,7 @@ public class CriticalHit extends HeroAbility {
     public void use (HeroTemplate hero, MonsterBase monster) {
         int percent = Dice.getNextNumber(0, 100);
         if (percent>= 33) {
-            int damage =(hero.getAttack()/100) * 10;
+            int damage =(hero.getAttack()/100) * 20 + hero.getAttack();
             setDamage(damage);
             System.out.println("Used " + getName() + "!");
         }
