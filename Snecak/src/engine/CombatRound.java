@@ -101,16 +101,19 @@ public class CombatRound {
     }
 
     private void handlePlayerTurn(Player currentPlayer, MonsterBase currentMonster) {
-        // Implement player's turn logic here
+
         ActionSelector.chooseAction(currentPlayer, gameMap.getPlayerLocation(currentPlayer).monsters);
     }
 
     private void handleMonsterTurn(Player player, MonsterBase monster) {
-
-        int reduction = player.getHero().getEquippedArmorProtection();
-        int monsterDamage = (monster.Attack() - reduction);
-        player.getHero().setHP(player.getHero().getHP() - monsterDamage);
-        System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
+        if (monster.isTaunted()) {
+            System.out.println(monster.getName() + " targets " + player.getName() + " due to Taunt!");
+        } else {
+            int reduction = player.getHero().getEquippedArmorProtection();
+            int monsterDamage = (monster.Attack() - reduction);
+            player.getHero().setHP(player.getHero().getHP() - monsterDamage);
+            System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
+        }
     }
 
         private void askForFlee(Player player) {

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ActionSelector {
+
     public static void chooseAction(Player player, List<MonsterBase> monsters) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose your action:");
@@ -110,12 +111,12 @@ public class ActionSelector {
     }
 
     private static void handleTauntAbility(Player player, List<MonsterBase> monsters, HeroAbility tauntAbility) {
-        // Implement logic for taunt abilities
         tauntAbility.use(player.getHero());
 
-        // Change the logic for monster targeting here
-        // For example, set a flag on monsters to target the player who used the taunt ability
-        // or modify the monster targeting logic accordingly
+        // Set tauntRounds when handling taunt ability
+
+
+        monsters.forEach(monster -> monster.setTaunted(true, tauntAbility.getTauntRounds()));
     }
 
     private static void handleNormalAbility(Player player, List<MonsterBase> monsters, HeroAbility normalAbility) {

@@ -59,4 +59,8 @@ public class HeroAbility {
     public boolean isSpellTaunt() {
         return false; // By default
     }
+
+    public int getTauntRounds() {
+        return 0;
+    }
 }
