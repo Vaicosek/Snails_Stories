@@ -53,7 +53,7 @@ public class CombatRound {
                 if (currentPlayer.getHero().getHP() <= 0) {
                     continue;
                 }
-                if (currentMonster.isEntangled() && currentMonster.getDuration() > 0) {
+                if (currentMonster.isEntangled() && currentMonster.getDuration() > 0 || currentMonster.isTaunted() && currentMonster.getDuration() > 0) {
                     System.out.println("The monster is entangled and skips its turn!");
 
                     currentMonster.setEntangled(false, currentMonster.getDuration());
@@ -101,8 +101,7 @@ public class CombatRound {
     }
 
     private void handlePlayerTurn(Player currentPlayer, MonsterBase currentMonster) {
-
-        ActionSelector.chooseAction(currentPlayer, gameMap.getPlayerLocation(currentPlayer).monsters);
+        ActionSelector.chooseAction(currentPlayer, monsters);
     }
 
     private void handleMonsterTurn(Player player, MonsterBase monster) {

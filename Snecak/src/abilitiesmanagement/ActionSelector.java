@@ -113,9 +113,6 @@ public class ActionSelector {
     private static void handleTauntAbility(Player player, List<MonsterBase> monsters, HeroAbility tauntAbility) {
         tauntAbility.use(player.getHero());
 
-        // Set tauntRounds when handling taunt ability
-
-
         monsters.forEach(monster -> monster.setTaunted(true, tauntAbility.getTauntRounds()));
     }
 
