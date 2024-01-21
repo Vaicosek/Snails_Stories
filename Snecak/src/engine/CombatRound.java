@@ -8,6 +8,7 @@ import monster.MonsterBase;
 import players.Player;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class CombatRound {
@@ -53,12 +54,7 @@ public class CombatRound {
                 if (currentPlayer.getHero().getHP() <= 0) {
                     continue;
                 }
-                if (currentMonster.isEntangled() && currentMonster.getDuration() > 0 || currentMonster.isTaunted() && currentMonster.getDuration() > 0) {
-                    System.out.println("The monster is entangled and skips its turn!");
 
-                    currentMonster.setEntangled(false, currentMonster.getDuration());
-                    break;
-                }
 
                 handlePlayerTurn(currentPlayer, currentMonster);
 
@@ -105,24 +101,62 @@ public class CombatRound {
     }
 
     private void handleMonsterTurn(Player player, MonsterBase monster) {
-        if (monster.isTaunted()) {
-            System.out.println(monster.getName() + " targets " + player.getName() + " due to Taunt!");
+        if (monster.isTaunted() && monster.getTauntedDuration() > 0) {
+            handleTauntedMonsterTurn(player, monster);
+        } else if (monster.isMisdirected() && monster.getMisdirectedDuration() > 0) {
+            handleMisdirectedMonsterTurn(monster,gameMap.getPlayerPosition().get(player));
+        } else if (monster.isEntangled() && monster.getEntangledDuration() > 0) {
+            System.out.println("The monster is entangled and skips its turn!");
+            monster.setEntangled(false, monster.getEntangledDuration());
         } else {
-            int reduction = player.getHero().getEquippedArmorProtection();
-            int monsterDamage = (monster.Attack() - reduction);
-            player.getHero().setHP(player.getHero().getHP() - monsterDamage);
-            System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
+            handleRegularMonsterTurn(player, monster);
         }
     }
 
-        private void askForFlee(Player player) {
-            System.out.printf("%s, do you want to flee? (y/n)%n", player.getName());
-            Scanner scanner = new Scanner(System.in);
-            String input = scanner.nextLine().trim();
-            if (input.equalsIgnoreCase("y")) {
-                flee(player);
-            }
+
+    private void handleRegularMonsterTurn(Player player, MonsterBase monster) {
+        int reduction = player.getHero().getEquippedArmorProtection();
+        int monsterDamage = (monster.Attack() - reduction);
+        player.getHero().setHP(player.getHero().getHP() - monsterDamage);
+        System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
+    }
+
+
+    private void handleMisdirectedMonsterTurn(MonsterBase monster, PositionModel playerPosition) {
+        List<Player> playersInSameLocation = gameMap.getPlayersAtLocation(playerPosition.x, playerPosition.y);
+
+        // Exclude the misdirecting player from potential targets
+        playersInSameLocation.remove(player);
+
+        if (!playersInSameLocation.isEmpty()) {
+            // Choose a random player from the remaining players in the same location
+            Player newTarget = playersInSameLocation.get(new Random().nextInt(playersInSameLocation.size()));
+
+            // Attack the new target
+            int monsterDamage = monster.Attack();
+            newTarget.getHero().setHP(newTarget.getHero().getHP() - monsterDamage);
+            System.out.printf("%s hit %s for %d damage!%n", monster.getName(), newTarget.getName(), monsterDamage);
+        } else {
+            // No other players in the same location, so the monster skips its turn
+            System.out.println("The misdirected monster is unable to find another target and skips its turn!");
         }
+
+        // Decrement the misdirection duration
+        if (monster.getMisdirectedDuration() > 0) {
+            monster.setMisdirected(false, 0);
+        }
+    }
+
+    private void handleTauntedMonsterTurn(Player tauntingPlayer, MonsterBase monster) {
+        int reduction = tauntingPlayer.getHero().getEquippedArmorProtection();
+        int monsterDamage = (monster.Attack() - reduction);
+        tauntingPlayer.getHero().setHP(tauntingPlayer.getHero().getHP() - monsterDamage);
+        System.out.printf("%s hits you for %d damage due to Taunt!%n", monster.getName(), monsterDamage);
+
+        if (monster.getTauntedDuration() > 0) {
+            monster.setTaunted(false, 0);
+        }
+    }
 
     private void flee(Player player) {
         PositionModel currentPosition = gameMap.getPlayerPosition().get(player);

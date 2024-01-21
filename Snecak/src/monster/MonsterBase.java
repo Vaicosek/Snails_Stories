@@ -21,7 +21,10 @@ public abstract class MonsterBase {
 
     private boolean isEntangled;
     private int entangleDuration;
+    private int misdirectedDuration;
+    private int tauntDuration;
     private boolean isTaunted;
+    private boolean isMisdirected;
 
     public MonsterBase(int tier, int GroupLevel) {
         this.tier = tier;
@@ -143,8 +146,14 @@ public abstract class MonsterBase {
             entangleDuration = duration; // Set the entanglement duration
         }
     }
-    public int getDuration() {
+    public int getEntangledDuration() {
         return entangleDuration;
+    }
+    public int getTauntedDuration() {
+        return tauntDuration;
+    }
+    public int getMisdirectedDuration() {
+        return misdirectedDuration;
     }
 
     public boolean isTaunted() {
@@ -154,4 +163,12 @@ public abstract class MonsterBase {
     public void setTaunted(boolean taunted, int tauntRounds) {
         isTaunted = taunted;
     }
+    public boolean isMisdirected() {
+
+        return isMisdirected;
+    }
+    public void setMisdirected(boolean misdirected, int misdirectedRounds) {
+        isMisdirected = misdirected;
+    }
+    
 }
