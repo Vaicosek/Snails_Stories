@@ -10,7 +10,7 @@ public class ExtraHP extends HeroAbility {
 
     }
 
-    public void use () {
+    public void useOnSelf () {
         int extraHP = hero.getLevel() * 10;
         int newHP = 100 + extraHP;
         hero.setHP(newHP);

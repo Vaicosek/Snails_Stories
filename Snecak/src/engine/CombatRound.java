@@ -15,25 +15,24 @@ public class CombatRound {
         private Player player;
         private List<MonsterBase> monsters;
         private Map gameMap;
+    private int turnCounter;
 
     public CombatRound(Player player, List<MonsterBase> monsters, Map gameMap) {
         this.player = player;
         this.monsters = monsters;
         this.gameMap = gameMap;
+        this.turnCounter = turnCounter;
     }
 
     public void executeRound() {
-        System.out.println("You can choose if you want to flee now by pressing Q");
         Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        if (s.equalsIgnoreCase("q")) {
-            flee(player);
-        }
 
         PositionModel playerPosition = gameMap.getPlayerPosition().get(player);
         List<Player> players = gameMap.getPlayersAtLocation(playerPosition.x, playerPosition.y);
         int currentMonsterIndex = 0;
-        int turnCounter = 0; // Initialize the turn counter to 0
+
+
+
 
         // Ask all players at the beginning of the fight if they want to join
         for (Player currentPlayer : players) {
@@ -44,6 +43,12 @@ public class CombatRound {
                     System.out.printf("%s has joined the fight!%n", currentPlayer.getName());
                 }
             }
+        }
+
+        System.out.println("You can choose if you want to flee now by pressing Q");
+        String s = scanner.nextLine();
+        if (s.equalsIgnoreCase("q")) {
+            flee(player);
         }
 
         while (!monsters.isEmpty() && player.getHero().getHP() > 0) {
@@ -117,6 +122,10 @@ public class CombatRound {
     private void handleRegularMonsterTurn(Player player, MonsterBase monster) {
         int reduction = player.getHero().getEquippedArmorProtection();
         int monsterDamage = (monster.Attack() - reduction);
+
+
+
+
         player.getHero().setHP(player.getHero().getHP() - monsterDamage);
         System.out.printf("%s hit you for %d damage!%n", monster.getName(), monsterDamage);
     }

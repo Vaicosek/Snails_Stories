@@ -96,7 +96,7 @@ public abstract class MonsterBase {
             return "";
         }
     }
-    public int attackReduction = 0;
+    public int attackReduction = 1;
     public int Attack() {
         int damage;
 

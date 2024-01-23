@@ -1,11 +1,10 @@
 package abilities;
 
-import hero.Hero;
 import hero.HeroTemplate;
 import itemshandling.Inventory;
-import itemshandling.Weapon;
+import monster.MonsterBase;
 
-import java.util.Scanner;
+import java.util.List;
 
 public class StrongHands extends HeroAbility {
     private Inventory inventory;
@@ -17,7 +16,7 @@ public class StrongHands extends HeroAbility {
         this.inventory = new Inventory(); // Initialize the inventory
     }
 
-    public void use(HeroTemplate hero) {
+    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
 
         inventory.openInventoryMenu(hero);
     }

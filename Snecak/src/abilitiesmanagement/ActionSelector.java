@@ -42,11 +42,7 @@ public class ActionSelector {
         player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
 
         if (currentMonster.getHP() <= 0) {
-            System.out.printf("%s has been defeated!%n", currentMonster.getName());
-            System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
-            player.increaseXP(currentMonster.MonsterXp);
-            monsters.remove(currentMonster);
-            ItemBase.DropItem(player, player.getInventory());
+            handleMonsterDefeat(player, currentMonster, monsters);
         }
     }
 
@@ -88,9 +84,17 @@ public class ActionSelector {
         }
     }
 
+    private static void handleMonsterDefeat(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
+        System.out.printf("%s has been defeated!%n", currentMonster.getName());
+        System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
+        player.increaseXP(currentMonster.MonsterXp);
+        monsters.remove(currentMonster);
+        ItemBase.DropItem(player, player.getInventory());
+    }
+
     private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, HeroAbility areaEffectAbility) {
         // Implement logic for area effect abilities
-        areaEffectAbility.use(player.getHero());
+        areaEffectAbility.use(player.getHero(), monsters);
 
         monsters.forEach(monster -> {
             int damageDealt = areaEffectAbility.getDamage();
@@ -100,9 +104,7 @@ public class ActionSelector {
             player.getHero().usePassiveMonsterAbilities(monster, 0);
 
             if (monster.getHP() <= 0) {
-                System.out.printf("%s has been defeated!%n", monster.getName());
-                System.out.printf("%s gained %d XP!%n", player.getName(), monster.MonsterXp);
-                player.increaseXP(monster.MonsterXp);
+                handleMonsterDefeat(player, monster, monsters);
             }
         });
 
@@ -111,14 +113,15 @@ public class ActionSelector {
     }
 
     private static void handleTauntAbility(Player player, List<MonsterBase> monsters, HeroAbility tauntAbility) {
-        tauntAbility.use(player.getHero());
+        // Implement logic for taunt abilities
+        tauntAbility.use(player.getHero(), monsters);
 
         monsters.forEach(monster -> monster.setTaunted(true, tauntAbility.getTauntRounds()));
     }
 
     private static void handleNormalAbility(Player player, List<MonsterBase> monsters, HeroAbility normalAbility) {
         // Implement logic for normal abilities
-        normalAbility.use(player.getHero());
+        normalAbility.use(player.getHero(), monsters);
 
         MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
         int damageDealt = normalAbility.getDamage();
@@ -129,11 +132,7 @@ public class ActionSelector {
         player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
 
         if (currentMonster.getHP() <= 0) {
-            System.out.printf("%s has been defeated!%n", currentMonster.getName());
-            System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
-            player.increaseXP(currentMonster.MonsterXp);
-            monsters.remove(currentMonster);
-            ItemBase.DropItem(player, player.getInventory());
+            handleMonsterDefeat(player, currentMonster, monsters);
         }
     }
 }

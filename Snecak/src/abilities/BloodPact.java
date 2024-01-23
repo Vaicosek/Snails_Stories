@@ -1,7 +1,9 @@
 package abilities;
 
 import hero.HeroTemplate;
+import monster.MonsterBase;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class BloodPact extends HeroAbility {
@@ -9,7 +11,7 @@ public class BloodPact extends HeroAbility {
         setName("Blood Pact");
     }
 
-    public void use(HeroTemplate hero) {
+    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
         Scanner scanner = new Scanner(System.in);
 
         int currentHp = hero.getHP();

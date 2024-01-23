@@ -1,6 +1,9 @@
 package abilities;
 
 import hero.HeroTemplate;
+import monster.MonsterBase;
+
+import java.util.List;
 
 public class Healing extends HeroAbility {
     private HeroTemplate hero;
@@ -11,7 +14,7 @@ public class Healing extends HeroAbility {
 
     }
 
-    public void use(HeroTemplate hero) {
+    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
         int currentMana = hero.getMana();
         if (currentMana >= MANA_COST) {
             int maxHealth = hero.getHP();

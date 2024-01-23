@@ -2,6 +2,9 @@ package abilities;
 
 import hero.Hero;
 import hero.HeroTemplate;
+import monster.MonsterBase;
+
+import java.util.List;
 
 public class HeroAbility {
 
@@ -42,7 +45,7 @@ public class HeroAbility {
         this.unlocked = unlocked;
     }
 
-    public void use(HeroTemplate hero) {
+    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
     }
 
 
@@ -62,5 +65,8 @@ public class HeroAbility {
 
     public int getTauntRounds() {
         return 0;
+    }
+
+    public void useOnSelf(Hero hero) {
     }
 }

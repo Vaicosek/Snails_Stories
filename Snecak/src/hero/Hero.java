@@ -230,7 +230,12 @@ public class Hero implements HeroTemplate {
     }
 
     public int getEquippedArmorProtection() {
-        return equippedArmor.Protection;
+        if (equippedArmor != null) {
+            return equippedArmor.Protection;
+        } else {
+            // handle the case when no armor is equipped, for example, return a default value
+            return 0; // or any other default value
+        }
     }
 
     public void unequipArmor() {
@@ -271,7 +276,7 @@ public class Hero implements HeroTemplate {
     public void updateHeroBonuses() {
         for (HeroAbility ability : abilities) {
             if (ability.isUnlocked()) {
-                ability.use(this);
+                ability.useOnSelf(this);
             }
         }
     }

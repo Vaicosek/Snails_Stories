@@ -8,9 +8,9 @@ import java.util.ArrayList;
 public abstract class ItemBase {
 
     public ItemType itemType;
-    public int Damage;
-    public int Health;
-    public int Protection;
+    public int Damage =0;
+    public int Health = 0;
+    public int Protection = 0;
     public String Name;
 
     public ItemBase(ItemType itemType, int damage, int health, int protection) {
