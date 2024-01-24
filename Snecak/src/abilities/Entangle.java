@@ -1,16 +1,26 @@
 package abilities;
 
+import hero.HeroTemplate;
 import monster.MonsterBase;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class Entangle extends HeroAbility {
+    private int duration = 1;
+
     public Entangle() {
         setName("Entangle");
         setManaCost(30);
     }
-    int duration = 1;
+
+
+    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
+        // Implement logic for using Entangle on a monster
+        MonsterBase selectedMonster = chooseMonsterToEntangle(monsters);
+        System.out.println(hero.getName() + " used " + getName() + " on " + selectedMonster.getName() + "!");
+        selectedMonster.setEntangled(true, duration);
+    }
 
     private MonsterBase chooseMonsterToEntangle(List<MonsterBase> monsters) {
         Scanner scanner = new Scanner(System.in);
@@ -27,11 +37,7 @@ public class Entangle extends HeroAbility {
             System.out.println("Invalid choice. Choose a number between 1 and " + monsters.size() + ":");
             choice = scanner.nextInt();
         }
-        MonsterBase chosenMonster = monsters.get(choice - 1);
-
-        chosenMonster.setEntangled(true, duration);
 
         return monsters.get(choice - 1);
-
     }
 }
