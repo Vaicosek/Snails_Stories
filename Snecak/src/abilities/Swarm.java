@@ -12,7 +12,7 @@ public class Swarm extends HeroAbility {
 
     public Swarm() {
         setName("Swarm");
-        setManaCost(30);
+        setManaCost(50);
         remainingTurns = 3; // Set the initial remaining turns
         turnCounter = 0; // Initialize the turn counter
     }

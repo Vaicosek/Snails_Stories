@@ -44,12 +44,19 @@ public class Hero implements HeroTemplate {
     }
 
     private void calculateAttack() {
+        double damageMultiplier = 1.0; // Default damage multiplier
+
+        if (equippedArmor.getName().equals("TurtleShell")) {
+            // If Turtle ability is active and TurtleShell is equipped, reduce damage by 50%
+            damageMultiplier = 0.5;
+        }
+
         if (equippedWeapon != null && equippedWeapon2 != null) {
-            attack = Dice.getNextNumber(1, level * 10 + equippedWeapon.getDamage() + equippedWeapon2.getDamage());
+            attack = (int) (Dice.getNextNumber(1, level * 10 + equippedWeapon.getDamage() + equippedWeapon2.getDamage()) * damageMultiplier);
         } else if (equippedWeapon != null) {
-            attack = Dice.getNextNumber(1, level * 10 + equippedWeapon.getDamage());
+            attack = (int) (Dice.getNextNumber(1, level * 10 + equippedWeapon.getDamage()) * damageMultiplier);
         } else {
-            attack = Dice.getNextNumber(1, level * 10);
+            attack = (int) (Dice.getNextNumber(1, level * 10) * damageMultiplier);
         }
     }
 
@@ -163,6 +170,7 @@ public class Hero implements HeroTemplate {
     public int getAttack() {
         return attack;
     }
+
 
     @Override
     public void SetMana(int mana) {
@@ -280,4 +288,5 @@ public class Hero implements HeroTemplate {
             }
         }
     }
+
 }

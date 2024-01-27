@@ -18,7 +18,7 @@ public class HeroAbilitiesManager {
         assassinAbilities.add(new Poison());
         assassinAbilities.add(new DeathStrike());
         assassinAbilities.add(new Rage());
-        assassinAbilities.add(new SmokeBomb());
+        assassinAbilities.add(new SpikeBomb());
         assassinAbilities.add(new ShadowClone());
         assassinAbilities.add(new Misdirection ());
         assassinAbilities.add(new Evasion ());

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class HeroAbility {
 
+
     private String name;
     private int damage;
     private int manaCost;
@@ -61,6 +62,10 @@ public class HeroAbility {
 
     public boolean isSpellTaunt() {
         return false; // By default
+    }
+
+    public boolean isEntitySpell() {
+        return false;
     }
 
     public int getTauntRounds() {

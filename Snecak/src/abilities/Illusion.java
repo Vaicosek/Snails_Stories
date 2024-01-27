@@ -5,4 +5,8 @@ public class Illusion extends HeroAbility {
         setName("Illusion");
 
     }
+
+    public boolean isEntitySpell() {
+        return true;
+    }
 }

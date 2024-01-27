@@ -1,14 +1,19 @@
 package abilitiesmanagement;
 
 import abilities.HeroAbility;
+import abilities.SpikeBomb;
 import itemshandling.ItemBase;
+import mapvariables.Map;
+import mapvariables.PositionModel;
 import monster.MonsterBase;
 import players.Player;
 
 import java.util.List;
 import java.util.Scanner;
 
+
 public class ActionSelector {
+
 
     public static void chooseAction(Player player, List<MonsterBase> monsters) {
         Scanner scanner = new Scanner(System.in);
@@ -28,6 +33,7 @@ public class ActionSelector {
         }
     }
 
+
     private static void performAttack(Player player, List<MonsterBase> monsters) {
         if (player.getHero().getHP() <= 0) {
             return;
@@ -45,6 +51,7 @@ public class ActionSelector {
             handleMonsterDefeat(player, currentMonster, monsters);
         }
     }
+
 
     private static void performAbility(Player player, List<MonsterBase> monsters) {
         System.out.println("Choose an ability:");
@@ -72,10 +79,15 @@ public class ActionSelector {
             selectedAbility = abilities.get(abilityIndex - 1);
 
             if (selectedAbility.isSpellAreaEffect()) {
+                // Handle area effect abilities
                 handleAreaEffectAbility(player, monsters, selectedAbility);
             } else if (selectedAbility.isSpellTaunt()) {
+                // Handle taunt abilities
                 handleTauntAbility(player, monsters, selectedAbility);
-            } else {
+            } else if (selectedAbility.isEntitySpell()){
+                handleEntitySpell();
+            }
+            else {
                 handleNormalAbility(player, monsters, selectedAbility);
             }
         } catch (NumberFormatException e) {
@@ -83,6 +95,11 @@ public class ActionSelector {
             performAbility(player, monsters); // Recursively call the method to prompt again
         }
     }
+
+    private static void handleEntitySpell(Player player, List<MonsterBase> monsters, HeroAbility entityAbility) {
+
+    }
+
 
     private static void handleMonsterDefeat(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
         System.out.printf("%s has been defeated!%n", currentMonster.getName());
@@ -92,11 +109,13 @@ public class ActionSelector {
         ItemBase.DropItem(player, player.getInventory());
     }
 
+
     private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, HeroAbility areaEffectAbility) {
         // Implement logic for area effect abilities
         areaEffectAbility.use(player.getHero(), monsters);
 
-        monsters.forEach(monster -> {
+        // Deal damage to monsters
+        for (MonsterBase monster : monsters) {
             int damageDealt = areaEffectAbility.getDamage();
             monster.HP -= damageDealt;
             System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), areaEffectAbility.getName(), monster.getName(), damageDealt);
@@ -106,11 +125,9 @@ public class ActionSelector {
             if (monster.getHP() <= 0) {
                 handleMonsterDefeat(player, monster, monsters);
             }
-        });
-
-        monsters.removeIf(monster -> monster.getHP() <= 0);
-        monsters.forEach(monster -> ItemBase.DropItem(player, player.getInventory()));
+        }
     }
+
 
     private static void handleTauntAbility(Player player, List<MonsterBase> monsters, HeroAbility tauntAbility) {
         // Implement logic for taunt abilities
@@ -118,6 +135,7 @@ public class ActionSelector {
 
         monsters.forEach(monster -> monster.setTaunted(true, tauntAbility.getTauntRounds()));
     }
+
 
     private static void handleNormalAbility(Player player, List<MonsterBase> monsters, HeroAbility normalAbility) {
         // Implement logic for normal abilities
