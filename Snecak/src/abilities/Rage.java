@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class Rage extends HeroAbility {
+public class Rage extends AbilityBase {
     public Rage() {
         setName("Rage");
     }

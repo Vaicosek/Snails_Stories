@@ -3,7 +3,7 @@ package abilities;
 
 import hero.HeroTemplate;
 
-public class MagicalPower extends HeroAbility {
+public class MagicalPower extends AbilityBase {
     private HeroTemplate hero;
 
     public MagicalPower() {

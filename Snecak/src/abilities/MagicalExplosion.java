@@ -3,7 +3,7 @@ package abilities;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
-public class MagicalExplosion extends HeroAbility {
+public class MagicalExplosion extends AbilityBase {
     public MagicalExplosion() {
         setName("MagicalExplosion");
         setManaCost(0);

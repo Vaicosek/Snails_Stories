@@ -5,7 +5,7 @@ import monster.MonsterBase;
 
 import java.util.List;
 
-public class Healing extends HeroAbility {
+public class Healing extends AbilityBase {
     private HeroTemplate hero;
     private static final int MANA_COST = 30;
 

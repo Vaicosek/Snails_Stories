@@ -3,7 +3,7 @@ package abilities;
 import hero.Hero;
 import itemshandling.Weapon;
 
-public class SharpWeapons extends HeroAbility {
+public class SharpWeapons extends AbilityBase {
     public SharpWeapons() {
         setName("SharpWeapons");
     }

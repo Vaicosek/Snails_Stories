@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class Swarm extends HeroAbility {
+public class Swarm extends AbilityBase {
 
     private int remainingTurns;
 

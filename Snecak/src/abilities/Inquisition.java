@@ -3,7 +3,7 @@ package abilities;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
-public class Inquisition extends HeroAbility {
+public class Inquisition extends AbilityBase {
     public Inquisition() {
         setName("Inquisition");
         setDamage(0);

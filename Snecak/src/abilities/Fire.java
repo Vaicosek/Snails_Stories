@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class Fire extends HeroAbility {
+public class Fire extends AbilityBase {
     private int remainingTurns;
 
     private int turnCounter;

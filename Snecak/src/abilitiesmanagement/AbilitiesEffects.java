@@ -1,20 +1,19 @@
 package abilitiesmanagement;
 
-import abilities.HeroAbility;
+import abilities.AbilityBase;
 import hero.Hero;
-import monster.MonsterBase;
 
 import java.util.List;
 
 public class AbilitiesEffects {
-    private List<HeroAbility> abilities;
+    private List<AbilityBase> abilities;
 
-    public AbilitiesEffects(List<HeroAbility> abilities) {
+    public AbilitiesEffects(List<AbilityBase> abilities) {
         this.abilities = abilities;
     }
 
     public void applyPassiveEffects(Hero hero) {
-        for (HeroAbility ability : abilities) {
+        for (AbilityBase ability : abilities) {
             if (ability.isUnlocked()) {
                 ability.applyPassiveEffect(hero);
             }

@@ -7,7 +7,7 @@ import monster.MonsterBase;
 
 import java.util.Scanner;
 
-public class Telekinesis extends HeroAbility {
+public class Telekinesis extends AbilityBase {
 
     public Telekinesis() {
         setName("Telekinesis");

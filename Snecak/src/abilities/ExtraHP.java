@@ -2,7 +2,7 @@ package abilities;
 
 import hero.HeroTemplate;
 
-public class ExtraHP extends HeroAbility {
+public class ExtraHP extends AbilityBase {
     private HeroTemplate hero;
 
     public ExtraHP() {

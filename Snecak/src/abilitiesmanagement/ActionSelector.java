@@ -1,10 +1,8 @@
 package abilitiesmanagement;
 
-import abilities.HeroAbility;
-import abilities.SpikeBomb;
+import abilities.*;
+import heroalliedEntities.AllyEntityFactory;
 import itemshandling.ItemBase;
-import mapvariables.Map;
-import mapvariables.PositionModel;
 import monster.MonsterBase;
 import players.Player;
 
@@ -55,16 +53,16 @@ public class ActionSelector {
 
     private static void performAbility(Player player, List<MonsterBase> monsters) {
         System.out.println("Choose an ability:");
-        List<HeroAbility> abilities = player.getHero().getAbilities();
+        List<AbilityBase> abilities = player.getHero().getAbilities();
         for (int i = 0; i < abilities.size(); i++) {
-            HeroAbility ability = abilities.get(i);
+            AbilityBase ability = abilities.get(i);
             System.out.printf("%d. %s%n", i + 1, ability.getName());
         }
 
         // Prompt the player to choose an ability
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine().trim();
-        HeroAbility selectedAbility = null;
+        AbilityBase selectedAbility = null;
 
         try {
             int abilityIndex = Integer.parseInt(input);
@@ -85,7 +83,7 @@ public class ActionSelector {
                 // Handle taunt abilities
                 handleTauntAbility(player, monsters, selectedAbility);
             } else if (selectedAbility.isEntitySpell()){
-                handleEntitySpell();
+                handleEntitySpell(player, monsters, selectedAbility);
             }
             else {
                 handleNormalAbility(player, monsters, selectedAbility);
@@ -96,9 +94,42 @@ public class ActionSelector {
         }
     }
 
-    private static void handleEntitySpell(Player player, List<MonsterBase> monsters, HeroAbility entityAbility) {
-
+    private static void handleEntitySpell(Player player, List<MonsterBase> monsters, AbilityBase entityAbility) {
+        // Implement logic for handling entity spell
+        // This could involve summoning an entity to fight for the player
+        // You can use AllyEntityFactory to create the summoned entity
+        // For example:
+        switch (entityAbility.getName().toLowerCase()) {
+            case "animal companion":
+                AnimalCompanion summonedAnimal = AllyEntityFactory.createAnimalCompanion(player.getHero());
+                System.out.printf("%s summoned %s!%n", player.getName(), summonedAnimal.getEntityName());
+                // Add the summoned entity to the player's list of entities or perform any other necessary actions
+                // player.addSummonedEntity(summonedAnimal);
+                break;
+            case "conjurer":
+                Conjurer summonedConjurer = AllyEntityFactory.createConjuredEntity(player.getHero());
+                System.out.printf("%s summoned %s!%n", player.getName(), summonedConjurer.getEntityName());
+                // Add the summoned entity to the player's list of entities or perform any other necessary actions
+                // player.addSummonedEntity(summonedConjurer);
+                break;
+            case "shadow clone":
+                ShadowClone summonedShadowClone = AllyEntityFactory.createShadowClone(player.getHero());
+                System.out.printf("%s summoned %s!%n", player.getName(), summonedShadowClone.getEntityName());
+                // Add the summoned entity to the player's list of entities or perform any other necessary actions
+                // player.addSummonedEntity(summonedShadowClone);
+                break;
+            case "illusion":
+                Illusion summonedIllusion = AllyEntityFactory.createIllusion(player.getHero());
+                System.out.printf("%s summoned %s!%n", player.getName(), summonedIllusion.getEntityName());
+                // Add the summoned entity to the player's list of entities or perform any other necessary actions
+                // player.addSummonedEntity(summonedIllusion);
+                break;
+            default:
+                System.out.println("Invalid entity variant.");
+                break;
+        }
     }
+
 
 
     private static void handleMonsterDefeat(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
@@ -110,7 +141,7 @@ public class ActionSelector {
     }
 
 
-    private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, HeroAbility areaEffectAbility) {
+    private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, AbilityBase areaEffectAbility) {
         // Implement logic for area effect abilities
         areaEffectAbility.use(player.getHero(), monsters);
 
@@ -129,7 +160,7 @@ public class ActionSelector {
     }
 
 
-    private static void handleTauntAbility(Player player, List<MonsterBase> monsters, HeroAbility tauntAbility) {
+    private static void handleTauntAbility(Player player, List<MonsterBase> monsters, AbilityBase tauntAbility) {
         // Implement logic for taunt abilities
         tauntAbility.use(player.getHero(), monsters);
 
@@ -137,7 +168,7 @@ public class ActionSelector {
     }
 
 
-    private static void handleNormalAbility(Player player, List<MonsterBase> monsters, HeroAbility normalAbility) {
+    private static void handleNormalAbility(Player player, List<MonsterBase> monsters, AbilityBase normalAbility) {
         // Implement logic for normal abilities
         normalAbility.use(player.getHero(), monsters);
 

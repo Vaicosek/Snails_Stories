@@ -6,7 +6,7 @@ import monster.MonsterBase;
 
 import java.util.List;
 
-public class StrongHands extends HeroAbility {
+public class StrongHands extends AbilityBase {
     private Inventory inventory;
 
     public StrongHands() {

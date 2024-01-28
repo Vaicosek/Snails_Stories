@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class Storm extends HeroAbility {
+public class Storm extends AbilityBase {
     public Storm() {
         setName("Storm");
         setManaCost(60);

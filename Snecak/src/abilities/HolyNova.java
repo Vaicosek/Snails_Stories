@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class HolyNova extends HeroAbility {
+public class HolyNova extends AbilityBase {
     private static final double[] TIER_MULTIPLIERS = {0.05, 0.08, 0.12, 0.18, 0.25};
 
     public HolyNova() {

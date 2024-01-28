@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class CriticalHit extends HeroAbility {
+public class CriticalHit extends AbilityBase {
     public CriticalHit() {
         setName("CriticalHit");
 

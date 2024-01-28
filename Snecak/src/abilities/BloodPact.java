@@ -6,7 +6,7 @@ import monster.MonsterBase;
 import java.util.List;
 import java.util.Scanner;
 
-public class BloodPact extends HeroAbility {
+public class BloodPact extends AbilityBase {
     public BloodPact() {
         setName("Blood Pact");
     }

@@ -3,7 +3,7 @@ package abilities;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
-public class Thorns extends HeroAbility {
+public class Thorns extends AbilityBase {
     private int remainingTurns;
     private int turnCounter;
 

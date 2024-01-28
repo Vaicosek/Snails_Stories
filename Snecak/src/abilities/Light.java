@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class Light extends HeroAbility {
+public class Light extends AbilityBase {
     private int remainingTurns;
     public Light() {
         setName("Light");

@@ -1,6 +1,6 @@
 package abilities;
 
-public class Bodyguard extends HeroAbility {
+public class Bodyguard extends AbilityBase {
     public Bodyguard() {
         setName("Bodyguard");
 

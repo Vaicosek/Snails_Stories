@@ -5,7 +5,7 @@ import monster.MonsterBase;
 
 
 
-public class Taunt extends HeroAbility {
+public class Taunt extends AbilityBase {
 
     private static final int TAUNT_ROUNDS = 2;
 

@@ -3,7 +3,7 @@ package abilities;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
-public class MonsterKiller extends HeroAbility {
+public class MonsterKiller extends AbilityBase {
     public MonsterKiller() {
         setName("MonsterKiller");
     }

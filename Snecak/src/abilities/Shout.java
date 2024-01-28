@@ -3,7 +3,7 @@ package abilities;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
-public class Shout extends HeroAbility {
+public class Shout extends AbilityBase {
 
     private static final int TAUNT_ROUNDS = 1;
 

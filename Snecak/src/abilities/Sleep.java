@@ -5,7 +5,7 @@ import monster.MonsterBase;
 import java.util.List;
 import java.util.Scanner;
 
-public class Sleep extends HeroAbility {
+public class Sleep extends AbilityBase {
     private static final int SLEEP_DURATION = 2;
 
     public Sleep() {

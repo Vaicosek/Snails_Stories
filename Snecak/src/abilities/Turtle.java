@@ -3,9 +3,7 @@ package abilities;
 import hero.HeroTemplate;
 import itemshandling.Armor;
 
-import monster.MonsterBase;
-
-public class Turtle extends HeroAbility {
+public class Turtle extends AbilityBase {
 
     private boolean active = false;
 

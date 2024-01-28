@@ -6,7 +6,7 @@ import monster.MonsterBase;
 import java.util.List;
 import java.util.Scanner;
 
-public class Entangle extends HeroAbility {
+public class Entangle extends AbilityBase {
     private int duration = 1;
 
     public Entangle() {

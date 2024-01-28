@@ -7,7 +7,7 @@ import monster.MonsterBase;
 
 import java.util.Scanner;
 
-public class Throw extends HeroAbility {
+public class Throw extends AbilityBase {
     public Throw() {
         setName("Throw");
 

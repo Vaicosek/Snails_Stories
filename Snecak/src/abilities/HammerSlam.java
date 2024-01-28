@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class HammerSlam extends HeroAbility {
+public class HammerSlam extends AbilityBase {
     public HammerSlam() {
         setName("HammerSlam");
     }

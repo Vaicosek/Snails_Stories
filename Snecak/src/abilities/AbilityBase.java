@@ -6,13 +6,13 @@ import monster.MonsterBase;
 
 import java.util.List;
 
-public class HeroAbility {
-
+public class AbilityBase {
 
     private String name;
     private int damage;
     private int manaCost;
     private boolean unlocked;
+    private String entityName; // Add entityName field
 
     public String getName() {
         return name;
@@ -46,9 +46,17 @@ public class HeroAbility {
         this.unlocked = unlocked;
     }
 
-    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
+    public String getEntityName() {
+        return entityName;
     }
 
+    public AbilityBase setEntityName(String entityName) {
+        this.entityName = entityName;
+        return this;
+    }
+
+    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
+    }
 
     public void applyPassiveEffect(Hero hero) {
     }
@@ -64,14 +72,17 @@ public class HeroAbility {
         return false; // By default
     }
 
-    public boolean isEntitySpell() {
-        return false;
-    }
-
     public int getTauntRounds() {
         return 0;
     }
 
     public void useOnSelf(Hero hero) {
+    }
+
+    public void summonPlayerAlliedEntity(HeroTemplate hero) {
+    }
+
+    public boolean isEntitySpell() {
+        return false;
     }
 }

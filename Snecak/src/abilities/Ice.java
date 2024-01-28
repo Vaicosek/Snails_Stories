@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class Ice extends HeroAbility {
+public class Ice extends AbilityBase {
     private int remainingTurns;
     private int turnCounter;
 

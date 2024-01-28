@@ -7,7 +7,7 @@ import monster.MonsterBase;
 import java.util.List;
 import java.util.Scanner;
 
-public class Misdirection extends HeroAbility {
+public class Misdirection extends AbilityBase {
     private int misdirectionDuration;
 
     public Misdirection() {

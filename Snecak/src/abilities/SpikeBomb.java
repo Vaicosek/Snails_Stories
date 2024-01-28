@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class SpikeBomb extends HeroAbility {
+public class SpikeBomb extends AbilityBase {
     public SpikeBomb() {
         setName("SpikeBomb");
     }

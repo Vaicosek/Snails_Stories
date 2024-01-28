@@ -1,6 +1,6 @@
 package abilities;
 
-public class Resurrection extends HeroAbility {
+public class Resurrection extends AbilityBase {
     public Resurrection ( ) {
         setName ( "Resurrection" );
     }

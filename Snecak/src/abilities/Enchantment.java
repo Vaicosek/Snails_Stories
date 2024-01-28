@@ -1,6 +1,6 @@
 package abilities;
 
-public class Enchantment extends HeroAbility {
+public class Enchantment extends AbilityBase {
     public Enchantment() {
         setName("Enchantment");
 

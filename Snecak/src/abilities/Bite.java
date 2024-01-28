@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class Bite extends HeroAbility {
+public class Bite extends AbilityBase {
     public Bite() {
         setName("Bite");
         setManaCost(50);

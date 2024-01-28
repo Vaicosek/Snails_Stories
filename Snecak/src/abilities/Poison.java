@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class Poison extends HeroAbility {
+public class Poison extends AbilityBase {
     private int remainingTurns;
 
     private int turnCounter;

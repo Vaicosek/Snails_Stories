@@ -1,6 +1,6 @@
 package abilities;
 
-public class Alchemy extends HeroAbility {
+public class Alchemy extends AbilityBase {
     public Alchemy() {
         setName("Alchemy");
 

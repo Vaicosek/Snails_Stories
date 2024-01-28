@@ -6,7 +6,7 @@ import monster.MonsterBase;
 import java.util.List;
 import java.util.Scanner;
 
-public class MagicalProtection extends HeroAbility {
+public class MagicalProtection extends AbilityBase {
     public MagicalProtection() {
         setName("MagicalProtection");
     }

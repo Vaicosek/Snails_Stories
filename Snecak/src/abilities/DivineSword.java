@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class DivineSword extends HeroAbility {
+public class DivineSword extends AbilityBase {
     public DivineSword() {
         setName("DivineSword");
         setManaCost(50);

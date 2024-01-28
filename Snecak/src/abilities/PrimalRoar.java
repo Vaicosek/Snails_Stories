@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class PrimalRoar extends HeroAbility {
+public class PrimalRoar extends AbilityBase {
     private static final int TAUNT_ROUNDS = 1;
     public PrimalRoar() {
         setName("PrimalRoar");
