@@ -45,9 +45,6 @@ public class ActionSelector {
         // Trigger passive effects after the attack
         player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
 
-        if (currentMonster.getHP() <= 0) {
-            handleMonsterDefeat(player, currentMonster, monsters);
-        }
     }
 
 
@@ -95,51 +92,33 @@ public class ActionSelector {
     }
 
     private static void handleEntitySpell(Player player, List<MonsterBase> monsters, AbilityBase entityAbility) {
-        // Implement logic for handling entity spell
-        // This could involve summoning an entity to fight for the player
-        // You can use AllyEntityFactory to create the summoned entity
-        // For example:
+
         switch (entityAbility.getName().toLowerCase()) {
             case "animal companion":
                 AnimalCompanion summonedAnimal = AllyEntityFactory.createAnimalCompanion(player.getHero());
+                player.summonEntity(summonedAnimal);
                 System.out.printf("%s summoned %s!%n", player.getName(), summonedAnimal.getEntityName());
-                // Add the summoned entity to the player's list of entities or perform any other necessary actions
-                // player.addSummonedEntity(summonedAnimal);
                 break;
             case "conjurer":
                 Conjurer summonedConjurer = AllyEntityFactory.createConjuredEntity(player.getHero());
+                player.summonEntity(summonedConjurer);
                 System.out.printf("%s summoned %s!%n", player.getName(), summonedConjurer.getEntityName());
-                // Add the summoned entity to the player's list of entities or perform any other necessary actions
-                // player.addSummonedEntity(summonedConjurer);
                 break;
             case "shadow clone":
                 ShadowClone summonedShadowClone = AllyEntityFactory.createShadowClone(player.getHero());
+                player.summonEntity(summonedShadowClone);
                 System.out.printf("%s summoned %s!%n", player.getName(), summonedShadowClone.getEntityName());
-                // Add the summoned entity to the player's list of entities or perform any other necessary actions
-                // player.addSummonedEntity(summonedShadowClone);
                 break;
             case "illusion":
                 Illusion summonedIllusion = AllyEntityFactory.createIllusion(player.getHero());
+                player.summonEntity(summonedIllusion);
                 System.out.printf("%s summoned %s!%n", player.getName(), summonedIllusion.getEntityName());
-                // Add the summoned entity to the player's list of entities or perform any other necessary actions
-                // player.addSummonedEntity(summonedIllusion);
                 break;
             default:
                 System.out.println("Invalid entity variant.");
                 break;
         }
     }
-
-
-
-    private static void handleMonsterDefeat(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
-        System.out.printf("%s has been defeated!%n", currentMonster.getName());
-        System.out.printf("%s gained %d XP!%n", player.getName(), currentMonster.MonsterXp);
-        player.increaseXP(currentMonster.MonsterXp);
-        monsters.remove(currentMonster);
-        ItemBase.DropItem(player, player.getInventory());
-    }
-
 
     private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, AbilityBase areaEffectAbility) {
         // Implement logic for area effect abilities
@@ -153,9 +132,6 @@ public class ActionSelector {
 
             player.getHero().usePassiveMonsterAbilities(monster, 0);
 
-            if (monster.getHP() <= 0) {
-                handleMonsterDefeat(player, monster, monsters);
-            }
         }
     }
 
@@ -180,8 +156,5 @@ public class ActionSelector {
 
         player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
 
-        if (currentMonster.getHP() <= 0) {
-            handleMonsterDefeat(player, currentMonster, monsters);
-        }
     }
 }

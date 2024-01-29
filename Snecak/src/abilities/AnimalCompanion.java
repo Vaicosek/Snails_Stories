@@ -1,8 +1,9 @@
 package abilities;
 
 import hero.HeroTemplate;
+import heroalliedEntities.AllyEntityTemplate;
 
-public class AnimalCompanion extends AbilityBase {
+public class AnimalCompanion extends AbilityBase implements AllyEntityTemplate {
     private String entityName;
     private int randomAttack;
 
@@ -28,6 +29,13 @@ public class AnimalCompanion extends AbilityBase {
         return true;
     }
 
+    @Override
+    public int performAutoAttack() {
+        // Implement the logic for AnimalCompanion's auto attack
+        return randomAttack; // Replace with the actual logic
+    }
+
+    @Override
     public String getEntityName() {
         return entityName;
     }

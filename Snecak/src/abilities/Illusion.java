@@ -1,8 +1,9 @@
 package abilities;
 
 import hero.HeroTemplate;
+import heroalliedEntities.AllyEntityTemplate;
 
-public class Illusion extends AbilityBase {
+public class Illusion extends AbilityBase implements AllyEntityTemplate {
     public Illusion() {
         setName("Illusion");
 
@@ -19,5 +20,10 @@ public class Illusion extends AbilityBase {
     public Illusion setEntityName(String entityName) {
         super.setEntityName(entityName);
         return this;
+    }
+
+    @Override
+    public int performAutoAttack() {
+        return 0;
     }
 }

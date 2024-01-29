@@ -1,8 +1,9 @@
 package abilities;
 
 import hero.HeroTemplate;
+import heroalliedEntities.AllyEntityTemplate;
 
-public class Conjurer extends AbilityBase {
+public class Conjurer extends AbilityBase implements AllyEntityTemplate {
     private String entityName;
     private int randomAttack;
 
@@ -21,6 +22,11 @@ public class Conjurer extends AbilityBase {
 
     public boolean isEntitySpell() {
         return true;
+    }
+
+    @Override
+    public int performAutoAttack() {
+        return randomAttack;
     }
 
     public String getEntityName() {

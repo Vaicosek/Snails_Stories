@@ -66,7 +66,7 @@ public class AllyEntityFactory {
             "Ethereal Evocation", "Wizened Warlock"
     );
 
-    private static String getRandomEntityName(List<String> names) {
+    public static String getRandomEntityName(List<String> names) {
         int randomIndex = random.nextInt(names.size());
         return names.get(randomIndex);
     }
