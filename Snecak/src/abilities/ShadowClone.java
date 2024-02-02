@@ -8,11 +8,6 @@ public class ShadowClone extends AbilityBase implements AllyEntityTemplate {
         setName("Shadow Clone");
     }
 
-    public void summonPlayerAlliedEntity (HeroTemplate hero) {
-
-
-    }
-
     public boolean isEntitySpell() {
         return true;
     }

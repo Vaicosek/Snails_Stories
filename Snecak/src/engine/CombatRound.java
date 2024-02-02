@@ -101,13 +101,13 @@ public class CombatRound {
         currentPlayer.increaseXP(currentMonster.MonsterXp);
         monsters.remove(currentMonster);
         ItemBase.DropItem(currentPlayer, currentPlayer.getInventory());
-        // Reset monster index (not sure why this is needed, you might want to review this logic)
+
     }
 
     private void handlePlayerDefeated() {
         System.out.println("You have been defeated...");
         // TODO: handle game over
-        // You might want to add more logic here depending on what you want to do when the player is defeated
+
     }
 
     private void displayBattleResult() {

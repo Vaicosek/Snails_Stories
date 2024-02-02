@@ -9,10 +9,6 @@ public class Illusion extends AbilityBase implements AllyEntityTemplate {
 
     }
 
-    public void summonPlayerAlliedEntity (HeroTemplate hero) {
-
-    }
-
     public boolean isEntitySpell() {
         return true;
     }

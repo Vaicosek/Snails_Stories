@@ -4,7 +4,6 @@ import abilities.AnimalCompanion;
 import abilities.Conjurer;
 import abilities.Illusion;
 import abilities.ShadowClone;
-import hero.Hero;
 import hero.HeroTemplate;
 import monster.Dice;
 
@@ -13,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 public class AllyEntityFactory {
+
     private static Random random = new Random();
 
     public static AnimalCompanion createAnimalCompanion(HeroTemplate  summoner) {
@@ -49,7 +49,7 @@ public class AllyEntityFactory {
     private static List<String> animalNames = Arrays.asList(
             "Fluffy", "Whiskers", "Shadow", "Paws", "Fang", "Luna", "Mittens", "Thunder", "Blaze", "Spike",
             "Cinder", "Midnight", "Rusty", "Sapphire", "Stormy", "Coco", "Echo", "Winston", "Lola", "Bella",
-            "Rex", "Misty", "Oreo", "Buddy", "Nala", "Simba", "Mocha", "Tiger", "Ziggy", "Cinnamon",
+            "Rex", "Misty", "Oreo", "Buddy", "Nola", "Simba", "Mocha", "Tiger", "Ziggy", "Cinnamon",
             "Zorro", "Pepper", "Daisy", "Max", "Ruby", "Rocky", "Leo", "Jasmine", "Oliver", "Lucy",
             "Ginger", "Charlie"
     );

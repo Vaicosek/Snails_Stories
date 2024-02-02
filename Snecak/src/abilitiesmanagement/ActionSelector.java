@@ -2,7 +2,6 @@ package abilitiesmanagement;
 
 import abilities.*;
 import heroalliedEntities.AllyEntityFactory;
-import itemshandling.ItemBase;
 import monster.MonsterBase;
 import players.Player;
 

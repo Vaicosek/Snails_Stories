@@ -11,10 +11,6 @@ public class AnimalCompanion extends AbilityBase implements AllyEntityTemplate {
         setName("Animal Companion");
     }
 
-    public void summonPlayerAlliedEntity(HeroTemplate hero) {
-        // Implement summoning logic if needed
-    }
-
     public AnimalCompanion setEntityName(String entityName) {
         this.entityName = entityName;
         return this;

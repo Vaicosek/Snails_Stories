@@ -16,10 +16,6 @@ public class Conjurer extends AbilityBase implements AllyEntityTemplate {
         return this;
     }
 
-    public void summonPlayerAlliedEntity(HeroTemplate hero) {
-        // Implement summoning logic if needed
-    }
-
     public boolean isEntitySpell() {
         return true;
     }
