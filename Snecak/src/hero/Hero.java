@@ -1,10 +1,10 @@
 package hero;
 
 import abilities.*;
-import itemshandling.Armor;
-import itemshandling.Weapon;
+import itemshandling.*;
 import monster.Dice;
 import monster.MonsterBase;
+import players.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -287,6 +287,37 @@ public class Hero implements HeroTemplate {
                 ability.useOnSelf(this);
             }
         }
+    }
+
+
+    public List<Weapon> getAvailableWeapons(Player player) {
+        List<Weapon> availableWeapons = new ArrayList<>();
+        for (ItemBase item : player.getInventory().getItems()) {
+            if (item.getItemType() == ItemType.WEAPON) {
+                availableWeapons.add((Weapon) item);
+            }
+        }
+        return availableWeapons;
+    }
+
+    public List<Armor> getAvailableArmors(Player player) {
+        List<Armor> availableArmors = new ArrayList<>();
+        for (ItemBase item : player.getInventory().getItems()) {
+            if (item.getItemType() == ItemType.ARMOR) {
+                availableArmors.add((Armor) item);
+            }
+        }
+        return availableArmors;
+    }
+
+    public List<Consumable> getAvailableConsumables(Player player) {
+        List<Consumable> availableConsumables = new ArrayList<>();
+        for (ItemBase item : player.getInventory().getItems()) {
+            if (item.getItemType() == ItemType.CONSUMABLE) {
+                availableConsumables.add((Consumable) item);
+            }
+        }
+        return availableConsumables;
     }
 
 }

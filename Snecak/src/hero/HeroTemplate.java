@@ -2,6 +2,7 @@ package hero;
 
 import abilities.AbilityBase;
 import itemshandling.Armor;
+import itemshandling.Consumable;
 import itemshandling.Weapon;
 import monster.MonsterBase;
 
@@ -51,4 +52,10 @@ public interface HeroTemplate {
     void equipWeapon2(Weapon weapon2);
 
    int getEquippedArmorProtection();
+
+    List<Weapon> getAvailableWeapons(HeroTemplate hero);
+
+    List<Armor> getAvailableArmors(HeroTemplate hero);
+
+    List<Consumable> getAvailableConsumables(HeroTemplate hero);
 }

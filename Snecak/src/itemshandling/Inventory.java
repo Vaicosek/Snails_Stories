@@ -1,6 +1,8 @@
 package itemshandling;
 
+import abilities.Enchantment;
 import hero.HeroTemplate;
+import players.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,8 @@ public class Inventory {
         Scanner scanner = new Scanner(System.in);
         boolean isStrongHandsUnlocked = hero.getAbilities().stream()
                 .anyMatch(ability -> ability.getName().equals("StrongHands") && ability.isUnlocked());
+        boolean isEnchantmentUnlocked = hero.getAbilities().stream()
+                .anyMatch(ability -> ability.getName().equals("Enchantment") && ability.isUnlocked());
 
         while (true) {
             System.out.println("Inventory Menu:");
@@ -65,6 +69,16 @@ public class Inventory {
                         System.out.println("StrongHands ability is not yet unlocked!");
                     }
                 }
+                case 7 -> {
+                    if (isEnchantmentUnlocked) {
+                        Enchantment enchantment = new Enchantment();
+                        enchantment.enchant(hero);
+                    } else {
+                        System.out.println("Enchantment ability is not yet unlocked!");
+                    }
+                }
+
+
                 default -> System.out.println("Invalid choice. Please choose a valid option.");
             }
         }
@@ -260,4 +274,123 @@ public class Inventory {
         }
     }
 
+    public void openWeaponSelectionMenu(Player player) {
+        List<Weapon> availableWeapons = new ArrayList<>();
+        System.out.println("Available Weapons:");
+        int index = 1;
+        for (ItemBase item : items) {
+            if (item.getItemType() == ItemType.WEAPON) {
+                Weapon weapon = (Weapon) item;
+                availableWeapons.add(weapon);
+                System.out.println(index + ". " + weapon.getName() + " (Damage: " + weapon.getTotalDamage() + ")");
+                index++;
+            }
+        }
+
+        if (availableWeapons.isEmpty()) {
+            System.out.println("No weapons available in the inventory.");
+            return;
+        }
+
+        System.out.print("Enter the number of the weapon you want to equip (or 'q' to cancel): ");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        if (input.equalsIgnoreCase("q")) {
+            return;
+        }
+
+        try {
+            int weaponIndex = Integer.parseInt(input) - 1;
+            if (weaponIndex >= 0 && weaponIndex < availableWeapons.size()) {
+                Weapon weaponToEquip = availableWeapons.get(weaponIndex);
+                player.getHero().equipWeapon(weaponToEquip);
+            } else {
+                System.out.println("Invalid choice. Please enter a valid number.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number or 'q' to cancel.");
+        }
+    }
+
+    public void openArmorSelectionMenu(Player player) {
+        List<Armor> availableArmors = new ArrayList<>();
+        System.out.println("Available Armors:");
+        int index = 1;
+        for (ItemBase item : items) {
+            if (item.getItemType() == ItemType.ARMOR) {
+                Armor armor = (Armor) item;
+                availableArmors.add(armor);
+                System.out.println(index + ". " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
+                index++;
+            }
+        }
+
+        if (availableArmors.isEmpty()) {
+            System.out.println("No armor available in the inventory.");
+            return;
+        }
+
+        System.out.print("Enter the number of the armor you want to equip (or 'q' to cancel): ");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        if (input.equalsIgnoreCase("q")) {
+            return;
+        }
+
+        try {
+            int armorIndex = Integer.parseInt(input) - 1;
+            if (armorIndex >= 0 && armorIndex < availableArmors.size()) {
+                Armor armorToEquip = availableArmors.get(armorIndex);
+                player.getHero().equipArmor(armorToEquip);
+            } else {
+                System.out.println("Invalid choice. Please enter a valid number.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number or 'q' to cancel.");
+        }
+    }
+
+    public void openConsumableSelectionMenu(Player player) {
+        List<Consumable> availableConsumables = new ArrayList<>();
+        System.out.println("Available Consumables:");
+        int index = 1;
+        for (ItemBase item : items) {
+            if (item.getItemType() == ItemType.CONSUMABLE) {
+                Consumable consumable = (Consumable) item;
+                availableConsumables.add(consumable);
+                System.out.println(index + ". " + consumable.getName() + " (Health: " + consumable.getHealth() + ")");
+                index++;
+            }
+        }
+
+        if (availableConsumables.isEmpty()) {
+            System.out.println("No consumables available in the inventory.");
+            return;
+        }
+
+        System.out.print("Enter the number of the consumable you want to use (or 'q' to cancel): ");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        if (input.equalsIgnoreCase("q")) {
+            return;
+        }
+
+        try {
+            int consumableIndex = Integer.parseInt(input) - 1;
+            if (consumableIndex >= 0 && consumableIndex < availableConsumables.size()) {
+                Consumable consumableToUse = availableConsumables.get(consumableIndex);
+                int healthRestored = consumableToUse.getHealth();
+                player.getHero().heal(healthRestored); // Assuming there's a heal method in your Player class
+                items.remove(consumableToUse); // Remove the used consumable from inventory
+                System.out.println(player.getHero().getName() + " used " + consumableToUse.getName() + " and restored " + healthRestored + " health.");
+            } else {
+                System.out.println("Invalid choice. Please enter a valid number.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number or 'q' to cancel.");
+        }
+    }
 }

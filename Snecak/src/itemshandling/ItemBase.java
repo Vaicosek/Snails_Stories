@@ -80,4 +80,16 @@ public abstract class ItemBase {
     public int getProtection() {
         return Protection;
     }
+
+    public void setDamage(int damage) {
+        Damage = damage;
+    }
+
+    public void setHealth(int health) {
+        Health = health;
+    }
+
+    public void setProtection(int protection) {
+        Protection = protection;
+    }
 }
