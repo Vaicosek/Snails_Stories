@@ -31,7 +31,7 @@ public class Inventory {
         return items.contains(item);
     }
 
-    public void openInventoryMenu(HeroTemplate hero) {
+    public void openInventoryMenu(HeroTemplate hero, Player player) {
         Scanner scanner = new Scanner(System.in);
         boolean isStrongHandsUnlocked = hero.getAbilities().stream()
                 .anyMatch(ability -> ability.getName().equals("StrongHands") && ability.isUnlocked());
@@ -72,7 +72,7 @@ public class Inventory {
                 case 7 -> {
                     if (isEnchantmentUnlocked) {
                         Enchantment enchantment = new Enchantment();
-                        enchantment.enchant(hero);
+                        enchantment.enchant(hero,player);
                     } else {
                         System.out.println("Enchantment ability is not yet unlocked!");
                     }

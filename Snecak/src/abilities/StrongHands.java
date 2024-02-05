@@ -3,6 +3,7 @@ package abilities;
 import hero.HeroTemplate;
 import itemshandling.Inventory;
 import monster.MonsterBase;
+import players.Player;
 
 import java.util.List;
 
@@ -16,8 +17,9 @@ public class StrongHands extends AbilityBase {
         this.inventory = new Inventory(); // Initialize the inventory
     }
 
-    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
+    public void useStrongHands(HeroTemplate hero, Player player) {
 
-        inventory.openInventoryMenu(hero);
+
+        inventory.openInventoryMenu(hero,player);
     }
 }

@@ -6,6 +6,7 @@ import itemshandling.Consumable;
 import itemshandling.ItemBase;
 import itemshandling.Weapon;
 import monster.Dice;
+import players.Player;
 
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class Enchantment extends AbilityBase {
 
     }
 
-    public void enchant(HeroTemplate hero) {
+    public void enchant(HeroTemplate hero, Player player) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("What do you want to enchant?");
@@ -37,13 +38,13 @@ public class Enchantment extends AbilityBase {
 
             switch (choice) {
                 case 1:
-                    enchantWeapons(hero);
+                    enchantWeapons(hero,player);
                     break;
                 case 2:
-                    enchantArmor(hero);
+                    enchantArmor(hero,player);
                     break;
                 case 3:
-                    enchantConsumables(hero);
+                    enchantConsumables(hero,player);
                     break;
                 default:
                     System.out.println("Invalid choice. Please enter a valid number.");
@@ -55,8 +56,8 @@ public class Enchantment extends AbilityBase {
 
 
 
-    public void enchantWeapons(HeroTemplate hero) {
-        List<Weapon> availableWeapons = hero.getAvailableWeapons(hero);
+    public void enchantWeapons(HeroTemplate hero, Player player) {
+        List<Weapon> availableWeapons = hero.getAvailableWeapons(hero,player);
 
         if (availableWeapons.isEmpty()) {
             System.out.println("No weapons available in the inventory.");
@@ -70,8 +71,8 @@ public class Enchantment extends AbilityBase {
         handleEnchantInput(hero, availableWeapons);
     }
 
-    public void enchantArmor(HeroTemplate hero) {
-        List<Armor> availableArmors = hero.getAvailableArmors(hero);
+    public void enchantArmor(HeroTemplate hero, Player player) {
+        List<Armor> availableArmors = hero.getAvailableArmors(hero,player);
 
         if (availableArmors.isEmpty()) {
             System.out.println("No armor available in the inventory.");
@@ -85,8 +86,8 @@ public class Enchantment extends AbilityBase {
         handleEnchantInput(hero, availableArmors);
     }
 
-    public void enchantConsumables(HeroTemplate hero) {
-        List<Consumable> availableConsumables = hero.getAvailableConsumables(hero);
+    public void enchantConsumables(HeroTemplate hero, Player player) {
+        List<Consumable> availableConsumables = hero.getAvailableConsumables(hero,player);
 
         if (availableConsumables.isEmpty()) {
             System.out.println("No consumables available in the inventory.");

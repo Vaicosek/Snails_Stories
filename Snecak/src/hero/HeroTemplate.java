@@ -5,6 +5,7 @@ import itemshandling.Armor;
 import itemshandling.Consumable;
 import itemshandling.Weapon;
 import monster.MonsterBase;
+import players.Player;
 
 import java.util.List;
 
@@ -53,9 +54,13 @@ public interface HeroTemplate {
 
    int getEquippedArmorProtection();
 
-    List<Weapon> getAvailableWeapons(HeroTemplate hero);
+    List<Weapon> getAvailableWeapons(HeroTemplate hero, Player player);
 
-    List<Armor> getAvailableArmors(HeroTemplate hero);
+    List<Armor> getAvailableArmors(HeroTemplate hero, Player player);
 
-    List<Consumable> getAvailableConsumables(HeroTemplate hero);
+    List<Consumable> getAvailableConsumables(HeroTemplate hero, Player player);
+
+    void destroyArmor(Armor armor, Player player);
+
+    Armor getEquippedArmor();
 }

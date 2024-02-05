@@ -255,6 +255,27 @@ public class Hero implements HeroTemplate {
         }
     }
 
+    public void destroyArmor(Armor armor, Player player) {
+        if (armor != null) {
+            // Remove the armor from the hero's inventory
+            if (equippedArmor == armor) {
+                unequipArmor();  // Unequip the armor if it's currently equipped
+            }
+
+            // Remove the armor from the inventory list
+            player.getInventory().removeItem(armor);
+
+            System.out.println("Destroyed and removed " + armor.getName() + " from the inventory.");
+        } else {
+            System.out.println("Cannot destroy null armor.");
+        }
+    }
+
+    @Override
+    public Armor getEquippedArmor() {
+        return equippedArmor;
+    }
+
     @Override
     public void heal(int healthRestored) {
 
@@ -290,7 +311,7 @@ public class Hero implements HeroTemplate {
     }
 
 
-    public List<Weapon> getAvailableWeapons(Player player) {
+    public List<Weapon> getAvailableWeapons(HeroTemplate hero, Player player) {
         List<Weapon> availableWeapons = new ArrayList<>();
         for (ItemBase item : player.getInventory().getItems()) {
             if (item.getItemType() == ItemType.WEAPON) {
@@ -300,7 +321,7 @@ public class Hero implements HeroTemplate {
         return availableWeapons;
     }
 
-    public List<Armor> getAvailableArmors(Player player) {
+    public List<Armor> getAvailableArmors(HeroTemplate hero, Player player) {
         List<Armor> availableArmors = new ArrayList<>();
         for (ItemBase item : player.getInventory().getItems()) {
             if (item.getItemType() == ItemType.ARMOR) {
@@ -310,7 +331,7 @@ public class Hero implements HeroTemplate {
         return availableArmors;
     }
 
-    public List<Consumable> getAvailableConsumables(Player player) {
+    public List<Consumable> getAvailableConsumables(HeroTemplate hero, Player player) {
         List<Consumable> availableConsumables = new ArrayList<>();
         for (ItemBase item : player.getInventory().getItems()) {
             if (item.getItemType() == ItemType.CONSUMABLE) {

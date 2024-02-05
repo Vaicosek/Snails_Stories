@@ -100,7 +100,7 @@ public class GameEngine {
                     fight(player, gameMap.getPlayerLocation(player).monsters);
                 }
                 if (action == GameEnginePlayerEnum.OPEN_INVENTORY) {
-                    inventory.openInventoryMenu(player.getHero());
+                    inventory.openInventoryMenu(player.getHero(),player);
 
                 }
 

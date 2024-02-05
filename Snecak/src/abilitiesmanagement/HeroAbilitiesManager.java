@@ -32,9 +32,9 @@ public class HeroAbilitiesManager {
         defenderAbilities.add(new Taunt ());
         defenderAbilities.add(new Turtle ());
         defenderAbilities.add(new Throw());
-        defenderAbilities.add(new DragonBorn ());
+        defenderAbilities.add(new FuriousStrike());
         defenderAbilities.add(new HammerSlam());
-        defenderAbilities.add(new Bodyguard ());
+        defenderAbilities.add(new ArmorBlast());
         defenderAbilities.add(new Shout());
 
 
