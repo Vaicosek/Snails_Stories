@@ -246,6 +246,16 @@ public class Hero implements HeroTemplate {
         }
     }
 
+    @Override
+    public int getEquippedWeaponDamage() {
+        if (equippedArmor != null) {
+            return equippedArmor.getDamage();
+        } else {
+            // handle the case when no armor is equipped, for example, return a default value
+            return 0; // or any other default value
+        }
+    }
+
     public void unequipArmor() {
         if (this.equippedArmor != null) {
             System.out.println("Unequipped " + this.equippedArmor.getName());
@@ -272,9 +282,32 @@ public class Hero implements HeroTemplate {
     }
 
     @Override
+    public void destroyWeapon(Weapon weapon, Player player) {
+        if (weapon != null) {
+            // Remove the armor from the hero's inventory
+            if (equippedWeapon == weapon) {
+                unequipArmor();  // Unequip the armor if it's currently equipped
+            }
+
+            // Remove the armor from the inventory list
+            player.getInventory().removeItem(weapon);
+
+            System.out.println("Destroyed and removed " + weapon.getName() + " from the inventory.");
+        } else {
+            System.out.println("Cannot destroy null armor.");
+        }
+    }
+
+    @Override
     public Armor getEquippedArmor() {
         return equippedArmor;
     }
+
+    public Weapon getEquippedWeapon2() {
+        return equippedWeapon2;
+    }
+
+
 
     @Override
     public void heal(int healthRestored) {

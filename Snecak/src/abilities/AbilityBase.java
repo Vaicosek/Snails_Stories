@@ -72,6 +72,10 @@ public class AbilityBase {
         return false; // By default
     }
 
+    public boolean isEntangleAbility() {
+        return false; // By default
+    }
+
     public int getTauntRounds() {
         return 0;
     }
@@ -83,6 +87,14 @@ public class AbilityBase {
     }
 
     public boolean isEntitySpell() {
+        return false;
+    }
+
+    public int getEntangleDuration() {
+        return 0;
+    }
+
+    public boolean isMisdirectionAbility() {
         return false;
     }
 }

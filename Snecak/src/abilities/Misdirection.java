@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Misdirection extends AbilityBase {
-    private int misdirectionDuration;
+    private final int misdirectionDuration;
 
     public Misdirection() {
         setName("Misdirection");

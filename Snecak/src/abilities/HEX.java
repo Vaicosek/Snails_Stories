@@ -2,15 +2,14 @@ package abilities;
 
 import hero.HeroTemplate;
 import monster.MonsterBase;
-public class Entangle extends AbilityBase {
-    private static final int ENTANGLE_ROUNDS = 1;
 
+public class HEX extends AbilityBase {
+    private static final int ENTANGLE_ROUNDS = 2;
 
-    public Entangle() {
-        setName("Entangle");
-        setManaCost(30);
+    public HEX( ) {
+        setName ( "HEX" );
+        setManaCost(50);
     }
-
 
     public void use(HeroTemplate hero, MonsterBase monster) {
 
@@ -21,11 +20,9 @@ public class Entangle extends AbilityBase {
     private void applyEntangleEffect(MonsterBase targetMonster) {
         // Apply taunt effect to the target monster
         targetMonster.setEntangled(true, ENTANGLE_ROUNDS);
-
     }
 
     public boolean isEntangleAbility() {
         return true;
     }
-
 }

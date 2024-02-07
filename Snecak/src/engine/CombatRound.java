@@ -126,7 +126,7 @@ public class CombatRound {
         } else if (monster.isMisdirected() && monster.getMisdirectedDuration() > 0) {
             handleMisdirectedMonsterTurn(monster, gameMap.getPlayerPosition().get(player));
         } else if (monster.isEntangled() && monster.getEntangledDuration() > 0) {
-            System.out.println("The monster is entangled and skips its turn!");
+            System.out.println("The monster skips its turn!");
             monster.setEntangled(false, monster.getEntangledDuration());
         } else {
             double chance = Math.random();

@@ -80,8 +80,11 @@ public class ActionSelector {
                 handleTauntAbility(player, monsters, selectedAbility);
             } else if (selectedAbility.isEntitySpell()){
                 handleEntitySpell(player, monsters, selectedAbility);
-            }
-            else {
+            } else if (selectedAbility.isEntangleAbility()) {
+                handleEntangleAbility(player, monsters, selectedAbility);
+            } else if (selectedAbility.isMisdirectionAbility()) {
+                handleMisdirectionAbility(player,monsters, selectedAbility);
+            } else {
                 handleNormalAbility(player, monsters, selectedAbility);
             }
         } catch (NumberFormatException e) {
@@ -135,16 +138,23 @@ public class ActionSelector {
     }
 
 
-    private static void handleTauntAbility(Player player, List<MonsterBase> monsters, AbilityBase tauntAbility) {
-        // Implement logic for taunt abilities
-        tauntAbility.use(player.getHero(), monsters);
+    private static void handleTauntAbility(Player player, List<MonsterBase> monster, AbilityBase tauntAbility) {
 
-        monsters.forEach(monster -> monster.setTaunted(true, tauntAbility.getTauntRounds()));
+        tauntAbility.use(player.getHero(), monster);
     }
 
+    private static void handleEntangleAbility(Player player, List<MonsterBase> monster, AbilityBase entangleAbility) {
+
+        entangleAbility.use(player.getHero(), monster);
+    }
+
+    private static void handleMisdirectionAbility(Player player, List<MonsterBase> monster, AbilityBase misdirectionAbility) {
+
+        misdirectionAbility.use(player.getHero(), monster);
+    }
 
     private static void handleNormalAbility(Player player, List<MonsterBase> monsters, AbilityBase normalAbility) {
-        // Implement logic for normal abilities
+
         normalAbility.use(player.getHero(), monsters);
 
         MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
@@ -156,4 +166,5 @@ public class ActionSelector {
         player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
 
     }
+
 }

@@ -53,6 +53,7 @@ public interface HeroTemplate {
     void equipWeapon2(Weapon weapon2);
 
    int getEquippedArmorProtection();
+    int getEquippedWeaponDamage();
 
     List<Weapon> getAvailableWeapons(HeroTemplate hero, Player player);
 
@@ -62,5 +63,9 @@ public interface HeroTemplate {
 
     void destroyArmor(Armor armor, Player player);
 
+    void destroyWeapon(Weapon weapon, Player player);
+
     Armor getEquippedArmor();
+
+    Weapon getEquippedWeapon();
 }

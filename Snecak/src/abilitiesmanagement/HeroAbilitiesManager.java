@@ -21,7 +21,7 @@ public class HeroAbilitiesManager {
         assassinAbilities.add(new SpikeBomb());
         assassinAbilities.add(new ShadowClone());
         assassinAbilities.add(new Misdirection ());
-        assassinAbilities.add(new Evasion ());
+        assassinAbilities.add(new WeaponBlast());
         assassinAbilities.add(new SharpWeapons());
         assassinAbilities.add(new BloodPact());
 
@@ -44,7 +44,7 @@ public class HeroAbilitiesManager {
         healerAbilities.add(new Inquisition ());
         healerAbilities.add(new Light());
         healerAbilities.add(new MagicalPower());
-        healerAbilities.add(new Resurrection());
+        healerAbilities.add(new HEX());
         healerAbilities.add(new Purge());
         healerAbilities.add(new Telekinesis());
         healerAbilities.add(new DivineSword());
@@ -74,7 +74,7 @@ public class HeroAbilitiesManager {
         druidAbilities.add(new Swarm());
         druidAbilities.add(new MagicalPower());
         druidAbilities.add(new Thorns());
-        druidAbilities.add(new Alchemy());
+        druidAbilities.add(new Throw());
 
     }
 
