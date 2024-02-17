@@ -9,10 +9,12 @@ import java.util.List;
 import java.util.Scanner;
 
 
+
+
 public class ActionSelector {
 
 
-    public static void chooseAction(Player player, List<MonsterBase> monsters) {
+    public static void chooseAction(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose your action:");
         System.out.println("1. Attack");
@@ -21,22 +23,21 @@ public class ActionSelector {
         String input = scanner.nextLine().trim();
 
         switch (input) {
-            case "1" -> performAttack(player, monsters);
-            case "2" -> performAbility(player, monsters);
+            case "1" -> performAttack(player, currentMonster, monsters);
+            case "2" -> performAbility(player, currentMonster, monsters);
             default -> {
                 System.out.println("Invalid input. Please choose a valid action.");
-                chooseAction(player, monsters);
+                chooseAction(player, currentMonster, monsters);
             }
         }
     }
 
 
-    private static void performAttack(Player player, List<MonsterBase> monsters) {
+    private static void performAttack(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
         if (player.getHero().getHP() <= 0) {
             return;
         }
 
-        MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
         int damageDealt = player.getHero().getAttack();
         currentMonster.HP -= damageDealt;
         System.out.printf("%s hit %s for %d damage!%n", player.getName(), currentMonster.getName(), damageDealt);
@@ -47,7 +48,7 @@ public class ActionSelector {
     }
 
 
-    private static void performAbility(Player player, List<MonsterBase> monsters) {
+    public static void performAbility(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
         System.out.println("Choose an ability:");
         List<AbilityBase> abilities = player.getHero().getAbilities();
         for (int i = 0; i < abilities.size(); i++) {
@@ -58,42 +59,54 @@ public class ActionSelector {
         // Prompt the player to choose an ability
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine().trim();
-        AbilityBase selectedAbility = null;
 
         try {
             int abilityIndex = Integer.parseInt(input);
             // Validate the ability index
             if (abilityIndex < 1 || abilityIndex > abilities.size()) {
                 System.out.println("Invalid ability selection.");
-                performAbility(player, monsters); // Recursively call the method to prompt again
+                performAbility(player, currentMonster, monsters); // Recursively call the method to prompt again
                 return;
             }
 
-            // Use the selected ability
-            selectedAbility = abilities.get(abilityIndex - 1);
+
+
+            AbilityBase selectedAbility = abilities.get(abilityIndex - 1);
+
+            if (selectedAbility instanceof Bite) {
+                // Update the hero level and monster HP for the Bite ability
+                Bite biteAbility = (Bite) selectedAbility;
+                biteAbility.calculateDamage(player.getHero(), currentMonster.getHP());
+            }
+
+            // Calculate damage for the selected ability
+            selectedAbility.calculateDamage(player.getHero(), currentMonster.getHP());
 
             if (selectedAbility.isSpellAreaEffect()) {
                 // Handle area effect abilities
                 handleAreaEffectAbility(player, monsters, selectedAbility);
             } else if (selectedAbility.isSpellTaunt()) {
                 // Handle taunt abilities
-                handleTauntAbility(player, monsters, selectedAbility);
-            } else if (selectedAbility.isEntitySpell()){
-                handleEntitySpell(player, monsters, selectedAbility);
+                handleTauntAbility(player, currentMonster, selectedAbility);
+            } else if (selectedAbility.isEntitySpell()) {
+                handleEntitySpell(player, currentMonster, selectedAbility);
             } else if (selectedAbility.isEntangleAbility()) {
-                handleEntangleAbility(player, monsters, selectedAbility);
+                handleEntangleAbility(player, currentMonster, selectedAbility);
             } else if (selectedAbility.isMisdirectionAbility()) {
-                handleMisdirectionAbility(player,monsters, selectedAbility);
+                handleMisdirectionAbility(player, currentMonster, selectedAbility);
             } else {
-                handleNormalAbility(player, monsters, selectedAbility);
+                handleNormalAbility(player, currentMonster, selectedAbility);
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a valid ability number.");
-            performAbility(player, monsters); // Recursively call the method to prompt again
+            performAbility(player, currentMonster, monsters); // Recursively call the method to prompt again
         }
     }
 
-    private static void handleEntitySpell(Player player, List<MonsterBase> monsters, AbilityBase entityAbility) {
+
+
+
+    private static void handleEntitySpell(Player player, MonsterBase currentMonster, AbilityBase entityAbility) {
 
         switch (entityAbility.getName().toLowerCase()) {
             case "animal companion":
@@ -124,7 +137,7 @@ public class ActionSelector {
 
     private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, AbilityBase areaEffectAbility) {
         // Implement logic for area effect abilities
-        areaEffectAbility.use(player.getHero(), monsters);
+        areaEffectAbility.useAreaSpell(player.getHero(), monsters);
 
         // Deal damage to monsters
         for (MonsterBase monster : monsters) {
@@ -138,33 +151,29 @@ public class ActionSelector {
     }
 
 
-    private static void handleTauntAbility(Player player, List<MonsterBase> monster, AbilityBase tauntAbility) {
+    private static void handleTauntAbility(Player player, MonsterBase currentMonster, AbilityBase tauntAbility) {
 
-        tauntAbility.use(player.getHero(), monster);
+        tauntAbility.use(player.getHero(), currentMonster);
     }
 
-    private static void handleEntangleAbility(Player player, List<MonsterBase> monster, AbilityBase entangleAbility) {
+    private static void handleEntangleAbility(Player player, MonsterBase currentMonster, AbilityBase entangleAbility) {
 
-        entangleAbility.use(player.getHero(), monster);
+        entangleAbility.use(player.getHero(), currentMonster);
     }
 
-    private static void handleMisdirectionAbility(Player player, List<MonsterBase> monster, AbilityBase misdirectionAbility) {
+    private static void handleMisdirectionAbility(Player player, MonsterBase currentMonster, AbilityBase misdirectionAbility) {
 
-        misdirectionAbility.use(player.getHero(), monster);
+        misdirectionAbility.use(player.getHero(), currentMonster);
     }
 
-    private static void handleNormalAbility(Player player, List<MonsterBase> monsters, AbilityBase normalAbility) {
+    private static void handleNormalAbility(Player player, MonsterBase currentMonster, AbilityBase normalAbility) {
+        currentMonster.HP -= normalAbility.getDamage(); // Deduct damage from the monster's HP
 
-        normalAbility.use(player.getHero(), monsters);
+            System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), normalAbility.getName(), currentMonster.getName(), normalAbility.getDamage());
+            player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
+        }
 
-        MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
-        int damageDealt = normalAbility.getDamage();
-        currentMonster.HP -= damageDealt;
-
-        System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), normalAbility.getName(), currentMonster.getName(), damageDealt);
-
-        player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
 
     }
 
-}
+

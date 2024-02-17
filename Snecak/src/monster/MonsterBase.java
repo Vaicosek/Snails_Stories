@@ -120,7 +120,7 @@ public abstract class MonsterBase {
         return HP;
     }
 
-    abstract void InitializeName();
+    public abstract void InitializeName();
 
     public void takeDamage(int damageDealt) {
 
@@ -170,5 +170,5 @@ public abstract class MonsterBase {
     public void setMisdirected(boolean misdirected, int misdirectedRounds) {
         isMisdirected = misdirected;
     }
-    
+
 }

@@ -11,9 +11,9 @@ public class DeathStrike extends AbilityBase {
     }
 
 
-    public void use(HeroTemplate hero, MonsterBase monster) {
+    public void use(HeroTemplate hero, MonsterBase currentMonster) {
         int lowHP = 100 + (hero.getLevel() * 100)/20;
-        int damage = monster.getHP()/20;
+        int damage = currentMonster.getHP()/20;
         if (hero.getHP() < lowHP){
             setDamage(damage);
         }

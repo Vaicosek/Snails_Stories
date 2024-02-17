@@ -46,7 +46,7 @@ public class Hero implements HeroTemplate {
     private void calculateAttack() {
         double damageMultiplier = 1.0; // Default damage multiplier
 
-        if (equippedArmor.getName().equals("TurtleShell")) {
+        if (equippedArmor != null && equippedArmor.getName().equals("TurtleShell")) {
             // If Turtle ability is active and TurtleShell is equipped, reduce damage by 50%
             damageMultiplier = 0.5;
         }

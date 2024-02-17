@@ -11,7 +11,7 @@ public class BloodPact extends AbilityBase {
         setName("Blood Pact");
     }
 
-    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
+    public void use(HeroTemplate hero, MonsterBase currentMonster) {
         Scanner scanner = new Scanner(System.in);
 
         int currentHp = hero.getHP();

@@ -21,7 +21,7 @@ public class Inquisition extends AbilityBase {
         int totalDamage = getDamage() + additionalDamage;
 
         // Apply the total damage to the monster
-        monster.takeDamage(totalDamage);
+       setDamage(totalDamage);
 
     }
 }

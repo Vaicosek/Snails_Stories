@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class MonsterTier3 extends MonsterBase {
 
     @Override
-    void InitializeName() {
+    public void InitializeName() {
         names = new ArrayList<String>(
                 Arrays.asList(
                         "Skeleton",

@@ -117,7 +117,7 @@ public class CombatRound {
     }
 
     private void handlePlayerTurn(Player currentPlayer, MonsterBase currentMonster) {
-        ActionSelector.chooseAction(currentPlayer, monsters);
+        ActionSelector.chooseAction(currentPlayer, currentMonster, monsters);
     }
 
     private void handleMonsterTurn(Player player, MonsterBase monster) {
@@ -137,21 +137,21 @@ public class CombatRound {
             }
         }
     }
-        private void handleMonsterAttackOnEntities(Player player, MonsterBase monster) {
-            // Check if the monster has any entities to attack
-            List<AllyEntityTemplate> entities = player.getSummonedEntities();
-            if (!entities.isEmpty()) {
-                for (AllyEntityTemplate entity : entities) {
-                    // Implement logic for the entity automatically attacking the monster
-                    int entityDamage = entity.performAutoAttack();
-                    monster.takeDamage(entityDamage);
-                    System.out.printf("%s attacked %s for %d damage!%n", entity.getEntityName(), monster.getName(), entityDamage);
-                }
-            } else {
-                // Handle the case when there are no entities to attack
-                System.out.println("The monster has no entities to attack.");
+    private void handleMonsterAttackOnEntities(Player player, MonsterBase monster) {
+        // Check if the monster has any entities to attack
+        List<AllyEntityTemplate> entities = player.getSummonedEntities();
+        if (entities != null && !entities.isEmpty()) { // Check if entities is not null before using it
+            for (AllyEntityTemplate entity : entities) {
+                // Implement logic for the entity automatically attacking the monster
+                int entityDamage = entity.performAutoAttack();
+                monster.takeDamage(entityDamage);
+                System.out.printf("%s attacked %s for %d damage!%n", entity.getEntityName(), monster.getName(), entityDamage);
             }
+        } else {
+            // Handle the case when there are no entities to attack
+            System.out.println("The monster has no entities to attack.");
         }
+    }
 
         private void handleMonsterAttacksOnPlayers(Player player, MonsterBase monster) {
             // Implement logic for monster attacking players
