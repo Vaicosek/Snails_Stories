@@ -2,36 +2,26 @@ package abilities;
 
 import hero.HeroTemplate;
 import monster.Dice;
-import monster.MonsterBase;
 
 public class Bite extends AbilityBase {
-    public Bite() {
-        setName("Bite");
-        setManaCost(50);
 
-    }
+        public Bite() {
+            setName("Bite");
+        }
 
-    public void use(HeroTemplate hero, MonsterBase monster) {
-        int currentMana = hero.getMana();
-        int manaCost = getManaCost();
+        @Override
+        public void calculateDamage(HeroTemplate hero, int monsterHp) {
+            int baseDamage = 8 + hero.getLevel() * 5;
 
-        System.out.println("Current Mana: " + currentMana);
-        System.out.println("Mana Cost: " + manaCost);
+            // Calculate total damage
+            int totalDamage = baseDamage;
 
-        if (currentMana >= manaCost) {
-            hero.setMana(currentMana - manaCost);
-            System.out.println("Used " + getName() + "!");
-
-            int scaledamage = (int) (monster.getHP() * 0.1);
-            System.out.println("Scaled Damage: " + scaledamage);
-
-            int damage = Dice.getNextNumber(3, 3 + (hero.getLevel() * 5) + scaledamage);
-            System.out.println("Calculated Damage: " + damage);
-
-            setDamage(damage);
-        } else {
-            System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
+            // Update the damage value of the ability
+            setDamage(totalDamage);
         }
     }
-}
+
+
+
+
 

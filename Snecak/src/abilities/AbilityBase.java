@@ -1,18 +1,38 @@
 package abilities;
 
+import abilitiesmanagement.HeroAbilitiesManager;
 import hero.Hero;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Supplier;
 
-public class AbilityBase {
+public class AbilityBase implements Cloneable { // Implement Cloneable interface
 
     private String name;
     private int damage;
     private int manaCost;
     private boolean unlocked;
     private String entityName; // Add entityName field
+
+
+    private int heroLevel;
+    private int monsterHp;
+
+    public void setHeroLevel(int heroLevel) {
+        this.heroLevel = heroLevel;
+    }
+
+    public void setMonsterHp(int monsterHp) {
+        this.monsterHp = monsterHp;
+    }
+
+    public void calculateDamage(HeroTemplate hero, int monsterHp) {
+
+    }
 
     public String getName() {
         return name;
@@ -55,7 +75,13 @@ public class AbilityBase {
         return this;
     }
 
-    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
+    public void use(HeroTemplate hero, MonsterBase currentMonster) {
+    }
+
+    public void testUse() {
+    }
+
+    public void useAreaSpell(HeroTemplate hero, List<MonsterBase> monsters) {
     }
 
     public void applyPassiveEffect(Hero hero) {
