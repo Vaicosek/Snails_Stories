@@ -1,8 +1,5 @@
 package abilities;
 
-import hero.HeroTemplate;
-import heroalliedEntities.AllyEntityTemplate;
-
 public class Conjurer extends AbilityBase implements AllyEntityTemplate {
     private String entityName;
     private int randomAttack;

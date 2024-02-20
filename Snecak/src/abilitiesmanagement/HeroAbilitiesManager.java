@@ -5,11 +5,11 @@ import java.util.List;
 
 public class HeroAbilitiesManager {
     // Create lists to hold abilities for each hero
-    private static final List<AbilityBase> assassinAbilities = new ArrayList<>();
-    private static final List<AbilityBase> defenderAbilities = new ArrayList<>();
-    private static final List<AbilityBase> healerAbilities = new ArrayList<>();
-    private static final List<AbilityBase> wizardAbilities = new ArrayList<>();
-    private static final List<AbilityBase> druidAbilities = new ArrayList<>();
+    private static final List<AbilityTemplate> assassinAbilities = new ArrayList<>();
+    private static final List<AbilityTemplate> defenderAbilities = new ArrayList<>();
+    private static final List<AbilityTemplate> healerAbilities = new ArrayList<>();
+    private static final List<AbilityTemplate> wizardAbilities = new ArrayList<>();
+    private static final List<AbilityTemplate> druidAbilities = new ArrayList<>();
 
     // Add abilities to the respective lists
     static {
@@ -78,23 +78,23 @@ public class HeroAbilitiesManager {
 
     }
 
-    public static List<AbilityBase> getAssassinAbilities() {
+    public static List<AbilityTemplate> getAssassinAbilities() {
         return new ArrayList<>(assassinAbilities);
     }
 
-    public static List<AbilityBase> getDefenderAbilities() {
+    public static List<AbilityTemplate> getDefenderAbilities() {
         return new ArrayList<>(defenderAbilities);
     }
 
-    public static List<AbilityBase> getHealerAbilities() {
+    public static List<AbilityTemplate> getHealerAbilities() {
         return new ArrayList<>(healerAbilities);
     }
 
-    public static List<AbilityBase> getWizardAbilities() {
+    public static List<AbilityTemplate> getWizardAbilities() {
         return new ArrayList<>(wizardAbilities);
     }
 
-    public static List<AbilityBase> getDruidAbilities() {
+    public static List<AbilityTemplate> getDruidAbilities() {
         return new ArrayList<>(druidAbilities);
     }
 }

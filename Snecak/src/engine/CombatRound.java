@@ -1,7 +1,6 @@
 package engine;
 
 import abilitiesmanagement.ActionSelector;
-import heroalliedEntities.AllyEntityTemplate;
 import itemshandling.ItemBase;
 import mapvariables.Map;
 import mapvariables.PositionModel;

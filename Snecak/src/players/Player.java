@@ -1,13 +1,11 @@
 package players;
 
 import abilitiesmanagement.HeroAbilitiesManager;
-import heroalliedEntities.AllyEntityTemplate;
 import itemshandling.*;
 import mapvariables.PositionModel;
 
 
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Player {

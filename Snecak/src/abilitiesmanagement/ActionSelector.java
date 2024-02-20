@@ -50,56 +50,44 @@ public class ActionSelector {
 
     public static void performAbility(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
         System.out.println("Choose an ability:");
-        List<AbilityBase> abilities = player.getHero().getAbilities();
+        // Assuming getAbilities() now returns a List of AbilityTemplate
+        List<AbilityTemplate> abilities = player.getHero().getAbilities();
         for (int i = 0; i < abilities.size(); i++) {
-            AbilityBase ability = abilities.get(i);
-            System.out.printf("%d. %s%n", i + 1, ability.getName());
+            System.out.printf("%d. %s%n", i + 1, abilities.get(i).getName());
         }
 
-        // Prompt the player to choose an ability
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine().trim();
 
         try {
-            int abilityIndex = Integer.parseInt(input);
-            // Validate the ability index
-            if (abilityIndex < 1 || abilityIndex > abilities.size()) {
+            int abilityIndex = Integer.parseInt(input) - 1;
+            if (abilityIndex < 0 || abilityIndex >= abilities.size()) {
                 System.out.println("Invalid ability selection.");
-                performAbility(player, currentMonster, monsters); // Recursively call the method to prompt again
+                performAbility(player, currentMonster, monsters);
                 return;
             }
 
+            AbilityTemplate selectedAbility = abilities.get(abilityIndex);
 
-
-            AbilityBase selectedAbility = abilities.get(abilityIndex - 1);
-
-            if (selectedAbility instanceof Bite) {
-                // Update the hero level and monster HP for the Bite ability
-                Bite biteAbility = (Bite) selectedAbility;
-                biteAbility.calculateDamage(player.getHero(), currentMonster.getHP());
-            }
-
-            // Calculate damage for the selected ability
-            selectedAbility.calculateDamage(player.getHero(), currentMonster.getHP());
-
-            if (selectedAbility.isSpellAreaEffect()) {
-                // Handle area effect abilities
-                handleAreaEffectAbility(player, monsters, selectedAbility);
-            } else if (selectedAbility.isSpellTaunt()) {
-                // Handle taunt abilities
-                handleTauntAbility(player, currentMonster, selectedAbility);
-            } else if (selectedAbility.isEntitySpell()) {
-                handleEntitySpell(player, currentMonster, selectedAbility);
-            } else if (selectedAbility.isEntangleAbility()) {
-                handleEntangleAbility(player, currentMonster, selectedAbility);
-            } else if (selectedAbility.isMisdirectionAbility()) {
-                handleMisdirectionAbility(player, currentMonster, selectedAbility);
+            // Handle different types of abilities
+            if (selectedAbility instanceof AreaAbilityTemplate) {
+                handleAreaEffectAbility(player, monsters, (AreaAbilityTemplate) selectedAbility);
+            } else if (selectedAbility instanceof TauntAbilityTemplate) {
+                handleTauntAbility(player, currentMonster, (TauntAbilityTemplate) selectedAbility);
+            } else if (selectedAbility instanceof EntityAbilityTemplate) {
+                handleEntitySpell(player, (EntityAbilityTemplate) selectedAbility);
+            } else if (selectedAbility instanceof EntangleAbilityTemplate) {
+                handleEntangleAbility(player, currentMonster, (EntangleAbilityTemplate) selectedAbility);
+            } else if (selectedAbility instanceof MisdirectionAbilityTemplate) {
+                handleMisdirectionAbility(player, monsters, (MisdirectionAbilityTemplate) selectedAbility);
+            } else if (selectedAbility instanceof NormalAbilityTemplate) {
+                handleNormalAbility(player, currentMonster, (NormalAbilityTemplate) selectedAbility);
             } else {
-                handleNormalAbility(player, currentMonster, selectedAbility);
+                System.out.println("This ability type is not supported yet.");
             }
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a valid ability number.");
-            performAbility(player, currentMonster, monsters); // Recursively call the method to prompt again
+            System.out.println("Invalid input. Please enter a number.");
+            performAbility(player, currentMonster, monsters);
         }
     }
 

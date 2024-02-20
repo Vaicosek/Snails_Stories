@@ -1,19 +1,16 @@
 package abilities;
 
 import hero.HeroTemplate;
-import heroalliedEntities.AllyEntityTemplate;
 
-public class AnimalCompanion extends AbilityBase implements AllyEntityTemplate {
+public class AnimalCompanion implements EntityAbilityTemplate {
+
     private String entityName;
     private int randomAttack;
 
-    public AnimalCompanion() {
-        setName("Animal Companion");
-    }
+    private String name;
 
-    public AnimalCompanion setEntityName(String entityName) {
-        this.entityName = entityName;
-        return this;
+    public AnimalCompanion() {
+        setName("Animal Companion"); // Assuming setName is defined in AbilityTemplate
     }
 
     public AnimalCompanion setRandomAttack(int randomAttack) {
@@ -21,20 +18,65 @@ public class AnimalCompanion extends AbilityBase implements AllyEntityTemplate {
         return this;
     }
 
-    public boolean isEntitySpell() {
-        return true;
+    @Override
+    public int getDamage() {
+        return 0;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return 0;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
     }
 
     @Override
     public int performAutoAttack() {
-        // Implement the logic for AnimalCompanion's auto attack
-        return randomAttack; // Replace with the actual logic
+        return 0;
+    }
+
+    @Override
+    public void summonEntity(HeroTemplate hero) {
+
     }
 
     @Override
     public String getEntityName() {
-        return entityName;
+        return null;
     }
 
-    // Other methods and logic if needed
+    @Override
+    public void setEntityName(String name) {
+
+    }
+
 }
+
+

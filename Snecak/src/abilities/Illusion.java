@@ -1,8 +1,5 @@
 package abilities;
 
-import hero.HeroTemplate;
-import heroalliedEntities.AllyEntityTemplate;
-
 public class Illusion extends AbilityBase implements AllyEntityTemplate {
     public Illusion() {
         setName("Illusion");
