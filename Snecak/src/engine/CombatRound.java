@@ -1,5 +1,6 @@
 package engine;
 
+import abilities.EntityAbilityTemplate;
 import abilitiesmanagement.ActionSelector;
 import itemshandling.ItemBase;
 import mapvariables.Map;
@@ -138,9 +139,9 @@ public class CombatRound {
     }
     private void handleMonsterAttackOnEntities(Player player, MonsterBase monster) {
         // Check if the monster has any entities to attack
-        List<AllyEntityTemplate> entities = player.getSummonedEntities();
+        List<EntityAbilityTemplate> entities = player.getSummonedEntities();
         if (entities != null && !entities.isEmpty()) { // Check if entities is not null before using it
-            for (AllyEntityTemplate entity : entities) {
+            for (EntityAbilityTemplate entity : entities) {
                 // Implement logic for the entity automatically attacking the monster
                 int entityDamage = entity.performAutoAttack();
                 monster.takeDamage(entityDamage);

@@ -1,6 +1,6 @@
 package hero;
 
-import abilities.AbilityBase;
+import abilities.AbilityTemplate;
 import itemshandling.Armor;
 import itemshandling.Consumable;
 import itemshandling.Weapon;
@@ -34,7 +34,7 @@ public interface HeroTemplate {
 
     void SetMana(int mana);
 
-    List<AbilityBase> getAbilities();
+    List<AbilityTemplate> getAbilities();
 
     void gainAbility();
 

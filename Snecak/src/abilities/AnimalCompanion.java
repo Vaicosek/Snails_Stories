@@ -13,9 +13,10 @@ public class AnimalCompanion implements EntityAbilityTemplate {
         setName("Animal Companion"); // Assuming setName is defined in AbilityTemplate
     }
 
-    public AnimalCompanion setRandomAttack(int randomAttack) {
+
+    @Override
+    public void setRandomAttack(int randomAttack) {
         this.randomAttack = randomAttack;
-        return this;
     }
 
     @Override
@@ -59,7 +60,7 @@ public class AnimalCompanion implements EntityAbilityTemplate {
 
     @Override
     public int performAutoAttack() {
-        return 0;
+        return randomAttack;
     }
 
     @Override
@@ -67,11 +68,9 @@ public class AnimalCompanion implements EntityAbilityTemplate {
 
     }
 
-    @Override
     public String getEntityName() {
-        return null;
+        return entityName;
     }
-
     @Override
     public void setEntityName(String name) {
 

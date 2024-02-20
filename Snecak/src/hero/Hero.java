@@ -18,13 +18,13 @@ public class Hero implements HeroTemplate {
     protected int attack;
 
     protected double mana;
-    protected ArrayList<AbilityBase> abilities = new ArrayList<>();
+    protected ArrayList<AbilityTemplate> abilities = new ArrayList<>();
     protected Weapon equippedWeapon;
     protected Weapon equippedWeapon2;
 
     protected Armor equippedArmor;
 
-    public Hero(int XP, int level, int HP, List<AbilityBase> allAbilities) {
+    public Hero(int XP, int level, int HP, List<AbilityTemplate> allAbilities) {
         this.XP = XP;
         this.level = level;
         this.HP = HP;
@@ -32,9 +32,9 @@ public class Hero implements HeroTemplate {
         calculateAttack();
     }
 
-    private void initializeAbilities(List<AbilityBase> allAbilities) {
-        for (AbilityBase ability : allAbilities) {
-            AbilityBase clonedAbility = new AbilityBase();
+    private void initializeAbilities(List<AbilityTemplate> allAbilities) {
+        for (AbilityTemplate ability : allAbilities) {
+            AbilityTemplate clonedAbility = new AbilityTemplate();
             clonedAbility.setName(ability.getName());
             clonedAbility.setDamage(ability.getDamage());
             clonedAbility.setManaCost(ability.getManaCost());
@@ -70,7 +70,7 @@ public class Hero implements HeroTemplate {
         }
 
         for (int i = 0; i < abilities.size(); i++) {
-            AbilityBase ability = abilities.get(i);
+            AbilityTemplate ability = abilities.get(i);
             if (!ability.isUnlocked()) {
                 System.out.println((i + 1) + ". " + ability.getName());
             }
@@ -86,7 +86,7 @@ public class Hero implements HeroTemplate {
         try {
             int abilityIndex = Integer.parseInt(input) - 1;
             if (abilityIndex >= 0 && abilityIndex < abilities.size()) {
-                AbilityBase selectedAbility = abilities.get(abilityIndex);
+                AbilityTemplate selectedAbility = abilities.get(abilityIndex);
                 if (!selectedAbility.isUnlocked()) {
                     selectedAbility.setUnlocked(true);
                     System.out.println("You have gained the ability: " + selectedAbility.getName());
@@ -103,7 +103,7 @@ public class Hero implements HeroTemplate {
     }
 
     private boolean checkAllAbilitiesUnlocked() {
-        for (AbilityBase ability : abilities) {
+        for (AbilityTemplate ability : abilities) {
             if (!ability.isUnlocked()) {
                 return false;
             }
@@ -178,9 +178,9 @@ public class Hero implements HeroTemplate {
     }
 
     @Override
-    public List<AbilityBase> getAbilities() {
-        List<AbilityBase> heroAbilities = new ArrayList<>();
-        for (AbilityBase ability : abilities) {
+    public List<AbilityTemplate> getAbilities() {
+        List<AbilityTemplate> heroAbilities = new ArrayList<>();
+        for (AbilityTemplate ability : abilities) {
             if (ability.isUnlocked()) {
                 heroAbilities.add(ability);
             }
@@ -193,7 +193,7 @@ public class Hero implements HeroTemplate {
         this.equippedWeapon = weapon;
         System.out.println("Equipped " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
 
-        for (AbilityBase ability : abilities) {
+        for (AbilityTemplate ability : abilities) {
             if (ability.getName().equals("SharpWeapons") && ability.isUnlocked()) {
                 SharpWeapons sharpWeapons = new SharpWeapons();
                 sharpWeapons.passiveEffect(this);
@@ -336,9 +336,9 @@ public class Hero implements HeroTemplate {
     }
 
     public void updateHeroBonuses() {
-        for (AbilityBase ability : abilities) {
-            if (ability.isUnlocked()) {
-                ability.useOnSelf(this);
+        for (AbilityTemplate ability : abilities) {
+            if (ability.isUnlocked() && ability instanceof BonusAbilityTemplate) {
+                ((BonusAbilityTemplate) ability).applyBonus(this);
             }
         }
     }

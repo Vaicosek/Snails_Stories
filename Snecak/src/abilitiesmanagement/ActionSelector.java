@@ -94,7 +94,7 @@ public class ActionSelector {
 
 
 
-    private static void handleEntitySpell(Player player, MonsterBase currentMonster, AbilityBase entityAbility) {
+    private static void handleEntitySpell(Player player, MonsterBase currentMonster, AbilityTemplate entityAbility) {
 
         switch (entityAbility.getName().toLowerCase()) {
             case "animal companion":
@@ -123,9 +123,9 @@ public class ActionSelector {
         }
     }
 
-    private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, AbilityBase areaEffectAbility) {
+    private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, AreaAbilityTemplate areaEffectAbility) {
         // Implement logic for area effect abilities
-        areaEffectAbility.useAreaSpell(player.getHero(), monsters);
+        areaEffectAbility.castAreaEffect(player.getHero(), monsters, player);
 
         // Deal damage to monsters
         for (MonsterBase monster : monsters) {
@@ -139,24 +139,23 @@ public class ActionSelector {
     }
 
 
-    private static void handleTauntAbility(Player player, MonsterBase currentMonster, AbilityBase tauntAbility) {
+    private static void handleTauntAbility(Player player, MonsterBase currentMonster, TauntAbilityTemplate tauntAbility) {
 
-        tauntAbility.use(player.getHero(), currentMonster);
+        tauntAbility.applyTaunt(player.getHero(), currentMonster);
     }
 
-    private static void handleEntangleAbility(Player player, MonsterBase currentMonster, AbilityBase entangleAbility) {
+    private static void handleEntangleAbility(Player player, MonsterBase currentMonster, EntangleAbilityTemplate entangleAbility) {
 
-        entangleAbility.use(player.getHero(), currentMonster);
+        entangleAbility.applyEntangle(player.getHero(), currentMonster);
     }
 
-    private static void handleMisdirectionAbility(Player player, MonsterBase currentMonster, AbilityBase misdirectionAbility) {
+    private static void handleMisdirectionAbility(Player player, List<MonsterBase> monsters, MisdirectionAbilityTemplate misdirectionAbility) {
 
-        misdirectionAbility.use(player.getHero(), currentMonster);
+        misdirectionAbility.misdirect(player.getHero(), monsters);
     }
 
-    private static void handleNormalAbility(Player player, MonsterBase currentMonster, AbilityBase normalAbility) {
-        currentMonster.HP -= normalAbility.getDamage(); // Deduct damage from the monster's HP
-
+    private static void handleNormalAbility(Player player, MonsterBase currentMonster, NormalAbilityTemplate normalAbility) {
+        normalAbility.cast(player.getHero(), currentMonster);
             System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), normalAbility.getName(), currentMonster.getName(), normalAbility.getDamage());
             player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
         }

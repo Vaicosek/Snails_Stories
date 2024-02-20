@@ -1,5 +1,6 @@
 package players;
 
+import abilities.EntityAbilityTemplate;
 import abilitiesmanagement.HeroAbilitiesManager;
 import itemshandling.*;
 import mapvariables.PositionModel;
@@ -32,7 +33,7 @@ public class Player {
 
     private PositionModel previousPosition;
 
-    private List<AllyEntityTemplate> summonedEntities;
+    private List<EntityAbilityTemplate> summonedEntities;
 
 
     public void increaseXP(int amount) {
@@ -107,11 +108,11 @@ public class Player {
     }
 
 
-    public void summonEntity(AllyEntityTemplate entity) {
+    public void summonEntity(EntityAbilityTemplate entity) {
         summonedEntities.add(entity);
         System.out.printf("You have summoned %s!%n", entity.getEntityName());
     }
-    public List<AllyEntityTemplate> getSummonedEntities() {
+    public List<EntityAbilityTemplate> getSummonedEntities() {
         return summonedEntities;
     }
 }

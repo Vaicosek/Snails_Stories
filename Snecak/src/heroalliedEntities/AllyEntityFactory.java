@@ -15,15 +15,18 @@ public class AllyEntityFactory {
 
     private static Random random = new Random();
 
-    public static AnimalCompanion createAnimalCompanion(HeroTemplate  summoner) {
-        return new AnimalCompanion()
-                .setEntityName(summoner.getName() + getRandomEntityName(animalNames))
-                .setRandomAttack(getRandomAttack());
+    public static AnimalCompanion createAnimalCompanion(HeroTemplate summoner) {
+        AnimalCompanion companion = new AnimalCompanion();
+        companion.setEntityName(summoner.getName() + " " + getRandomEntityName(animalNames));
+        companion.setRandomAttack(getRandomAttack());
+        return companion;
     }
-    public static Conjurer createConjuredEntity(HeroTemplate  summoner) {
-        return new Conjurer()
-                .setEntityName(summoner.getName() + getRandomEntityName(conjuredEntityNames))
-                .setRandomAttack(getRandomAttack());
+
+    public static Conjurer createConjuredEntity(HeroTemplate summoner) {
+        Conjurer conjurer = new Conjurer();
+        conjurer.setEntityName(summoner.getName() + " " + getRandomEntityName(conjuredEntityNames));
+        conjurer.setRandomAttack(getRandomAttack());
+        return conjurer;
     }
 
     public static ShadowClone createShadowClone(HeroTemplate  summoner) {

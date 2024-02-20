@@ -1,6 +1,8 @@
 package abilities;
 
-public class Conjurer extends AbilityBase implements AllyEntityTemplate {
+import hero.HeroTemplate;
+
+public class Conjurer implements EntityAbilityTemplate {
     private String entityName;
     private int randomAttack;
 
@@ -8,10 +10,6 @@ public class Conjurer extends AbilityBase implements AllyEntityTemplate {
         setName("Conjurer");
     }
 
-    public Conjurer setEntityName(String entityName) {
-        this.entityName = entityName;
-        return this;
-    }
 
     public boolean isEntitySpell() {
         return true;
@@ -22,12 +20,62 @@ public class Conjurer extends AbilityBase implements AllyEntityTemplate {
         return randomAttack;
     }
 
+    @Override
+    public void setRandomAttack(int randomAttack) {
+        this.randomAttack = randomAttack;
+    }
+
+    @Override
+    public void summonEntity(HeroTemplate hero) {
+
+    }
+
     public String getEntityName() {
         return entityName;
     }
 
-    public Conjurer setRandomAttack(int randomAttack) {
-        this.randomAttack = randomAttack;
-        return this;
+    @Override
+    public void setEntityName(String name) {
+
+    }
+
+    @Override
+    public int getDamage() {
+        return 0;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return 0;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
     }
 }
