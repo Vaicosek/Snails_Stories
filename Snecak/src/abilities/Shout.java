@@ -3,29 +3,73 @@ package abilities;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
-public class Shout extends AbilityBase {
+public class Shout implements TauntAbilityTemplate {
 
     private static final int TAUNT_ROUNDS = 1;
+    private String name = "Shout";
+    private int totalDamage;
+    private int manaCost;
+    private boolean unlocked;
 
     public Shout() {
-        setName("Shout");
-
-    }
-    public void use(HeroTemplate hero, MonsterBase monster) {
-
-        applyTauntEffect(monster);
-
     }
 
-    private void applyTauntEffect(MonsterBase targetMonster) {
-
-        targetMonster.setTaunted(true, TAUNT_ROUNDS);
-
-        // Print a message indicating that the hero is now the target of the specified monster
-        System.out.println(targetMonster.getName() + " is now targeting the hero!");
+    @Override
+    public void applyTaunt(HeroTemplate hero, MonsterBase monster) {
+        monster.setTaunted(true, TAUNT_ROUNDS);
     }
 
     public boolean isTauntAbility() {
-        return true; // Indicate that this ability is a taunt ability
+        return true;
+    }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
+
+    @Override
+    public int getTauntDuration() {
+        return TAUNT_ROUNDS;
+    }
+
+    @Override
+    public void setTauntDuration(int duration) {
+
     }
 }

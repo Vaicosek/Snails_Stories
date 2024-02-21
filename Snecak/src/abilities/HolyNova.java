@@ -35,7 +35,7 @@ public class HolyNova implements AreaAbilityTemplate {
                 int monsterDamage = (int) (monster.getHP() * multiplier) + (5 * tier);
 
                 int totalDamage = heroDamage + monsterDamage;
-                setDamage(totalDamage);
+                monster.takeDamage(totalDamage);
             }
         } else {
             System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");

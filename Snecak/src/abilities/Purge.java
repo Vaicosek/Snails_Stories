@@ -3,16 +3,17 @@ package abilities;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
-public class Purge extends AbilityBase {
-    private int remainingTurns;
-    private int turnCounter;
+public class Purge implements NormalAbilityTemplate {
+    private String name = "Purge";
+    private int totalDamage;
+    private int manaCost = 40;
+    private boolean unlocked;
+
     public Purge() {
-        setName("Purge");
-        setManaCost(40);
-        remainingTurns = 0;
-        turnCounter = 0;
     }
-    public void use(HeroTemplate hero, MonsterBase monster, int currentTurn) {
+
+    @Override
+    public void cast(HeroTemplate hero, MonsterBase monster) {
         int currentMana = hero.getMana();
         int manaCost = getManaCost(); // Get the mana cost from the superclass
         int threshold = (int) ((hero.getLevel()/2) * 0.6 * monster.getHP());
@@ -22,9 +23,51 @@ public class Purge extends AbilityBase {
             hero.setMana(currentMana - manaCost);
             System.out.println("Used " + getName() + "!");
             setDamage(threshold);
-            turnCounter = currentTurn + remainingTurns; // Set the next turn when the ability can be used
+
         } else {
             System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
         }
     }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
 }
+
+

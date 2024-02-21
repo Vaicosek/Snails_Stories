@@ -3,8 +3,16 @@ package abilities;
 import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
+import players.Player;
 
-public class SpikeBomb extends AbilityBase {
+import java.util.List;
+
+public class SpikeBomb implements AreaAbilityTemplate {
+
+    private String name = "SpikeBomb";
+    private int totalDamage;
+    private int manaCost;
+    private boolean unlocked;
     public SpikeBomb() {
         setName("SpikeBomb");
     }
@@ -12,21 +20,53 @@ public class SpikeBomb extends AbilityBase {
         return true;
     }
 
-    public void use(HeroTemplate hero, MonsterBase monster) {
-        int currentMana = hero.getMana();
-        int manaCost = getManaCost();
-
-        if (currentMana >= manaCost) {
-            hero.setMana(currentMana - manaCost);
-            System.out.println("Used " + getName() + "!");
-
-            // Calculate damage based on hero's level and monster's tier
-            int Damage = Dice.getNextNumber(0, (10 + (hero.getLevel() * 5)));
-            setDamage(Damage);
-
-        } else {
-            System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
+    @Override
+    public void castAreaEffect(HeroTemplate hero, List<MonsterBase> monsters, Player player) {
+        int damage = Dice.getNextNumber(0, (10 + (hero.getLevel() * 5)));
+        setDamage(damage);
+        hero.setHP(hero.getHP() - (totalDamage / 3));
+        for (MonsterBase monster : monsters) {
+            monster.takeDamage(totalDamage);
         }
     }
 
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
 }

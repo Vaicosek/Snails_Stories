@@ -11,10 +11,10 @@ public class Swarm implements TickAbilityTemplate {
         private String name = "Swarm";
         private int manaCost = 50;
         private boolean unlocked;
-        private int remainingTurns = 3; // Duration of the DOT effect
-        private int damagePerTick;
+        private int remainingTurns = 3;
+        private int totalDamage;
         public Swarm() {
-            // Initialization logic, if any
+
         }
 
         @Override
@@ -23,13 +23,12 @@ public class Swarm implements TickAbilityTemplate {
             int manaCost = getManaCost();
 
             if (currentMana >= manaCost) {
-                hero.setMana(currentMana - manaCost);
-                System.out.println("Used " + getName() + "!");
-
-                // Calculate damage based on hero's level and monster's tier
-                int Damage = Dice.getNextNumber(0, (10 + (hero.getLevel() * 5)));
-                setDamage(Damage);
-
+                for (MonsterBase currentMonster : monsters) {
+                    hero.setMana(currentMana - manaCost);
+                    int damage = Dice.getNextNumber(0, (10 + (hero.getLevel() * 5)));
+                    setDamage(damage);
+                    currentMonster.takeDamage(totalDamage);
+                }
             } else {
                 System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
             }
@@ -85,7 +84,7 @@ public class Swarm implements TickAbilityTemplate {
 
     @Override
     public int getDamage() {
-        return 0;
+        return totalDamage;
     }
 
     @Override

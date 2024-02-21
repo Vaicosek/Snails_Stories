@@ -6,12 +6,18 @@ import monster.MonsterBase;
 import java.util.List;
 import java.util.Scanner;
 
-public class MagicalProtection extends AbilityBase {
+public class MagicalProtection implements NormalAbilityTemplate {
+
+    private String name = "MagicalProtection";
+    private int totalDamage;
+    private int manaCost = 0;
+    private boolean unlocked;
+
     public MagicalProtection() {
-        setName("MagicalProtection");
     }
 
-    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
+    @Override
+    public void cast(HeroTemplate hero, MonsterBase monster) {
         Scanner scanner = new Scanner(System.in);
 
         int currentHp = hero.getHP();
@@ -38,4 +44,45 @@ public class MagicalProtection extends AbilityBase {
             System.out.println("Converted " + manaToConvert + " mana to temporary HP using " + getName() + "!");
         }
     }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
 }
+

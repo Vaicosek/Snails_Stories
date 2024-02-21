@@ -7,40 +7,71 @@ import monster.MonsterBase;
 import java.util.List;
 import java.util.Scanner;
 
-public class Misdirection extends AbilityBase {
-    private final int misdirectionDuration;
+public class Misdirection implements MisdirectionAbilityTemplate {
+    private final int misdirectionDuration = 2;
+
+    private String name = "Misdirection";
+    private int totalDamage;
+    private int manaCost = 40;
+    private boolean unlocked;
 
     public Misdirection() {
-        setName("Misdirection");
-        setManaCost(40); // Set an appropriate mana cost
-        misdirectionDuration = 2; // Set an appropriate duration for misdirection
     }
 
 
-    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
-        // Implement logic for using Misdirection on a monster
-        setDamage (Dice.getNextNumber(3,5 + hero.getLevel() * 2));
-        MonsterBase selectedMonster = chooseMonsterToMisdirect(monsters);
-        System.out.println(hero.getName() + " used " + getName() + " on " + selectedMonster.getName() + "!");
-        selectedMonster.setMisdirected(true, misdirectionDuration);
+    @Override
+    public void misdirect(HeroTemplate hero, MonsterBase monster, List<MonsterBase> monsters)  {
+        System.out.println(hero.getName() + " used " + getName() + " on " + monster.getName() + "!");
+        monster.setMisdirected(true, misdirectionDuration);
     }
 
-    private MonsterBase chooseMonsterToMisdirect(List<MonsterBase> monsters) {
-        Scanner scanner = new Scanner(System.in);
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
 
-        System.out.println("Select a monster to misdirect:");
-        int i = 1;
-        for (MonsterBase monster : monsters) {
-            System.out.printf("%d. %s (HP: %d)%n", i, monster.getName(), monster.getHP());
-            i++;
-        }
+    @Override
+    public void setDamage(int totalDamage) {
 
-        int choice = scanner.nextInt();
-        while (choice < 1 || choice > monsters.size()) {
-            System.out.println("Invalid choice. Choose a number between 1 and " + monsters.size() + ":");
-            choice = scanner.nextInt();
-        }
+    }
 
-        return monsters.get(choice - 1);
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
+
+    @Override
+    public int getMisdirectionDuration() {
+        return misdirectionDuration;
+    }
+
+    @Override
+    public void setMisdirectionDuration(int duration) {
+
     }
 }

@@ -27,7 +27,8 @@ public class HammerSlam implements AreaAbilityTemplate {
             for (MonsterBase monster : monsters) {
                 // Calculate damage based on hero's level and apply it to each monster
                 int damage = Dice.getNextNumber(2, 2 + (hero.getLevel() * 3));
-                monster.takeDamage(damage);
+                setDamage(damage);
+                monster.takeDamage(totalDamage);
                 System.out.printf("%s deals %d damage to %s.%n", getName(), damage, monster.getName());
             }
         } else {

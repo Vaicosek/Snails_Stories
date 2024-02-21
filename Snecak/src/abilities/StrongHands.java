@@ -7,19 +7,23 @@ import players.Player;
 
 import java.util.List;
 
-public class StrongHands extends AbilityBase {
+public class StrongHands implements NormalAbilityTemplate {
     private Inventory inventory;
 
+    private String name = "StrongHands";
+    private int totalDamage;
+    private int manaCost = 60;
+    private boolean unlocked;
+
     public StrongHands() {
-        setName("StrongHands");
-        setDamage(0); // Set the initial damage value as needed
-        setManaCost(0); // Set the mana cost as needed
-        this.inventory = new Inventory(); // Initialize the inventory
+
+        this.inventory = new Inventory();
     }
 
     public void useStrongHands(HeroTemplate hero, Player player) {
 
-
         inventory.openInventoryMenu(hero,player);
     }
+
+
 }

@@ -42,7 +42,7 @@ public class ActionSelector {
         currentMonster.HP -= damageDealt;
         System.out.printf("%s hit %s for %d damage!%n", player.getName(), currentMonster.getName(), damageDealt);
 
-        // Trigger passive effects after the attack
+
         player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
 
     }
@@ -50,7 +50,7 @@ public class ActionSelector {
 
     public static void performAbility(Player player, MonsterBase currentMonster, List<MonsterBase> monsters) {
         System.out.println("Choose an ability:");
-        // Assuming getAbilities() now returns a List of AbilityTemplate
+
         List<AbilityTemplate> abilities = player.getHero().getAbilities();
         for (int i = 0; i < abilities.size(); i++) {
             System.out.printf("%d. %s%n", i + 1, abilities.get(i).getName());
@@ -79,7 +79,7 @@ public class ActionSelector {
             } else if (selectedAbility instanceof EntangleAbilityTemplate) {
                 handleEntangleAbility(player, currentMonster, (EntangleAbilityTemplate) selectedAbility);
             } else if (selectedAbility instanceof MisdirectionAbilityTemplate) {
-                handleMisdirectionAbility(player, monsters, (MisdirectionAbilityTemplate) selectedAbility);
+                handleMisdirectionAbility(player, currentMonster, monsters, (MisdirectionAbilityTemplate) selectedAbility);
             } else if (selectedAbility instanceof NormalAbilityTemplate) {
                 handleNormalAbility(player, currentMonster, (NormalAbilityTemplate) selectedAbility);
             }  if (selectedAbility instanceof TickAbilityTemplate) {
@@ -133,10 +133,8 @@ public class ActionSelector {
     }
 
     private static void handleAreaEffectAbility(Player player, List<MonsterBase> monsters, AreaAbilityTemplate areaEffectAbility) {
-        // Implement logic for area effect abilities
-        areaEffectAbility.castAreaEffect(player.getHero(), monsters, player);
 
-            player.getHero().usePassiveMonsterAbilities(monster, 0);
+        areaEffectAbility.castAreaEffect(player.getHero(), monsters, player);
 
         }
 
@@ -152,15 +150,16 @@ public class ActionSelector {
         entangleAbility.applyEntangle(player.getHero(), currentMonster);
     }
 
-    private static void handleMisdirectionAbility(Player player, List<MonsterBase> monsters, MisdirectionAbilityTemplate misdirectionAbility) {
+    private static void handleMisdirectionAbility(Player player,MonsterBase currentMonster, List<MonsterBase> monsters, MisdirectionAbilityTemplate misdirectionAbility) {
 
-        misdirectionAbility.misdirect(player.getHero(), monsters);
+        misdirectionAbility.misdirect(player.getHero(),currentMonster, monsters);
     }
 
     private static void handleNormalAbility(Player player, MonsterBase currentMonster, NormalAbilityTemplate normalAbility) {
         normalAbility.cast(player.getHero(), currentMonster);
+
             System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), normalAbility.getName(), currentMonster.getName(), normalAbility.getDamage());
-            player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
+
         }
 
 

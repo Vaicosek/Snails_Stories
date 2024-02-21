@@ -4,26 +4,72 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class PrimalRoar extends AbilityBase {
+public class PrimalRoar implements TauntAbilityTemplate {
     private static final int TAUNT_ROUNDS = 1;
+    private String name = "PrimalRoar";
+    private int totalDamage;
+    private int manaCost = 33;
+    private boolean unlocked;
     public PrimalRoar() {
-        setName("PrimalRoar");
-        setManaCost(33);
     }
-    public void use(HeroTemplate hero, MonsterBase monster) {
+
+    @Override
+    public void applyTaunt(HeroTemplate hero, MonsterBase monster) {
         int damage = Dice.getNextNumber(4,4 + hero.getLevel() * 3);
         setDamage(damage);
-        applyTauntEffect(monster);
-
-    }
-    private void applyTauntEffect(MonsterBase targetMonster) {
-        // Apply taunt effect to the target monster
-        targetMonster.setTaunted(true, TAUNT_ROUNDS);
-
-        // Print a message indicating that the hero is now the target of the specified monster
-        System.out.println(targetMonster.getName() + " is now targeting the hero!");
+        monster.setTaunted(true, TAUNT_ROUNDS);
     }
     public boolean isTauntAbility() {
         return true;
+    }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
+
+    @Override
+    public int getTauntDuration() {
+        return TAUNT_ROUNDS;
+    }
+
+    @Override
+    public void setTauntDuration(int duration) {
+
     }
 }

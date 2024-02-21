@@ -7,9 +7,12 @@ public class ShadowClone implements EntityAbilityTemplate {
     private String entityName;
     private int randomAttack;
 
-    private String name;
+    private String name = "ShadowClone";
+    private int totalDamage;
+    private int manaCost;
+    private boolean unlocked;
     public ShadowClone() {
-        setName("Shadow Clone");
+
     }
 
     public boolean isEntitySpell() {
@@ -42,7 +45,7 @@ public class ShadowClone implements EntityAbilityTemplate {
 
     @Override
     public int getDamage() {
-        return 0;
+        return totalDamage;
     }
 
     @Override
@@ -52,7 +55,7 @@ public class ShadowClone implements EntityAbilityTemplate {
 
     @Override
     public int getManaCost() {
-        return 0;
+        return manaCost;
     }
 
     @Override
