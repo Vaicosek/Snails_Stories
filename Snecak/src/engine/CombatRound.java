@@ -1,6 +1,8 @@
 package engine;
 
+import abilities.AbilityTemplate;
 import abilities.EntityAbilityTemplate;
+import abilities.TickAbilityTemplate;
 import abilitiesmanagement.ActionSelector;
 import itemshandling.ItemBase;
 import mapvariables.Map;
@@ -16,15 +18,15 @@ public class CombatRound {
         private Player player;
         private List<MonsterBase> monsters;
         private Map gameMap;
-    private int turnCounter;
-    private Scanner scanner;
+        private int turnCounter;
+        private Scanner scanner;
 
     public CombatRound(Player player, List<MonsterBase> monsters, Map gameMap) {
         this.player = player;
         this.monsters = monsters;
         this.gameMap = gameMap;
-        this.turnCounter = turnCounter;
-        scanner = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
+        this.turnCounter = 0;
     }
 
     public void executeRound() {
@@ -49,6 +51,7 @@ public class CombatRound {
                 }
 
                 handlePlayerTurn(currentPlayer, currentMonster);
+                applyTickEffects(currentPlayer);
 
                 if (currentMonster.getHP() <= 0) {
                     handleDefeatedMonster(currentPlayer, currentMonster);
@@ -216,6 +219,19 @@ public class CombatRound {
 
         } else {
             System.out.println("You cannot flee from the current location.");
+        }
+    }
+
+    private void applyTickEffects(Player player) {
+        List<AbilityTemplate> abilities = player.getHero().getAbilities();
+        for (AbilityTemplate ability : abilities) {
+            if (ability instanceof TickAbilityTemplate) {
+                TickAbilityTemplate tickAbility = (TickAbilityTemplate) ability;
+                if (tickAbility.isEffectActive()) {
+                    tickAbility.onTick(player, monsters, turnCounter);
+                    System.out.printf("Tick effect of %s applied on turn %d.%n", tickAbility.getName(), turnCounter);
+                }
+            }
         }
     }
 }

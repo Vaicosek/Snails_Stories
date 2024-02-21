@@ -8,13 +8,13 @@ import java.util.List;
 
 public class ArmorBlast implements AreaAbilityTemplate {
 
-    private int manaCost;
+    private String name = "ArmorBlast";
     private int totalDamage;
-    private String name;
-    private boolean unlocked = false;
+    private int manaCost = 30;
+    private boolean unlocked;
 
     public ArmorBlast() {
-        setName("ArmorBlast");
+
     }
 
     @Override
@@ -57,8 +57,7 @@ public class ArmorBlast implements AreaAbilityTemplate {
         this.unlocked = unlocked;
     }
 
-    // Assuming the Player object needs to be passed to use certain methods like destroyArmor
-    // If Player is not needed, you can remove it from the method parameters
+
     @Override
     public void castAreaEffect(HeroTemplate hero, List<MonsterBase> monsters, Player player) {
         // Calculate the base damage based on the hero's equipped armor protection
@@ -68,8 +67,8 @@ public class ArmorBlast implements AreaAbilityTemplate {
         for (MonsterBase monster : monsters) {
             int damage = baseDamage + monster.getHP() / 10;
             // Use the takeDamage method to apply damage
-            monster.takeDamage(damage);
-            System.out.printf("%s took %d damage from ArmorBlast.\n", monster.getName(), damage);
+            setDamage(damage);
+           ;
         }
 
         // Destroy the hero's equipped armor after the ability is used

@@ -75,13 +75,15 @@ public class ActionSelector {
             } else if (selectedAbility instanceof TauntAbilityTemplate) {
                 handleTauntAbility(player, currentMonster, (TauntAbilityTemplate) selectedAbility);
             } else if (selectedAbility instanceof EntityAbilityTemplate) {
-                handleEntitySpell(player, (EntityAbilityTemplate) selectedAbility);
+                handleEntitySpell(player, selectedAbility);
             } else if (selectedAbility instanceof EntangleAbilityTemplate) {
                 handleEntangleAbility(player, currentMonster, (EntangleAbilityTemplate) selectedAbility);
             } else if (selectedAbility instanceof MisdirectionAbilityTemplate) {
                 handleMisdirectionAbility(player, monsters, (MisdirectionAbilityTemplate) selectedAbility);
             } else if (selectedAbility instanceof NormalAbilityTemplate) {
                 handleNormalAbility(player, currentMonster, (NormalAbilityTemplate) selectedAbility);
+            }  if (selectedAbility instanceof TickAbilityTemplate) {
+                handleTickEffectAbility(player, currentMonster, monsters, (TickAbilityTemplate) selectedAbility);
             } else {
                 System.out.println("This ability type is not supported yet.");
             }
@@ -91,10 +93,17 @@ public class ActionSelector {
         }
     }
 
+    private static void handleTickEffectAbility(Player player, MonsterBase currentMonster, List<MonsterBase> monsters, TickAbilityTemplate tickAbility) {
+        if (!tickAbility.isEffectActive()) {
+            tickAbility.cast(player.getHero(), currentMonster); // Initial cast
+            System.out.printf("%s uses %s, applying effect for %d turns.%n", player.getName(), tickAbility.getName(), tickAbility.getRemainingTurns());
+        } else {
+            System.out.println("Effect is already active.");
+        }
+    }
 
 
-
-    private static void handleEntitySpell(Player player, MonsterBase currentMonster, AbilityTemplate entityAbility) {
+    private static void handleEntitySpell(Player player, AbilityTemplate entityAbility) {
 
         switch (entityAbility.getName().toLowerCase()) {
             case "animal companion":

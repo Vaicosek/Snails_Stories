@@ -24,22 +24,18 @@ public class Hero implements HeroTemplate {
 
     protected Armor equippedArmor;
 
-    public Hero(int XP, int level, int HP, List<AbilityTemplate> allAbilities) {
+    public Hero(int XP, int level, int HP,List<String> abilityTypes) {
         this.XP = XP;
         this.level = level;
         this.HP = HP;
-        initializeAbilities(allAbilities);
+        initializeAbilities(abilityTypes);
         calculateAttack();
     }
 
-    private void initializeAbilities(List<AbilityTemplate> allAbilities) {
-        for (AbilityTemplate ability : allAbilities) {
-            AbilityTemplate clonedAbility = new AbilityTemplate();
-            clonedAbility.setName(ability.getName());
-            clonedAbility.setDamage(ability.getDamage());
-            clonedAbility.setManaCost(ability.getManaCost());
-            clonedAbility.setUnlocked(false);
-            abilities.add(clonedAbility);
+    private void initializeAbilities(List<String> abilityTypes) {
+        for (String type : abilityTypes) {
+            AbilityTemplate ability = AbilityFactory.createAbility(type);
+            abilities.add(ability);
         }
     }
 

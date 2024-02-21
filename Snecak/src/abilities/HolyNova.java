@@ -3,16 +3,24 @@ package abilities;
 import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
+import players.Player;
 
-public class HolyNova extends AbilityBase {
+import java.util.List;
+
+public class HolyNova implements AreaAbilityTemplate {
     private static final double[] TIER_MULTIPLIERS = {0.05, 0.08, 0.12, 0.18, 0.25};
 
+    private String name = "HolyNova";
+    private int totalDamage;
+    private int manaCost = 100;
+    private boolean unlocked;
+
     public HolyNova() {
-        setName("HolyNova");
-        setManaCost(100); // Adjust the mana cost accordingly
+
     }
 
-    public void use(HeroTemplate hero, MonsterBase monster) {
+    @Override
+    public void castAreaEffect(HeroTemplate hero, List<MonsterBase> monsters, Player player) {
         int currentMana = hero.getMana();
         int manaCost = getManaCost();
 
@@ -29,8 +37,6 @@ public class HolyNova extends AbilityBase {
             int totalDamage = heroDamage + monsterDamage;
             setDamage(totalDamage);
 
-            // Apply damage to all monsters
-            monster.takeDamage(totalDamage);
         } else {
             System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
         }

@@ -7,10 +7,13 @@ public class AnimalCompanion implements EntityAbilityTemplate {
     private String entityName;
     private int randomAttack;
 
-    private String name;
+    private int totalDamage;
+    private String name = "AnimalCompanion";
+    private int manaCost = 50;
+    private boolean unlocked;
 
     public AnimalCompanion() {
-        setName("Animal Companion"); // Assuming setName is defined in AbilityTemplate
+
     }
 
 
@@ -31,7 +34,7 @@ public class AnimalCompanion implements EntityAbilityTemplate {
 
     @Override
     public int getManaCost() {
-        return 0;
+        return manaCost;
     }
 
     @Override

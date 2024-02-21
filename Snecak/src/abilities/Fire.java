@@ -3,49 +3,95 @@ package abilities;
 import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
+import players.Player;
 
-public class Fire extends AbilityBase {
-    private int remainingTurns;
+import java.util.List;
 
-    private int turnCounter;
+public class Fire implements TickAbilityTemplate {
+    private String name = "Fire";
+    private int totalDamage = 30; // This might need adjustment based on your damage over time logic
+    private int manaCost = 20; // Assuming a mana cost
+    private boolean unlocked;
+    private int remainingTurns = 2; // Total duration of the DOT effect
 
-    public Fire() {
-        setName("Fire");
-        setManaCost(30); // Set the mana cost for the Fire ability
-        remainingTurns = 2; // Set the initial remaining turns
-        turnCounter = 0; // Initialize the turn counter
-    }
-
-    public void use(HeroTemplate hero, MonsterBase monster, int currentTurn) {
-        int currentMana = hero.getMana();
-        int manaCost = getManaCost(); // Get the mana cost from the superclass
-
-        if (currentMana >= manaCost && currentTurn >= turnCounter) {
-            hero.setMana(currentMana - manaCost);
+    @Override
+    public void cast(HeroTemplate hero, MonsterBase monster) {
+        if (hero.getMana() >= manaCost && !isEffectActive()) {
+            hero.setMana(hero.getMana() - manaCost);
             System.out.println("Used " + getName() + "!");
-            int damage = Dice.getNextNumber(3, hero.getLevel() * 7);
-            setDamage(damage);
-            applyActiveEffect(monster); // Apply the active effect to the selected monster
-            turnCounter = currentTurn + remainingTurns; // Set the next turn when the ability can be used
+            remainingTurns = 2; // Reset the duration each time the ability is cast
         } else {
-            System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
+            System.out.println("Not enough mana to use " + getName() + ".");
         }
     }
 
-    public void applyActiveEffect(MonsterBase monster) {
-        if (remainingTurns > 0) {
-            int damageDealt = Dice.getNextNumber(0,4);
-
-
-            monster.takeDamage(damageDealt);
-
-            remainingTurns--;
-
-            if (remainingTurns == 0) {
-                System.out.println(getName() + " effect has ended.");
-            }
-        } else {
-            System.out.println(getName() + " effect has ended.");
+    @Override
+    public void onTick(Player player, List<MonsterBase> monsters, int turnCounter) {
+        // Assuming the effect applies to all monsters. Adjust as necessary.
+        for (MonsterBase monster : monsters) {
+            int damage = Dice.getNextNumber(3, totalDamage); // Apply damage calculation logic
+            monster.takeDamage(damage);
+            System.out.printf("%s deals %d damage to %s. Remaining turns: %d%n", name, damage, monster.getName(), remainingTurns);
         }
+        remainingTurns--;
+        if (remainingTurns <= 0) {
+            System.out.println(getName() + " effect has ended.");
+            // Reset or deactivate the ability effect here if necessary
+        }
+    }
+
+    @Override
+    public int getRemainingTurns() {
+        return remainingTurns;
+    }
+
+    @Override
+    public void setRemainingTurns(int turns) {
+        this.remainingTurns = turns;
+    }
+
+    @Override
+    public boolean isEffectActive() {
+        return remainingTurns > 0;
+    }
+
+@Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
     }
 }

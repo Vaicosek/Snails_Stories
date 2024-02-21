@@ -6,15 +6,21 @@ import itemshandling.Consumable;
 import itemshandling.ItemBase;
 import itemshandling.Weapon;
 import monster.Dice;
+import monster.MonsterBase;
 import players.Player;
 
 
 import java.util.List;
 import java.util.Scanner;
 
-public class Enchantment extends AbilityBase {
+public class Enchantment implements EnchantTemplate  {
+
+    private String name = "Enchantment";
+    private int totalDamage;
+    private int manaCost = 50;
+    private boolean unlocked;
     public Enchantment() {
-        setName("Enchantment");
+
 
     }
 
@@ -101,7 +107,8 @@ public class Enchantment extends AbilityBase {
         handleEnchantInput(hero, availableConsumables);
     }
 
-    private void printItemList(List<? extends ItemBase> items) {
+    @Override
+    public void printItemList(List<? extends ItemBase> items) {
         int index = 1;
         for (ItemBase item : items) {
             System.out.println(index + ". " + item.getName());
@@ -109,41 +116,48 @@ public class Enchantment extends AbilityBase {
         }
     }
 
-    private void handleEnchantInput(HeroTemplate hero, List<? extends ItemBase> items) {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
 
-        if (input.equalsIgnoreCase("q")) {
-            return;
-        }
+    public void handleEnchantInput(HeroTemplate hero, List<? extends ItemBase> items) {
 
-        try {
-            int itemIndex = Integer.parseInt(input) - 1;
-            if (itemIndex >= 0 && itemIndex < items.size()) {
-                ItemBase itemToEnchant = items.get(itemIndex);
-
-                int currentDamage = itemToEnchant.getDamage();
-                int currentProtection = itemToEnchant.getProtection();
-                int currentHealth = itemToEnchant.getHealth();
-
-                int enchantDamage = Dice.getNextNumber(currentDamage,currentDamage/20 +currentDamage);
-                int enchantProtection = Dice.getNextNumber(currentProtection,currentProtection/20 +currentProtection);
-                int enchantHealth = Dice.getNextNumber(currentHealth, currentHealth/20 +currentHealth);
-
-                itemToEnchant.setProtection(enchantProtection);
-                itemToEnchant.setHealth(enchantHealth);
-                itemToEnchant.setDamage(enchantDamage);
-
-
-
-                System.out.println(hero.getName() + " enchanted " + itemToEnchant.getName() + "!");
-            } else {
-                System.out.println("Invalid choice. Please enter a valid number.");
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a number or 'q' to cancel.");
-        }
     }
 
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
 
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
 }

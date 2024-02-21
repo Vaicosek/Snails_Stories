@@ -5,29 +5,75 @@ import monster.MonsterBase;
 
 import java.util.List;
 
-public class Healing extends AbilityBase {
-    private HeroTemplate hero;
-    private static final int MANA_COST = 30;
+public class Healing implements NormalAbilityTemplate {
+
+
+    private String name = "Healing";
+    private int totalDamage;
+    private int manaCost = 30;
+    private boolean unlocked;
+
 
     public Healing() {
-       setName("Healing");
+
 
     }
 
-    public void use(HeroTemplate hero, List<MonsterBase> monsters) {
+    @Override
+    public void cast(HeroTemplate hero, MonsterBase monster) {
         int currentMana = hero.getMana();
-        if (currentMana >= MANA_COST) {
+        if (currentMana >= manaCost) {
             int maxHealth = hero.getHP();
             double healAmount = maxHealth * 0.1;
             int currentHealth = hero.getHP();
             int newHealth = Math.min(currentHealth + (int) healAmount, maxHealth);
             hero.setHP(newHealth);
 
-            hero.setMana(currentMana - MANA_COST);
+            hero.setMana(currentMana - manaCost);
             System.out.println("Healed for " + (int) healAmount + " HP. Current HP: " + newHealth);
         } else {
             System.out.println("Not enough mana to use Healing.");
         }
+    }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
     }
 }
 

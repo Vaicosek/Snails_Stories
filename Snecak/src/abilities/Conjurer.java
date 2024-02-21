@@ -6,8 +6,13 @@ public class Conjurer implements EntityAbilityTemplate {
     private String entityName;
     private int randomAttack;
 
+    private String name = "Conjurer";
+    private int totalDamage;
+    private int manaCost = 50;
+    private boolean unlocked;
+
     public Conjurer() {
-        setName("Conjurer");
+
     }
 
 
@@ -41,7 +46,7 @@ public class Conjurer implements EntityAbilityTemplate {
 
     @Override
     public int getDamage() {
-        return 0;
+        return totalDamage;
     }
 
     @Override
@@ -51,7 +56,7 @@ public class Conjurer implements EntityAbilityTemplate {
 
     @Override
     public int getManaCost() {
-        return 0;
+        return manaCost;
     }
 
     @Override
@@ -66,7 +71,7 @@ public class Conjurer implements EntityAbilityTemplate {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override

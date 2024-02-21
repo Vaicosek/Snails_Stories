@@ -2,19 +2,16 @@ package abilities;
 
 import hero.HeroTemplate;
 import monster.MonsterBase;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class BloodPact implements NormalAbilityTemplate {
-    private String name = "Blood Pact";
-    private int damage;
+    private String name = "BloodPact";
+    private int totalDamage;
     private int manaCost;
     private boolean unlocked;
 
-    public BloodPact(String name, int manaCost) {
-        this.name = name;
-        this.manaCost = manaCost;
+    public BloodPact() {
+
     }
 
     public void cast(HeroTemplate hero, MonsterBase monster) {
@@ -41,7 +38,7 @@ public class BloodPact implements NormalAbilityTemplate {
 
     @Override
     public int getDamage() {
-        return 0;
+        return totalDamage;
     }
 
     @Override
@@ -51,7 +48,7 @@ public class BloodPact implements NormalAbilityTemplate {
 
     @Override
     public int getManaCost() {
-        return 0;
+        return manaCost;
     }
 
     @Override
@@ -66,7 +63,7 @@ public class BloodPact implements NormalAbilityTemplate {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override

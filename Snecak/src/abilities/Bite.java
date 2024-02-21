@@ -1,30 +1,28 @@
 package abilities;
-
-import hero.Hero;
 import hero.HeroTemplate;
 import monster.MonsterBase;
 
-import java.util.List;
 
-public class Bite extends AbilityBase implements AbilityBaseInterface {
+public class Bite implements NormalAbilityTemplate {
 
-    int totalDamage =0;
+    private int totalDamage;
+    private String name = "Bite";
+    private int manaCost = 30;
+    private boolean unlocked;
+
         public Bite() {
 
         }
 
+    @Override
+    public void cast(HeroTemplate hero, MonsterBase monster) {
 
-        public void calculateDamage(HeroTemplate hero, int monsterHp) {
-            int baseDamage = 8 + hero.getLevel() * 5;
+        // Calculate total damage
+        totalDamage = 8 + hero.getLevel() * 5;
 
-            // Calculate total damage
-          totalDamage = baseDamage;
-
-            // Update the damage value of the ability
-            setDamage(totalDamage);
-        }
-
-
+        // Update the damage value of the ability
+        setDamage(totalDamage);
+    }
 
     @Override
     public int getDamage() {
@@ -37,12 +35,22 @@ public class Bite extends AbilityBase implements AbilityBaseInterface {
 
     @Override
     public int getManaCost() {
-        return 0;
+        return 30;
     }
 
     @Override
     public void setManaCost(int manaCost) {
 
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -52,31 +60,6 @@ public class Bite extends AbilityBase implements AbilityBaseInterface {
 
     @Override
     public void setUnlocked(boolean unlocked) {
-
-    }
-
-    @Override
-    public void use(HeroTemplate hero, MonsterBase currentMonster) {
-
-    }
-
-    @Override
-    public void useAreaSpell(HeroTemplate hero, List<MonsterBase> monsters) {
-
-    }
-
-    @Override
-    public void applyPassiveEffect(Hero hero) {
-
-    }
-
-    @Override
-    public void applyActiveEffect(Hero hero) {
-
-    }
-
-    @Override
-    public void summonPlayerAlliedEntity(HeroTemplate hero) {
 
     }
 }

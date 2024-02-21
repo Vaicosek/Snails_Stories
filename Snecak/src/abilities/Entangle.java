@@ -2,30 +2,69 @@ package abilities;
 
 import hero.HeroTemplate;
 import monster.MonsterBase;
-public class Entangle extends AbilityBase {
+public class Entangle implements EntangleAbilityTemplate {
     private static final int ENTANGLE_ROUNDS = 1;
 
-
+    private String name = "Entangle";
+    private int totalDamage;
+    private int manaCost = 30;
+    private boolean unlocked;
     public Entangle() {
-        setName("Entangle");
-        setManaCost(30);
-    }
-
-
-    public void use(HeroTemplate hero, MonsterBase monster) {
-
-        applyEntangleEffect(monster);
 
     }
 
-    private void applyEntangleEffect(MonsterBase targetMonster) {
-        // Apply taunt effect to the target monster
-        targetMonster.setEntangled(true, ENTANGLE_ROUNDS);
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
 
     }
 
-    public boolean isEntangleAbility() {
-        return true;
+    @Override
+    public int getManaCost() {
+        return manaCost;
     }
 
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
+
+    @Override
+    public void applyEntangle(HeroTemplate hero, MonsterBase monster) {
+        monster.setEntangled(true, ENTANGLE_ROUNDS);
+    }
+
+    @Override
+    public int getEntangleDuration() {
+        return ENTANGLE_ROUNDS;
+    }
+
+    @Override
+    public void setEntangleDuration(int duration) {
+
+    }
 }

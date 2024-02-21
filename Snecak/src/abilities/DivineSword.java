@@ -4,13 +4,19 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class DivineSword extends AbilityBase {
+public class DivineSword implements NormalAbilityTemplate {
+
+    private String name = "DivineSword";
+    private int totalDamage;
+    private int manaCost = 50;
+    private boolean unlocked;
+
     public DivineSword() {
-        setName("DivineSword");
-        setManaCost(50);
+
     }
 
-    public void use (HeroTemplate hero, MonsterBase monster) {
+    @Override
+    public void cast(HeroTemplate hero, MonsterBase monster) {
         int currentMana = hero.getMana();
         int manaCost = getManaCost();
         if (currentMana >= manaCost) {
@@ -21,5 +27,45 @@ public class DivineSword extends AbilityBase {
         } else {
             System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
         }
+    }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
     }
 }
