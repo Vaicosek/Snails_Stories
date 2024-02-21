@@ -5,9 +5,7 @@ import monster.MonsterBase;
 
 public class Inquisition extends AbilityBase {
     public Inquisition() {
-        setName("Inquisition");
-        setDamage(0);
-        setManaCost(0);
+
     }
 
     public void use(HeroTemplate hero, MonsterBase monster) {

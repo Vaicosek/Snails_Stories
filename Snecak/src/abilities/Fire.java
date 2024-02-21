@@ -12,10 +12,10 @@ public class Fire implements TickAbilityTemplate {
     private int totalDamage = 30; // This might need adjustment based on your damage over time logic
     private int manaCost = 20; // Assuming a mana cost
     private boolean unlocked;
-    private int remainingTurns = 2; // Total duration of the DOT effect
+    private int remainingTurns = 2;
 
     @Override
-    public void cast(HeroTemplate hero, MonsterBase monster) {
+    public void cast(HeroTemplate hero, MonsterBase monster, List<MonsterBase> monsters) {
         if (hero.getMana() >= manaCost && !isEffectActive()) {
             hero.setMana(hero.getMana() - manaCost);
             System.out.println("Used " + getName() + "!");
@@ -26,13 +26,11 @@ public class Fire implements TickAbilityTemplate {
     }
 
     @Override
-    public void onTick(Player player, List<MonsterBase> monsters, int turnCounter) {
-        // Assuming the effect applies to all monsters. Adjust as necessary.
-        for (MonsterBase monster : monsters) {
-            int damage = Dice.getNextNumber(3, totalDamage); // Apply damage calculation logic
-            monster.takeDamage(damage);
-            System.out.printf("%s deals %d damage to %s. Remaining turns: %d%n", name, damage, monster.getName(), remainingTurns);
-        }
+    public void onTick(Player player, MonsterBase monster, List<MonsterBase> monsters, int turnCounter) {
+        int damage = Dice.getNextNumber(3, totalDamage); // Apply damage calculation logic
+        monster.takeDamage(damage);
+        System.out.printf("%s deals %d damage to %s. Remaining turns: %d%n", name, damage, monster.getName(), remainingTurns);
+
         remainingTurns--;
         if (remainingTurns <= 0) {
             System.out.println(getName() + " effect has ended.");

@@ -18,11 +18,21 @@ public class HammerSlam implements AreaAbilityTemplate {
 
     }
 
-    @Override
     public void castAreaEffect(HeroTemplate hero, List<MonsterBase> monsters, Player player) {
-        System.out.println("Used " + getName() + "!");
-        int damage = Dice.getNextNumber(2, 2 + (hero.getLevel() * 3 ));
-        setDamage(damage);
+        int currentMana = hero.getMana();
+        if (currentMana >= this.manaCost) {
+            hero.setMana(currentMana - this.manaCost);
+            System.out.println("Used " + getName() + "!");
+
+            for (MonsterBase monster : monsters) {
+                // Calculate damage based on hero's level and apply it to each monster
+                int damage = Dice.getNextNumber(2, 2 + (hero.getLevel() * 3));
+                monster.takeDamage(damage);
+                System.out.printf("%s deals %d damage to %s.%n", getName(), damage, monster.getName());
+            }
+        } else {
+            System.out.println("Not enough mana to use " + getName() + ".");
+        }
     }
 
     public boolean isSpellAreaEffect() {

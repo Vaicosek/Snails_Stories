@@ -95,7 +95,7 @@ public class ActionSelector {
 
     private static void handleTickEffectAbility(Player player, MonsterBase currentMonster, List<MonsterBase> monsters, TickAbilityTemplate tickAbility) {
         if (!tickAbility.isEffectActive()) {
-            tickAbility.cast(player.getHero(), currentMonster); // Initial cast
+            tickAbility.cast(player.getHero(), currentMonster, monsters); // Initial cast
             System.out.printf("%s uses %s, applying effect for %d turns.%n", player.getName(), tickAbility.getName(), tickAbility.getRemainingTurns());
         } else {
             System.out.println("Effect is already active.");
@@ -136,16 +136,10 @@ public class ActionSelector {
         // Implement logic for area effect abilities
         areaEffectAbility.castAreaEffect(player.getHero(), monsters, player);
 
-        // Deal damage to monsters
-        for (MonsterBase monster : monsters) {
-            int damageDealt = areaEffectAbility.getDamage();
-            monster.HP -= damageDealt;
-            System.out.printf("%s used %s and hit %s for %d damage!%n", player.getName(), areaEffectAbility.getName(), monster.getName(), damageDealt);
-
             player.getHero().usePassiveMonsterAbilities(monster, 0);
 
         }
-    }
+
 
 
     private static void handleTauntAbility(Player player, MonsterBase currentMonster, TauntAbilityTemplate tauntAbility) {

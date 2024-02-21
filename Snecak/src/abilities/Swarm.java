@@ -3,52 +3,109 @@ package abilities;
 import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
+import players.Player;
 
-public class Swarm extends AbilityBase {
+import java.util.List;
 
-    private int remainingTurns;
-
-    private int turnCounter;
-
-    public Swarm() {
-        setName("Swarm");
-        setManaCost(50);
-        remainingTurns = 3; // Set the initial remaining turns
-        turnCounter = 0; // Initialize the turn counter
-    }
-
-    public void use(HeroTemplate hero, MonsterBase monster) {
-        int currentMana = hero.getMana();
-        int manaCost = getManaCost();
-
-        if (currentMana >= manaCost) {
-            hero.setMana(currentMana - manaCost);
-            System.out.println("Used " + getName() + "!");
-
-            // Calculate damage based on hero's level and monster's tier
-            int Damage = Dice.getNextNumber(0, (10 + (hero.getLevel() * 5)));
-            setDamage(Damage);
-            applyActiveEffect(monster);
-        } else {
-            System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
+public class Swarm implements TickAbilityTemplate {
+        private String name = "Swarm";
+        private int manaCost = 50;
+        private boolean unlocked;
+        private int remainingTurns = 3; // Duration of the DOT effect
+        private int damagePerTick;
+        public Swarm() {
+            // Initialization logic, if any
         }
-    }
-    public void applyActiveEffect(MonsterBase monster) {
-        if (remainingTurns > 0) {
-            int damagePerTurn = (monster.getHP() / 100);
 
-            monster.takeDamage(damagePerTurn);
+        @Override
+        public void cast(HeroTemplate hero, MonsterBase monster, List<MonsterBase> monsters) {
+            int currentMana = hero.getMana();
+            int manaCost = getManaCost();
 
-            remainingTurns--;
+            if (currentMana >= manaCost) {
+                hero.setMana(currentMana - manaCost);
+                System.out.println("Used " + getName() + "!");
 
-            if (remainingTurns == 0) {
-                System.out.println(getName() + " effect has ended.");
+                // Calculate damage based on hero's level and monster's tier
+                int Damage = Dice.getNextNumber(0, (10 + (hero.getLevel() * 5)));
+                setDamage(Damage);
+
+            } else {
+                System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
             }
-        } else {
-            System.out.println(getName() + " effect has ended.");
+        }
+
+    @Override
+    public void onTick(Player player, MonsterBase monster, List<MonsterBase> monsters, int turnCounter) {
+        if (isEffectActive()) {
+            for (MonsterBase currentMonster : monsters) { // Changed variable name to currentMonster
+                int damagePerTurn = (currentMonster.getHP() / 100);
+
+                currentMonster.takeDamage(damagePerTurn);
+                System.out.printf("Swarm deals %d damage to %s%n", damagePerTurn, currentMonster.getName());
+            }
+            remainingTurns--;
+            if (remainingTurns <= 0) {
+                System.out.println("Swarm effect has ended.");
+                // Ensure to reset or deactivate the ability effect here if necessary
+            }
         }
     }
-    public boolean isSpellAreaEffect() {
-        return true;
+
+
+    @Override
+        public int getRemainingTurns() {
+            return remainingTurns;
+        }
+
+        @Override
+        public void setRemainingTurns(int turns) {
+            this.remainingTurns = turns;
+        }
+
+        @Override
+        public boolean isEffectActive() {
+            return remainingTurns > 0;
+        }
+
+        @Override
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public boolean isUnlocked() {
+            return unlocked;
+        }
+
+        @Override
+        public void setUnlocked(boolean unlocked) {
+            this.unlocked = unlocked;
+        }
+
+    @Override
+    public int getDamage() {
+        return 0;
     }
-}
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+        public int getManaCost() {
+            return manaCost;
+        }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+    }
+

@@ -28,15 +28,15 @@ public class HolyNova implements AreaAbilityTemplate {
             hero.setMana(currentMana - manaCost);
             System.out.println("Used " + getName() + "!");
 
-            // Calculate damage based on hero's level and monster's tier
-            int heroDamage = Dice.getNextNumber(5, (10 + (hero.getLevel() * 5)));
-            int tier = monster.getTier();
-            double multiplier = TIER_MULTIPLIERS[tier - 1];
-            int monsterDamage = (int) (monster.getHP() * multiplier) + (5 * tier);
+            for (MonsterBase monster : monsters) {
+                int heroDamage = Dice.getNextNumber(5, (10 + (hero.getLevel() * 5)));
+                int tier = monster.getTier();
+                double multiplier = TIER_MULTIPLIERS[tier - 1];
+                int monsterDamage = (int) (monster.getHP() * multiplier) + (5 * tier);
 
-            int totalDamage = heroDamage + monsterDamage;
-            setDamage(totalDamage);
-
+                int totalDamage = heroDamage + monsterDamage;
+                setDamage(totalDamage);
+            }
         } else {
             System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
         }
@@ -44,5 +44,45 @@ public class HolyNova implements AreaAbilityTemplate {
 
     public boolean isSpellAreaEffect() {
         return true;
+    }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
     }
 }

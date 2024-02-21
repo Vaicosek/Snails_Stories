@@ -225,11 +225,14 @@ public class CombatRound {
     private void applyTickEffects(Player player) {
         List<AbilityTemplate> abilities = player.getHero().getAbilities();
         for (AbilityTemplate ability : abilities) {
-            if (ability instanceof TickAbilityTemplate) {
-                TickAbilityTemplate tickAbility = (TickAbilityTemplate) ability;
+            if (ability instanceof TickAbilityTemplate tickAbility) {
                 if (tickAbility.isEffectActive()) {
-                    tickAbility.onTick(player, monsters, turnCounter);
-                    System.out.printf("Tick effect of %s applied on turn %d.%n", tickAbility.getName(), turnCounter);
+                    // Assuming the effect applies to specific monsters or all monsters
+                    for (MonsterBase monster : monsters) {
+                        tickAbility.onTick(player, monster, monsters, turnCounter);
+                        System.out.printf("Tick effect of %s applied to %s on turn %d.%n",
+                                tickAbility.getName(), monster.getName(), turnCounter);
+                    }
                 }
             }
         }
