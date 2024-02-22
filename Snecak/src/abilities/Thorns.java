@@ -1,47 +1,115 @@
 package abilities;
 
 import hero.HeroTemplate;
+import monster.Dice;
 import monster.MonsterBase;
+import players.Player;
 
-public class Thorns extends AbilityBase {
-    private int remainingTurns;
-    private int turnCounter;
+import java.util.List;
+
+public class Thorns implements TickAbilityTemplate {
+    private int remainingTurns = 5;
+
+    private String name = "Thorns";
+    private int manaCost = 50;
+    private int totalDamage;
+    private boolean unlocked;
+
 
     public Thorns() {
-        setName("Thorns");
-        setManaCost(50);
-        remainingTurns = 5; // Set the initial remaining turns for the effect
-        turnCounter = 0; // Initialize the turn counter
     }
 
-    public void use(HeroTemplate hero, MonsterBase monster, int currentTurn) {
+    @Override
+    public void cast(HeroTemplate hero, MonsterBase monster, List<MonsterBase> monsters) {
         int currentMana = hero.getMana();
         int manaCost = getManaCost(); // Get the mana cost from the superclass
+        if (currentMana >= manaCost) {
+            for (MonsterBase currentMonster : monsters) {
+                int damage = Dice.getNextNumber(0,4 + hero.getLevel());
+                setDamage(damage);
+                monster.takeDamage(totalDamage);
+                hero.setMana(currentMana - manaCost);
+                System.out.println("Used " + getName() + "!");
 
-        if (currentMana >= manaCost && currentTurn >= turnCounter) {
-            hero.setMana(currentMana - manaCost);
-            System.out.println("Used " + getName() + "!");
 
-            applyActiveEffect(monster); // Apply the active effect to the selected monster
-            turnCounter = currentTurn + remainingTurns; // Set the next turn when the ability can be used
-        } else {
+            }
+        }
+        else {
             System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
         }
     }
 
-    public void applyActiveEffect(MonsterBase monster) {
+    @Override
+    public void onTick(Player player, MonsterBase monster, List<MonsterBase> monsters, int turnCounter) {
         if (remainingTurns > 0) {
-            int damagePerTurn = (monster.getHP() / 100) * 5; // Calculate bleed damage as a fraction of monster's HP
 
-            monster.takeDamage(damagePerTurn);
+            for (MonsterBase currentMonster : monsters) {
+                int damagePerTurn = (monster.getHP() / 100) * 3;
 
-            remainingTurns--;
+                monster.takeDamage(damagePerTurn);
 
-            if (remainingTurns == 0) {
-                System.out.println(getName() + " effect has ended.");
-            }
+                remainingTurns--;
+
+                }
+
         } else {
             System.out.println(getName() + " effect has ended.");
         }
     }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
+
+    @Override
+    public int getRemainingTurns() {
+        return remainingTurns;
+    }
+
+    @Override
+    public void setRemainingTurns(int turns) {
+
+    }
+
+    @Override
+    public boolean isEffectActive() {
+        return false;
+    }
 }
+

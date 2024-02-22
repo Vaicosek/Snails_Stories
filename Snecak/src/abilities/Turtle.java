@@ -2,16 +2,22 @@ package abilities;
 
 import hero.HeroTemplate;
 import itemshandling.Armor;
+import monster.MonsterBase;
 
-public class Turtle extends AbilityBase {
+public class Turtle implements NormalAbilityTemplate {
 
+    private String name = "Turtle";
+    private int manaCost;
+    private int totalDamage;
+    private boolean unlocked;
+    private int remainingTurns = 3;
     private boolean active = false;
 
     public Turtle() {
-        setName("Turtle");
     }
+    @Override
+    public void cast(HeroTemplate hero, MonsterBase monster) {
 
-    public void use(HeroTemplate hero) {
         if (!active) {
             System.out.println("You have activated the turtle. To deactivate the turtle, cast this spell in combat again.");
 
@@ -22,11 +28,50 @@ public class Turtle extends AbilityBase {
             active = true;
         } else {
             System.out.println("You have deactivated the turtle.");
-
-            // Unequip the TurtleShell when the Turtle ability is deactivated
-            hero.unequipArmor(); // Assume you have a method to unequip by armor type
-
+            hero.unequipArmor();
             active = false;
         }
     }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
 }
+
+

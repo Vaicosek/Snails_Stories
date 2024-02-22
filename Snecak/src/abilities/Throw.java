@@ -4,19 +4,23 @@ import hero.HeroTemplate;
 import itemshandling.Inventory;
 import itemshandling.ItemBase;
 import monster.MonsterBase;
+import players.Player;
 
 import java.util.Scanner;
 
-public class Throw extends AbilityBase {
+public class Throw implements ThrowAbilityTemplate {
+
+    private String name = "Throw";
+    private int totalDamage;
+    private int manaCost;
+    private boolean unlocked;
+
     public Throw() {
-        setName("Throw");
-
     }
-
-    public void use(HeroTemplate hero, MonsterBase monster, Inventory inventory) {
-            System.out.println("Used " + getName() + "!");
-            throwItem(inventory, monster);
-
+    @Override
+    public void cast(Player player, HeroTemplate hero, MonsterBase monster) {
+        System.out.println("Used " + getName() + "!");
+        throwItem(player.getInventory(), monster);
     }
 
     private void throwItem(Inventory inventory, MonsterBase monster) {
