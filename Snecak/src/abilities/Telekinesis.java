@@ -50,4 +50,44 @@ public class Telekinesis implements ThrowAbilityTemplate {
             System.out.println("Item not found in inventory or invalid item name.");
         }
     }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
 }

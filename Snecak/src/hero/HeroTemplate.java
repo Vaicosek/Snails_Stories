@@ -40,6 +40,7 @@ public interface HeroTemplate {
 
     void equipWeapon(Weapon weapon);
 
+
     void unequipWeapon();
 
     void equipArmor(Armor armor);
@@ -47,10 +48,10 @@ public interface HeroTemplate {
     void unequipArmor();
 
     void heal(int healthRestored);
-    void usePassiveMonsterAbilities(MonsterBase monster, int currentTurn);
+    void usePassiveMonsterAbilities(MonsterBase monster);
 
 
-    void equipWeapon2(Weapon weapon2);
+    void equipWeapon2(Weapon weapon);
 
    int getEquippedArmorProtection();
     int getEquippedWeaponDamage();

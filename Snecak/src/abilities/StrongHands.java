@@ -8,7 +8,6 @@ import players.Player;
 import java.util.List;
 
 public class StrongHands implements NormalAbilityTemplate {
-    private Inventory inventory;
 
     private String name = "StrongHands";
     private int totalDamage;
@@ -17,13 +16,49 @@ public class StrongHands implements NormalAbilityTemplate {
 
     public StrongHands() {
 
-        this.inventory = new Inventory();
+    }
+        @Override
+    public void cast(HeroTemplate hero, MonsterBase monster) {
+
     }
 
-    public void useStrongHands(HeroTemplate hero, Player player) {
-
-        inventory.openInventoryMenu(hero,player);
+    @Override
+    public int getDamage() {
+        return totalDamage;
     }
 
+    @Override
+    public void setDamage(int totalDamage) {
 
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
+    }
 }

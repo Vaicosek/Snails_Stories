@@ -10,8 +10,8 @@ public class Assassin extends Hero {
 
 
 
-    public Assassin(int XP, int level, int HP, List<AbilityTemplate> assassinAbilities) {
-        super(XP, level, HP, assassinAbilities);
+    public Assassin(int XP, int level, int HP, List<String> abilityNames) {
+        super(XP, level, HP, abilityNames);
         this.name = "Assassin";
     }
 

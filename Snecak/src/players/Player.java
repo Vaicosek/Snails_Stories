@@ -2,6 +2,7 @@ package players;
 
 import abilities.EntityAbilityTemplate;
 import abilitiesmanagement.HeroAbilitiesManager;
+import hero.*;
 import itemshandling.*;
 import mapvariables.PositionModel;
 
@@ -66,26 +67,11 @@ public class Player {
         System.out.println("5. Druid");
         int choice = scanner.nextInt();
         switch (choice) {
-            case 1 -> {
-                this.hero = new hero.Assassin(0, 1, 100, HeroAbilitiesManager.getAssassinAbilities());
-
-            }
-            case 2 -> {
-                this.hero = new hero.Defender(0, 1, 100, HeroAbilitiesManager.getDefenderAbilities());
-
-            }
-            case 3 -> {
-                this.hero = new hero.Healer(0, 1, 100, HeroAbilitiesManager.getHealerAbilities());
-
-            }
-            case 4 -> {
-                this.hero = new hero.Wizard(0, 1, 100, HeroAbilitiesManager.getWizardAbilities());
-
-            }
-            case 5 -> {
-                this.hero = new hero.Druid(0, 1, 100, HeroAbilitiesManager.getDruidAbilities());
-
-            }
+            case 1 -> this.hero = new Assassin(0, 1, 100, HeroAbilitiesManager.getAbilitiesForHero("Assassin"));
+            case 2 -> this.hero = new Defender(0, 1, 100, HeroAbilitiesManager.getAbilitiesForHero("Defender"));
+            case 3 -> this.hero = new Healer(0, 1, 100, HeroAbilitiesManager.getAbilitiesForHero("Healer"));
+            case 4 -> this.hero = new Wizard(0, 1, 100, HeroAbilitiesManager.getAbilitiesForHero("Wizard"));
+            case 5 -> this.hero = new Druid(0, 1, 100, HeroAbilitiesManager.getAbilitiesForHero("Druid"));
             default -> {
                 System.out.println("Invalid choice, please try again.");
                 pickHero();

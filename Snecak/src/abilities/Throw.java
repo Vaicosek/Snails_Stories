@@ -23,7 +23,7 @@ public class Throw implements ThrowAbilityTemplate {
         throwItem(player.getInventory(), monster);
     }
 
-    private void throwItem(Inventory inventory, MonsterBase monster) {
+    public void throwItem(Inventory inventory, MonsterBase monster) {
         Scanner scanner = new Scanner(System.in);
         inventory.printInventory(); // Display the items in the inventory
 
@@ -39,5 +39,45 @@ public class Throw implements ThrowAbilityTemplate {
         } else {
             System.out.println("Item not found in inventory or invalid item name.");
         }
+    }
+
+    @Override
+    public int getDamage() {
+        return totalDamage;
+    }
+
+    @Override
+    public void setDamage(int totalDamage) {
+
+    }
+
+    @Override
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    @Override
+    public void setManaCost(int manaCost) {
+
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean isUnlocked() {
+        return false;
+    }
+
+    @Override
+    public void setUnlocked(boolean unlocked) {
+
     }
 }

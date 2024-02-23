@@ -41,7 +41,9 @@ public class ShadowClone implements EntityAbilityTemplate {
     }
 
     @Override
-    public void setEntityName(String name)
+    public void setEntityName(String name) {
+
+    }
 
     @Override
     public int getDamage() {

@@ -9,6 +9,7 @@ import players.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Hero implements HeroTemplate {
     protected int XP;
@@ -18,7 +19,7 @@ public class Hero implements HeroTemplate {
     protected int attack;
 
     protected double mana;
-    protected ArrayList<AbilityTemplate> abilities = new ArrayList<>();
+    protected List<AbilityTemplate> abilities = new ArrayList<>();
     protected Weapon equippedWeapon;
     protected Weapon equippedWeapon2;
 
@@ -33,11 +34,11 @@ public class Hero implements HeroTemplate {
     }
 
     private void initializeAbilities(List<String> abilityTypes) {
-        for (String type : abilityTypes) {
-            AbilityTemplate ability = AbilityFactory.createAbility(type);
-            abilities.add(ability);
-        }
+        this.abilities = abilityTypes.stream()
+                .map(AbilityFactory::createAbility)
+                .collect(Collectors.toList());
     }
+
 
     private void calculateAttack() {
         double damageMultiplier = 1.0; // Default damage multiplier
@@ -192,7 +193,7 @@ public class Hero implements HeroTemplate {
         for (AbilityTemplate ability : abilities) {
             if (ability.getName().equals("SharpWeapons") && ability.isUnlocked()) {
                 SharpWeapons sharpWeapons = new SharpWeapons();
-                sharpWeapons.passiveEffect(this);
+                sharpWeapons.applyBonus(this);
             }
         }
     }
@@ -314,20 +315,20 @@ public class Hero implements HeroTemplate {
         this.attack = attack;
     }
 
-    public void usePassiveMonsterAbilities(MonsterBase monster, int currentTurn) {
+    public void usePassiveMonsterAbilities(MonsterBase monster) {
         Inquisition inquisition = new Inquisition();
         MonsterKiller monsterKiller = new MonsterKiller();
         CriticalHit criticalHit = new CriticalHit();
 
         if (inquisition.isUnlocked()) {
-            inquisition.use(this, monster);
+            inquisition.apply(this, monster);
         }
 
         if (monsterKiller.isUnlocked()) {
-            monsterKiller.use(this, monster);
+            monsterKiller.apply(this, monster);
         }
         if (criticalHit.isUnlocked()){
-            monsterKiller.use(this,monster);
+            criticalHit.apply(this,monster);
         }
     }
 

@@ -4,7 +4,7 @@ import hero.HeroTemplate;
 import monster.Dice;
 import monster.MonsterBase;
 
-public class CriticalHit implements NormalAbilityTemplate {
+public class CriticalHit implements AbilityTemplate {
 
     private String name = "CriticalHit";
     private int totalDamage;
@@ -16,13 +16,15 @@ public class CriticalHit implements NormalAbilityTemplate {
 
     }
 
-    @Override
-    public void cast(HeroTemplate hero, MonsterBase monster) {
+
+    public void apply(HeroTemplate hero, MonsterBase monster) {
         int percent = Dice.getNextNumber(0, 100);
         if (percent >= 33) {
             int damage = (hero.getAttack() / 100) * 20 + hero.getAttack();
             setDamage(damage);
-            System.out.println("Used " + getName() + "!");
+            monster.takeDamage(totalDamage);
+            System.out.println("Monster took extra " + totalDamage);
+
         }
     }
     @Override

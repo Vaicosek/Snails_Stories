@@ -1,6 +1,7 @@
 package abilitiesmanagement;
 
 import abilities.*;
+import hero.HeroTemplate;
 import heroalliedEntities.AllyEntityFactory;
 import monster.MonsterBase;
 import players.Player;
@@ -38,12 +39,12 @@ public class ActionSelector {
             return;
         }
 
-        int damageDealt = player.getHero().getAttack();
-        currentMonster.HP -= damageDealt;
-        System.out.printf("%s hit %s for %d damage!%n", player.getName(), currentMonster.getName(), damageDealt);
+        int totalDamage = player.getHero().getAttack();
 
+       currentMonster.takeDamage(totalDamage);
+        System.out.printf("%s hit %s for %d damage!%n", player.getName(), currentMonster.getName(), totalDamage);
 
-        player.getHero().usePassiveMonsterAbilities(currentMonster, 0);
+        player.getHero().usePassiveMonsterAbilities(currentMonster);
 
     }
 
@@ -70,27 +71,32 @@ public class ActionSelector {
             AbilityTemplate selectedAbility = abilities.get(abilityIndex);
 
             // Handle different types of abilities
-            if (selectedAbility instanceof AreaAbilityTemplate) {
-                handleAreaEffectAbility(player, monsters, (AreaAbilityTemplate) selectedAbility);
-            } else if (selectedAbility instanceof TauntAbilityTemplate) {
-                handleTauntAbility(player, currentMonster, (TauntAbilityTemplate) selectedAbility);
-            } else if (selectedAbility instanceof EntityAbilityTemplate) {
-                handleEntitySpell(player, selectedAbility);
-            } else if (selectedAbility instanceof EntangleAbilityTemplate) {
-                handleEntangleAbility(player, currentMonster, (EntangleAbilityTemplate) selectedAbility);
-            } else if (selectedAbility instanceof MisdirectionAbilityTemplate) {
-                handleMisdirectionAbility(player, currentMonster, monsters, (MisdirectionAbilityTemplate) selectedAbility);
-            } else if (selectedAbility instanceof NormalAbilityTemplate) {
-                handleNormalAbility(player, currentMonster, (NormalAbilityTemplate) selectedAbility);
-            }  if (selectedAbility instanceof TickAbilityTemplate) {
-                handleTickEffectAbility(player, currentMonster, monsters, (TickAbilityTemplate) selectedAbility);
-            } else {
-                System.out.println("This ability type is not supported yet.");
+            switch (selectedAbility) {
+                case AreaAbilityTemplate areaAbilityTemplate ->
+                        handleAreaEffectAbility(player, monsters, areaAbilityTemplate);
+                case TauntAbilityTemplate tauntAbilityTemplate ->
+                        handleTauntAbility(player, currentMonster, tauntAbilityTemplate);
+                case EntityAbilityTemplate entityAbilityTemplate -> handleEntitySpell(player, entityAbilityTemplate);
+                case EntangleAbilityTemplate entangleAbilityTemplate ->
+                        handleEntangleAbility(player, currentMonster, entangleAbilityTemplate);
+                case MisdirectionAbilityTemplate misdirectionAbilityTemplate ->
+                        handleMisdirectionAbility(player, currentMonster, monsters, misdirectionAbilityTemplate);
+                case NormalAbilityTemplate normalAbilityTemplate ->
+                        handleNormalAbility(player, currentMonster, normalAbilityTemplate);
+                case TickAbilityTemplate tickAbilityTemplate ->
+                        handleTickEffectAbility(player, currentMonster, monsters, tickAbilityTemplate);
+                case ThrowAbilityTemplate throwAbilityTemplate ->
+                        handleThrowAbility(player, player.getHero(), currentMonster, throwAbilityTemplate);
+                case null, default -> System.out.println("This ability type is not supported yet.");
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a number.");
             performAbility(player, currentMonster, monsters);
         }
+    }
+
+    private static void handleThrowAbility(Player player, HeroTemplate hero, MonsterBase currentMonster, ThrowAbilityTemplate throwAbility) {
+        throwAbility.cast(player,hero,currentMonster);
     }
 
     private static void handleTickEffectAbility(Player player, MonsterBase currentMonster, List<MonsterBase> monsters, TickAbilityTemplate tickAbility) {
@@ -103,7 +109,7 @@ public class ActionSelector {
     }
 
 
-    private static void handleEntitySpell(Player player, AbilityTemplate entityAbility) {
+    private static void handleEntitySpell(Player player, EntityAbilityTemplate entityAbility) {
 
         switch (entityAbility.getName().toLowerCase()) {
             case "animal companion":
@@ -137,8 +143,6 @@ public class ActionSelector {
         areaEffectAbility.castAreaEffect(player.getHero(), monsters, player);
 
         }
-
-
 
     private static void handleTauntAbility(Player player, MonsterBase currentMonster, TauntAbilityTemplate tauntAbility) {
 
