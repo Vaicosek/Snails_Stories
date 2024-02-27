@@ -13,7 +13,7 @@ public class Thorns implements TickAbilityTemplate {
     private String name = "Thorns";
     private int manaCost = 50;
     private int totalDamage;
-    private boolean unlocked;
+    private boolean unlocked =false;
 
 
     public Thorns() {
@@ -89,11 +89,11 @@ public class Thorns implements TickAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
+    public void setUnlocked() {
 
     }
 
@@ -104,12 +104,12 @@ public class Thorns implements TickAbilityTemplate {
 
     @Override
     public void setRemainingTurns(int turns) {
-
+        this.remainingTurns = turns;
     }
 
     @Override
     public boolean isEffectActive() {
-        return false;
+        return remainingTurns > 0;
     }
 }
 

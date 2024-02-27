@@ -55,12 +55,12 @@ public class Inquisition implements AbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }
 

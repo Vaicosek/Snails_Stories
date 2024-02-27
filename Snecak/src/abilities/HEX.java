@@ -9,7 +9,7 @@ public class HEX implements EntangleAbilityTemplate {
     private String name = "HEX";
     private int totalDamage;
     private int manaCost = 50;
-    private boolean unlocked;
+    private boolean unlocked =false;
 
     public HEX( ) {
 
@@ -67,11 +67,11 @@ public class HEX implements EntangleAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

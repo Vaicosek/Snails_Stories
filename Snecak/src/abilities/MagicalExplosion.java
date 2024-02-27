@@ -12,7 +12,7 @@ public class MagicalExplosion implements AreaAbilityTemplate {
     private String name = "MagicalExplosion";
     private int totalDamage;
     private int manaCost = 0;
-    private boolean unlocked;
+    private boolean unlocked =false;
 
 
     public MagicalExplosion() {
@@ -78,11 +78,11 @@ public class MagicalExplosion implements AreaAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

@@ -8,7 +8,7 @@ public class Sparks implements NormalAbilityTemplate {
     private String name = "Sparks";
     private int totalDamage;
     private int manaCost = 40;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public Sparks() {
     }
@@ -61,11 +61,11 @@ public class Sparks implements NormalAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

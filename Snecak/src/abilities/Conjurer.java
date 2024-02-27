@@ -9,7 +9,7 @@ public class Conjurer implements EntityAbilityTemplate {
     private String name = "Conjurer";
     private int totalDamage;
     private int manaCost = 50;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public Conjurer() {
 
@@ -80,7 +80,7 @@ public class Conjurer implements EntityAbilityTemplate {
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

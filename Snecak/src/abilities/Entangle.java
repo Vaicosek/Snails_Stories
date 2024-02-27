@@ -8,7 +8,7 @@ public class Entangle implements EntangleAbilityTemplate {
     private String name = "Entangle";
     private int totalDamage;
     private int manaCost = 30;
-    private boolean unlocked;
+    private boolean unlocked = false;
     public Entangle() {
 
     }
@@ -49,8 +49,8 @@ public class Entangle implements EntangleAbilityTemplate {
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 
     @Override

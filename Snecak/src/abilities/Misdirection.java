@@ -13,7 +13,7 @@ public class Misdirection implements MisdirectionAbilityTemplate {
     private String name = "Misdirection";
     private int totalDamage;
     private int manaCost = 40;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public Misdirection() {
     }
@@ -57,12 +57,12 @@ public class Misdirection implements MisdirectionAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 
     @Override

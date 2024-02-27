@@ -9,7 +9,7 @@ public class PrimalRoar implements TauntAbilityTemplate {
     private String name = "PrimalRoar";
     private int totalDamage;
     private int manaCost = 33;
-    private boolean unlocked;
+    private boolean unlocked = false;
     public PrimalRoar() {
     }
 
@@ -59,8 +59,8 @@ public class PrimalRoar implements TauntAbilityTemplate {
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+unlocked = true;
     }
 
     @Override

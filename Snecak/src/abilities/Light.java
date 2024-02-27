@@ -12,7 +12,7 @@ public class Light implements TickAbilityTemplate {
     private String name = "Light";
     private int totalDamage;
     private int manaCost = 50;
-    private boolean unlocked;
+    private boolean unlocked = false;
     private int remainingTurns = 3;
     public Light() {
     }
@@ -93,11 +93,11 @@ public class Light implements TickAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

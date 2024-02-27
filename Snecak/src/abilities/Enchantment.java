@@ -18,7 +18,7 @@ public class Enchantment implements EnchantTemplate  {
     private String name = "Enchantment";
     private int totalDamage;
     private int manaCost = 50;
-    private boolean unlocked;
+    private boolean unlocked = false;
     public Enchantment() {
 
 
@@ -153,11 +153,11 @@ public class Enchantment implements EnchantTemplate  {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

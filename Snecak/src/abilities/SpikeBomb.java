@@ -12,7 +12,7 @@ public class SpikeBomb implements AreaAbilityTemplate {
     private String name = "SpikeBomb";
     private int totalDamage;
     private int manaCost;
-    private boolean unlocked;
+    private boolean unlocked = false;
     public SpikeBomb() {
         setName("SpikeBomb");
     }
@@ -62,11 +62,11 @@ public class SpikeBomb implements AreaAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

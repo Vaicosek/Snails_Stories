@@ -11,7 +11,7 @@ public class Sleep implements EntangleAbilityTemplate {
     private String name = "Sleep";
     private int totalDamage;
     private int manaCost = 33;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public Sleep() {
     }
@@ -53,12 +53,12 @@ public class Sleep implements EntangleAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 
     @Override

@@ -8,7 +8,7 @@ public class SharpWeapons implements BonusAbilityTemplate {
     private String name = "SharpWeapons";
     private int totalDamage;
     private int manaCost;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public SharpWeapons() {
     }
@@ -60,12 +60,12 @@ public class SharpWeapons implements BonusAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }
 

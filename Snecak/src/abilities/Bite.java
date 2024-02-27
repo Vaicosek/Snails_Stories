@@ -8,7 +8,7 @@ public class Bite implements NormalAbilityTemplate {
     private int totalDamage;
     private String name = "Bite";
     private int manaCost = 30;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
         public Bite() {
 
@@ -55,12 +55,12 @@ public class Bite implements NormalAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+     unlocked = true;
     }
 }
 

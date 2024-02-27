@@ -13,7 +13,7 @@ public class Telekinesis implements ThrowAbilityTemplate {
     private String name = "Telekinesis";
     private int totalDamage;
     private int manaCost = 25;
-    private boolean unlocked;
+    private boolean unlocked =false;
 
     public Telekinesis() {
     }
@@ -83,11 +83,11 @@ public class Telekinesis implements ThrowAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

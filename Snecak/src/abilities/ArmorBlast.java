@@ -11,7 +11,7 @@ public class ArmorBlast implements AreaAbilityTemplate {
     private String name = "ArmorBlast";
     private int totalDamage;
     private int manaCost = 30;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public ArmorBlast() {
 
@@ -53,8 +53,8 @@ public class ArmorBlast implements AreaAbilityTemplate {
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-        this.unlocked = unlocked;
+    public void setUnlocked() {
+         unlocked = true;
     }
 
 

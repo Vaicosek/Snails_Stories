@@ -14,7 +14,7 @@ public class Ice implements TickAbilityTemplate  {
     private String name = "Ice";
     private int totalDamage;
     private int manaCost = 20;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public Ice() {
     }
@@ -99,12 +99,12 @@ public class Ice implements TickAbilityTemplate  {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }
 

@@ -9,7 +9,7 @@ public class Turtle implements NormalAbilityTemplate {
     private String name = "Turtle";
     private int manaCost;
     private int totalDamage;
-    private boolean unlocked;
+    private boolean unlocked =false;
     private int remainingTurns = 3;
     private boolean active = false;
 
@@ -65,12 +65,12 @@ public class Turtle implements NormalAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }
 

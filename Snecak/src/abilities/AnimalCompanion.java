@@ -10,7 +10,7 @@ public class AnimalCompanion implements EntityAbilityTemplate {
     private int totalDamage;
     private String name = "AnimalCompanion";
     private int manaCost = 50;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public AnimalCompanion() {
 
@@ -53,12 +53,12 @@ public class AnimalCompanion implements EntityAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+    unlocked = true;
     }
 
     @Override

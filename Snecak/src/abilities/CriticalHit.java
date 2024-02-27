@@ -9,7 +9,7 @@ public class CriticalHit implements AbilityTemplate {
     private String name = "CriticalHit";
     private int totalDamage;
     private int manaCost;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
 
     public CriticalHit() {
@@ -63,8 +63,8 @@ public class CriticalHit implements AbilityTemplate {
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }
 

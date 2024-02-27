@@ -7,7 +7,7 @@ public class ExtraHP implements BonusAbilityTemplate {
     private String name = "ExtraHP";
     private int totalDamage;
     private int manaCost;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public ExtraHP() {
 
@@ -54,11 +54,11 @@ public class ExtraHP implements BonusAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

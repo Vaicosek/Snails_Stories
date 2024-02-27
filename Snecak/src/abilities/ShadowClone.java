@@ -10,7 +10,7 @@ public class ShadowClone implements EntityAbilityTemplate {
     private String name = "ShadowClone";
     private int totalDamage;
     private int manaCost;
-    private boolean unlocked;
+    private boolean unlocked = false;
     public ShadowClone() {
 
     }
@@ -77,12 +77,12 @@ public class ShadowClone implements EntityAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }
 

@@ -12,7 +12,7 @@ public class Poison implements TickAbilityTemplate {
     private String name = "Poison";
     private int totalDamage;
     private int manaCost = 30;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
 
     public Poison() {
@@ -86,12 +86,12 @@ public class Poison implements TickAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+unlocked=true;
     }
 
     @Override

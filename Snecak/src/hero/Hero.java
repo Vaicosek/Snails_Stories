@@ -85,7 +85,7 @@ public class Hero implements HeroTemplate {
             if (abilityIndex >= 0 && abilityIndex < abilities.size()) {
                 AbilityTemplate selectedAbility = abilities.get(abilityIndex);
                 if (!selectedAbility.isUnlocked()) {
-                    selectedAbility.setUnlocked(true);
+                    selectedAbility.setUnlocked();
                     System.out.println("You have gained the ability: " + selectedAbility.getName());
                 } else {
                     System.out.println("You have already acquired that ability.");

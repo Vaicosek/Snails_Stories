@@ -6,6 +6,7 @@ public class Illusion implements EntityAbilityTemplate {
 
     private String entityName;
     private int randomAttack;
+    private boolean unlocked = false;
 
     private String name;
 
@@ -46,12 +47,12 @@ public class Illusion implements EntityAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 
     @Override

@@ -12,5 +12,5 @@ public interface AbilityTemplate {
     String getName();
 
     boolean isUnlocked();
-    void setUnlocked(boolean unlocked);
+    void setUnlocked();
 }

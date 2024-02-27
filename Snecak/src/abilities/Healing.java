@@ -11,7 +11,7 @@ public class Healing implements NormalAbilityTemplate {
     private String name = "Healing";
     private int totalDamage;
     private int manaCost = 30;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
 
     public Healing() {
@@ -72,8 +72,8 @@ public class Healing implements NormalAbilityTemplate {
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }
 

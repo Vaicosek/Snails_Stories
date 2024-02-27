@@ -10,7 +10,7 @@ import java.util.List;
 public class Swarm implements TickAbilityTemplate {
         private String name = "Swarm";
         private int manaCost = 50;
-        private boolean unlocked;
+        private boolean unlocked = false;
         private int remainingTurns = 3;
         private int totalDamage;
         public Swarm() {
@@ -78,8 +78,8 @@ public class Swarm implements TickAbilityTemplate {
         }
 
         @Override
-        public void setUnlocked(boolean unlocked) {
-            this.unlocked = unlocked;
+        public void setUnlocked() {
+            this.unlocked = true;
         }
 
     @Override

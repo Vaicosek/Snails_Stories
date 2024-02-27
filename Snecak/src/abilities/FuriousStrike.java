@@ -9,7 +9,7 @@ public class FuriousStrike implements NormalAbilityTemplate {
     private String name = "FuriousStrike";
     private int totalDamage;
     private int manaCost;
-    private boolean unlocked;
+    private boolean unlocked =false;
 
     public FuriousStrike() {
 
@@ -55,12 +55,12 @@ public class FuriousStrike implements NormalAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }
 

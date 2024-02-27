@@ -12,7 +12,7 @@ public class Storm implements AreaAbilityTemplate {
     private String name = "Storm";
     private int totalDamage;
     private int manaCost = 60;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public Storm() {
     }
@@ -72,11 +72,11 @@ public class Storm implements AreaAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

@@ -9,7 +9,7 @@ public class DivineSword implements NormalAbilityTemplate {
     private String name = "DivineSword";
     private int totalDamage;
     private int manaCost = 50;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public DivineSword() {
 
@@ -61,11 +61,11 @@ public class DivineSword implements NormalAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

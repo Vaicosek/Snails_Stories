@@ -13,7 +13,7 @@ public class HolyNova implements AreaAbilityTemplate {
     private String name = "HolyNova";
     private int totalDamage;
     private int manaCost = 100;
-    private boolean unlocked;
+    private boolean unlocked =false;
 
     public HolyNova() {
 
@@ -78,11 +78,11 @@ public class HolyNova implements AreaAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

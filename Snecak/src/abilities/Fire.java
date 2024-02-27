@@ -11,7 +11,7 @@ public class Fire implements TickAbilityTemplate {
     private String name = "Fire";
     private int totalDamage = 30; // This might need adjustment based on your damage over time logic
     private int manaCost = 20; // Assuming a mana cost
-    private boolean unlocked;
+    private boolean unlocked = false;
     private int remainingTurns = 2;
 
     @Override
@@ -85,11 +85,11 @@ public class Fire implements TickAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

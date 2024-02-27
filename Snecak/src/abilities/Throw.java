@@ -13,7 +13,7 @@ public class Throw implements ThrowAbilityTemplate {
     private String name = "Throw";
     private int totalDamage;
     private int manaCost;
-    private boolean unlocked;
+    private boolean unlocked =false;
 
     public Throw() {
     }
@@ -73,11 +73,11 @@ public class Throw implements ThrowAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 }

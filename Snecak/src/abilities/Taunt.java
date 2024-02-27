@@ -12,7 +12,7 @@ public class Taunt implements TauntAbilityTemplate {
     private String name = "Taunt";
     private int manaCost;
     private int totalDamage;
-    private boolean unlocked;
+    private boolean unlocked = false;
     private int remainingTurns = 3;
 
     public Taunt() {
@@ -54,12 +54,12 @@ public class Taunt implements TauntAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 
     @Override

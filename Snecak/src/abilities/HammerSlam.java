@@ -12,7 +12,7 @@ public class HammerSlam implements AreaAbilityTemplate {
     private String name = "HammerSlam";
     private int totalDamage;
     private int manaCost;
-    private boolean unlocked;
+    private boolean unlocked = false;
 
     public HammerSlam() {
 
@@ -72,12 +72,12 @@ public class HammerSlam implements AreaAbilityTemplate {
 
     @Override
     public boolean isUnlocked() {
-        return false;
+        return unlocked;
     }
 
     @Override
-    public void setUnlocked(boolean unlocked) {
-
+    public void setUnlocked() {
+        unlocked = true;
     }
 
 
