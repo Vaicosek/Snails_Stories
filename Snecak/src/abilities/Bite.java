@@ -20,8 +20,8 @@ public class Bite implements NormalAbilityTemplate {
         // Calculate total damage
         totalDamage = 8 + hero.getLevel() * 5;
 
-        // Update the damage value of the ability
-        setDamage(totalDamage);
+        monster.takeDamage(totalDamage);
+        System.out.println("Used " + getName() + "and dealt " + totalDamage);
     }
 
     @Override
