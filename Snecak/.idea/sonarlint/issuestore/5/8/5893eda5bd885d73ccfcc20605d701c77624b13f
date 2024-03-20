@@ -1,0 +1,6 @@
+
+
+java:S1192"MDefine a constant instead of duplicating this literal "MagicalPower" 3 times.(ÉˆëñıÿÿÿÿJ$3968c289-9156-4d3e-8425-62630127b76e
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡Ê™œJ$02a3b55b-22d9-47e2-8fe9-f4d9e1086330
+v
+java:S1118":Add a private constructor to hide the implicit public one.(¥ñ¦J$0c4edbd5-cb73-4862-bdfd-4ea6882f328f

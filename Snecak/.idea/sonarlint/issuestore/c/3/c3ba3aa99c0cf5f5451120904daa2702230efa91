@@ -1,0 +1,16 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$6e38e43f-3c20-4b36-a6d0-833f5edf66ac
+Â
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$6ed3d60a-3ec6-476e-9eee-5566c4247104
+Â
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$ce1fa4cf-3dff-4348-bbf2-41e9c954e5df
+½
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$6279e7d7-e946-49fd-9c04-6ae46f99997a
+Â
+java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´„Ò¦ûÿÿÿÿJ$746cea86-2876-49cb-8a70-a5ed36eb66e1
+½
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(İÓçÛJ$deab8297-f570-43a4-bf3a-23b9f641b271
+“
+java:S1450"WRemove the "unlocked" field and declare it as a local variable in the relevant methods.(‹›øúJ$a85d78ee-7c96-411a-82be-5af1e3d98f07
+h
+java:S1068",Remove this unused "unlocked" private field.(‹›øúJ$15b72743-3d9b-4a95-8061-50a141f527a9

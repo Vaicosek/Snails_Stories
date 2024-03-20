@@ -1,0 +1,21 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$73fc9bad-a5ef-41e3-ba8f-9366e66ea4c7
+Â
+java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$93c5ae10-5861-4a3a-9595-218cec1c9b67
+Â
+java:S1186L"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$0f68390e-ed40-4c4f-ab23-0a8404345400
+½
+java:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$1fd6b46f-198a-409c-9b04-6ee2e4187747
+Â
+java:S1186`"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†¯¦êùÿÿÿÿJ$453d4b77-5848-4396-a489-48c4586688c4
+Â
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½ÂšéüÿÿÿÿJ$178f41c6-009b-4438-a9a4-5cb7cfce1841
+}
+java:S1117"<Rename "manaCost" which hides the field declared at line 14.(ßÎÔúøÿÿÿÿJ$8f3f3c82-1d36-4aba-92f3-acebabe8a57e
+t
+java:S1481"3Remove this unused "currentMonster" local variable.(²ùÂ£ÿÿÿÿÿJ$cea8adfd-2ba9-49a8-bfe2-445003c0dd06
+k	java:S106 "+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$4e71ab8a-9ab0-4dc2-895f-ca171c5fc0c9
+k	java:S106&"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$0258a07c-5caf-4d13-ae08-16defec86c81
+t
+java:S1481."3Remove this unused "currentMonster" local variable.(²ùÂ£ÿÿÿÿÿJ$656e81ad-76ed-4a92-953d-041f7739dffe
+k	java:S1068"+Replace this use of System.out by a logger.(úşæÿüÿÿÿÿJ$8a014567-36d9-4dfc-9a32-0cf04b6b5ce5

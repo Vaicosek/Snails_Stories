@@ -1,0 +1,14 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$b0cd776d-140a-4cab-9af4-80c9a1d6f5ba
+Â
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$524b7622-5c23-41e3-b08e-74aa7df4c117
+Â
+java:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$bef52443-b471-4793-b9b2-d9651a901f91
+½
+java:S11869"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$c30024c0-c48b-4b6c-b24f-32a58b6a48d3
+½
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŠÒ¦J$58a55813-89f5-4c4a-8d0c-e2791068b1eb
+f	java:S106"+Replace this use of System.out by a logger.(¼¦şäJ$73c46f30-844f-4823-80d3-b7780c9c2171
+k	java:S106"+Replace this use of System.out by a logger.(¶µÆíùÿÿÿÿJ$a4a16dd7-527a-49c2-b1ea-dabe75167643
+s
+java:S1068"2Remove this unused "remainingTurns" private field.(“ûâúÿÿÿÿJ$e6bb5a47-ff65-46ee-81e6-433c1a1ca935

@@ -1,0 +1,25 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İ¥òŸúÿÿÿÿ8¨Ğ¶Áå1J$838e27a6-40a6-4374-b094-4150c514b9c4
+ƒ
+java:S1117"";Rename "scanner" which hides the field declared at line 22.(ù ƒ‘üÿÿÿÿ8¿Ğ¶Áå1J$d880963c-19d0-4973-89a7-73ed353d7d2a
+r	java:S106J"+Replace this use of System.out by a logger.(ßàîñùÿÿÿÿ8ÅĞ¶Áå1J$753db608-681c-4bb4-b83c-dc86298c6e17
+r	java:S106M"+Replace this use of System.out by a logger.(ªˆ§»şÿÿÿÿ8ÇĞ¶Áå1J$4c59694e-2084-43f8-af70-7aa5348e9b84
+m	java:S106T"+Replace this use of System.out by a logger.(›»¬Ô8ÈĞ¶Áå1J$0bc98bce-c5d8-4d46-931c-04040095a323
+r	java:S106_"+Replace this use of System.out by a logger.(şˆ£æùÿÿÿÿ8ÊĞ¶Áå1J$79be68b1-a612-4af2-9004-43af65bc6c9a
+m	java:S106`"+Replace this use of System.out by a logger.(äé³ä8ÊĞ¶Áå1J$f9036c0d-8cdb-4b43-9dc8-f9d4c70548b6
+r	java:S106h"+Replace this use of System.out by a logger.(İÎô¾ÿÿÿÿÿ8ËĞ¶Áå1J$3ee30a54-c319-492b-bfe6-9be93e2b8158
+u
+java:S1135i"2Complete the task associated to this TODO comment.(Ş±Á8ÌĞ¶Áå1J$65a05d9d-e0ec-49f1-a345-75e77e68497e
+m	java:S106o"+Replace this use of System.out by a logger.(å²¼¾8ÍĞ¶Áå1J$30848be9-8f6a-4934-8546-90bee68b4929
+n	java:S106ƒ"+Replace this use of System.out by a logger.(ùĞ“Î8ÒĞ¶Áå1J$4b8fb57a-fca5-4f8b-a69d-48283f3d09e9
+n	java:S106–"+Replace this use of System.out by a logger.(êºÒ¸8ÕĞ¶Áå1J$75d8b89f-265f-445b-ad27-223e19d987df
+s	java:S106š"+Replace this use of System.out by a logger.(Ö‰àğùÿÿÿÿ8ÖĞ¶Áå1J$20f84d0b-34e3-4021-b5ed-6b174ff591d6
+m	java:S106¢"+Replace this use of System.out by a logger.(ç’¯L8ØĞ¶Áå1J$dcdc3f26-0b16-4a40-90ea-8c27b006d609
+n	java:S106´"+Replace this use of System.out by a logger.(ôË‰Í8ÛĞ¶Áå1J$e6137135-7985-41fa-a34f-33fc24d18c0b
+s	java:S106·"+Replace this use of System.out by a logger.(ßñ‹ìÿÿÿÿÿ8ÛĞ¶Áå1J$eff75e78-bb8f-455e-a2d4-9055687edd00
+n	java:S106Ä"+Replace this use of System.out by a logger.(¡…ù©8ŞĞ¶Áå1J$39787941-a8cc-4768-a283-fa4c334dabe4
+n	java:S106Ñ"+Replace this use of System.out by a logger.(“Â×÷8àĞ¶Áå1J$96f78f9f-f59a-4c5a-8033-960a34c1ba52
+n	java:S106İ"+Replace this use of System.out by a logger.(¿Ó¤8áĞ¶Áå1J$2b29bbcf-a731-424a-b11e-12b5640bd9fc
+s	java:S106è"+Replace this use of System.out by a logger.(ó¦‚İùÿÿÿÿ8äĞ¶Áå1J$f8daabce-9b1d-47be-9e62-472d6376067a
+|
+java:S1144g"9Remove this unused private "handlePlayerDefeated" method.(¤áÄµ8åĞ¶Áå1J$8d60418f-6021-46cc-a2bf-a4db04f2351a

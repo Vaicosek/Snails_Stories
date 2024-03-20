@@ -1,0 +1,12 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$f3af364b-3f2c-41fc-b759-900923f3faad
+Â
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$0300b7e1-c52a-4fcb-a345-404e9accf7f1
+Â
+java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$90f1fd70-df17-4932-babe-f46d1183da31
+½
+java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$e20fd7d9-de65-4447-899b-1c86dc188256
+Â
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“Û¿ÇşÿÿÿÿJ$9b24dbb0-61c8-4433-b6dc-d9164283c312
+
+java:S1117">Rename "totalDamage" which hides the field declared at line 9.(Š§¶ıÿÿÿÿJ$724de9be-a4e0-443b-9fe4-79d0839d9f48

@@ -1,0 +1,33 @@
+
+
+java:S1192Ï"LDefine a constant instead of duplicating this literal "Unequipped " 3 times.(ÄäĞ¼ÿÿÿÿÿJ$5830fafa-e653-4a27-b76d-db152478c952
+Œ
+java:S1192¿"JDefine a constant instead of duplicating this literal "Equipped " 3 times.(ºõÙıÿÿÿÿJ$b813ab1a-5c8c-4753-b1d9-ab47e495e31b
+‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜É³ıÿÿÿÿJ$f14040b9-8fae-45cb-955f-44a809009ef8
+‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜É³ıÿÿÿÿJ$148db6be-587b-4929-9d19-c4bcee6e9fdc
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•ƒ­ğşÿÿÿÿJ$c321a7d8-9ed0-4653-969f-6260de3151ac
+	java:S116"MRename this field "XP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïä†üüÿÿÿÿJ$077dde47-05f6-417e-b909-6e28062b49cf
+ˆ	java:S116"MRename this field "HP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ½‹J$bdc97805-8532-436c-99a2-1d23a9058b2e
+Ã
+java:S1186¶"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¯ÚÉÁûÿÿÿÿJ$839a3497-c63d-48c6-8fe4-eb6b02adacb2
+e	java:S106>"+Replace this use of System.out by a logger.(°ğÔxJ$9861ba70-b752-4ef0-abac-1ba9f92c63e4
+f	java:S106A"+Replace this use of System.out by a logger.(Œ™®J$6a04b471-2faa-4909-aa29-9ded998eb4f9
+f	java:S106H"+Replace this use of System.out by a logger.(Ë™İÄJ$94624925-a0d3-4ae7-ac43-ed8a3bb87444
+f	java:S106L"+Replace this use of System.out by a logger.(Äÿ­—J$48c2ff73-4da0-44a0-89d9-caebc5af17a3
+k	java:S106Y"+Replace this use of System.out by a logger.(àÓ¼ ÿÿÿÿÿJ$aa88a15e-c1c5-417d-9b5e-637e1b5919c8
+k	java:S106["+Replace this use of System.out by a logger.(¹ÔæüÿÿÿÿJ$ce25322d-676a-45f1-ab0a-91e7f4d85471
+k	java:S106^"+Replace this use of System.out by a logger.(ÂÒßùÿÿÿÿJ$84e8d6e4-d134-40ca-822b-1bb137b81cba
+k	java:S106a"+Replace this use of System.out by a logger.(ìõüôúÿÿÿÿJ$a022aff9-bae9-4a52-8e3e-1a5d36ffe53e
+l	java:S106¿"+Replace this use of System.out by a logger.(ºõÙıÿÿÿÿJ$9c7a5998-880c-459b-877c-836d004c5e13
+l	java:S106Ï"+Replace this use of System.out by a logger.(ÄäĞ¼ÿÿÿÿÿJ$d95ca8f0-e54f-4694-ac13-2ee86ca5d41a
+}	java:S125Ñ"<This block of commented-out lines of code should be removed.(àŸ˜ıÿÿÿÿJ$cb02fd7a-e2b8-4a91-abba-aca8c72e8db4
+l	java:S106Ú"+Replace this use of System.out by a logger.(ºõÙıÿÿÿÿJ$7818d088-af5d-462d-a54a-3d9832ae4868
+f	java:S106á"+Replace this use of System.out by a logger.(¶·âvJ$7e1729c9-7509-44a7-aad8-ff7ad4ee666f
+}	java:S125ã"<This block of commented-out lines of code should be removed.(àŸ˜ıÿÿÿÿJ$a68cd4d4-6f46-479a-a07f-72fbed04bad2
+g	java:S106ê"+Replace this use of System.out by a logger.(ÈıÑ¼J$27dac824-9c69-462f-ae74-6ab27a4e0b74
+l	java:S106‚"+Replace this use of System.out by a logger.(³”ß¢ùÿÿÿÿJ$19237c04-60a8-4559-bcc1-c4523b7e0312
+l	java:S106…"+Replace this use of System.out by a logger.(Ò–¤öøÿÿÿÿJ$20c675c0-6107-4d3a-9b70-fa28a297d1ab
+l	java:S106“"+Replace this use of System.out by a logger.(óÕ¾ÑøÿÿÿÿJ$5c2442fe-a611-4e55-a792-acc8c52bc31b
+g	java:S106•"+Replace this use of System.out by a logger.(–—ãJ$77c84371-f681-4f08-9fb5-84b20ce4467e
+l	java:S106¤"+Replace this use of System.out by a logger.(œÑáÈşÿÿÿÿJ$1314d206-4c1b-4b61-8729-11399c6afee6
+g	java:S106¦"+Replace this use of System.out by a logger.(–—ãJ$1b413c53-04d5-46f6-8f64-584f881fd469

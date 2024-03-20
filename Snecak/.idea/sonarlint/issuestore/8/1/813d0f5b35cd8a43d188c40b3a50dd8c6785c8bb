@@ -1,0 +1,14 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$0fb33289-2145-4fab-a186-8bbc764f84b8
+Â
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$c9b87996-1227-4356-b751-37169f0b1db8
+Â
+java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$9e4ae9a0-e98b-422f-a083-eb6527f7179c
+½
+java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$9524968c-cb1e-47d8-8410-15b228d93297
+Â
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±ÆˆæûÿÿÿÿJ$bf408f94-0d5d-4767-88ef-400cb1d24b34
+}
+java:S1117"<Rename "manaCost" which hides the field declared at line 11.(ãîÎ·úÿÿÿÿJ$63611281-3522-48eb-abe5-295ffaeebecd
+k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$4fc5275e-6779-4f22-90da-bd2659e175b9
+k	java:S106"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$158e3cc8-22ed-4db0-85c8-49ea56a66d1c

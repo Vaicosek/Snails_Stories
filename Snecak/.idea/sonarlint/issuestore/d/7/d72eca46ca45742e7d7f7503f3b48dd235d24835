@@ -1,0 +1,8 @@
+
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯ŠıÿÿÿÿJ$a50dd39b-2fe2-49fb-8530-6b33a0e9aa52
+r
+java:S1144"1Remove this unused private "createWeapon" method.(Îú²ùÿÿÿÿJ$c794a1a8-2872-4367-aa97-596fe9541926
+l
+java:S1144#"0Remove this unused private "createArmor" method.(ë›íÃJ$dc6ca097-a225-4384-9b77-a63b49d85e53
+v
+java:S1144)"5Remove this unused private "createConsumable" method.(ñŞ„‹ÿÿÿÿÿJ$9c0541f1-90a3-4317-a13a-02d89c898552

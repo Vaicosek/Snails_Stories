@@ -1,0 +1,19 @@
+
+t	java:S135R"YReduce the total number of break and continue statements in this loop to use at most one.(ğğ¦{8âÆÈÀå1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İ¥òŸúÿÿÿÿ8êÆÈÀå1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ç½€8úÆÈÀå1
+L	java:S106"+Replace this use of System.out by a logger.(™¤Ò³ùÿÿÿÿ8ƒÇÈÀå1
+G	java:S106"+Replace this use of System.out by a logger.(Ó–’ò8ˆÇÈÀå1
+G	java:S106)"+Replace this use of System.out by a logger.(×Ë•©8ÇÈÀå1
+F	java:S106+"+Replace this use of System.out by a logger.(ëò·g8ÇÈÀå1
+o	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û¶áÅşÿÿÿÿ8ÇÈÀå1
+L	java:S1064"+Replace this use of System.out by a logger.(Æ„üûÿÿÿÿ8’ÇÈÀå1
+L	java:S1065"+Replace this use of System.out by a logger.(‘·ŠÆşÿÿÿÿ8•ÇÈÀå1
+L	java:S106?"+Replace this use of System.out by a logger.(”ÕŠ­øÿÿÿÿ8ŸÇÈÀå1
+L	java:S106K"+Replace this use of System.out by a logger.(îÆÿüÿÿÿÿ8 ÇÈÀå1
+j	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ‹ºë8 ÇÈÀå1
+o
+java:S3776P"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÿ‹ºë8¤ÇÈÀå1
+L	java:S106n"+Replace this use of System.out by a logger.(¬¥Œİÿÿÿÿÿ8®ÇÈÀå1
+L	java:S106|"+Replace this use of System.out by a logger.(®ëÎ§úÿÿÿÿ8¶ÇÈÀå1
+M	java:S106†"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8¸ÇÈÀå1

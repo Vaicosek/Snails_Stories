@@ -1,0 +1,15 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$3ef32646-e527-4ef5-a5f5-8f9b7174245f
+b
+java:S1170"!Make this final field static too.(âÓ§¤üÿÿÿÿJ$65a184f0-ba4e-4680-b7de-ce52959bec46
+Â
+java:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$250eefec-5444-40e5-8a12-a4cf334361fd
+Â
+java:S1186,"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$3d3b5db0-bd49-4c0a-b060-7977ba14147e
+½
+java:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$083d2306-835d-43ac-a1cd-0c49ff98f4d8
+½
+java:S1186J"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†ÍÁ„J$ad48ad2d-a2f4-4947-86ff-d2c36d308b49
+Â
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦çœÏıÿÿÿÿJ$7543b275-b15a-4fa1-b3da-939f3352195b
+k	java:S106"+Replace this use of System.out by a logger.(äöâÿÿÿÿÿJ$ad785cfe-b8a2-452c-810b-c0d46609094d
