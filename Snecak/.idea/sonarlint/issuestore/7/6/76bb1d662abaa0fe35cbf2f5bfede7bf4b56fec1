@@ -1,13 +1,14 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$33c7a825-25b3-4d6e-b1b8-7aeec6b8f3b1
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$27a65bc6-537d-4640-8dff-167c2750dfa4
 Â
-java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$f55c63ea-2a09-4994-8ce1-8f089b501142
+java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$a5ddcaf9-dd32-4bb6-9be7-35c7f7226c87
 Â
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$4dc1446a-ee9a-4a74-b5c1-6783be7bbc5d
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$82dedb8a-9e52-4b0e-82b8-671b92133ce0
 ½
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$031a17cd-ba1c-4e42-a71c-0fc12366a12d
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$48932d46-ca6d-49bb-842e-c9d21bd6a7b6
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(²²Ç»J$964d1100-3ef7-461e-9ae3-b3b53791eed8
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(²²Ç»J$ab8b1dde-e19c-4346-9023-fd78918f93c5
+m	java:S106"+Replace this use of System.out by a logger.(†³‚œ8¼êå1J$c9dd6bf1-19cc-4448-90ee-ca46d6edfedf
 h
 java:S1068
-",Remove this unused "manaCost" private field.(¡µ‚J$20cbe313-16d1-4db2-87ac-8301600d0559
+",Remove this unused "manaCost" private field.(¡µ‚J$92650749-f12b-4ab1-813a-dd3610d5e5a8

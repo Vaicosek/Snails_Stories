@@ -1,19 +1,19 @@
 
-t	java:S135R"YReduce the total number of break and continue statements in this loop to use at most one.(ğğ¦{8âÆÈÀå1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İ¥òŸúÿÿÿÿ8êÆÈÀå1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ç½€8úÆÈÀå1
-L	java:S106"+Replace this use of System.out by a logger.(™¤Ò³ùÿÿÿÿ8ƒÇÈÀå1
-G	java:S106"+Replace this use of System.out by a logger.(Ó–’ò8ˆÇÈÀå1
-G	java:S106)"+Replace this use of System.out by a logger.(×Ë•©8ÇÈÀå1
-F	java:S106+"+Replace this use of System.out by a logger.(ëò·g8ÇÈÀå1
-o	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û¶áÅşÿÿÿÿ8ÇÈÀå1
-L	java:S1064"+Replace this use of System.out by a logger.(Æ„üûÿÿÿÿ8’ÇÈÀå1
-L	java:S1065"+Replace this use of System.out by a logger.(‘·ŠÆşÿÿÿÿ8•ÇÈÀå1
-L	java:S106?"+Replace this use of System.out by a logger.(”ÕŠ­øÿÿÿÿ8ŸÇÈÀå1
-L	java:S106K"+Replace this use of System.out by a logger.(îÆÿüÿÿÿÿ8 ÇÈÀå1
-j	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ‹ºë8 ÇÈÀå1
-o
-java:S3776P"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÿ‹ºë8¤ÇÈÀå1
-L	java:S106n"+Replace this use of System.out by a logger.(¬¥Œİÿÿÿÿÿ8®ÇÈÀå1
-L	java:S106|"+Replace this use of System.out by a logger.(®ëÎ§úÿÿÿÿ8¶ÇÈÀå1
-M	java:S106†"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8¸ÇÈÀå1
+š	java:S135R"YReduce the total number of break and continue statements in this loop to use at most one.(ğğ¦{8âÆÈÀå1J$18b31f57-f48c-4c51-9c86-37aae9ecb933
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İ¥òŸúÿÿÿÿ8êÆÈÀå1J$575a835a-767f-4dda-80f9-e179cbccacf2
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ç½€8úÆÈÀå1J$3e37d31e-38d2-4760-bb5c-c681af6b8048
+r	java:S106"+Replace this use of System.out by a logger.(™¤Ò³ùÿÿÿÿ8ƒÇÈÀå1J$ea8bea6d-fe6d-4563-bf45-aca37466c360
+m	java:S106"+Replace this use of System.out by a logger.(Ó–’ò8ˆÇÈÀå1J$1f688fd1-60ab-440c-b50b-2238964de022
+m	java:S106)"+Replace this use of System.out by a logger.(×Ë•©8ÇÈÀå1J$84a66e66-814b-4f5f-a141-75c9863684d9
+l	java:S106+"+Replace this use of System.out by a logger.(ëò·g8ÇÈÀå1J$eafdb343-1ffe-4906-890c-a50a19da41fc
+•	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û¶áÅşÿÿÿÿ8ÇÈÀå1J$d9911f7a-c59a-4d90-bc1b-d8bb703aeeba
+r	java:S1064"+Replace this use of System.out by a logger.(Æ„üûÿÿÿÿ8’ÇÈÀå1J$ead1a1d6-59e8-4328-978d-200ce9b5764a
+r	java:S1065"+Replace this use of System.out by a logger.(‘·ŠÆşÿÿÿÿ8•ÇÈÀå1J$c18be91b-5cef-44a6-b671-d9ead3aa682b
+r	java:S106?"+Replace this use of System.out by a logger.(”ÕŠ­øÿÿÿÿ8ŸÇÈÀå1J$49dd8f46-7ae2-4688-b670-b78504ae4d7e
+r	java:S106K"+Replace this use of System.out by a logger.(îÆÿüÿÿÿÿ8 ÇÈÀå1J$f7fcf051-3851-4ffe-b2aa-31f2e5367a86
+	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ‹ºë8 ÇÈÀå1J$bfccffa9-96b8-497e-93ae-ddc1dcc9836d
+•
+java:S3776P"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÿ‹ºë8¤ÇÈÀå1J$04663507-c88c-48df-a266-a744356ff0ba
+r	java:S106n"+Replace this use of System.out by a logger.(¬¥Œİÿÿÿÿÿ8®ÇÈÀå1J$f9cba336-fba7-4742-8a9e-42c2c132351d
+r	java:S106|"+Replace this use of System.out by a logger.(®ëÎ§úÿÿÿÿ8¶ÇÈÀå1J$62638049-5944-44e5-aa08-eaa6dc0e559d
+s	java:S106†"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8¸ÇÈÀå1J$499d2408-1ce4-44f2-8dac-f653ef82257e

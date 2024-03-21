@@ -1,12 +1,12 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$c488cd6a-0f76-4667-a4e7-331bf4803324
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$d4dc1ed2-6c27-42e1-9cbb-340f8b886e4e
 Â
-java:S1186>"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$9eac716c-e4eb-4d99-add4-d43678f196e2
+java:S1186>"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$50167b59-1292-4f71-8f6c-b3f61466897d
 Â
-java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$ae3f1168-4362-488e-8a14-ce8f4d2b8a61
+java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$c5df4f95-30ad-46af-993f-ccd47bfd6a43
 ½
-java:S1186M"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$01b96a4d-0d42-4f4c-8bda-487a09cc981b
-k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$b7bc232a-735c-4b43-92ee-d74ec19cb70d
-f	java:S106"+Replace this use of System.out by a logger.(î›¢ıJ$2fb8de2a-4dda-4551-93d0-a24c9c41fd33
-f	java:S106 "+Replace this use of System.out by a logger.(”²ó€J$d9187082-db89-4746-9771-545e0c1e1079
-k	java:S106$"+Replace this use of System.out by a logger.(úşæÿüÿÿÿÿJ$50d526ec-9335-4227-afca-208b50444b4c
+java:S1186M"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$b9104989-55c7-4b0d-8ca3-d4460c108fed
+k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$1aa03845-2a61-4751-8b78-e21412ddd03c
+f	java:S106"+Replace this use of System.out by a logger.(î›¢ıJ$29d0c976-649a-4922-becb-146761bd0ab4
+f	java:S106 "+Replace this use of System.out by a logger.(”²ó€J$23098187-37a0-4c63-bb11-888412bae3cc
+k	java:S106$"+Replace this use of System.out by a logger.(úşæÿüÿÿÿÿJ$5d446034-1284-4e76-b9e2-5df01eaed93d

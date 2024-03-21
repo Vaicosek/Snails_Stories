@@ -1,11 +1,11 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$5a6d74cb-a96c-44c9-b5c8-2499ca6e351f
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$5ed82704-a0d7-40ca-91a4-6c4fc785ca14
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$bafa94ab-3ea1-4dea-b097-d884b5e2890f
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$89ebd997-0293-4234-94d8-437f81441050
 Â
-java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$de7adea2-dba2-4f04-ab89-dd1f1119eada
+java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$eb4c6b2f-7d78-4c33-98b2-e6f8d7a3ab51
 ½
-java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$985a4ad1-633e-49cc-b9f1-fc05c22d0df3
+java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$60011f74-4316-4de5-bbc3-9af8f8b84ad4
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(–ÍÃÉüÿÿÿÿJ$1e838a12-ce3e-4fc5-863a-0ef7a4ee6667
-f	java:S106"+Replace this use of System.out by a logger.(‘üÜüJ$1280efb7-363c-4ee7-b660-c7fb22cc8187
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(–ÍÃÉüÿÿÿÿJ$30e21035-0da1-4b3b-9b8f-4fbbe8bba806
+f	java:S106"+Replace this use of System.out by a logger.(‘üÜüJ$4e0eb50a-74b7-4d90-8683-cc0142e0ccd0

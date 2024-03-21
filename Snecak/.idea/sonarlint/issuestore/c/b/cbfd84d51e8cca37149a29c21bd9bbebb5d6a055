@@ -1,11 +1,11 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$bb75e810-f10f-4922-872b-b07382d95f07
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$75cfef1e-ceec-4e5c-af29-eece73fd938e
 Â
-java:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$a0225d75-71c9-4711-99c7-36d1ef47ca43
+java:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$5153d258-33f7-4535-abaf-0146e84158da
 Â
-java:S1186,"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$6d609820-654b-402d-bcaa-ccfdb723bec4
+java:S1186,"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$f91a5880-77a6-4566-af56-923cbfd7bd77
 ½
-java:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$96e868f1-8c1e-4b5b-8f87-2d0c3488a6e3
+java:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$232f1e01-16fc-4992-8c1b-f3c7dd3e0be7
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ƒÿöÏüÿÿÿÿJ$305c9838-f27b-46ce-93e2-d26654a574d5
-f	java:S106"+Replace this use of System.out by a logger.(«êğ„J$4598a313-5048-4290-8ffe-19939d59e22c
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ƒÿöÏüÿÿÿÿJ$55a5341a-21a4-4133-8d08-01ca1dcdefc7
+f	java:S106"+Replace this use of System.out by a logger.(«êğ„J$e11cf568-21f0-4442-9d71-ed081ec3a9a6

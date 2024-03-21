@@ -1,29 +1,33 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$c625a138-7bd9-4f25-b716-6b865502bddc
-Â
-java:S1186v"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(²ì´‘ûÿÿÿÿJ$9ab56256-fac2-48bf-8e4d-f798e73a44dc
-Ã
-java:S1186€"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$e4b257af-3a5a-42af-8f48-37860f69a0bb
-Ã
-java:S1186Š"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$f91e43b7-bed5-4ef4-a577-a3f9670bee19
-¾
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$1636c2f3-9ecb-4966-ab75-510b948dce48
-¼
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÎÌ£J$6791b84d-66e4-4736-956b-f37a82ab4b2b
-k	java:S106"+Replace this use of System.out by a logger.(ëê‹âÿÿÿÿÿJ$070b5c01-725d-452d-9e3b-1760f5371a38
-k	java:S106"+Replace this use of System.out by a logger.(¢™şôøÿÿÿÿJ$71f312e0-3535-400a-bab1-73a538e5549a
-f	java:S106"+Replace this use of System.out by a logger.(îÒÇJ$a34c2aa3-3555-4b05-98de-0e842777c257
-f	java:S106"+Replace this use of System.out by a logger.(…âÈ¨J$fd94edd2-2458-41e3-a448-cce7d9c036b1
-f	java:S106 "+Replace this use of System.out by a logger.(äÀüÛJ$6c3a0f1e-9d2e-4746-9f15-4f0136a956a4
-f	java:S1066"+Replace this use of System.out by a logger.(œ‹ö¨J$b9d31420-dbab-4430-a619-9a37839b4a84
-k	java:S1069"+Replace this use of System.out by a logger.(£ÆÙÛÿÿÿÿÿJ$8b89b559-a660-4f01-bfee-4da82bba3dc1
-f	java:S106C"+Replace this use of System.out by a logger.(ä—ø¬J$07ffa8b4-96ef-4061-9fa9-e14decddc278
-k	java:S106G"+Replace this use of System.out by a logger.(‘ÛÑ†ıÿÿÿÿJ$ea582355-37a0-4d36-87a4-e8c882d37131
-f	java:S106J"+Replace this use of System.out by a logger.(å‹ú¶J$d8f984af-406f-4171-b09e-4aec64267b28
-f	java:S106R"+Replace this use of System.out by a logger.(ÎÈ´J$5afa0323-dc85-431d-a272-10160515ed68
-f	java:S106V"+Replace this use of System.out by a logger.( Ë›¹J$c267a69f-7ff9-4105-9d33-565897f2d4ac
-k	java:S106Y"+Replace this use of System.out by a logger.(¦Í‹¦øÿÿÿÿJ$e29c655c-d6ef-4588-b90a-6a80aaefa31c
-k	java:S106a"+Replace this use of System.out by a logger.(ƒéÓùÿÿÿÿJ$7fa762a3-0add-415b-adb9-9e8919bb1c24
-k	java:S106e"+Replace this use of System.out by a logger.(á¿ ‰ùÿÿÿÿJ$204e41d5-e344-4853-bfab-5c71154a71c1
-k	java:S106h"+Replace this use of System.out by a logger.(…Œç›úÿÿÿÿJ$b663da1c-d0f4-45f6-8d39-5c0d046632a7
-k	java:S106p"+Replace this use of System.out by a logger.(Ñ¢ˆÅüÿÿÿÿJ$af824f7a-73bd-46e7-8b2d-0adf5754e7e2
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍ8‚åîêå1J$61c6d061-901f-4aa1-9f6e-982ad3946440
+
+java:S1226~"HIntroduce a new variable instead of reusing the parameter "totalDamage".(º–­üÿÿÿÿ8ƒåîêå1J$e1108f18-35b7-44b2-bd88-f36b09b14dc8
+
+java:S1226ˆ"EIntroduce a new variable instead of reusing the parameter "manaCost".(ÉÀÅûÿÿÿÿÿ8ƒåîêå1J$839b994c-e538-4c28-96d6-e95aa61c5c6b
+…
+java:S1226"AIntroduce a new variable instead of reusing the parameter "name".(öÓòş8ƒåîêå1J$04b3cd87-67dd-4fa1-baa9-df218ab775c0
+É
+java:S1186s"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(²ì´‘ûÿÿÿÿ8†åîêå1J$b4e30f83-c27b-4d72-9060-5428f0ee57dc
+r	java:S106"+Replace this use of System.out by a logger.(ëê‹âÿÿÿÿÿ8Šåîêå1J$309ba23c-ba6f-4298-b0fa-96f029dc912f
+r	java:S106"+Replace this use of System.out by a logger.(¢™şôøÿÿÿÿ8Šåîêå1J$2cfd95ef-0f0f-4e2a-8ce6-6d83bb67e875
+m	java:S106"+Replace this use of System.out by a logger.(îÒÇ8Šåîêå1J$f90de417-28c2-4674-a95b-6ce61407031d
+m	java:S106"+Replace this use of System.out by a logger.(…âÈ¨8Šåîêå1J$8fd3151a-4b12-4e6b-8a8c-0ad3b9dd3a47
+m	java:S106"+Replace this use of System.out by a logger.(äÀüÛ8Šåîêå1J$96692317-06a9-4f8e-be4b-d7db70a7a9c1
+m	java:S1063"+Replace this use of System.out by a logger.(œ‹ö¨8Œåîêå1J$e31c60f2-8909-4813-bc92-dc61d7cb1779
+r	java:S1066"+Replace this use of System.out by a logger.(£ÆÙÛÿÿÿÿÿ8Œåîêå1J$069c3146-f9e7-4a14-9b01-dfdea86727ca
+m	java:S106@"+Replace this use of System.out by a logger.(ä—ø¬8åîêå1J$f9a13588-7ef2-4b6e-9a7c-cf31a3a4f233
+r	java:S106D"+Replace this use of System.out by a logger.(‘ÛÑ†ıÿÿÿÿ8åîêå1J$03788b8c-64ba-4eff-b21a-db30d1de4ac5
+m	java:S106G"+Replace this use of System.out by a logger.(å‹ú¶8åîêå1J$034115e2-76b8-4c31-8385-2684dd8f4164
+m	java:S106O"+Replace this use of System.out by a logger.(ÎÈ´8åîêå1J$9add2935-a229-4894-b61e-6fdf5c23bd46
+m	java:S106S"+Replace this use of System.out by a logger.( Ë›¹8åîêå1J$4646e050-6d3e-4215-b7f7-88c805ccb0e5
+r	java:S106V"+Replace this use of System.out by a logger.(¦Í‹¦øÿÿÿÿ8åîêå1J$5971b29e-b56e-4bf6-a61d-1d40fe6bab15
+r	java:S106^"+Replace this use of System.out by a logger.(ƒéÓùÿÿÿÿ8åîêå1J$6a248b90-857d-40ca-a319-37f5312eef44
+r	java:S106b"+Replace this use of System.out by a logger.(á¿ ‰ùÿÿÿÿ8åîêå1J$22b42fd1-0834-402f-852c-93f810a93d7a
+r	java:S106e"+Replace this use of System.out by a logger.(…Œç›úÿÿÿÿ8åîêå1J$bf3c25ff-fd3f-4888-ae53-7eedcc932118
+r	java:S106m"+Replace this use of System.out by a logger.(Ñ¢ˆÅüÿÿÿÿ8åîêå1J$21c112cc-2b58-4b4f-a871-d943c5389f8f
+‡
+java:S1854~"?Remove this useless assignment to local variable "totalDamage".(º–­üÿÿÿÿ8åîêå1J$83ac42c3-e12b-405d-8b22-b1c5c8e0ee09
+…
+java:S1854ˆ"<Remove this useless assignment to local variable "manaCost".(ÉÀÅûÿÿÿÿÿ8‘åîêå1J$21bc58fa-929a-4139-876a-bd7635bc00fd
+|
+java:S1854"8Remove this useless assignment to local variable "name".(öÓòş8‘åîêå1J$105f824f-b950-4f7d-a995-83a1bb8dc3ac

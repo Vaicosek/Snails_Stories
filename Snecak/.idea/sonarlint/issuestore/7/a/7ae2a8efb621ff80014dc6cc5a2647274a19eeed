@@ -1,9 +1,9 @@
 
 ©
-java:S1319"hThe type of "monsters" should be an interface such as "List" rather than the implementation "ArrayList".(Ï±±ãüÿÿÿÿJ$7729b1b1-bc81-4830-8b2a-ae3dab9dc0c9
+java:S1319"hThe type of "monsters" should be an interface such as "List" rather than the implementation "ArrayList".(Ï±±ãüÿÿÿÿJ$2d17bb71-01f8-4e59-b496-d002bf162459
 Œ
-java:S1104	"PMake Name a static final constant or non-public and provide accessors if needed.(õ¤üàJ$5c2c6e59-a796-4eca-ac5c-5bb04274c48f
+java:S1104	"PMake Name a static final constant or non-public and provide accessors if needed.(õ¤üàJ$f9c58b89-1dcf-4b7b-9cb0-3a10c371ec2b
 •
-java:S1104"TMake monsters a static final constant or non-public and provide accessors if needed.(Ï±±ãüÿÿÿÿJ$3843ceae-7a0e-40a4-9e68-f0ace4ecb33a
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜Ãò³J$478b3331-fc84-48bd-8cb1-a7c7ac47faa8
-Š	java:S116	"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¤üàJ$09cf48b6-1033-4b43-9bc4-c92d3317f22f
+java:S1104"TMake monsters a static final constant or non-public and provide accessors if needed.(Ï±±ãüÿÿÿÿJ$f764edf9-17cc-4148-8d09-f48d0892a85d
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜Ãò³J$be604a85-2885-4d68-b3ee-09109b691cf3
+Š	java:S116	"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¤üàJ$aa2f4684-64fb-4c9f-b4c2-17a28f11777a

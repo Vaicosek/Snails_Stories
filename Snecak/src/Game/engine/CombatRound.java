@@ -10,6 +10,7 @@ import Game.mapvariables.PositionModel;
 import Game.monster.MonsterBase;
 import Game.players.Player;
 
+
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -20,7 +21,9 @@ public class CombatRound {
         private GameMap gameMap;
         private int turnCounter;
         private Scanner scanner;
-    private Random random = new Random();
+
+
+        private Random random = new Random();
 
     public CombatRound(Player player, List<MonsterBase> monsters, GameMap gameMap) {
         this.player = player;
@@ -31,7 +34,7 @@ public class CombatRound {
     }
 
     public void executeRound() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner1 = new Scanner(System.in);
 
         PositionModel playerPosition = gameMap.getPlayerPosition().get(player);
         List<Player> players = gameMap.getPlayersAtLocation(playerPosition.x, playerPosition.y);
@@ -40,7 +43,7 @@ public class CombatRound {
         askPlayersToJoin(players);
 
         // Allow the player to flee
-        allowPlayerToFlee(scanner);
+        allowPlayerToFlee(scanner1);
 
         while (!monsters.isEmpty()) {
 
@@ -229,7 +232,7 @@ public class CombatRound {
                     // Assuming the effect applies to specific monsters or all monsters
                     for (MonsterBase monster : monsters) {
                         tickAbility.onTick(player, monster, monsters, turnCounter);
-                        System.out.printf("Tick effect of %s applied to %s on turn %d.%n",
+                        logger.info("Tick effect of %s applied to %s on turn %d.%n",
                                 tickAbility.getName(), monster.getName(), turnCounter);
                     }
 

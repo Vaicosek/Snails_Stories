@@ -17,10 +17,7 @@ public class Enchantment implements EnchantTemplate  {
     private int totalDamage;
     private int manaCost = 50;
     private boolean unlocked = false;
-    public Enchantment() {
 
-
-    }
 
     public void enchant(HeroTemplate hero, Player player) {
         Scanner scanner = new Scanner(System.in);
@@ -126,7 +123,7 @@ public class Enchantment implements EnchantTemplate  {
 
     @Override
     public void setDamage(int totalDamage) {
-
+        totalDamage = this.totalDamage;
     }
 
     @Override
@@ -136,12 +133,12 @@ public class Enchantment implements EnchantTemplate  {
 
     @Override
     public void setManaCost(int manaCost) {
-
+    manaCost =this.manaCost;
     }
 
     @Override
     public void setName(String name) {
-
+    name = this.name;
     }
 
     @Override
