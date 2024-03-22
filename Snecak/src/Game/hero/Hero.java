@@ -224,9 +224,7 @@ public class Hero implements HeroTemplate {
         if (this.equippedWeapon2 != null) {
             System.out.println("Unequipped " + this.equippedWeapon2.getName());
             this.equippedWeapon2 = null;
-        } /* else {
-            System.out.println("No second weapon equipped.");
-        } */
+        }
     }
 
     public void equipArmor(Armor armor) {
@@ -308,7 +306,7 @@ public class Hero implements HeroTemplate {
 
     @Override
     public void heal(int healthRestored) {
-
+   HP = HP + healthRestored;
     }
 
     public void setAttack(int attack) {

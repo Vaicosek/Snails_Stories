@@ -4,9 +4,9 @@ import Game.itemshandling.Inventory;
 import Game.mapvariables.GameMap;
 import Game.monster.MonsterBase;
 import Game.players.Player;
-import java.util.Scanner;
-import java.util.List;
-import java.util.Arrays;
+
+import java.util.*;
+import java.util.function.Consumer;
 
 public class GameEngine {
 
@@ -14,9 +14,29 @@ public class GameEngine {
     Player[] players;
     GameMap gameMap;
     private GameStartedEventSource gameStartedEventSource = new GameStartedEventSource();
+    private Map<GameEnginePlayerEnum, Consumer<Player>> actionHandlers;
+    private final Map<String, GameEnginePlayerEnum> inputToActionMap;
 
     public GameEngine() {
         gameMap = new GameMap(this);
+        initializeActionHandlers();
+        inputToActionMap = new HashMap<>();
+        mapInputToActions();
+    }
+
+    private void mapInputToActions() {
+        inputToActionMap.put("1", GameEnginePlayerEnum.MOVE_ON_MAP);
+        inputToActionMap.put("2", GameEnginePlayerEnum.FIGHT);
+        inputToActionMap.put("3", GameEnginePlayerEnum.OPEN_INVENTORY);
+        inputToActionMap.put("4", GameEnginePlayerEnum.SKIP_YOUR_TURN);
+    }
+
+    private void initializeActionHandlers() {
+        actionHandlers = new EnumMap<>(GameEnginePlayerEnum.class);
+        actionHandlers.put(GameEnginePlayerEnum.MOVE_ON_MAP, this::move);
+        actionHandlers.put(GameEnginePlayerEnum.FIGHT, this::fightWrapper);
+        actionHandlers.put(GameEnginePlayerEnum.OPEN_INVENTORY, this::openInventory);
+
     }
 
     public void GameStart() {
@@ -44,66 +64,46 @@ public class GameEngine {
 
         gameStartedEventSource.fireEvent(new GameStartedEvent());
 
-        GameLoop();
+        gameLoop();
     }
 
-    GameEnginePlayerEnum GetPlayerAction(Player player) {
+    GameEnginePlayerEnum getPlayerAction(Player player) {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Player: " + player.getName() + " Location : " + gameMap.getPlayerLocation(player).Name + "\n HP :" + player.getHero().getHP());
             System.out.println("Choose your action : 1. Move, 2. Fight, 3. Open inventory or 4. Skip your turn");
-            Scanner scanner = new Scanner(System.in);
-            String s = scanner.next();
 
-            switch (s) {
-                case "1" -> {
-                    return GameEnginePlayerEnum.MOVE_ON_MAP;
-                }
-                case "2" -> {
-                    if (gameMap.getPlayerLocation(player).monsters.isEmpty()) {
-                        System.out.println("There is nothing to fight here");
-                        break;
+            String input = scanner.next();
+            GameEnginePlayerEnum action = inputToActionMap.get(input);
 
-                    }
-                    return GameEnginePlayerEnum.FIGHT;
+            if (action != null) {
+                if (action == GameEnginePlayerEnum.FIGHT && gameMap.getPlayerLocation(player).monsters.isEmpty()) {
+                    System.out.println("There is nothing to fight here");
+                    continue; // Prompt the user for input again
                 }
-                case "3" -> {
-                    return GameEnginePlayerEnum.OPEN_INVENTORY;
-                }
-                case "4" -> {
-                    return GameEnginePlayerEnum.SKIP_YOUR_TURN;
-                }
-                default -> System.out.println("Invalid input try again");
+                return action;
+            } else {
+                System.out.println("Invalid input try again");
             }
         }
     }
 
-    private void GameLoop() {
+    private void gameLoop() {
         while (true) {
-            for (var player : players) {
-                if (!player.isAlive()) {
-                    continue;
-                }
+         for (Player player : players) {
 
-                var action = GetPlayerAction(player);
-                if (action == GameEnginePlayerEnum.SKIP_YOUR_TURN) {
-                    continue;
-                }
 
-                if (action == GameEnginePlayerEnum.MOVE_ON_MAP) {
-                    move(player);
+                GameEnginePlayerEnum action = getPlayerAction(player);
+                Consumer<Player> actionHandler = actionHandlers.get(action);
+
+                    actionHandler.accept(player);
 
                 }
-                if (action == GameEnginePlayerEnum.FIGHT) {
-                    fight(player, gameMap.getPlayerLocation(player).monsters);
-                }
-                if (action == GameEnginePlayerEnum.OPEN_INVENTORY) {
-                    inventory.openInventoryMenu(player.getHero(),player);
-
-                }
-
-
             }
         }
+
+    private void openInventory(Player player) {
+        inventory.openInventoryMenu(player.getHero(),player);
     }
 
     public void move(Player player) {
@@ -134,6 +134,11 @@ public class GameEngine {
             System.out.println(e.getMessage());
 
         }
+    }
+
+    private void fightWrapper(Player player) {
+        List<MonsterBase> monsters = gameMap.getPlayerLocation(player).monsters;
+        fight(player, monsters);
     }
 
     private void fight(Player player, List<MonsterBase> monsters) {

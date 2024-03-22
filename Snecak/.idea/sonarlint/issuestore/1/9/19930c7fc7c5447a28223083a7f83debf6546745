@@ -1,15 +1,13 @@
 
-	java:S1123"FDefine and throw a dedicated exception instead of using a generic one.(íùÔœJ$fa2a2315-13a1-49c8-8af0-d999001dbdad
+	java:S1123"FDefine and throw a dedicated exception instead of using a generic one.(íùÔœJ$858a5374-0a70-44df-bb40-aa6d53c0b50d
 œ
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(à„²¨8ƒ‹ğÁå1J$bea31365-55ac-48fd-85b2-8e3649d0fc08
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(à„²¨8ƒ‹ğÁå1J$804475ca-415e-47ed-976f-a52dc49aebb1
 
-java:S1104"RMake Height a static final constant or non-public and provide accessors if needed.(Ú†¿³J$f6a73a8d-1f44-436a-8f9b-f4ee56c275ee
+java:S1104"RMake Height a static final constant or non-public and provide accessors if needed.(Ú†¿³J$d20f6f7d-11c2-4cb9-94a2-61a8b7ab7e15
 ’
-java:S1104"QMake Width a static final constant or non-public and provide accessors if needed.( ‚ÍÛúÿÿÿÿJ$41e9612a-861f-45a2-845d-ddef06971229
-^
-java:S1700"Rename field "gameMap"(¢Ãı¬øÿÿÿÿ8ˆşíÁå1J$b99b6dba-dfe9-4cd9-812c-fe8a5b4c603d
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜Ãò³J$31ea9b11-33d2-4ece-808d-b9ae808b7af8
-Œ	java:S116"QRename this field "Height" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú†¿³J$49a36e6d-e4d3-4505-81c1-7f9ae7d863f3
-	java:S116"PRename this field "Width" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ‚ÍÛúÿÿÿÿJ$a02e95e0-f86b-49d6-aa49-860e2c8c3292
-”	java:S116G"YRename this field "PlayerPosition" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°“ùJ$5aae7404-372d-4827-8875-7e10131af920
-e	java:S1067"+Replace this use of System.out by a logger.(£õ«^J$81f834bc-acfa-4bbf-817f-678c0fa02269
+java:S1104"QMake Width a static final constant or non-public and provide accessors if needed.( ‚ÍÛúÿÿÿÿJ$5fcdca97-6a3b-4c25-aabb-bfdfa30cb64f
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜Ãò³J$0221e32b-0712-4458-9184-ab46af1efdea
+Œ	java:S116"QRename this field "Height" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú†¿³J$fbeb1c63-5502-4f35-bcd8-94010dc47b2c
+	java:S116"PRename this field "Width" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ‚ÍÛúÿÿÿÿJ$a1531bb9-41a7-4cc2-8f39-261908862dfa
+”	java:S116G"YRename this field "PlayerPosition" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°“ùJ$ad131999-7b7a-4c1c-b94e-8f80c9ab0848
+k	java:S1067"+Replace this use of System.out by a logger.(úÚ¥±úÿÿÿÿJ$77797ecb-529f-4067-9693-4eb571fca1a2

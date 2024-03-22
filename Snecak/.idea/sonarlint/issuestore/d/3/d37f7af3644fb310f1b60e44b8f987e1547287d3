@@ -1,12 +1,12 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$2e5a5b99-c3ef-46d2-9022-d1110b00d7eb
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$018999f8-3eac-4916-8420-9647a5a1b128
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$ad586f9f-60fd-4e16-8786-aaa26469af98
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$4c79441a-0973-408a-b138-3253c781d495
 Â
-java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$9cb3ba91-de6a-4cb9-b4a7-f90c3bde3ee4
+java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$e5a6b54b-5ee4-445a-869c-a18427626b16
 ½
-java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$fcbf0e88-e73c-44b4-9405-87a8cf298f18
+java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$82290dfb-69f9-48ee-b6d3-0a0edbd90bce
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“Û¿ÇşÿÿÿÿJ$a5443b7f-2c27-4cbc-9c46-3e9de475dada
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“Û¿ÇşÿÿÿÿJ$50b58f75-fb93-49f8-b8f5-3c17cd79a8e0
 
-java:S1117">Rename "totalDamage" which hides the field declared at line 9.(Š§¶ıÿÿÿÿJ$abfd7cc4-2f0c-4c5c-94a5-f1e48167c5f5
+java:S1117">Rename "totalDamage" which hides the field declared at line 9.(Š§¶ıÿÿÿÿJ$0dcabcfe-b1d1-4d82-b149-71dfa5f0958e

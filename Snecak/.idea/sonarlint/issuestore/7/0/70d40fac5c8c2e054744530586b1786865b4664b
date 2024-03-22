@@ -1,6 +1,6 @@
 
 ¸
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¿Ã¼éúÿÿÿÿ8¥ÈÈÀå1J$67cd4b5c-7540-48fb-a85f-f6b6071f530a
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëóš×ÿÿÿÿÿ8§ÈÈÀå1J$c0628305-6b95-4d5b-993c-facbfcaad0c9
-•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Ã¼éúÿÿÿÿ8­ÈÈÀå1J$f9bc7225-62df-4563-8454-7de1aa81b601
-k	java:S108,")Either remove or fill this block of code.(üØô8·ÈÈÀå1J$8c692425-b3e3-4937-a425-f6636cc06bbf
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¿Ã¼éúÿÿÿÿ8¥ÈÈÀå1J$6fca201d-364a-4bfc-a3e1-346306cde773
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëóš×ÿÿÿÿÿ8§ÈÈÀå1J$cc5b7972-c5c8-4dce-a728-d58492c48ad7
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Ã¼éúÿÿÿÿ8­ÈÈÀå1J$5c2648e1-5605-4d12-a263-6df9b1429d52
+k	java:S108,")Either remove or fill this block of code.(üØô8·ÈÈÀå1J$b3f3d3af-6b44-4b9b-a542-af6e34c11f47

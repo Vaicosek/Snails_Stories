@@ -1,13 +1,13 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$3a329b54-721f-445b-9c7f-6565c8bbfd49
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$1f5b8e43-b557-4b7c-9278-e4d6cc231e2f
 Â
-java:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$197bed0b-3049-413d-ab64-f8ea00308f88
+java:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$eb6ccec0-533e-4aad-bb1b-fca127997214
 Â
-java:S1186;"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$a23cf2e4-d60c-4846-b875-29f067f0c172
+java:S1186;"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$be2a89c6-c0c6-4c36-8477-6076f87bf67f
 ½
-java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$02e435b5-1111-433e-ab86-5875d07e31d4
+java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$522fb229-a788-4f15-bca5-ce564c798be4
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ªŞø¢J$5eaf994e-ffd5-43c4-b09c-3bdab42d24f2
-k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$7ca5f661-d891-4a5a-a0da-1e3a60996dd8
-f	java:S106 "+Replace this use of System.out by a logger.(‰­úÛJ$73c200f9-fdcc-4a69-876a-497907483cfe
-f	java:S106#"+Replace this use of System.out by a logger.(î›¢ıJ$d1510703-7137-4790-b3b5-93ddf2b8fe59
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ªŞø¢J$576b249a-8f51-4e7f-be4e-ea0ede9e3ae1
+k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$73e76ce6-8442-4d5d-8d86-c35973361c0c
+f	java:S106 "+Replace this use of System.out by a logger.(‰­úÛJ$83725515-417f-4ad6-8c51-68c04b71f26f
+f	java:S106#"+Replace this use of System.out by a logger.(î›¢ıJ$b814ce49-ed0e-4583-acdf-910611cbe521

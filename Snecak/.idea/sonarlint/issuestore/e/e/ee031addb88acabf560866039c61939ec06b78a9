@@ -1,8 +1,8 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$1cecc1f7-07c5-462d-9685-d285302637fb
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$15532cee-05eb-4591-bd37-a51a68d4fb97
 Â
-java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$355c000b-c2b5-4da8-abe1-304e7d8b5a3b
+java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$0fbe2a47-7da8-436f-905e-bce0ddeca02e
 Â
-java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$26f15c5d-1dd8-4b04-b8a5-4e01607eb2ca
+java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$2cfa11e7-5a8b-44f5-95ca-28072d0ce680
 ½
-java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$84d5d53e-e939-4af9-a552-4605cd6f580d
+java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$d96d8db1-606b-485b-a1bf-ecc1aefbaa11

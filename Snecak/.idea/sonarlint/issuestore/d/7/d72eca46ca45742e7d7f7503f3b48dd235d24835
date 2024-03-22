@@ -1,8 +1,8 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯ŠıÿÿÿÿJ$1598aab4-5541-40f3-b34f-db08f214c8a9
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯ŠıÿÿÿÿJ$e3a90401-d289-4532-8d05-2d4ccef6d04a
 r
-java:S1144"1Remove this unused private "createWeapon" method.(Îú²ùÿÿÿÿJ$af36b654-200b-4099-8cdf-4289ff488b15
+java:S1144"1Remove this unused private "createWeapon" method.(Îú²ùÿÿÿÿJ$0f9b26e3-ac72-47d9-a6dd-b4d6055dbc49
 l
-java:S1144#"0Remove this unused private "createArmor" method.(ë›íÃJ$98cbb170-6aed-40b1-b13b-d22f2a9d7db2
+java:S1144#"0Remove this unused private "createArmor" method.(ë›íÃJ$2a37820e-17ff-4ebe-ba1a-fc0bb3d15c8b
 v
-java:S1144)"5Remove this unused private "createConsumable" method.(ñŞ„‹ÿÿÿÿÿJ$b05c0ffc-30ce-4e3d-8c95-cf76a4b70f3c
+java:S1144)"5Remove this unused private "createConsumable" method.(ñŞ„‹ÿÿÿÿÿJ$54c80027-22d2-4316-9353-cc65102e501a

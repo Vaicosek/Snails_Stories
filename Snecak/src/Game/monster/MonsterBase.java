@@ -2,22 +2,16 @@ package Game.monster;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class MonsterBase {
 
-    private static final int TIER_1 = 1;
-    private static final int TIER_2 = 2;
-    private static final int TIER_3 = 3;
-    private static final int TIER_4 = 4;
-    private static final int TIER_5 = 5;
-
     public int HP;
     public int GroupLevel;
-    public int tier;
     public int MonsterXp;
-
     public String Name;
+    private MonsterTier tier;
 
     private boolean isEntangled;
     private int entangleDuration;
@@ -26,37 +20,21 @@ public abstract class MonsterBase {
     private boolean isTaunted;
     private boolean isMisdirected;
 
-    public MonsterBase(int tier, int GroupLevel) {
+    public MonsterBase(MonsterTier tier, int groupLevel) {
         this.tier = tier;
-        InitializeName();
-        Name = getRandomName();
-        this.GroupLevel = GroupLevel;
-
-
-        switch (tier) {
-            case TIER_1 -> {
-                HP = 20 * GroupLevel;
-                MonsterXp = 10 + GroupLevel;
-            }
-            case TIER_2 -> {
-                HP = 30 * GroupLevel;
-                MonsterXp = 20 + (GroupLevel * 2);
-            }
-            case TIER_3 -> {
-                HP = 40 * GroupLevel;
-                MonsterXp = 30 + (GroupLevel * 2);
-            }
-            case TIER_4 -> {
-                HP = 50 * GroupLevel;
-                MonsterXp = 50 + (GroupLevel * 2);
-            }
-            case TIER_5 -> {
-                HP = 1000 * GroupLevel;
-                MonsterXp = 200 + (GroupLevel * 10);
-            }
-
-        }
+        this.GroupLevel = groupLevel;
+        this.Name = getRandomName(tier.getNames());
+        this.HP = tier.calculateHP(groupLevel);
+        this.MonsterXp = tier.calculateXP(groupLevel);
     }
+
+
+    private String getRandomName(List<String> names) {
+        Random random = new Random();
+        return names.get(random.nextInt(names.size()));
+    }
+
+
     public static MonsterBase chooseMonster(List<MonsterBase> monsters) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose a monster to attack:");
@@ -81,21 +59,13 @@ public abstract class MonsterBase {
         return Name;
     }
 
-    public int getTier() {
+    public MonsterTier getTier() {
         return tier;
     }
 
     protected ArrayList<String> names;
 
-    String getRandomName() {
-        int i;
-        try {
-            i = Dice.getNextNumber(1, names.size() - 1);
-            return names.get(i);
-        } catch (Exception e) {
-            return "";
-        }
-    }
+
     public int attackReduction = 1;
     public int Attack() {
         int damage;

@@ -1,11 +1,11 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$0fe8c8e0-e16d-48d3-a54f-9b3dfd48c87e
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$70c72486-dc6a-4900-bea2-e13314410725
 Â
-java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$0bad5c5b-b55b-4d30-9296-7140681a7882
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$d0e86273-eaa9-427b-b3ea-fb1e675edec7
 Â
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$37997680-d80f-420f-8767-6ea9d672ab32
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$999d66a4-d39c-4102-8f07-24e2a793f39f
 ½
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$bed66e06-1d54-4a07-bdf4-fc030763a722
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$5941a2ed-16e1-4b79-a6fc-dd6a81f39d76
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(”è†ÍJ$0c7cb0c1-015e-4dfc-aa86-a9fcb748db05
-f	java:S106"+Replace this use of System.out by a logger.(«êğ„J$b1e9a772-e6a7-47a9-8dc2-fce2e7a8ac94
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(”è†ÍJ$2e4b3908-abcc-4baf-83d6-6fd000fe0cbe
+f	java:S106"+Replace this use of System.out by a logger.(«êğ„J$c16945e0-d44d-4265-872a-88b97134f666

@@ -1,14 +1,14 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$df7eb5b2-f690-4b65-a972-63ddddba38d3
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$47b88c4e-2e65-4f7b-8727-804f28143707
 Â
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$22e8f7ed-db0a-4c1e-8e96-f0729f8be2a9
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$87f57da8-b17a-4a1d-ab8d-266e31e2673d
 Â
-java:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$4f6ff457-c208-4673-ac97-6ce640005fa2
+java:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$184d2bf2-bc99-4a87-8b5d-f64d0a2f4f82
 ½
-java:S11869"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$790dea5f-53e3-42b4-8e26-e0c46759853e
+java:S11869"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$a11c4567-bc4d-4ebd-ac84-88d74a229928
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŠÒ¦J$5ce17b54-6c09-4226-94f5-4546873ca618
-f	java:S106"+Replace this use of System.out by a logger.(¼¦şäJ$726476b8-9114-45b6-a5ec-0fce3fc651c5
-k	java:S106"+Replace this use of System.out by a logger.(¶µÆíùÿÿÿÿJ$b24e5769-422e-41bc-908c-d2355859b110
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŠÒ¦J$86079efa-d4e9-4a7f-bcdb-51df640e5a0a
+f	java:S106"+Replace this use of System.out by a logger.(¼¦şäJ$b80b70b5-fd78-41df-834f-0120f1880054
+k	java:S106"+Replace this use of System.out by a logger.(¶µÆíùÿÿÿÿJ$c1624a6a-a8b7-402c-bc2e-e21fb06e500c
 s
-java:S1068"2Remove this unused "remainingTurns" private field.(“ûâúÿÿÿÿJ$954f5dfb-7474-43b6-a980-529fc12b8c21
+java:S1068"2Remove this unused "remainingTurns" private field.(“ûâúÿÿÿÿJ$d3b67ead-85bf-4edc-9491-2ed0ea70f6bf

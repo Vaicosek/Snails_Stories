@@ -197,3 +197,5 @@ C
 src/Game/log4j2.yml,2\3\2363cce4ea23ba66af0650eaba451a935cd1148c
 R
 "src/Game/mapvariables/GameMap.java,1\9\19930c7fc7c5447a28223083a7f83debf6546745
+Q
+!src/Game/monster/MonsterTier.java,c\6\c6ed8778ff2274e1fb7f48a903f0cc43e824816e

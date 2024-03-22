@@ -1,6 +1,6 @@
 
 
-java:S1192"MDefine a constant instead of duplicating this literal "MagicalPower" 3 times.(ÉˆëñıÿÿÿÿJ$aadc44fe-a044-4711-8c5d-6eed7a4d22f8
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡Ê™œJ$47f8d33a-0576-4449-9ddc-31e1f2e7a1cd
+java:S1192"MDefine a constant instead of duplicating this literal "MagicalPower" 3 times.(ÉˆëñıÿÿÿÿJ$02354bd0-c18b-44a0-a9ef-87a44bc6820c
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡Ê™œJ$b69774f3-7436-4cab-9b6d-b5fab1374727
 v
-java:S1118":Add a private constructor to hide the implicit public one.(¥ñ¦J$b60ddd7c-26ff-4ba2-9fb7-e2b0cf76e924
+java:S1118":Add a private constructor to hide the implicit public one.(¥ñ¦J$36239e1a-0b6d-461a-adc7-e9ac1e30fe17

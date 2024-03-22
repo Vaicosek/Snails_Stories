@@ -1,31 +1,31 @@
 
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Á€ë8†ÇÀå1J$68177749-b930-41f5-997a-d04482cda201
 –
-java:S1104"NMake HP a static final constant or non-public and provide accessors if needed.(±öšëúÿÿÿÿ8Ÿ†ÇÀå1J$a08cb308-3400-4a96-b867-504fafd266ba
+java:S1104
+"NMake HP a static final constant or non-public and provide accessors if needed.(±öšëúÿÿÿÿ8÷«®•æ1J$7f180666-305b-45be-a927-257bae41d4f3
 ™
-java:S1104"VMake GroupLevel a static final constant or non-public and provide accessors if needed.(öä¼¤8Ÿ†ÇÀå1J$7267c5d7-c807-4225-a1aa-4f933d64f7d1
-˜
-java:S1104"PMake tier a static final constant or non-public and provide accessors if needed.(ê—öÔøÿÿÿÿ8Ÿ†ÇÀå1J$916fcbdc-0003-4e34-929b-75b82fef9ab2
+java:S1104"VMake GroupLevel a static final constant or non-public and provide accessors if needed.(öä¼¤8÷«®•æ1J$e74ef6f7-b01d-4903-8899-8a33c10adc1b
 
-java:S1104"UMake MonsterXp a static final constant or non-public and provide accessors if needed.(ÔÉ¦£úÿÿÿÿ8 †ÇÀå1J$0dddfe13-0964-489e-8221-880d892a2810
+java:S1104"UMake MonsterXp a static final constant or non-public and provide accessors if needed.(ÔÉ¦£úÿÿÿÿ8÷«®•æ1J$a60ff486-6eaa-4d0b-92b8-a870221e89b1
 “
-java:S1104"PMake Name a static final constant or non-public and provide accessors if needed.(õ¤üà8 †ÇÀå1J$2729f892-85f2-4a30-b1be-98ae00fc890c
+java:S1104"PMake Name a static final constant or non-public and provide accessors if needed.(õ¤üà8÷«®•æ1J$bf3b1467-0f7d-4bdc-8432-64845d3dd1f5
 
-java:S1104c"[Make attackReduction a static final constant or non-public and provide accessors if needed.(æö×ì8 †ÇÀå1J$0524de9b-c38d-4be8-abe1-401e925f90ab
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëóš×ÿÿÿÿÿ8¤†ÇÀå1J$e405adf8-52b0-48ec-a653-eca7c864e953
-”	java:S116"MRename this field "HP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±öšëúÿÿÿÿ8û‹ÇÀå1J$59df8d7d-35b4-4dba-8023-dae7d66ba92e
-—	java:S116"URename this field "GroupLevel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öä¼¤8ü‹ÇÀå1J$4140ddda-225e-4de0-9b02-bec29d4bb332
-›	java:S116"TRename this field "MonsterXp" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÉ¦£úÿÿÿÿ8ü‹ÇÀå1J$e76aec88-a3a5-4902-ab32-90aa06fe81e1
-‘	java:S116"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¤üà8ü‹ÇÀå1J$c5db0437-0898-4887-83eb-a507115d3e02
-|
-java:S5993"9Change the visibility of this constructor to "protected".(“Á€ë8‡ŒÇÀå1J$f94568c3-5d81-4a64-bd94-a4c5bde1b1ae
-d	java:S131$""Add a default case to this switch.(¬èİØ8£ŒÇÀå1J$18301f30-9b02-4ce2-9b4c-24b7089d5da5
-r	java:S106>"+Replace this use of System.out by a logger.(Õòš«üÿÿÿÿ8²ŒÇÀå1J$99155919-825f-4e9a-8a05-817105a078a0
-r	java:S106A"+Replace this use of System.out by a logger.(íÜáŒşÿÿÿÿ8¶ŒÇÀå1J$1dba6838-9ffa-4a67-8986-5af9ecf134a7
-m	java:S106F"+Replace this use of System.out by a logger.(šºğ8¾ŒÇÀå1J$2229c01c-eb40-4fee-8687-a3ca2fd42291
-	java:S100d"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Ô›8ÑŒÇÀå1J$1501c6ea-3515-4059-b1a7-11ab4803d2a4
-	java:S100{"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•Ä£Ö8ÛŒÇÀå1J$c1d0765b-de2f-4640-accd-71500249849a
+java:S1104E"[Make attackReduction a static final constant or non-public and provide accessors if needed.(æö×ì8÷«®•æ1J$5be7c276-eee3-4696-828c-bc4b7c26ccb4
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëóš×ÿÿÿÿÿ8ù«®•æ1J$3c0f9c6e-95cd-4d1c-b109-e058fbdda452
+”	java:S116
+"MRename this field "HP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±öšëúÿÿÿÿ8¢¬®•æ1J$2285816d-0752-4f49-9f9f-cbed76e5ad82
+—	java:S116"URename this field "GroupLevel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öä¼¤8¢¬®•æ1J$73173250-f465-4b53-9065-9ff679f73bfd
+›	java:S116"TRename this field "MonsterXp" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÉ¦£úÿÿÿÿ8¢¬®•æ1J$88f6f609-9eb4-420d-8713-513204f78eff
+‘	java:S116"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¤üà8¢¬®•æ1J$29b76a44-47f3-44ef-a0ac-cf5228fdbb30
+
+java:S5993"9Change the visibility of this constructor to "protected".(èëˆ–üÿÿÿÿ8¤¬®•æ1J$8f085530-31d2-448d-a5a8-70ad4fb08853
+`
+java:S2119!"Save and re-use this "Random".(¼İÅf8Ş²°•æ1J$18cff721-ecaa-44c6-9b4a-7c6373c83dc0
+r	java:S106("+Replace this use of System.out by a logger.(Õòš«üÿÿÿÿ8ª¬®•æ1J$75fd235f-b290-4cc3-a24e-94b10b9d4178
+r	java:S106+"+Replace this use of System.out by a logger.(íÜáŒşÿÿÿÿ8ª¬®•æ1J$2f3f99e1-4446-487b-bd34-5bfdda962ef5
+m	java:S1060"+Replace this use of System.out by a logger.(šºğ8«¬®•æ1J$eeca44ad-d352-42c7-a512-626d4113c9d3
+	java:S100F"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Ô›8­¬®•æ1J$363db96a-8a1e-4f0c-b86d-87328e17a120
+	java:S100]"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•Ä£Ö8±¬®•æ1J$b611571e-c2af-425b-88ed-e361ef288a2d
 v
-java:S1172£"2Remove this unused method parameter "tauntRounds".(Îí¥„8çŒÇÀå1J$a996139f-4dc6-4e1a-b8e9-752000342709
+java:S1172…"2Remove this unused method parameter "tauntRounds".(Îí¥„8³¬®•æ1J$af49c335-0f41-44d4-bf4c-239910f79285
 {
-java:S1172ª"8Remove this unused method parameter "misdirectedRounds".(Òª‹"8ìŒÇÀå1J$a41baced-602e-4f19-b86e-3557816039b2
+java:S1172Œ"8Remove this unused method parameter "misdirectedRounds".(Òª‹"8´¬®•æ1J$14ee488a-799a-4c67-9c2b-c44cdfd33511

@@ -232,7 +232,7 @@ public class CombatRound {
                     // Assuming the effect applies to specific monsters or all monsters
                     for (MonsterBase monster : monsters) {
                         tickAbility.onTick(player, monster, monsters, turnCounter);
-                        logger.info("Tick effect of %s applied to %s on turn %d.%n",
+                        System.out.printf( "Tick effect of %s applied to %s on turn %d.%n",
                                 tickAbility.getName(), monster.getName(), turnCounter);
                     }
 

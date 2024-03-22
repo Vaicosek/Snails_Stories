@@ -1,14 +1,14 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(÷ÎÍøÿÿÿÿ8ª£ÀÀå1J$b115e69b-8e18-4d77-a273-e6ac4dba4300
-	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êûò²8Ô£ÀÀå1J$2358ee04-5516-46a1-986b-cd0c3295634f
-m	java:S1063"+Replace this use of System.out by a logger.(ÈÑÉî8ß£ÀÀå1J$b5155a27-c061-4c24-a0a5-56c8ca8a7b0b
-r	java:S106="+Replace this use of System.out by a logger.(”ÅĞæşÿÿÿÿ8¤ÀÀå1J$dcbb3cec-5d57-4696-b7e0-2e948305e889
-r	java:S106>"+Replace this use of System.out by a logger.(‘²°•üÿÿÿÿ8‚¤ÀÀå1J$b3126282-c12f-41d5-ac71-3fa45b87cd69
-m	java:S106?"+Replace this use of System.out by a logger.(¸¹²8ˆ¤ÀÀå1J$3bf09369-5bd9-4f14-8686-5d0219291d20
-m	java:S106@"+Replace this use of System.out by a logger.(éÛÃè8Œ¤ÀÀå1J$cd357e7f-d34e-4181-b8c4-eff96ef8947a
-m	java:S106A"+Replace this use of System.out by a logger.(Ê…—©8¤ÀÀå1J$98b28808-44c9-46db-9c99-0b1c85d26764
-m	java:S106B"+Replace this use of System.out by a logger.(¹Ú8’¤ÀÀå1J$0529205e-0e72-4b39-acf1-b0693658f05d
-r	java:S106K"+Replace this use of System.out by a logger.(ëÃã¹ùÿÿÿÿ8¤ÀÀå1J$87c4fc1d-61a6-437b-bddc-54ad1cf61109
-m	java:S106b"+Replace this use of System.out by a logger.(œê£¤8¦¤ÀÀå1J$1c60f5cc-d9d8-4478-93c4-3d0bec56c77e
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(÷ÎÍøÿÿÿÿ8ª£ÀÀå1J$06e6f0e0-8937-4876-b376-3706f514aef2
+	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êûò²8Ô£ÀÀå1J$4fcd70d4-f92a-47b5-a1fe-4e9fd1c6df05
+m	java:S1063"+Replace this use of System.out by a logger.(ÈÑÉî8ß£ÀÀå1J$327870b8-a675-4952-add3-cdd95f397704
+r	java:S106="+Replace this use of System.out by a logger.(”ÅĞæşÿÿÿÿ8¤ÀÀå1J$4bbe6fed-14ea-439d-8319-718e571eb501
+r	java:S106>"+Replace this use of System.out by a logger.(‘²°•üÿÿÿÿ8‚¤ÀÀå1J$a01a1070-586d-4289-9031-064edd83ce03
+m	java:S106?"+Replace this use of System.out by a logger.(¸¹²8ˆ¤ÀÀå1J$35e9e24c-9751-4176-8de8-3f3ea706e064
+m	java:S106@"+Replace this use of System.out by a logger.(éÛÃè8Œ¤ÀÀå1J$2ecfe542-ad29-49cc-8342-26f6cca16cf4
+m	java:S106A"+Replace this use of System.out by a logger.(Ê…—©8¤ÀÀå1J$c03ff115-6100-4d83-84a0-46e3c7b7b52d
+m	java:S106B"+Replace this use of System.out by a logger.(¹Ú8’¤ÀÀå1J$34d02d4a-9195-42b9-8727-ace3e0348833
+r	java:S106K"+Replace this use of System.out by a logger.(ëÃã¹ùÿÿÿÿ8¤ÀÀå1J$609342ee-f036-4c6d-bbd8-3bd21e6e1c40
+m	java:S106b"+Replace this use of System.out by a logger.(œê£¤8¦¤ÀÀå1J$e60197fc-9be3-492f-a2a1-8bddd874c920
 {
-java:S1144P"8Remove this unused private "gainStartingAbility" method.(¡ôà8°¤ÀÀå1J$3bf45a87-b04e-43c5-bf15-7a195a841467
+java:S1144P"8Remove this unused private "gainStartingAbility" method.(¡ôà8°¤ÀÀå1J$007df344-64f9-4d5e-bf71-74bc2d6c7797

@@ -12,7 +12,7 @@ public class GameMap implements GameStartedListener {
 
     public int Height;
     public int Width;
-    private BiomeModel[][] gameMap;
+    private BiomeModel[][] gameMapModel;
     private DeckOfCards deckOfCards;
     private ArrayList<Player> players;
 
@@ -23,17 +23,17 @@ public class GameMap implements GameStartedListener {
         monsterFactory = new MonsterFactory(this, gameEngine);
         this.Height = 40;
         this.Width = 40;
-        this.gameMap = new BiomeModel[Height][Width];
+        this.gameMapModel = new BiomeModel[Height][Width];
         this.deckOfCards = new DeckOfCards();
         this.players = new ArrayList<Player>();
         this.gameEngine = gameEngine;
-        gameMap[Height / 2][Width / 2] = deckOfCards.getDefaultLocation();
+        gameMapModel[Height / 2][Width / 2] = deckOfCards.getDefaultLocation();
         gameEngine.registerListener(this);
     }
 
     public BiomeModel getPlayerLocation(Player player) {
         var pos = PlayerPosition.get(player);
-        return gameMap[pos.x][pos.y];
+        return gameMapModel[pos.x][pos.y];
     }
 
     public void movePlayer(Player player, MovementDirectionEnum direction) throws Exception {
@@ -52,14 +52,14 @@ public class GameMap implements GameStartedListener {
 
 
         if (checkMapBoundaries(pos.x, pos.y)) {
-            System.out.println("Invalid move: off the edge of the gameMap.");
+            System.out.println("Invalid move: off the edge of the gameMapModel.");
             return;
         }
 
 
-        if (gameMap[pos.x][pos.y] == null) {
-            gameMap[pos.x][pos.y] = deckOfCards.drawRandomBiomeCard();
-            gameMap[pos.x][pos.y].monsters = monsterFactory.CreateMonsters(players.size());
+        if (gameMapModel[pos.x][pos.y] == null) {
+            gameMapModel[pos.x][pos.y] = deckOfCards.drawRandomBiomeCard();
+            gameMapModel[pos.x][pos.y].monsters = monsterFactory.CreateMonsters(players.size());
         }
 
     }
