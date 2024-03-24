@@ -4,51 +4,52 @@ import Game.engine.GameEngine;
 import Game.mapvariables.GameMap;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class MonsterFactory {
-    GameMap gameMap;
-    GameEngine gameEngine;
-
+    private final GameMap gameMap;
+    private final GameEngine gameEngine;
+    private final Random random = new Random();
 
     public MonsterFactory(GameMap gameMap, GameEngine gameEngine) {
         this.gameMap = gameMap;
         this.gameEngine = gameEngine;
     }
 
-    public ArrayList<MonsterBase> CreateMonsters(int numPlayers) {
-        int[] tierProbabilities = {35, 30, 20, 10, 5};
-        int totalProbability = Arrays.stream(tierProbabilities).sum();
-
-        ArrayList<MonsterBase> monsters = new ArrayList<>();
-
-        int numMonsters = numPlayers + 1;
+    public List<MonsterBase> createMonsters(int numMonsters, int groupLevel) {
+        List<MonsterBase> monsters = new ArrayList<>();
         for (int i = 0; i < numMonsters; i++) {
-            int rand = Dice.getNextNumber(1, totalProbability);
-            int monsterTier = 0;
-            for (int j = 0; j < tierProbabilities.length; j++) {
-                rand -= tierProbabilities[j];
-                if (rand <= 0) {
-                    monsterTier = j + 1;
-                    break;
-                }
-            }
-
-            int groupLevel = gameEngine.getGroupLevel();
-            switch (monsterTier) {
-                case 1 -> monsters.add(new MonsterTier1(groupLevel));
-                case 2 -> monsters.add(new MonsterTier2(groupLevel));
-                case 3 -> monsters.add(new MonsterTier3(groupLevel));
-                case 4 -> monsters.add(new MonsterTier4(groupLevel));
-                case 5 -> monsters.add(new MonsterTier5(groupLevel));
-                default -> {
-                }
-            }
+            MonsterTier selectedTier = selectTierBasedOnProbability();
+            String randomName = selectedTier.getRandomName();
+            int hp = selectedTier.calculateHP(groupLevel);
+            int xp = selectedTier.calculateXP(groupLevel);
+            // Now create the MonsterBase with the properties from the selected tier
+            monsters.add(new MonsterBase(randomName, groupLevel, hp, xp, selectedTier));
         }
         return monsters;
     }
 
+    private MonsterTier selectTierBasedOnProbability() {
+        // Example probability distribution: 35% TIER_1, 30% TIER_2, 20% TIER_3, 10% TIER_4, 5% TIER_5
+        int[] tierProbabilities = {35, 30, 20, 10, 5};
+        int probabilitySum = 100;
+        int randomValue = random.nextInt(probabilitySum);
+        int sum = 0;
+        MonsterTier selectedTier = MonsterTier.TIER_1;
+
+        for (int i = 0; i < tierProbabilities.length; i++) {
+            sum += tierProbabilities[i];
+            if (randomValue < sum) {
+                selectedTier = MonsterTier.values()[i];
+                break;
+            }
+        }
+        return selectedTier;
+    }
 }
+
+
 
 
 

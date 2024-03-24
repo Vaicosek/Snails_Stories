@@ -1,6 +1,7 @@
 package Game.mapvariables;
 
 import Game.engine.*;
+import Game.monster.MonsterBase;
 import Game.monster.MonsterFactory;
 import Game.players.Player;
 
@@ -59,7 +60,13 @@ public class GameMap implements GameStartedListener {
 
         if (gameMapModel[pos.x][pos.y] == null) {
             gameMapModel[pos.x][pos.y] = deckOfCards.drawRandomBiomeCard();
-            gameMapModel[pos.x][pos.y].monsters = monsterFactory.CreateMonsters(players.size());
+
+
+            int groupLevel = gameEngine.getGroupLevel();
+
+            int numMonsters = players.size() + 1;
+
+            List<MonsterBase> monsters = monsterFactory.createMonsters(numMonsters, groupLevel);
         }
 
     }

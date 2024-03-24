@@ -45,16 +45,6 @@ T
 $src/Game/monster/MonsterFactory.java,7\0\70d40fac5c8c2e054744530586b1786865b4664b
 J
 src/Game/monster/Dice.java,1\7\17a14f06aae1e38b1fd4265efd86d29cea016861
-R
-"src/Game/monster/MonsterTier2.java,a\2\a23cd7bc7b33e0156c7c362162ca3312547d4709
-R
-"src/Game/monster/MonsterTier1.java,d\0\d0457a20dc8aeb6712da84cd1371d4de1c787683
-R
-"src/Game/monster/MonsterTier4.java,2\9\29e06f31908661df5c442be0fc67d0fd52f04346
-R
-"src/Game/monster/MonsterTier3.java,4\a\4a913e14255b171b7ed6de211d469a28dcf47860
-R
-"src/Game/monster/MonsterTier5.java,0\6\062108e897235d80feeb7c62a40258ea0a743204
 Q
 !src/Game/monster/MonsterBase.java,b\6\b66c31864ad969ba96f4530d5a23216c2bcfec59
 L
@@ -199,3 +189,5 @@ R
 "src/Game/mapvariables/GameMap.java,1\9\19930c7fc7c5447a28223083a7f83debf6546745
 Q
 !src/Game/monster/MonsterTier.java,c\6\c6ed8778ff2274e1fb7f48a903f0cc43e824816e
+T
+$src/Game/monster/MonsterCreator.java,9\4\949f43be79808918e675e44b748001ea296e7a6d

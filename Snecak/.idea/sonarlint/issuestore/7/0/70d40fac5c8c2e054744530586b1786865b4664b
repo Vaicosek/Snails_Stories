@@ -1,6 +1,6 @@
 
-¸
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¿Ã¼éúÿÿÿÿ8¥ÈÈÀå1J$6fca201d-364a-4bfc-a3e1-346306cde773
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëóš×ÿÿÿÿÿ8§ÈÈÀå1J$cc5b7972-c5c8-4dce-a728-d58492c48ad7
-•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Ã¼éúÿÿÿÿ8­ÈÈÀå1J$5c2648e1-5605-4d12-a263-6df9b1429d52
-k	java:S108,")Either remove or fill this block of code.(üØô8·ÈÈÀå1J$b3f3d3af-6b44-4b9b-a542-af6e34c11f47
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëóš×ÿÿÿÿÿ8ÃÓĞ¿æ1J$9763db9a-232d-48a0-974d-b3e03909be63
+n
+java:S1068"+Remove this unused "gameMap" private field.(‹™ƒº8ÊÓĞ¿æ1J$e4dd6e46-f428-4e1c-b181-3e3b6c0acfd9
+q
+java:S1068".Remove this unused "gameEngine" private field.(éŒ´ú8ÊÓĞ¿æ1J$aa995e1f-412a-4e79-9518-6c256f10cff9

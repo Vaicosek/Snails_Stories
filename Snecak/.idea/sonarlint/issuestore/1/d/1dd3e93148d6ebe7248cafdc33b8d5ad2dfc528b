@@ -1,0 +1,26 @@
+
+t
+java:S1192v"RDefine a constant instead of duplicating this literal "%s summoned %s!%n" 4 times.(¢¤ñ¤øÿÿÿÿ8è‡ææ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡Ê™œ8Ÿè‡ææ1
+\
+java:S1118":Add a private constructor to hide the implicit public one.(‹í•Áıÿÿÿÿ8§è‡ææ1
+G	java:S106"+Replace this use of System.out by a logger.(íÿüú8­è‡ææ1
+G	java:S106"+Replace this use of System.out by a logger.(ÒÀâÎ8®è‡ææ1
+L	java:S106"+Replace this use of System.out by a logger.(»Ê¾‚ûÿÿÿÿ8®è‡ææ1
+G	java:S106"+Replace this use of System.out by a logger.(Ê˜†µ8°è‡ææ1
+L
+java:S1172%"/Remove this unused method parameter "monsters".(âº€‰8°è‡ææ1
+L	java:S106-"+Replace this use of System.out by a logger.(¯«­ìúÿÿÿÿ8±è‡ææ1
+L	java:S1065"+Replace this use of System.out by a logger.(˜é¼Ñüÿÿÿÿ8³è‡ææ1
+L	java:S1069"+Replace this use of System.out by a logger.(§ŒÅ’øÿÿÿÿ8´è‡ææ1
+G	java:S106B"+Replace this use of System.out by a logger.(²‘8¶è‡ææ1
+L	java:S106Z"+Replace this use of System.out by a logger.(ÈËÅÙüÿÿÿÿ8ºè‡ææ1
+L	java:S106]"+Replace this use of System.out by a logger.(¢ñµşÿÿÿÿ8ºè‡ææ1
+L	java:S106i"+Replace this use of System.out by a logger.(»¨èàÿÿÿÿÿ8¼è‡ææ1
+L	java:S106k"+Replace this use of System.out by a logger.(îœªıøÿÿÿÿ8½è‡ææ1
+L	java:S106v"+Replace this use of System.out by a logger.(¢¤ñ¤øÿÿÿÿ8¿è‡ææ1
+L	java:S106{"+Replace this use of System.out by a logger.(äÅåáúÿÿÿÿ8Àè‡ææ1
+M	java:S106€"+Replace this use of System.out by a logger.(ÙÿÑ¶ûÿÿÿÿ8Àè‡ææ1
+H	java:S106…"+Replace this use of System.out by a logger.(¬’÷‘8Áè‡ææ1
+H	java:S106ˆ"+Replace this use of System.out by a logger.(‘¾á½8Âè‡ææ1
+M	java:S106¥"+Replace this use of System.out by a logger.(©†¬‰ıÿÿÿÿ8Æè‡ææ1

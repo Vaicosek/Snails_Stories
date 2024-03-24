@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public abstract class MonsterBase {
+public class MonsterBase {
 
     public int HP;
     public int GroupLevel;
@@ -20,12 +20,12 @@ public abstract class MonsterBase {
     private boolean isTaunted;
     private boolean isMisdirected;
 
-    public MonsterBase(MonsterTier tier, int groupLevel) {
-        this.tier = tier;
+    public MonsterBase(String name, int groupLevel, int hp, int monsterXp, MonsterTier tier) {
+        this.Name = name;
         this.GroupLevel = groupLevel;
-        this.Name = getRandomName(tier.getNames());
-        this.HP = tier.calculateHP(groupLevel);
-        this.MonsterXp = tier.calculateXP(groupLevel);
+        this.HP = hp;
+        this.MonsterXp = monsterXp;
+        this.tier = tier; // Set the tier
     }
 
 
@@ -63,21 +63,10 @@ public abstract class MonsterBase {
         return tier;
     }
 
-    protected ArrayList<String> names;
-
 
     public int attackReduction = 1;
     public int Attack() {
-        int damage;
-
-        if (tier == 5) {
-            // If it's tier 5, set damage between 20 and 60
-            damage = Dice.getNextNumber(20, 60)* attackReduction;
-        } else {
-            // For other tiers, use the default damage calculation
-            damage = Dice.getNextNumber(1, tier * 10 + (10 * GroupLevel))* attackReduction;
-        }
-
+        int damage = this.tier.calculateAttackDamage(this.GroupLevel, this.attackReduction);
         return damage;
     }
     public void reduceAttack(int damageReduction) {
@@ -90,7 +79,6 @@ public abstract class MonsterBase {
         return HP;
     }
 
-    public abstract void InitializeName();
 
     public void takeDamage(int damageDealt) {
 
