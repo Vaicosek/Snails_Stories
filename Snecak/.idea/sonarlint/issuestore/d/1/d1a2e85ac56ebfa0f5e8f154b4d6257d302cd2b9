@@ -1,16 +1,16 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$5ad02b85-65bc-4b0f-b989-ecd928b0275a
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$043273fc-0635-471a-9422-920bb48c28a7
 Â
-java:S11866"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$2e2f4b46-6618-4ff3-983d-498c566cedaf
+java:S11866"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$85bc8ad6-b19f-4615-b476-b9dced3761b6
 Â
-java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$ef6ace3c-e283-48f6-8fae-6e3e7374d242
+java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$991dcfe5-485c-4761-94c8-52e18d581e64
 ½
-java:S1186E"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$791d929e-d524-4de8-a4d6-7b94e109561b
+java:S1186E"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$1b0d048b-0691-40e0-9e01-b359dcbfa63a
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÿ×—J$79028368-1d82-43f7-b709-181d77593f75
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÿ×—J$83537850-9323-4809-ba37-a21aea44e1ef
 }
-java:S1854""ARemove this useless assignment to local variable "manaToConvert".(¦Â—óJ$4a5da315-2646-4589-b2db-c5adfb968d9a
-f	java:S106"+Replace this use of System.out by a logger.(÷é“©J$fa4f617a-592e-4c77-bb6a-7857d19bfbe2
-f	java:S106"+Replace this use of System.out by a logger.(Õ›ˆÇJ$abcd38cc-6581-4dd8-89e4-315d34f4be28
-f	java:S106!"+Replace this use of System.out by a logger.(µ¹ŒáJ$787751b1-7c36-4e47-a115-2feead22dbb5
-e	java:S106,"+Replace this use of System.out by a logger.(ñÍ”bJ$343126e7-d369-4f8f-b7d0-8e83fc356f6b
+java:S1854""ARemove this useless assignment to local variable "manaToConvert".(¦Â—óJ$0dcd599e-abb4-406b-924f-19f1add034d6
+f	java:S106"+Replace this use of System.out by a logger.(÷é“©J$7270af60-d167-44d0-985b-4a87d10b1ca8
+f	java:S106"+Replace this use of System.out by a logger.(Õ›ˆÇJ$c8cfe8d3-71da-4014-98d1-2cc49b1ef0ed
+f	java:S106!"+Replace this use of System.out by a logger.(µ¹ŒáJ$9ce8ea1c-640e-4ef6-9d47-199721e49efd
+e	java:S106,"+Replace this use of System.out by a logger.(ñÍ”bJ$edad8e62-ce95-414f-aef7-8b4be773ba4b

@@ -1,6 +1,6 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëóš×ÿÿÿÿÿJ$4177d1a1-836c-4275-920f-d2c77f12f515
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëóš×ÿÿÿÿÿJ$5b2b4bd0-2512-4af6-b01c-58a420ac9bc6
 ¥
-java:S4276"]Refactor this code to use the more specialised Functional Interface 'BinaryOperator<Integer>'(Êäœÿùÿÿÿÿ8üë‰¾æ1J$e42741c5-05fb-4af9-9f25-46d99112a364
+java:S4276"]Refactor this code to use the more specialised Functional Interface 'BinaryOperator<Integer>'(Êäœÿùÿÿÿÿ8üë‰¾æ1J$f0e5899b-103c-4e4c-9eea-9bfd6d882a92
 l
-java:S21409")Use "java.util.Random.nextInt()" instead.(ê‘œÆ8ÿë‰¾æ1J$a0615cac-b920-42fd-9958-788847061140
+java:S21409")Use "java.util.Random.nextInt()" instead.(ê‘œÆ8ÿë‰¾æ1J$ae8e10f1-ca73-4436-a411-ae6752a5fdf0

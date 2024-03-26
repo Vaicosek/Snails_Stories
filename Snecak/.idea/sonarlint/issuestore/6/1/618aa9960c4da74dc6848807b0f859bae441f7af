@@ -1,21 +1,21 @@
 
 •
 java:S1104
-"TMake itemType a static final constant or non-public and provide accessors if needed.(ä½ô©ûÿÿÿÿJ$bf8ddbb4-eecf-4c34-a5c1-819b28177833
+"TMake itemType a static final constant or non-public and provide accessors if needed.(ä½ô©ûÿÿÿÿJ$65c72d1f-7551-439f-b37b-ec819bf79eb7
 “
-java:S1104"RMake Damage a static final constant or non-public and provide accessors if needed.(ĞœŸ¦ıÿÿÿÿJ$b3191310-327e-42ac-a392-290066fdb93c
+java:S1104"RMake Damage a static final constant or non-public and provide accessors if needed.(ĞœŸ¦ıÿÿÿÿJ$b36f789a-08f5-4490-a046-47b525630597
 
-java:S1104"RMake Health a static final constant or non-public and provide accessors if needed.(œÀ„²J$01532082-0927-43fa-862a-b9817efbb0ff
+java:S1104"RMake Health a static final constant or non-public and provide accessors if needed.(œÀ„²J$0fb8bf9e-15ea-451a-b630-328460bc5c2e
 —
-java:S1104"VMake Protection a static final constant or non-public and provide accessors if needed.(ÉòË²şÿÿÿÿJ$3f22c3b0-3702-46cb-975e-70de0cf709da
+java:S1104"VMake Protection a static final constant or non-public and provide accessors if needed.(ÉòË²şÿÿÿÿJ$0a4c4931-411e-4bff-842e-24ce45139fb5
 Œ
-java:S1104"PMake Name a static final constant or non-public and provide accessors if needed.(õ¤üàJ$9598c3ca-5cb1-43da-9be2-152544f7e0a4
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯ŠıÿÿÿÿJ$d2b5b122-34cb-42e9-900a-2572d67c8daf
-‘	java:S116"QRename this field "Damage" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ĞœŸ¦ıÿÿÿÿJ$aac5550c-1d33-4336-a99f-580e778c01b9
-Œ	java:S116"QRename this field "Health" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÀ„²J$3d30b664-fa92-4285-bcc7-66993903dddd
-•	java:S116"URename this field "Protection" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉòË²şÿÿÿÿJ$e3eca186-5d82-4586-af08-74b66c9705e2
-Š	java:S116"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¤üàJ$e140b928-4748-4c48-a5bf-210a3d481499
+java:S1104"PMake Name a static final constant or non-public and provide accessors if needed.(õ¤üàJ$0965888a-c53c-408a-9c88-5b419e626a37
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯ŠıÿÿÿÿJ$0d2db424-1709-4145-8cbc-8e02a244bf25
+‘	java:S116"QRename this field "Damage" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ĞœŸ¦ıÿÿÿÿJ$94e21f90-e4b3-4250-8fd4-97690e17e7c2
+Œ	java:S116"QRename this field "Health" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÀ„²J$35a60dd4-ca4f-42a2-8860-bc67640be1b0
+•	java:S116"URename this field "Protection" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉòË²şÿÿÿÿJ$00f08916-9b8e-41fb-9214-1bbf83b3f67a
+Š	java:S116"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¤üàJ$3226c1a8-10f7-452c-9d8e-ddcb36522e20
 u
-java:S5993"9Change the visibility of this constructor to "protected".(ö“£J$71faeb1e-dea0-46a1-b830-bb2d443bf831
-	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èù÷ÛúÿÿÿÿJ$5ccb688a-e0da-4e92-8776-0cbb66d1d641
-‰	java:S100F"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ÁÀÜJ$b7043602-fd38-4ea0-887e-e54e817b12e4
+java:S5993"9Change the visibility of this constructor to "protected".(ö“£J$a48fb9a3-566c-44f9-9ebb-768a99fadd2c
+	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èù÷ÛúÿÿÿÿJ$2b0985cd-145b-453a-9d91-095176c49a7f
+‰	java:S100F"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ÁÀÜJ$d7b642bf-f20c-4c95-a7c7-798febb20bb4

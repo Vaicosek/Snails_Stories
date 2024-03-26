@@ -1,15 +1,15 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$9c6748c5-4297-4ba6-8f87-3e46277804fb
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$a48ae901-da2b-4075-9155-50d6ff32ef48
 Â
-java:S1186$"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$ec510725-fc3d-48d8-800e-3ef235db345c
+java:S1186$"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$adb8efa4-a672-4324-973c-046b643251f5
 Â
-java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$4c6e4e0f-054a-4e91-b41b-54bb50e8bf1c
+java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$d63a7f81-2384-4e3b-a1f6-c593adb9e2e2
 ½
-java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$15209b4c-29af-4b1f-a2db-288e1be727d2
+java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$b258b1f4-ee3e-4feb-8414-0cbb2a8010d9
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(™×ôøÿÿÿÿJ$0c09b636-ed63-4f02-9f61-99c07b330c38
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(™×ôøÿÿÿÿJ$ef0221c3-7b78-4116-84fd-102b37aa2d9f
 “
-java:S1450"WRemove the "unlocked" field and declare it as a local variable in the relevant methods.(‹›øúJ$5d4be4d0-73c6-4fd7-98d5-6e2412711b61
-f	java:S106"+Replace this use of System.out by a logger.(«êğ„J$fe54991e-9ee3-40ad-aea0-b037688a70ad
+java:S1450"WRemove the "unlocked" field and declare it as a local variable in the relevant methods.(‹›øúJ$264d8c3e-3d6b-476e-93a6-a31e6701f67a
+f	java:S106"+Replace this use of System.out by a logger.(«êğ„J$d7f9731a-20b5-404d-addc-227c2aeb08e5
 h
-java:S1068",Remove this unused "unlocked" private field.(‹›øúJ$6333f0ef-b26a-4cb5-ad8e-86cc763103f2
+java:S1068",Remove this unused "unlocked" private field.(‹›øúJ$4a0b63e7-44f2-4f18-b55b-36a918154a1d

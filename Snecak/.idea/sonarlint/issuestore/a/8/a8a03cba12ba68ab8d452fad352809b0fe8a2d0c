@@ -1,0 +1,20 @@
+
+Â
+java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$18d68dc3-3c39-4664-a6f5-235bdff2de47
+Â
+java:S1186L"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$beb64318-c4f9-4aae-bf8f-808bc040ea69
+½
+java:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$96ef0b2c-8716-4b49-95c2-a92b1f081146
+Â
+java:S1186`"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†¯¦êùÿÿÿÿJ$0e6eea58-d5f7-4a0d-878f-191171e90445
+Â
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½ÂšéüÿÿÿÿJ$ed2d2e48-3d46-4935-bec9-0271032d5db0
+}
+java:S1117"<Rename "manaCost" which hides the field declared at line 14.(ßÎÔúøÿÿÿÿJ$f85485bc-8f6b-420f-a528-47b718213588
+t
+java:S1481"3Remove this unused "currentMonster" local variable.(²ùÂ£ÿÿÿÿÿJ$9e1c62d2-04a9-46f9-ad8d-f76c0ade0204
+k	java:S106 "+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$21693cd7-afcd-4690-bb5e-9d669b110578
+k	java:S106&"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$a59e258a-a167-424e-9cb7-ca81b42129f7
+t
+java:S1481."3Remove this unused "currentMonster" local variable.(²ùÂ£ÿÿÿÿÿJ$58a3778b-d28c-46d9-b625-b4951dd893d6
+k	java:S1068"+Replace this use of System.out by a logger.(úşæÿüÿÿÿÿJ$733cd936-ce4e-4cdc-85cb-a96e9b3864a4

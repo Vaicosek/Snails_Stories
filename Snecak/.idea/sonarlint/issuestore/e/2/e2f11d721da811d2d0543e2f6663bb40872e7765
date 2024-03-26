@@ -1,6 +1,6 @@
 
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍ8šÒÈÀå1J$b9b93597-1a38-45da-b5d2-b7d110c2377d
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍ8šÒÈÀå1J$1ebb3b76-e250-4c84-b48c-96993df17a14
 ‚
-java:S1118":Add a private constructor to hide the implicit public one.(Ü‘ğ®üÿÿÿÿ8 ÒÈÀå1J$bbe3d6a8-7bab-4cd3-b9bc-7550b74d565b
+java:S1118":Add a private constructor to hide the implicit public one.(Ü‘ğ®üÿÿÿÿ8 ÒÈÀå1J$6d80a657-06b2-4840-8924-85379d2a061f
 Š
-java:S1479"BReduce the number of non-empty switch cases from 47 to at most 30.(Ä†”¿ûÿÿÿÿ8¨ÒÈÀå1J$b5b07127-4663-4ab1-99fa-a92bdc6dd32f
+java:S1479"BReduce the number of non-empty switch cases from 47 to at most 30.(Ä†”¿ûÿÿÿÿ8¨ÒÈÀå1J$16c85624-f5a0-49f1-be55-c1a70b04268f

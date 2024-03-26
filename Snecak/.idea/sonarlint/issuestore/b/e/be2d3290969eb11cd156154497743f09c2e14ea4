@@ -1,11 +1,11 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$70c72486-dc6a-4900-bea2-e13314410725
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$a80a5164-3e0f-412d-8e10-59b77afb355f
 Â
-java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$d0e86273-eaa9-427b-b3ea-fb1e675edec7
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$f6aa94ce-9325-44a1-8535-7965b0b61148
 Â
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$999d66a4-d39c-4102-8f07-24e2a793f39f
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$4655dd72-7289-4850-8bfe-b3ecfdfadf43
 ½
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$5941a2ed-16e1-4b79-a6fc-dd6a81f39d76
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$4ec16073-7834-4b71-83a0-f76ee233b553
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(”è†ÍJ$2e4b3908-abcc-4baf-83d6-6fd000fe0cbe
-f	java:S106"+Replace this use of System.out by a logger.(«êğ„J$c16945e0-d44d-4265-872a-88b97134f666
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(”è†ÍJ$c543036f-5e35-44a7-b94c-15657fc32cb3
+f	java:S106"+Replace this use of System.out by a logger.(«êğ„J$5f4adf85-de57-4c6a-abba-d015eee40fdd

@@ -1,21 +1,21 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$9c527cd8-ee3f-490d-b370-9d4e12efe652
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$86e068d0-0996-46e3-8bf9-f9f8e570b949
 Â
-java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$d98fb034-9030-4386-b61c-78990ef5f0d6
+java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$d5c65645-a858-4574-b114-5ee817eec1af
 Â
-java:S1186L"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$76596e0a-cdad-4f4e-9834-3e0d2906a3a6
+java:S1186L"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$b57cc7d8-e542-44ff-a59a-9edb522931f5
 ½
-java:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$5034718d-a0f9-42b7-a653-d62b4332d2af
+java:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$cfb30919-4c38-4d5c-bf4b-07a93dcf3d28
 Â
-java:S1186`"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†¯¦êùÿÿÿÿJ$0a1062e3-72af-4ee4-9a8b-7986f4a6a53f
+java:S1186`"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†¯¦êùÿÿÿÿJ$1a352b9c-f3bb-4c10-b53f-bb71df28e6f6
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½ÂšéüÿÿÿÿJ$c09798b1-f8af-45d8-93a0-1c5b29085b86
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½ÂšéüÿÿÿÿJ$cb8e1d36-c7f4-48ad-970d-a0644daef8d9
 }
-java:S1117"<Rename "manaCost" which hides the field declared at line 14.(ßÎÔúøÿÿÿÿJ$45eccb12-a16b-4d56-9ead-ee14099913af
+java:S1117"<Rename "manaCost" which hides the field declared at line 14.(ßÎÔúøÿÿÿÿJ$f7d034c4-0a57-41a4-9eb6-95d9cd4bfb1b
 t
-java:S1481"3Remove this unused "currentMonster" local variable.(²ùÂ£ÿÿÿÿÿJ$24cb0d0f-ebba-4948-96d7-6392b15de462
-k	java:S106 "+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$41dda067-af20-4e57-9241-3366eeb78dea
-k	java:S106&"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$7b779741-bb7a-43e2-a6b9-7ed6d338e668
+java:S1481"3Remove this unused "currentMonster" local variable.(²ùÂ£ÿÿÿÿÿJ$34db8daf-9028-4f17-861b-2ccd41a125c4
+k	java:S106 "+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$04f687c2-0f0d-422b-b6dc-1e6b0db8b57b
+k	java:S106&"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$6222307a-18ea-442b-b000-d641827e52df
 t
-java:S1481."3Remove this unused "currentMonster" local variable.(²ùÂ£ÿÿÿÿÿJ$7276e452-f6cc-4f3e-ace8-209387eaf43c
-k	java:S1068"+Replace this use of System.out by a logger.(úşæÿüÿÿÿÿJ$d18d75bb-e042-44d4-819e-71a7522fc7f6
+java:S1481."3Remove this unused "currentMonster" local variable.(²ùÂ£ÿÿÿÿÿJ$aa867f4d-7849-4ab5-9e29-8c7d361738a1
+k	java:S1068"+Replace this use of System.out by a logger.(úşæÿüÿÿÿÿJ$ec6f6129-0872-4e64-847a-64c6ab8d8c0d

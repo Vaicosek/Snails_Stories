@@ -1,12 +1,12 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$6cdb469f-7d2d-4778-847e-70b165ef05d5
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$26129ddd-4921-4c84-9c20-cd85ee30e8ef
 Â
-java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$9f29caf1-ebf0-4934-9926-337f285f23aa
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$7ce2a6ec-cbc0-4caa-8c67-c7ad50b3518f
 Â
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$72113fb3-b6ff-4c4f-a40e-c7d5d069d6c9
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$3e7bab09-cc99-4e10-8ab4-a49f4692ddfd
 ½
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$cc8099c2-be26-4ca4-bf89-057efba9357b
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$5609614a-7e1d-423e-82e2-0c5a7d30cd7d
 Â
-java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´„Ò¦ûÿÿÿÿJ$6744adc1-8598-4c17-a472-ad9ab352ccbc
+java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´„Ò¦ûÿÿÿÿJ$9088854a-3e69-48db-bc04-89661c1c33e9
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í©»úøÿÿÿÿJ$1a1193e2-b1f8-44f3-9923-c46cd8c10d81
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í©»úøÿÿÿÿJ$c4acda4e-aad9-41b9-8efb-f7245eea6691

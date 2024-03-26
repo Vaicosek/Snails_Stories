@@ -1,0 +1,15 @@
+
+Â
+java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$8ce85d83-70f1-4664-97ea-b7495e32bb06
+Â
+java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$50cf0cd5-f1ca-4b36-b56d-4dd3c987c49a
+½
+java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$068ba019-a3d3-4258-8953-96fc354d6ee8
+Â
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Æä³¥ûÿÿÿÿJ$3a3f818d-8af8-42c5-8c04-6d1ebd80c4f1
+“
+java:S1450"WRemove the "unlocked" field and declare it as a local variable in the relevant methods.(‹›øúJ$99320128-b721-4273-b0cb-ead23b30f77f
+k	java:S106"+Replace this use of System.out by a logger.(ì´±ÿùÿÿÿÿJ$3acdc7f8-5ca6-401c-b83c-a5fc460c0922
+k	java:S106!"+Replace this use of System.out by a logger.(æ¨çúÿÿÿÿJ$b5e6215a-d3d3-4b57-a64e-17d3adc53a39
+h
+java:S1068",Remove this unused "unlocked" private field.(‹›øúJ$29292695-dd2a-45c6-80aa-c562a791ff93

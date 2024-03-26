@@ -1,11 +1,11 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$c1d8f26c-e415-43ba-a5b7-4a1d1116666d
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$5e47fe65-abae-4ece-a146-75ad36a0f4af
 Â
-java:S1186%"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$45d6b2b6-e5c7-485b-8eda-af4a6c330339
+java:S1186%"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$51ee248b-8ed6-4411-90bb-6b6b84d80dc0
 Â
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$b830d34e-2045-4121-a040-4dcd9128c5aa
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$a22aad83-71a6-437d-95e5-d18d4ab248be
 ½
-java:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$840908e9-b9be-46c2-9be9-3c7580257f19
+java:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$9abfb31c-67b8-4850-a91d-6d0c1c7cb615
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Â€×äıÿÿÿÿJ$e8761d28-0f6b-452a-bb9b-9aa894b571f4
-k	java:S106"+Replace this use of System.out by a logger.(ñ³ÆÓûÿÿÿÿJ$eadf88ac-e2f3-4083-b878-4b98c7c854a0
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Â€×äıÿÿÿÿJ$b4e859a1-4dd3-443f-a52a-a3cbd5043306
+k	java:S106"+Replace this use of System.out by a logger.(ñ³ÆÓûÿÿÿÿJ$3b206a7c-cf3f-4f31-9b74-e8bfe3316ddb

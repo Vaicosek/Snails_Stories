@@ -1,0 +1,14 @@
+
+b
+java:S1170	"!Make this final field static too.(âÓ§¤üÿÿÿÿJ$a31ba9c9-c7a4-45d5-ba90-87a8ecb8a29b
+Â
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$94659268-2c27-4f71-b13d-a86dd8910b6e
+Â
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$7fe7e903-1aa5-4e7c-9012-d046e541a7dc
+½
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$84da4219-e756-46ae-be88-2d79ce84f331
+½
+java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†ÍÁ„J$616dddb6-392a-4123-9d7a-efdbe05959dd
+Â
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦çœÏıÿÿÿÿJ$5535340e-eaeb-401d-b9ba-c7c3811d94eb
+k	java:S106"+Replace this use of System.out by a logger.(äöâÿÿÿÿÿJ$314cec43-21d0-44c3-bdfe-b4542d382b34

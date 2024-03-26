@@ -1,17 +1,17 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$a8b87e45-aaa7-468d-ad5a-fa8cabe28b3d
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$a37733e5-7392-4a4a-9a7a-dcb0610ebd60
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$f7bf695c-08e7-4253-a6d5-e9eb1978f5c1
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$a72902a3-e524-4055-b2e2-2fc06497dc3e
 Â
-java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$0523c3e8-ec89-40bc-b135-d8b7634cb98b
+java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$a5445ac4-68ac-4f9c-97ee-035ba7bc0979
 ½
-java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$6ab9d9d1-1f8e-4216-9542-fc4f1fa222c1
+java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$dccd9252-093e-4a13-9e92-7c3702db7a88
 Â
-java:S1186F"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ëöâãıÿÿÿÿJ$80247d62-6f83-4b8d-b248-ecd9cee3a4a8
+java:S1186F"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ëöâãıÿÿÿÿJ$d955cbe0-f488-49dd-b7ea-77e96c78a251
 ½
-java:S1186N"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ûúùàJ$928b2ea4-a18c-4c0d-84a0-8bf8e0756216
+java:S1186N"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ûúùàJ$22ec5fd9-eb76-4f42-b163-2098b0fe2b6e
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(øË”J$b4d13c75-b1ef-43c9-b68b-5952307047ba
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(øË”J$57be828e-45b2-4b34-94e9-86ecbfbca879
 k
 java:S1068
-"/Remove this unused "totalDamage" private field.(—Ê×ÉJ$d387a157-f994-42ce-9cb7-02df5895df4b
+"/Remove this unused "totalDamage" private field.(—Ê×ÉJ$2cd9b02c-5b81-460f-b9d4-9db08b1da22b

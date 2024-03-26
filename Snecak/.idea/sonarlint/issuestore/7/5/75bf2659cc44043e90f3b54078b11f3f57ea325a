@@ -1,14 +1,14 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$77fb0821-3d0c-4d4f-a8a3-289684c0e6ca
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$7a7f622e-9338-4c5d-81e5-28eef7962fdb
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$98190c8c-ca05-4717-9bb6-3ae49f147d52
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$7fdee1fb-f493-42f6-9d8f-c08e0120fc1f
 Â
-java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$c0fc423f-8d9d-4f44-afd0-d02cfd1ece1e
+java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$97ccdfd8-f29f-4d2d-bc2a-cabf254b7f12
 ½
-java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$32374cc3-5b28-4185-8256-f45fb783c45d
+java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$cef7d0f0-3088-4e6a-98cd-fdaaf93ff493
 Â
-java:S1186G"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´„Ò¦ûÿÿÿÿJ$08197505-d439-4a5e-a5b3-f4a0661708fb
+java:S1186G"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´„Ò¦ûÿÿÿÿJ$ca602f2e-da29-4162-83da-e54565a0b363
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±Ö®§úÿÿÿÿJ$9040cf44-139d-438e-8f0f-fd9c3601ce9c
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±Ö®§úÿÿÿÿJ$4c5230bc-255e-42f2-a0dc-08baa05265ab
 s
-java:S1068"2Remove this unused "remainingTurns" private field.(“ûâúÿÿÿÿJ$433878b0-c855-4b0f-b6b2-213a1fe98421
+java:S1068"2Remove this unused "remainingTurns" private field.(“ûâúÿÿÿÿJ$0197f579-1d33-4f13-ad2e-dd2270a015e7

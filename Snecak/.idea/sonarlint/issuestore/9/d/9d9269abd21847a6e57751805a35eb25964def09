@@ -1,14 +1,14 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$650b8b80-75cf-4f30-83bb-8a76d868d9a6
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$76ff3b05-a3d5-4a64-836c-9acb34df87f8
 Â
-java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$c8075448-a9a9-43ea-ac55-4ae3f6907051
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$46923208-0d0d-4e63-901c-49ca4819317f
 Â
-java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$44e3ab5e-40ef-42a6-9a1a-879257eaabb3
+java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$0c291e84-1c37-41eb-a719-b729b17fd1fd
 ½
-java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$6e45b696-7484-4e42-a3b7-4050575cb377
+java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$59bdafe7-d1d8-4858-acdf-abe76200b206
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŒÂ·ÂJ$9e9eb3cb-cd0b-454e-9e50-21f23b85fdc5
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŒÂ·ÂJ$449c2ee9-2ac6-4699-bf58-cf3db8281a3f
 }
-java:S1117"<Rename "manaCost" which hides the field declared at line 10.(ßÎÔúøÿÿÿÿJ$89948fd4-3e8b-43b5-affc-2609a169709d
-k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$a2882b9b-8f0f-4ab4-b333-b76a11599a82
-k	java:S106"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$45d51896-810f-44f7-81c2-f6e8d2afcaac
+java:S1117"<Rename "manaCost" which hides the field declared at line 10.(ßÎÔúøÿÿÿÿJ$941e3061-ef32-4c77-8467-70f9c21c8c01
+k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$e6a2357b-dde5-401f-8e56-4aabba2060ab
+k	java:S106"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$630b73a4-0e64-4b1b-b7f6-45874915034d

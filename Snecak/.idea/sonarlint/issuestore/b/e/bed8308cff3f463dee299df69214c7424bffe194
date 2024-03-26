@@ -1,6 +1,6 @@
 
 
-java:S1104"MMake x a static final constant or non-public and provide accessors if needed.(±Šõ¶ûÿÿÿÿJ$7ae8faae-ef20-4349-aa5e-7c019940dc49
+java:S1104"MMake x a static final constant or non-public and provide accessors if needed.(±Šõ¶ûÿÿÿÿJ$b7e4cf3d-7b88-4744-b476-df6937fbb173
 
-java:S1104"MMake y a static final constant or non-public and provide accessors if needed.(ÔçÛşÿÿÿÿJ$c62fc107-3820-445a-98e8-8041c1af1646
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜Ãò³J$fe7d9dfe-7954-475a-93a9-e4237d82234c
+java:S1104"MMake y a static final constant or non-public and provide accessors if needed.(ÔçÛşÿÿÿÿJ$e22008f9-d942-4b37-8332-b224bf710404
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜Ãò³J$8fec4a31-b84e-496f-8a4f-119db05e13c7

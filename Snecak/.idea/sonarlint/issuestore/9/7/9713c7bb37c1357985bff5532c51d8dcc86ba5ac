@@ -1,11 +1,11 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$4e328d2b-244d-4905-b188-b8e23dba0028
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïùŞÍJ$c1a99039-603b-4f5f-b96e-3fcb5ce00ae2
 Â
-java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$0814d5b0-4028-4947-84f1-c39980cbc8dd
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$0159b7c8-6603-4b93-9144-b2ed37451a60
 Â
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$e548fbc6-a8d7-4486-a2d5-de43c5582c8f
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$7e88d9cd-1dcd-4f66-8767-9917e8017d7b
 ½
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$07f9e363-4075-4e8e-aa59-c8bf7540660f
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$eb4101e1-9ede-49e8-bf88-e688190eccf4
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(à®¨‹J$83dcb0e4-e6ca-4845-bdbf-86b4216cd9a6
-k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$a80cf95b-86a9-42f2-80d0-721db44fb363
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(à®¨‹J$b045ccda-05c5-4b17-9910-e26d950db2b9
+k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$fcabb93e-578f-426d-90be-a6877f17d350

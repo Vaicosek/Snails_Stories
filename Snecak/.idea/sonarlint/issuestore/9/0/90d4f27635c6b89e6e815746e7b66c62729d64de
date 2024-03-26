@@ -1,0 +1,13 @@
+
+	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êûò²8Ô£ÀÀå1J$2b2e30c6-e597-46f8-aafa-561a7ae15ff2
+m	java:S1063"+Replace this use of System.out by a logger.(ÈÑÉî8ß£ÀÀå1J$12efc991-a53c-49bb-962e-e2f1372eee7a
+r	java:S106="+Replace this use of System.out by a logger.(”ÅĞæşÿÿÿÿ8¤ÀÀå1J$5963a5fd-aa28-4693-be9d-e803a7b170b5
+r	java:S106>"+Replace this use of System.out by a logger.(‘²°•üÿÿÿÿ8‚¤ÀÀå1J$0224c884-0b7e-4403-8e05-d4e3477d26ad
+m	java:S106?"+Replace this use of System.out by a logger.(¸¹²8ˆ¤ÀÀå1J$f2151380-2437-47a6-a996-bb9ae9e1a9db
+m	java:S106@"+Replace this use of System.out by a logger.(éÛÃè8Œ¤ÀÀå1J$b40cfd5c-b5f6-46e5-8cb4-7cce04980ff9
+m	java:S106A"+Replace this use of System.out by a logger.(Ê…—©8¤ÀÀå1J$c05f8bdc-ea00-4330-b976-e33f5d40bcfe
+m	java:S106B"+Replace this use of System.out by a logger.(¹Ú8’¤ÀÀå1J$147e1639-a3fc-41a9-8982-62726e9c643a
+r	java:S106K"+Replace this use of System.out by a logger.(ëÃã¹ùÿÿÿÿ8¤ÀÀå1J$61a13f27-e841-4926-a689-c2731ab4093e
+m	java:S106b"+Replace this use of System.out by a logger.(œê£¤8¦¤ÀÀå1J$f3f9ab83-8031-4a88-9933-30dcddb43356
+{
+java:S1144P"8Remove this unused private "gainStartingAbility" method.(¡ôà8°¤ÀÀå1J$5994ac92-e0ca-4e9a-8192-1bbac7ce6502
