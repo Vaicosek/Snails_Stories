@@ -2,6 +2,7 @@ package game.abilities;
 
 import game.hero.HeroTemplate;
 import game.monster.MonsterBase;
+import game.monster.MonsterTier;
 
 public class HolyFire implements NormalAbilityTemplate {
 
@@ -36,8 +37,8 @@ public class HolyFire implements NormalAbilityTemplate {
 
 
     private int calculateDamage(MonsterBase monster) {
-        int maxHP = monster.getHP(); // Assuming you have a method to get the max HP of a monster
-        int tier = monster.getTier();
+        int maxHP = monster.getHp(); // Assuming you have a method to get the max HP of a monster
+        MonsterTier tier = monster.getTier();
         double multiplier = TIER_MULTIPLIERS[tier - 1]; // Get the multiplier based on the monster's tier
         return (int) (maxHP * multiplier) + (5* monster.getTier());
     }

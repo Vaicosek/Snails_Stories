@@ -16,10 +16,10 @@ public class Purge implements NormalAbilityTemplate {
     public void cast(HeroTemplate hero, MonsterBase monster) {
         int currentMana = hero.getMana();
         int manaCost = getManaCost(); // Get the mana cost from the superclass
-        int threshold = (int) ((hero.getLevel()/2) * 0.6 * monster.getHP());
+        int threshold = (int) ((hero.getLevel()/2) * 0.6 * monster.getHp());
 
 
-        if (currentMana >= manaCost && monster.getHP() <= threshold) {
+        if (currentMana >= manaCost && monster.getHp() <= threshold) {
             hero.setMana(currentMana - manaCost);
             System.out.println("Used " + getName() + "!");
             setDamage(threshold);

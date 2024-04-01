@@ -44,7 +44,7 @@ public class Thorns implements TickAbilityTemplate {
         if (remainingTurns > 0) {
 
             for (MonsterBase currentMonster : monsters) {
-                int damagePerTurn = (monster.getHP() / 100) * 3;
+                int damagePerTurn = (monster.getHp() / 100) * 3;
 
                 monster.takeDamage(damagePerTurn);
 

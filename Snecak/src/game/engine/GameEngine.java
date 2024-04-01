@@ -7,15 +7,18 @@ import game.players.Player;
 
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GameEngine {
 
-    private Inventory inventory = new Inventory();
+    private final Inventory inventory = new Inventory();
     Player[] players;
     GameMap gameMap;
-    private GameStartedEventSource gameStartedEventSource = new GameStartedEventSource();
+    private final GameStartedEventSource gameStartedEventSource = new GameStartedEventSource();
     private Map<GameEnginePlayerEnum, Consumer<Player>> actionHandlers;
     private final Map<String, GameEnginePlayerEnum> inputToActionMap;
+    private static final Logger logger = Logger.getLogger(GameEngine.class.getName());
 
     public GameEngine() {
         gameMap = new GameMap(this);
@@ -39,28 +42,29 @@ public class GameEngine {
 
     }
 
-    public void GameStart() {
+    public void gameStart() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter number of players (1-8): ");
+        logger.info("Enter number of players (1-8): ");
         int numPlayers = scanner.nextInt();
         scanner.nextLine();
         players = new Player[numPlayers];
 
         for (int i = 0; i < numPlayers; i++) {
             Player player = new Player();
-            System.out.print("Enter name for player " + (i + 1) + ": ");
+            int finalI = i;
+            logger.log(Level.INFO, () -> String.format("Enter name for player %d: ", finalI + 1));
             player.setName(scanner.nextLine());
             player.pickHero();
-            player.LevelUp();
+            player.levelUp();
             players[i] = player;
             gameMap.addPlayer(player);
 
 
         }
         for (Player player : players) {
-            System.out.println(player.getName() + " is a " + player.getHero().getName());
+            logger.info(player.getName() + " is a " + player.getHero().getName());
         }
-        System.out.println("You woke up at fountain");
+        logger.info("You woke up at fountain");
 
         gameStartedEventSource.fireEvent(new GameStartedEvent());
 
@@ -70,20 +74,20 @@ public class GameEngine {
     GameEnginePlayerEnum getPlayerAction(Player player) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Player: " + player.getName() + " Location : " + gameMap.getPlayerLocation(player).Name + "\n HP :" + player.getHero().getHP());
-            System.out.println("Choose your action : 1. Move, 2. Fight, 3. Open inventory or 4. Skip your turn");
+            logger.info("Player: " + player.getName() + " Location : " + gameMap.getPlayerLocation(player).name + "\n HP :" + player.getHero().getHp());
+            logger.info("Choose your action : 1. Move, 2. Fight, 3. Open inventory or 4. Skip your turn");
 
             String input = scanner.next();
             GameEnginePlayerEnum action = inputToActionMap.get(input);
 
             if (action != null) {
                 if (action == GameEnginePlayerEnum.FIGHT && gameMap.getPlayerLocation(player).monsters.isEmpty()) {
-                    System.out.println("There is nothing to fight here");
+                    logger.info("There is nothing to fight here");
                     continue; // Prompt the user for input again
                 }
                 return action;
             } else {
-                System.out.println("Invalid input try again");
+                logger.warning("Invalid input try again");
             }
         }
     }
@@ -107,9 +111,9 @@ public class GameEngine {
     }
 
     public void move(Player player) {
-        System.out.print("Enter a direction (up, down, left, right) or press q to exit: ");
+        logger.info("Enter a direction (up, down, left, right) or press q to exit: ");
         Scanner scanner = new Scanner(System.in);
-        String direction = "";
+        String direction;
         direction = scanner.nextLine().toUpperCase();
         if (direction.equals("Q")) {
             return;
@@ -121,7 +125,7 @@ public class GameEngine {
         try {
             movementDirectionEnum = MovementDirectionEnum.valueOf(direction);
         } catch (Exception e) {
-            System.out.println("Invalid input");
+            logger.info("Invalid input");
             move(player);
             return;
         }
@@ -131,7 +135,7 @@ public class GameEngine {
             gameMap.movePlayer(player, movementDirectionEnum);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            logger.info(e.getMessage());
 
         }
     }

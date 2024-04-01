@@ -19,7 +19,7 @@ public class MagicalProtection implements NormalAbilityTemplate {
     public void cast(HeroTemplate hero, MonsterBase monster) {
         Scanner scanner = new Scanner(System.in);
 
-        int currentHp = hero.getHP();
+        int currentHp = hero.getHp();
         int mana = hero.getMana();
 
         System.out.println("Enter the amount of mana you want to convert to temporary HP (maximum 100):");
@@ -35,7 +35,7 @@ public class MagicalProtection implements NormalAbilityTemplate {
             int temporaryHp = currentHp + manaToConvert;
 
             // Ensure temporary HP doesn't exceed the maximum allowed
-            hero.setHP(Math.min(temporaryHp, maxAllowedBonus));
+            hero.setHp(Math.min(temporaryHp, maxAllowedBonus));
 
             int remainingMana = mana - manaToConvert;
             hero.setMana(remainingMana);

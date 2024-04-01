@@ -5,30 +5,41 @@ import game.itemshandling.*;
 import game.monster.Dice;
 import game.monster.MonsterBase;
 import game.players.Player;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class Hero implements HeroTemplate {
-    protected int XP;
+    @Getter
+    protected int xp;
+    @Getter
     protected int level;
-    protected int HP;
+    @Getter
+    protected int hp;
     protected String name;
+    @Setter
     protected int attack;
 
     protected double mana;
     protected List<AbilityTemplate> abilities = new ArrayList<>();
+    @Getter
     protected Weapon equippedWeapon;
+    @Getter
     protected Weapon equippedWeapon2;
-
+    private static final Logger logger = Logger.getLogger(Hero.class.getName());
     protected Armor equippedArmor;
+    private static final String EQUIPPED = "Equipped";
+    private static final String UNEQUIPPED = "Unequipped";
 
-    public Hero(int XP, int level, int HP,List<String> abilityTypes) {
-        this.XP = XP;
+    public Hero(int xp, int level, int hp, List<String> abilityTypes) {
+        this.xp = xp;
         this.level = level;
-        this.HP = HP;
+        this.hp = hp;
         initializeAbilities(abilityTypes);
         calculateAttack();
     }
@@ -59,21 +70,21 @@ public class Hero implements HeroTemplate {
 
     public void gainAbility() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("You can gain an ability by entering its number:");
+        logger.info("You can gain an ability by entering its number:");
 
         if (checkAllAbilitiesUnlocked()) {
-            System.out.println("You have unlocked all abilities.");
+            logger.info("You have unlocked all abilities.");
             return;
         }
 
         for (int i = 0; i < abilities.size(); i++) {
             AbilityTemplate ability = abilities.get(i);
             if (!ability.isUnlocked()) {
-                System.out.println((i + 1) + ". " + ability.getName());
+                logger.info((i + 1) + ". " + ability.getName());
             }
         }
 
-        System.out.println("Enter the number of the ability you want to gain, or press 'q' to quit:");
+        logger.info("Enter the number of the ability you want to gain, or press 'q' to quit:");
         String input = scanner.nextLine();
 
         if (input.equalsIgnoreCase("q")) {
@@ -86,15 +97,15 @@ public class Hero implements HeroTemplate {
                 AbilityTemplate selectedAbility = abilities.get(abilityIndex);
                 if (!selectedAbility.isUnlocked()) {
                     selectedAbility.setUnlocked();
-                    System.out.println("You have gained the ability: " + selectedAbility.getName());
+                    logger.info("You have gained the ability: " + selectedAbility.getName());
                 } else {
-                    System.out.println("You have already acquired that ability.");
+                    logger.info("You have already acquired that ability.");
                 }
             } else {
-                System.out.println("Invalid ability number.");
+                logger.info("Invalid ability number.");
             }
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a number or 'q' to quit.");
+            logger.warning("Invalid input. Please enter a number or 'q' to quit.");
         }
         updateHeroBonuses();
     }
@@ -108,29 +119,17 @@ public class Hero implements HeroTemplate {
         return true;
     }
 
-    public int getXP() {
-        return XP;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public int getHP() {
-        return HP;
-    }
-
     public void increaseXP(int amount) {
-        this.XP += amount;
-        if (this.XP >= 100) {
+        this.xp += amount;
+        if (this.xp >= 100) {
             this.level++;
-            this.XP = this.XP - 100;
+            this.xp = this.xp - 100;
             gainAbility();
         }
     }
 
     public boolean isAlive() {
-        return HP > 0;
+        return hp > 0;
     }
 
     @Override
@@ -149,8 +148,8 @@ public class Hero implements HeroTemplate {
     }
 
     @Override
-    public void setXP(int xp) {
-        this.XP = xp;
+    public void setXp(int xp) {
+        this.xp = xp;
     }
 
     @Override
@@ -159,8 +158,8 @@ public class Hero implements HeroTemplate {
     }
 
     @Override
-    public void setHP(int hp) {
-        this.HP = hp;
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     @Override
@@ -188,7 +187,7 @@ public class Hero implements HeroTemplate {
     public void equipWeapon(Weapon weapon) {
         unequipWeapon();
         this.equippedWeapon = weapon;
-        System.out.println("Equipped " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
+        logger.info(EQUIPPED + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
 
         for (AbilityTemplate ability : abilities) {
             if (ability.getName().equals("SharpWeapons") && ability.isUnlocked()) {
@@ -198,43 +197,39 @@ public class Hero implements HeroTemplate {
         }
     }
 
-    public Weapon getEquippedWeapon() {
-        return equippedWeapon;
-    }
-
     public void unequipWeapon() {
         if (this.equippedWeapon != null) {
-            System.out.println("Unequipped " + this.equippedWeapon.getName());
+            logger.info(UNEQUIPPED + this.equippedWeapon.getName());
             this.equippedWeapon = null;
-        } /* else {
-            System.out.println("No weapon equipped.");
-        } */
+        }  else {
+            logger.info("No weapon equipped.");
+        }
     }
 
 
     public void equipWeapon2(Weapon weapon) {
-        unequipWeapon2();
+        unequippedWeapon2();
         this.equippedWeapon2 = weapon;
-        System.out.println("Equipped " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
+        logger.info(EQUIPPED + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
 
     }
 
 
-    public void unequipWeapon2() {
+    public void unequippedWeapon2() {
         if (this.equippedWeapon2 != null) {
-            System.out.println("Unequipped " + this.equippedWeapon2.getName());
+            logger.info(UNEQUIPPED + this.equippedWeapon2.getName());
             this.equippedWeapon2 = null;
         }
     }
 
     public void equipArmor(Armor armor) {
         this.equippedArmor = armor;
-        System.out.println("Equipped " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
+        logger.info(EQUIPPED + armor.getName() + " (Protection: " + armor.getProtection() + ")");
     }
 
     public int getEquippedArmorProtection() {
         if (equippedArmor != null) {
-            return equippedArmor.Protection;
+            return equippedArmor.getProtection();
         } else {
             // handle the case when no armor is equipped, for example, return a default value
             return 0; // or any other default value
@@ -253,10 +248,10 @@ public class Hero implements HeroTemplate {
 
     public void unequipArmor() {
         if (this.equippedArmor != null) {
-            System.out.println("Unequipped " + this.equippedArmor.getName());
+            logger.info(UNEQUIPPED + this.equippedArmor.getName());
             this.equippedArmor = null;
         } else {
-            System.out.println("No armor equipped.");
+            logger.warning("No armor equipped.");
         }
     }
 
@@ -264,15 +259,15 @@ public class Hero implements HeroTemplate {
         if (armor != null) {
             // Remove the armor from the hero's inventory
             if (equippedArmor == armor) {
-                unequipArmor();  // Unequip the armor if it's currently equipped
+                unequipArmor();  // Unequipped the armor if it's currently equipped
             }
 
             // Remove the armor from the inventory list
             player.getInventory().removeItem(armor);
 
-            System.out.println("Destroyed and removed " + armor.getName() + " from the inventory.");
+            logger.info("Destroyed and removed " + armor.getName() + " from the inventory.");
         } else {
-            System.out.println("Cannot destroy null armor.");
+            logger.info("Cannot destroy null armor.");
         }
     }
 
@@ -281,15 +276,15 @@ public class Hero implements HeroTemplate {
         if (weapon != null) {
             // Remove the armor from the hero's inventory
             if (equippedWeapon == weapon) {
-                unequipArmor();  // Unequip the armor if it's currently equipped
+                unequipArmor();  // Unequipped the armor if it's currently equipped
             }
 
             // Remove the armor from the inventory list
             player.getInventory().removeItem(weapon);
 
-            System.out.println("Destroyed and removed " + weapon.getName() + " from the inventory.");
+            logger.info("Destroyed and removed " + weapon.getName() + " from the inventory.");
         } else {
-            System.out.println("Cannot destroy null armor.");
+            logger.info("Cannot destroy null armor.");
         }
     }
 
@@ -298,19 +293,10 @@ public class Hero implements HeroTemplate {
         return equippedArmor;
     }
 
-    public Weapon getEquippedWeapon2() {
-        return equippedWeapon2;
-    }
-
-
 
     @Override
     public void heal(int healthRestored) {
-   HP = HP + healthRestored;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
+   hp = hp + healthRestored;
     }
 
     public void usePassiveMonsterAbilities(MonsterBase monster) {

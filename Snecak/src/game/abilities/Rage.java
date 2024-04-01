@@ -19,8 +19,8 @@ public class Rage implements NormalAbilityTemplate {
         int damage = Dice.getNextNumber(hero.getAttack() + hero.getAttack(),hero.getAttack() + hero.getAttack() + hero.getAttack());
         setDamage(damage);
         System.out.println("Used " + getName() + "!");
-        int toll = hero.getHP() - damage/5;
-        hero.setHP(toll);
+        int toll = hero.getHp() - damage/5;
+        hero.setHp(toll);
     }
 
     @Override

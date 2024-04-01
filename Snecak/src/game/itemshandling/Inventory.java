@@ -1,93 +1,94 @@
 package game.itemshandling;
 
-import game.abilities.Enchantment;
 import game.hero.HeroTemplate;
 import game.players.Player;
+import lombok.Getter;
+import java.util.*;
+import java.util.function.Supplier;
+import java.util.logging.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
+@Getter
 public class Inventory {
-    private List<ItemBase> items;
-
-    public Inventory() {
-        this.items = new ArrayList<>();
+    private final List<ItemBase> items = new ArrayList<>();
+    private static final Logger logger = Logger.getLogger(Inventory.class.getName());
+    private static final String INVALID_INPUT = "Invalid choice, Please enter a valid number.";
+    private static final String INPUT_QUIT = "or 'q' to cancel.";
+    private static final String DAMAGE = "Damage";
+    private final HeroTemplate hero;
+    private final Player player;
+    private final Map<Integer, Runnable> menuActions = new HashMap<>();
+    public Inventory(HeroTemplate hero, Player player) {
+        this.hero = hero;
+        this.player = player;
+        initializeMenuActions();
     }
 
-    public List<ItemBase> getItems() {
-        return items;
+    private void initializeMenuActions() {
+        menuActions.put(1, this::equipArmor);
+        menuActions.put(2, this::equipWeapon);
+        menuActions.put(3, this::useConsumable);
+        menuActions.put(4, this::printInventory);
+        menuActions.put(5, () -> {}); // No operation for quit, handled by breaking loop
+        addConditionalAction(6, this::isStrongHandsUnlocked, this::equipSecondWeapon);
+        addConditionalAction(7, this::isEnchantmentUnlocked, this::applyEnchantment);
     }
 
-    public void addItem(ItemBase item) {
-        items.add(item);
-    }
-
-    public void removeItem(ItemBase item) {
-        items.remove(item);
-    }
-
-    public boolean hasItem(ItemBase item) {
-        return items.contains(item);
-    }
-
-    private String invalidInput = "Invalid choice, Please enter a valid number.";
-    private String inputQuit = "or 'q' to cancel.";
-    private String damage = "Damage";
-
-    public void openInventoryMenu(HeroTemplate hero, Player player) {
-        Scanner scanner = new Scanner(System.in);
-        boolean isStrongHandsUnlocked = hero.getAbilities().stream()
-                .anyMatch(ability -> ability.getName().equals("StrongHands") && ability.isUnlocked());
-        boolean isEnchantmentUnlocked = hero.getAbilities().stream()
-                .anyMatch(ability -> ability.getName().equals("Enchantment") && ability.isUnlocked());
-
-        while (true) {
-            System.out.println("Inventory Menu:");
-            System.out.println("1. Equip Armor");
-            System.out.println("2. Equip Weapon");
-            System.out.println("3. Use Consumable");
-            System.out.println("4. Browse Inventory");
-            System.out.println("5. Quit Inventory");
-
-            if (isStrongHandsUnlocked) {
-                System.out.println("6. Equip SecondWeapon");
+    private void addConditionalAction(int key, Supplier<Boolean> conditionSupplier, Runnable action) {
+        menuActions.put(key, () -> {
+            if (Boolean.TRUE.equals(conditionSupplier.get())) {
+                action.run();
+            } else {
+                logger.info("This ability is not yet unlocked!");
             }
+        });
+    }
 
-            System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline
 
-            switch (choice) {
-                case 1 -> equipArmor(hero);
-                case 2 -> equipWeapon(hero);
-                case 3 -> useConsumable(hero);
-                case 4 -> printInventory();
-                case 5 -> {
-                    return;
+    public void openInventoryMenu() {
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (true) {
+                displayMenuOptions();
+                int choice = Integer.parseInt(scanner.nextLine());
+
+                Runnable action = menuActions.get(choice);
+                if (action != null) {
+                    action.run();
+                    if (choice == 5) break; // Quit
+                } else {
+                    logger.warning("Invalid choice. Please choose a valid option.");
                 }
-                case 6 -> {
-                    if (isStrongHandsUnlocked) {
-                        equipSecondWeapon(hero);
-                    } else {
-                        System.out.println("StrongHands ability is not yet unlocked!");
-                    }
-                }
-                case 7 -> {
-                    if (isEnchantmentUnlocked) {
-                        Enchantment enchantment = new Enchantment();
-                        enchantment.enchant(hero,player);
-                    } else {
-                        System.out.println("Enchantment ability is not yet unlocked!");
-                    }
-                }
-
-
-                default -> System.out.println("Invalid choice. Please choose a valid option.");
             }
+        } catch (Exception e) {
+            logger.warning("An error occurred: " + e.getMessage());
         }
     }
 
+    private boolean isStrongHandsUnlocked() {
+
+        return hero.getAbilities().stream().anyMatch(ability -> "StrongHands".equals(ability.getName()) && ability.isUnlocked());
+    }
+
+    private boolean isEnchantmentUnlocked() {
+
+        return hero.getAbilities().stream().anyMatch(ability -> "Enchantment".equals(ability.getName()) && ability.isUnlocked());
+    }
+
+    private void displayMenuOptions() {
+        logger.info("\nInventory Menu:");
+        logger.info("1. Equip Armor");
+        logger.info("2. Equip Weapon");
+        logger.info("3. Use Consumable");
+        logger.info("4. Browse Inventory");
+        logger.info("5. Quit Inventory");
+        if (isStrongHandsUnlocked()) {
+            logger.info("6. Equip Second Weapon");
+        }
+        if (isEnchantmentUnlocked()) {
+            logger.info("7. Apply Enchantment");
+        }
+        logger.info("Choose an option: ");
+    }
 
     public boolean hasItemByName(String itemName) {
         for (ItemBase item : items) {
@@ -108,37 +109,23 @@ public class Inventory {
     }
 
     public void printInventory() {
-        System.out.println("Inventory:");
+        logger.info("Inventory:");
         for (ItemBase item : items) {
-            System.out.println("- " + item.getName());
-            switch (item) {
-                case Weapon weapon -> System.out.println(damage+ item.getDamage());
-                case Armor armor -> System.out.println("  Protection: " + item.getProtection());
-                case Consumable consumable -> System.out.println("  Health: " + item.getHealth());
-                default -> {
-                }
-            }
+            logger.info("- " + item.getName() + " (" + item.getItemType().getAttributeDisplay(item) + ")");
         }
     }
+
     public void useConsumable(HeroTemplate hero) {
-        List<Consumable> availableConsumables = new ArrayList<>();
-        System.out.println("Available Consumables:");
-        int index = 1;
-        for (ItemBase item : items) {
-            if (item.getItemType() == ItemType.CONSUMABLE) {
-                Consumable consumable = (Consumable) item;
-                availableConsumables.add(consumable);
-                System.out.println(index + ". " + consumable.getName() + " (Health: " + consumable.getHealth() + ")");
-                index++;
-            }
-        }
+        List<ItemBase> availableConsumables = items.stream()
+                .filter(item -> item.getItemType() == ItemType.CONSUMABLE)
+                .toList();
 
         if (availableConsumables.isEmpty()) {
-            System.out.println("No consumables available in the inventory.");
+            logger.warning("No consumables available in the inventory.");
             return;
         }
 
-        System.out.print("Enter the number of the consumable you want to use" + inputQuit);
+        logger.info("Enter the number of the consumable you want to use 'q' to cancel.");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
@@ -149,38 +136,38 @@ public class Inventory {
         try {
             int consumableIndex = Integer.parseInt(input) - 1;
             if (consumableIndex >= 0 && consumableIndex < availableConsumables.size()) {
-                Consumable consumableToUse = availableConsumables.get(consumableIndex);
+                ItemBase consumableToUse = availableConsumables.get(consumableIndex);
                 int healthRestored = consumableToUse.getHealth();
                 hero.heal(healthRestored); // Assuming there's a heal method in your HeroTemplate class
                 items.remove(consumableToUse); // Remove the used consumable from inventory
-                System.out.println(hero.getName() + " used " + consumableToUse.getName() + " and restored " + healthRestored + " health.");
+                logger.info(hero.getName() + " used " + consumableToUse.getName() + " and restored " + healthRestored + " health.");
             } else {
-                System.out.println(invalidInput);
+                logger.info(INVALID_INPUT);
             }
         } catch (NumberFormatException e) {
-            System.out.println(invalidInput + inputQuit);
+            logger.warning(INVALID_INPUT + INPUT_QUIT);
         }
     }
 
     public void equipArmor(HeroTemplate hero) {
-        List<Armor> availableArmors = new ArrayList<>();
-        System.out.println("Available Armors:");
-        int index = 1;
-        for (ItemBase item : items) {
-            if (item.getItemType() == ItemType.ARMOR) {
-                Armor armor = (Armor) item;
-                availableArmors.add(armor);
-                System.out.println(index + ". " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
-                index++;
-            }
-        }
+        List<ItemBase> availableArmors = items.stream()
+                .filter(item -> item.getItemType() == ItemType.CONSUMABLE)
+                .toList();
 
         if (availableArmors.isEmpty()) {
-            System.out.println("No armor available in the inventory.");
+            logger.info("No armor available in the inventory.");
             return;
         }
 
-        System.out.print("Enter the number of the armor you want to equip" + inputQuit);
+        logger.info("Available Armors:");
+
+        for (int i = 0; i< availableArmors.size(); i++) {
+                ItemBase armor = availableArmors.get(i);
+                logger.info((i + 1) + ". " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
+            }
+
+
+        logger.info("Enter the number of the armor you want to equipped 'q' to cancel.");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
@@ -191,35 +178,33 @@ public class Inventory {
         try {
             int armorIndex = Integer.parseInt(input) - 1;
             if (armorIndex >= 0 && armorIndex < availableArmors.size()) {
-                Armor armorToEquip = availableArmors.get(armorIndex);
+                ItemBase armorToEquip = availableArmors.get(armorIndex);
                 hero.equipArmor(armorToEquip);
             } else {
-                System.out.println(invalidInput);
+                logger.info(INVALID_INPUT);
             }
         } catch (NumberFormatException e) {
-            System.out.println(invalidInput + inputQuit);
+            logger.warning(INVALID_INPUT + INPUT_QUIT);
         }
     }
 
     public void equipWeapon(HeroTemplate hero) {
-        List<Weapon> availableWeapons = new ArrayList<>();
-        System.out.println("Available Weapons:");
-        int index = 1;
-        for (ItemBase item : items) {
-            if (item.getItemType() == ItemType.WEAPON) {
-                Weapon weapon = (Weapon) item;
-                availableWeapons.add(weapon);
-                System.out.println(index + ". " + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
-                index++;
-            }
-        }
+        List<ItemBase> availableWeapons = items.stream()
+                .filter(item -> item.getItemType() == ItemType.CONSUMABLE)
+                .toList();
 
         if (availableWeapons.isEmpty()) {
-            System.out.println("No weapons available in the inventory.");
+            logger.warning("No armor available in the inventory.");
             return;
         }
 
-        System.out.print("Enter the number of the weapon you want to equip" + inputQuit);
+        logger.info("Available Weapons:");
+        for (int i = 0; i < availableWeapons.size(); i++) {
+            ItemBase weapon = availableWeapons.get(i);
+            logger.info((i + 1) + ". " + weapon.getName() + " (Protection: " + weapon.getProtection() + ")");
+        }
+
+        logger.info("Enter the number of the weapon you want to equip or 'q' to cancel.");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
@@ -230,34 +215,33 @@ public class Inventory {
         try {
             int weaponIndex = Integer.parseInt(input) - 1;
             if (weaponIndex >= 0 && weaponIndex < availableWeapons.size()) {
-                Weapon weaponToEquip = availableWeapons.get(weaponIndex);
+                ItemBase weaponToEquip = availableWeapons.get(weaponIndex);
                 hero.equipWeapon(weaponToEquip);
             } else {
-                System.out.println(invalidInput);
+                logger.warning(INVALID_INPUT);
             }
         } catch (NumberFormatException e) {
-            System.out.println(invalidInput + inputQuit);
+            logger.warning(INVALID_INPUT + INPUT_QUIT);
         }
     }
     public void equipSecondWeapon(HeroTemplate hero) {
-        List<Weapon> availableWeapons = new ArrayList<>();
-        System.out.println("Available Weapons for Second Slot:");
-        int index = 1;
-        for (ItemBase item : items) {
-            if (item.getItemType() == ItemType.WEAPON) {
-                Weapon weapon = (Weapon) item;
-                availableWeapons.add(weapon);
-                System.out.println(index + ". " + weapon.getName() +  damage + weapon.getDamage() + ")");
-                index++;
-            }
-        }
+        List<ItemBase> availableWeapons = items.stream()
+                .filter(item -> item.getItemType() == ItemType.CONSUMABLE)
+                .toList();
 
         if (availableWeapons.isEmpty()) {
-            System.out.println("No weapons available in the inventory for the second slot.");
+            logger.info("No weapons available in the inventory for the second slot.");
             return;
         }
+        logger.info("Available Weapons for Second Slot:");
 
-        System.out.print("Enter the number of the weapon you want to equip in the second" + inputQuit);
+        for (int i = 0; i < availableWeapons.size(); i++) {
+            ItemBase weapon2 = availableWeapons.get(i);
+            logger.info((i + 1) + ". " + weapon2.getName() + " (Protection: " + weapon2.getProtection() + ")");
+        }
+
+
+        logger.info("Enter the number of the weapon you want to equip in the second 'q' to cancel.");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
@@ -268,35 +252,35 @@ public class Inventory {
         try {
             int weaponIndex = Integer.parseInt(input) - 1;
             if (weaponIndex >= 0 && weaponIndex < availableWeapons.size()) {
-                Weapon weapon2 = availableWeapons.get(weaponIndex);
+                ItemBase weapon2 = availableWeapons.get(weaponIndex);
                 hero.equipWeapon2(weapon2);
             } else {
-                System.out.println(invalidInput);
+                logger.info(INVALID_INPUT);
             }
         } catch (NumberFormatException e) {
-            System.out.println(invalidInput + inputQuit);
+            logger.warning(INVALID_INPUT + INPUT_QUIT);
         }
     }
 
     public void openWeaponSelectionMenu(Player player) {
         List<Weapon> availableWeapons = new ArrayList<>();
-        System.out.println("Available Weapons:");
+        logger.info("Available Weapons:");
         int index = 1;
         for (ItemBase item : items) {
             if (item.getItemType() == ItemType.WEAPON) {
                 Weapon weapon = (Weapon) item;
                 availableWeapons.add(weapon);
-                System.out.println(index + ". " + weapon.getName() + damage + weapon.getTotalDamage() + ")");
+                logger.warning(index + ". " + weapon.getName() + DAMAGE + weapon.getDamage() + ")");
                 index++;
             }
         }
 
         if (availableWeapons.isEmpty()) {
-            System.out.println("No weapons available in the inventory.");
+            logger.info("No weapons available in the inventory.");
             return;
         }
 
-        System.out.print("Enter the number of the weapon you want to equip" + inputQuit);
+        logger.info("Enter the number of the weapon you want to equipped 'q' to cancel.");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
@@ -310,32 +294,32 @@ public class Inventory {
                 Weapon weaponToEquip = availableWeapons.get(weaponIndex);
                 player.getHero().equipWeapon(weaponToEquip);
             } else {
-                System.out.println(invalidInput);
+                logger.info(INVALID_INPUT);
             }
         } catch (NumberFormatException e) {
-            System.out.println(invalidInput + inputQuit);
+            logger.warning(INVALID_INPUT + INPUT_QUIT);
         }
     }
 
     public void openArmorSelectionMenu(Player player) {
         List<Armor> availableArmors = new ArrayList<>();
-        System.out.println("Available Armors:");
+        logger.info("Available Armors:");
         int index = 1;
         for (ItemBase item : items) {
             if (item.getItemType() == ItemType.ARMOR) {
                 Armor armor = (Armor) item;
                 availableArmors.add(armor);
-                System.out.println(index + ". " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
+                logger.info(index + ". " + armor.getName() + " (Protection: " + armor.getProtection() + ")");
                 index++;
             }
         }
 
         if (availableArmors.isEmpty()) {
-            System.out.println("No armor available in the inventory.");
+            logger.info("No armor available in the inventory.");
             return;
         }
 
-        System.out.print("Enter the number of the armor you want to equip" + inputQuit);
+        logger.info("Enter the number of the armor you want to equip 'q' to cancel.");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
@@ -349,32 +333,32 @@ public class Inventory {
                 Armor armorToEquip = availableArmors.get(armorIndex);
                 player.getHero().equipArmor(armorToEquip);
             } else {
-                System.out.println(invalidInput);
+                logger.info(INVALID_INPUT);
             }
         } catch (NumberFormatException e) {
-            System.out.println(invalidInput + inputQuit);
+            logger.warning(INVALID_INPUT + INPUT_QUIT);
         }
     }
 
     public void openConsumableSelectionMenu(Player player) {
         List<Consumable> availableConsumables = new ArrayList<>();
-        System.out.println("Available Consumables:");
+        logger.info("Available Consumables:");
         int index = 1;
         for (ItemBase item : items) {
             if (item.getItemType() == ItemType.CONSUMABLE) {
                 Consumable consumable = (Consumable) item;
                 availableConsumables.add(consumable);
-                System.out.println(index + ". " + consumable.getName() + " (Health: " + consumable.getHealth() + ")");
+                logger.info(index + ". " + consumable.getName() + " (Health: " + consumable.getHealth() + ")");
                 index++;
             }
         }
 
         if (availableConsumables.isEmpty()) {
-            System.out.println("No consumables available in the inventory.");
+            logger.warning("No consumables available in the inventory.");
             return;
         }
 
-        System.out.print("Enter the number of the consumable you want to use" + inputQuit);
+        logger.info("Enter the number of the consumable you want to use 'q' to cancel.");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
@@ -389,12 +373,12 @@ public class Inventory {
                 int healthRestored = consumableToUse.getHealth();
                 player.getHero().heal(healthRestored); // Assuming there's a heal method in your Player class
                 items.remove(consumableToUse); // Remove the used consumable from inventory
-                System.out.println(player.getHero().getName() + " used " + consumableToUse.getName() + " and restored " + healthRestored + " health.");
+                logger.info(player.getHero().getName() + " used " + consumableToUse.getName() + " and restored " + healthRestored + " health.");
             } else {
-                System.out.println(invalidInput);
+                logger.info(INVALID_INPUT);
             }
         } catch (NumberFormatException e) {
-            System.out.println(invalidInput + inputQuit);
+            logger.warning(INVALID_INPUT + INPUT_QUIT);
         }
     }
 }

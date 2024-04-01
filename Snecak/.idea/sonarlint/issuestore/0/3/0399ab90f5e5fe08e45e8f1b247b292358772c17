@@ -1,13 +1,13 @@
 
 Â
-java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$676a82e7-6f90-4044-ab71-8e73bebb4067
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$38ccac7b-c31d-43d2-8484-250282818301
 Â
-java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$b52b012a-aa21-4662-a0ac-041433ac2c69
+java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$3cbf2e7e-1dbe-410e-bb04-b33658f43a4e
 ½
-java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$8f3e1fa7-cdcb-4016-8baf-977a939e7642
+java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$f17c2070-1085-48c7-a9c3-429769f5ad4a
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±ÆˆæûÿÿÿÿJ$069c64cf-a701-4082-87fe-51cfabdee5e1
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±ÆˆæûÿÿÿÿJ$4f04dd61-b016-423a-a41d-2871a1d7774b
 }
-java:S1117"<Rename "manaCost" which hides the field declared at line 11.(ãîÎ·úÿÿÿÿJ$29ad294d-a02f-4d08-a4e4-b9e5d5916bc5
-k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$3bde8137-22a0-4b97-8a83-5bb4ff89b5a8
-k	java:S106"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$5ce6f407-fb5e-4ca0-b0b6-cd72f4c976f5
+java:S1117"<Rename "manaCost" which hides the field declared at line 11.(ãîÎ·úÿÿÿÿJ$1fefe756-bd45-42cd-bb7d-28772df5b55a
+k	java:S106"+Replace this use of System.out by a logger.(ı˜€ûÿÿÿÿJ$51e60670-a9a6-4828-ae33-64bd40c1415f
+k	java:S106"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$115dbc05-0bae-4faa-b1cc-193eeb3a0259

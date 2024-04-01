@@ -24,7 +24,7 @@ public class SpikeBomb implements AreaAbilityTemplate {
     public void castAreaEffect(HeroTemplate hero, List<MonsterBase> monsters, Player player) {
         int damage = Dice.getNextNumber(0, (10 + (hero.getLevel() * 5)));
         setDamage(damage);
-        hero.setHP(hero.getHP() - (totalDamage / 3));
+        hero.setHp(hero.getHp() - (totalDamage / 3));
         for (MonsterBase monster : monsters) {
             monster.takeDamage(totalDamage);
         }

@@ -17,7 +17,7 @@ public class BloodPact implements NormalAbilityTemplate {
     public void cast(HeroTemplate hero, MonsterBase monster) {
         Scanner scanner = new Scanner(System.in);
 
-        int currentHp = hero.getHP();
+        int currentHp = hero.getHp();
         int attackDamage = hero.getAttack();
 
         System.out.println("Enter the amount of HP you want to sacrifice:");
@@ -30,7 +30,7 @@ public class BloodPact implements NormalAbilityTemplate {
             setDamage(increasedDamage + attackDamage);
 
             int remainingHp = currentHp - hpToSacrifice;
-            hero.setHP(remainingHp);
+            hero.setHp(remainingHp);
 
             System.out.println("Sacrificed " + hpToSacrifice + " HP to increase attack by " + increasedDamage + "!");
         }

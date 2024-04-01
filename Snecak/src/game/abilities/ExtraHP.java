@@ -17,7 +17,7 @@ public class ExtraHP implements BonusAbilityTemplate {
     public void applyBonus(Hero hero) {
         int extraHP = hero.getLevel() * 10;
         int newHP = 100 + extraHP;
-        hero.setHP(newHP);
+        hero.setHp(newHP);
         System.out.println("Gained " + extraHP + " HP. Total HP: " + newHP);
     }
 

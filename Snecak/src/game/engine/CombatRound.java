@@ -5,6 +5,7 @@ import game.abilities.EntityAbilityTemplate;
 import game.abilities.TickAbilityTemplate;
 import game.abilitiesmanagement.ActionSelector;
 import game.itemshandling.ItemBase;
+import game.itemshandling.ItemFactory;
 import game.mapvariables.GameMap;
 import game.mapvariables.PositionModel;
 import game.monster.MonsterBase;
@@ -14,16 +15,17 @@ import game.players.Player;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class CombatRound {
-        private Player player;
-        private List<MonsterBase> monsters;
-        private GameMap gameMap;
+        private final Player player;
+        private final List<MonsterBase> monsters;
+        private final GameMap gameMap;
         private int turnCounter;
-        private Scanner scanner;
+        private final Scanner scanner;
+        private static final Logger logger = Logger.getLogger(CombatRound.class.getName());
 
-
-        private Random random = new Random();
+        private final Random random = new Random();
 
     public CombatRound(Player player, List<MonsterBase> monsters, GameMap gameMap) {
         this.player = player;
@@ -48,7 +50,7 @@ public class CombatRound {
         while (!monsters.isEmpty()) {
 
 
-            MonsterBase currentMonster = monsters.size() == 1 ? monsters.get(0) : MonsterBase.chooseMonster(monsters);
+            MonsterBase currentMonster = monsters.size() == 1 ? monsters.getFirst() : MonsterBase.chooseMonster(monsters);
 
             // Loop through all players and let them attack the current monster
 
@@ -73,18 +75,18 @@ public class CombatRound {
 
     private void askPlayersToJoin(List<Player> players) {
         for (Player currentPlayer : players) {
-            if (currentPlayer != player && currentPlayer.getHero().getHP() > 0) {
-                System.out.printf("%s, do you want to join the fight? (y/n)%n", currentPlayer.getName());
+            if (currentPlayer != player && currentPlayer.getHero().getHp() > 0) {
+                logger.info(String.format("%s, do you want to join the fight? (y/n)%n", currentPlayer.getName()));
                 String input = scanner.nextLine().trim();
                 if (input.equalsIgnoreCase("y")) {
-                    System.out.printf("%s has joined the fight!%n", currentPlayer.getName());
+                    logger.info(String.format("%s has joined the fight!%n", currentPlayer.getName()));
                 }
             }
         }
     }
 
     private void allowPlayerToFlee(Scanner scanner) {
-        System.out.println("You can choose if you want to flee now by pressing Q");
+        logger.info("You can choose if you want to flee now by pressing Q");
         String s = scanner.nextLine();
         if (s.equalsIgnoreCase("q")) {
             flee(player);
@@ -93,25 +95,18 @@ public class CombatRound {
 
     private void handleDefeatedMonster(Player currentPlayer, MonsterBase currentMonster) {
 
-        if (currentMonster.HP < 0) {
+        if (currentMonster.hp < 0) {
 
-            System.out.printf("%s has been defeated!%n", currentMonster.getName());
-            System.out.printf("%s gained %d XP!%n", currentPlayer.getName(), currentMonster.MonsterXp);
-            currentPlayer.increaseXP(currentMonster.MonsterXp);
+            logger.info(String.format("%s has been defeated!%n", currentMonster.getName()));
+            logger.info(String.format("%s gained %d XP!%n", currentPlayer.getName(), currentMonster.monsterXp));
+            currentPlayer.increaseXP(currentMonster.monsterXp);
             monsters.remove(currentMonster);
-            ItemBase.DropItem(currentPlayer, currentPlayer.getInventory());
+            ItemFactory.dropItem(currentPlayer, currentPlayer.getInventory());
         }
     }
-
-    private void handlePlayerDefeated() {
-        System.out.println("You have been defeated...");
-        // TODO: handle game over
-
-    }
-
     private void displayBattleResult() {
-        if (player.getHero().getHP() > 0) {
-            System.out.println("You won the battle!");
+        if (player.getHero().getHp() > 0) {
+            logger.info("You won the battle!");
         }
     }
 
@@ -131,7 +126,7 @@ public class CombatRound {
         } else if (monster.isMisdirected() && monster.getMisdirectedDuration() > 0) {
             handleMisdirectedMonsterTurn(monster, gameMap.getPlayerPosition().get(player));
         } else if (monster.isEntangled() && monster.getEntangledDuration() > 0) {
-            System.out.println("The monster skips its turn!");
+            logger.info("The monster skips its turn!");
             monster.setEntangled(false, monster.getEntangledDuration());
         } else {
             double chance = Math.random();
@@ -150,19 +145,19 @@ public class CombatRound {
                 // Implement logic for the entity automatically attacking the monster
                 int entityDamage = entity.performAutoAttack();
                 monster.takeDamage(entityDamage);
-                System.out.printf("%s attacked %s for %d damage!%n", entity.getEntityName(), monster.getName(), entityDamage);
+                logger.info(String.format("%s attacked %s for %d damage!%n", entity.getEntityName(), monster.getName(), entityDamage));
             }
         } else {
             // Handle the case when there are no entities to attack
-            System.out.println("The monster has no entities to attack.");
+            logger.info("The monster has no entities to attack.");
         }
     }
 
         private void handleMonsterAttacksOnPlayers(Player player, MonsterBase monster) {
             // Implement logic for monster attacking players
-            int playerDamage = monster.Attack(); // Replace this with the appropriate method for monster attacks
-            player.getHero().setHP(player.getHero().getHP() - playerDamage);
-            System.out.printf("%s hit you for %d damage!%n", monster.getName(), playerDamage);
+            int playerDamage = monster.attack(); // Replace this with the appropriate method for monster attacks
+            player.getHero().setHp(player.getHero().getHp() - playerDamage);
+            logger.info(String.format("%s hit you for %d damage!%n", monster.getName(), playerDamage));
         }
 
 
@@ -178,12 +173,12 @@ public class CombatRound {
             Player newTarget = playersInSameLocation.get(random.nextInt(playersInSameLocation.size()));
 
             // Attack the new target
-            int monsterDamage = monster.Attack();
-            newTarget.getHero().setHP(newTarget.getHero().getHP() - monsterDamage);
-            System.out.printf("%s hit %s for %d damage!%n", monster.getName(), newTarget.getName(), monsterDamage);
+            int monsterDamage = monster.attack();
+            newTarget.getHero().setHp(newTarget.getHero().getHp() - monsterDamage);
+            logger.info(String.format("%s hit %s for %d damage!%n", monster.getName(), newTarget.getName(), monsterDamage));
         } else {
             // No other players in the same location, so the monster skips its turn
-            System.out.println("The misdirected monster is unable to find another target and skips its turn!");
+            logger.info("The misdirected monster is unable to find another target and skips its turn!");
         }
 
         // Decrement the misdirection duration
@@ -194,9 +189,9 @@ public class CombatRound {
 
     private void handleTauntedMonsterTurn(Player tauntingPlayer, MonsterBase monster) {
         int reduction = tauntingPlayer.getHero().getEquippedArmorProtection();
-        int monsterDamage = (monster.Attack() - reduction);
-        tauntingPlayer.getHero().setHP(tauntingPlayer.getHero().getHP() - monsterDamage);
-        System.out.printf("%s hits you for %d damage due to Taunt!%n", monster.getName(), monsterDamage);
+        int monsterDamage = (monster.attack() - reduction);
+        tauntingPlayer.getHero().setHp(tauntingPlayer.getHero().getHp() - monsterDamage);
+        logger.info(String.format("%s hits you for %d damage due to Taunt!%n", monster.getName(), monsterDamage));
 
         if (monster.getTauntedDuration() > 0) {
             monster.setTaunted(false, 0);
@@ -209,7 +204,7 @@ public class CombatRound {
 
         // Check if the player has a previous position
         if (previousPosition != null) {
-            System.out.printf("%s fled from %s to %s!%n", player.getName(), currentPosition, previousPosition);
+            logger.info(String.format("%s fled from %s to %s!%n", player.getName(), currentPosition, previousPosition));
 
             // Move the player to the previous position
             currentPosition.x = previousPosition.x;
@@ -221,7 +216,7 @@ public class CombatRound {
             // Clear the player's previous position after fleeing
 
         } else {
-            System.out.println("You cannot flee from the current location.");
+            logger.info("You cannot flee from the current location.");
         }
     }
 
@@ -232,8 +227,8 @@ public class CombatRound {
                     // Assuming the effect applies to specific monsters or all monsters
                     for (MonsterBase monster : monsters) {
                         tickAbility.onTick(player, monster, monsters, turnCounter);
-                        System.out.printf( "Tick effect of %s applied to %s on turn %d.%n",
-                                tickAbility.getName(), monster.getName(), turnCounter);
+                        logger.info(String.format( "Tick effect of %s applied to %s on turn %d.%n",
+                                tickAbility.getName(), monster.getName(), turnCounter));
                     }
 
             }

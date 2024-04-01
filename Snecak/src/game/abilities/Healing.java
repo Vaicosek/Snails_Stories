@@ -21,11 +21,11 @@ public class Healing implements NormalAbilityTemplate {
     public void cast(HeroTemplate hero, MonsterBase monster) {
         int currentMana = hero.getMana();
         if (currentMana >= manaCost) {
-            int maxHealth = hero.getHP();
+            int maxHealth = hero.getHp();
             double healAmount = maxHealth * 0.1;
-            int currentHealth = hero.getHP();
+            int currentHealth = hero.getHp();
             int newHealth = Math.min(currentHealth + (int) healAmount, maxHealth);
-            hero.setHP(newHealth);
+            hero.setHp(newHealth);
 
             hero.setMana(currentMana - manaCost);
             System.out.println("Healed for " + (int) healAmount + " HP. Current HP: " + newHealth);

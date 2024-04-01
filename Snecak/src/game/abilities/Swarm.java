@@ -38,7 +38,7 @@ public class Swarm implements TickAbilityTemplate {
     public void onTick(Player player, MonsterBase monster, List<MonsterBase> monsters, int turnCounter) {
         if (isEffectActive()) {
             for (MonsterBase currentMonster : monsters) { // Changed variable name to currentMonster
-                int damagePerTurn = (currentMonster.getHP() / 100);
+                int damagePerTurn = (currentMonster.getHp() / 100);
 
                 currentMonster.takeDamage(damagePerTurn);
                 System.out.printf("Swarm deals %d damage to %s%n", damagePerTurn, currentMonster.getName());

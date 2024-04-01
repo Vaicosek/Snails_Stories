@@ -1,5 +1,5 @@
 
 ¥
-java:S4276"]Refactor this code to use the more specialised Functional Interface 'BinaryOperator<Integer>'(Êäœÿùÿÿÿÿ8üë‰¾æ1J$3205361b-f88e-4d42-832d-e70aac82fb0b
+java:S4276"]Refactor this code to use the more specialised Functional Interface 'BinaryOperator<Integer>'(Êäœÿùÿÿÿÿ8üë‰¾æ1J$f0bcb19c-cb59-473a-8084-32612da89896
 l
-java:S21409")Use "java.util.Random.nextInt()" instead.(ê‘œÆ8ÿë‰¾æ1J$2cf1ee60-0178-40c0-92a4-cf2c2a9985c6
+java:S21402")Use "java.util.Random.nextInt()" instead.(ê‘œÆ8ÿë‰¾æ1J$2f8a52e4-5584-4b30-90e8-f7cf30d256b2

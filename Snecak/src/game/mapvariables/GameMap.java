@@ -3,41 +3,44 @@ package game.mapvariables;
 import game.engine.*;
 import game.monster.MonsterFactory;
 import game.players.Player;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class GameMap implements GameStartedListener {
 
-    public int Height;
-    public int Width;
-    private BiomeModel[][] gameMapModel;
-    private DeckOfCards deckOfCards;
-    private ArrayList<Player> players;
+    public int height;
+    public int width;
+    private final BiomesModel[][] gamemapmodel;
+    private final DeckOfCards deckOfCards;
+    private final ArrayList<Player> players;
+    private static final Logger logger = Logger.getLogger(GameMap.class.getName());
 
     MonsterFactory monsterFactory;
     GameEngine gameEngine;
 
     public GameMap(GameEngine gameEngine) {
         monsterFactory = new MonsterFactory(this, gameEngine);
-        this.Height = 40;
-        this.Width = 40;
-        this.gameMapModel = new BiomeModel[Height][Width];
+        this.height = 40;
+        this.width = 40;
+        this.gamemapmodel = new BiomesModel[height][width];
         this.deckOfCards = new DeckOfCards();
-        this.players = new ArrayList<Player>();
+        this.players = new ArrayList<>();
         this.gameEngine = gameEngine;
-        gameMapModel[Height / 2][Width / 2] = deckOfCards.getDefaultLocation();
+        gamemapmodel[height / 2][width / 2] = deckOfCards.getDefaultLocation();
         gameEngine.registerListener(this);
     }
 
-    public BiomeModel getPlayerLocation(Player player) {
-        var pos = PlayerPosition.get(player);
-        return gameMapModel[pos.x][pos.y];
+    public BiomesModel getPlayerLocation(Player player) {
+        var pos = playerPosition.get(player);
+        return gamemapmodel[pos.x][pos.y];
     }
 
     public void movePlayer(Player player, MovementDirectionEnum direction) throws Exception {
-        var pos = PlayerPosition.get(player);
+        var pos = playerPosition.get(player);
 
         if (direction == MovementDirectionEnum.UP) {
             pos.x -= 1;
@@ -47,18 +50,19 @@ public class GameMap implements GameStartedListener {
             pos.y -= 1;
         } else if (direction == MovementDirectionEnum.RIGHT) {
             pos.y += 1;
-        } else
+        } else {
             throw new Exception("Invalid Enum Value");
+        }
 
 
         if (checkMapBoundaries(pos.x, pos.y)) {
-            System.out.println("Invalid move: off the edge of the gameMapModel.");
+            logger.info("Invalid move: off the edge of the gameMapModel.");
             return;
         }
 
 
-        if (gameMapModel[pos.x][pos.y] == null) {
-            gameMapModel[pos.x][pos.y] = deckOfCards.drawRandomBiomeCard();
+        if (gamemapmodel[pos.x][pos.y] == null) {
+            gamemapmodel[pos.x][pos.y] = deckOfCards.drawRandomBiomesCard();
 
 
             int groupLevel = gameEngine.getGroupLevel();
@@ -71,25 +75,22 @@ public class GameMap implements GameStartedListener {
     }
 
     Boolean checkMapBoundaries(int x, int y) {
-        return !(x >= 0 && x < Height && y >= 0 && y < Width);
+        return !(x >= 0 && x < height && y >= 0 && y < width);
     }
 
-    HashMap<Player, PositionModel> PlayerPosition = new HashMap<>();
+    @Getter
+    HashMap<Player, PositionModel> playerPosition = new HashMap<>();
 
     @Override
     public void onGameStarted(GameStartedEvent event) {
 
         for (var player : gameEngine.getPlayers()) {
-            PlayerPosition.put(player, new PositionModel(Width / 2, Height / 2));
+            playerPosition.put(player, new PositionModel(width / 2, height / 2));
         }
 
     }
     public void addPlayer(Player player) {
         players.add(player);
-    }
-
-    public HashMap<Player, PositionModel> getPlayerPosition() {
-        return PlayerPosition;
     }
 
     public void destroy() {
@@ -99,7 +100,7 @@ public class GameMap implements GameStartedListener {
     public List<Player> getPlayersAtLocation(int x, int y) {
         List<Player> playersAtLocation = new ArrayList<>();
         for (Player player : players) {
-            var pos = PlayerPosition.get(player);
+            var pos = playerPosition.get(player);
             if (pos.x == x && pos.y == y) {
                 playersAtLocation.add(player);
             }

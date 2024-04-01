@@ -9,8 +9,8 @@ public class Druid extends Hero {
 
 
 
-    public Druid(int XP, int level, int HP,  List<String> abilityNames) {
-        super(XP, level, HP, abilityNames);
+    public Druid(int xp, int level, int hp,  List<String> abilityNames) {
+        super(xp, level, hp, abilityNames);
         this.name = "Druid";
     }
 

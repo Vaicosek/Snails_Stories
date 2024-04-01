@@ -1,4 +1,4 @@
-package game.heroalliedEntities;
+package game.heroalliedentities;
 
 import game.abilities.AnimalCompanion;
 import game.abilities.Conjurer;
@@ -13,7 +13,10 @@ import java.util.Random;
 
 public class AllyEntityFactory {
 
-    private static Random random = new Random();
+    private AllyEntityFactory() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
+    private static final Random random = new Random();
 
     public static AnimalCompanion createAnimalCompanion(HeroTemplate summoner) {
         AnimalCompanion companion = new AnimalCompanion();
@@ -49,7 +52,7 @@ public class AllyEntityFactory {
         return Dice.getNextNumber(1, 10);
     }
 
-    private static List<String> animalNames = Arrays.asList(
+    private static final List<String> animalNames = Arrays.asList(
             "Fluffy", "Whiskers", "Shadow", "Paws", "Fang", "Luna", "Mittens", "Thunder", "Blaze", "Spike",
             "Cinder", "Midnight", "Rusty", "Sapphire", "Stormy", "Coco", "Echo", "Winston", "Lola", "Bella",
             "Rex", "Misty", "Oreo", "Buddy", "Nola", "Simba", "Mocha", "Tiger", "Ziggy", "Cinnamon",
@@ -57,12 +60,12 @@ public class AllyEntityFactory {
             "Ginger", "Charlie"
     );
 
-    private static List<String> conjuredEntityNames = Arrays.asList(
+    private static final List<String> conjuredEntityNames = Arrays.asList(
             "Arcane Guardian", "Mystic Serpent", "Eldritch Phantom", "Spectral Arcanist", "Aetherial Gazer",
             "Celestial Enchanter", "Wraith Conjurer", "Sorcerer's Familiar", "Mana Wyrm", "Enigmatic Spirit",
             "Shadowfiend", "Nebula Shaper", "Elemental Weaver", "Harbinger of Power", "Apparition Sage",
             "Abyssal Summoner", "Radiant Illusionist", "Phoenix Acolyte", "Nyx, the Voidstalker", "Terra Elemental",
-            "Ignis Pyromancer", "Zephyr Stormcaller", "Aquilo Frostweaver", "Aetherial Artisan", "Obsidian Gargoyle",
+            "Ignis Pyromancer", "Zephyr Storm caller", "Aquilo Frostweaver", "Aetherial Artisan", "Obsidian Gargoyle",
             "Solstice Sorceress", "Serenity Spellbinder", "Onyx Archmage", "Luminara Lifestealer", "Chronos Timebender",
             "Eclipsa Eclipse Mage", "Havoc Hexer", "Oblivion Conjurer", "Ragnarok Ravager", "Zodiac Astrologer",
             "Eclipse Evoker", "Cerulean Soothsayer", "Spellbound Specter", "Wizardry Wight", "Mana Mirage",

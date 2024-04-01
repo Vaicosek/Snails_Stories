@@ -1,12 +1,12 @@
 
 Â
-java:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$2bceb0f0-1960-4845-99f1-f274854a5ca6
+java:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$498a7077-b91b-4c3b-a8bb-936a6e6d4684
 Â
-java:S1186;"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$ac46072d-c42a-48ad-9a47-eeaa3c903d00
+java:S1186;"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$3bf8f17a-735a-414e-b908-736c89a2a81d
 ½
-java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$90105cba-c0f0-4622-9279-d776bca9c84e
+java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$97b23e6b-0e75-4926-8bde-28dad103934b
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(éñåÄşÿÿÿÿJ$fb77328e-15aa-4ac2-9182-2929414faf8b
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(éñåÄşÿÿÿÿJ$e78de02a-1073-4fc9-b29c-69d6d05e30f1
 }
-java:S1117"<Rename "manaCost" which hides the field declared at line 14.(ßÎÔúøÿÿÿÿJ$f70c3217-b850-4943-a39b-18b448d40772
-k	java:S106#"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$4331a59f-5068-4355-b4f5-e7b1092b8914
+java:S1117"<Rename "manaCost" which hides the field declared at line 14.(ßÎÔúøÿÿÿÿJ$ced13b50-abe0-4b82-9092-35c04fb48312
+k	java:S106#"+Replace this use of System.out by a logger.(®™³™üÿÿÿÿJ$ac1b2be4-bf25-4d05-a2ca-ffcd76995107

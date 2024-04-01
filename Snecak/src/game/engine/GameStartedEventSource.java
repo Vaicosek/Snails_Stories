@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameStartedEventSource {
-    private List<GameStartedListener> listeners = new ArrayList<>();
+    private final List<GameStartedListener> listeners = new ArrayList<>();
 
     public void registerListener(GameStartedListener listener) {
         listeners.add(listener);

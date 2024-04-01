@@ -1,5 +1,7 @@
 package game.monster;
 
+import lombok.Getter;
+
 import java.util.List;
 import java.util.function.BiFunction;
 
@@ -10,9 +12,12 @@ public enum MonsterTier {
     TIER_4(4, 50, 50, List.of("Minotaur", "Yeti", "Banshee"), (groupLevel, attackReduction) -> 25 * groupLevel * attackReduction),
     TIER_5(5, 200, 1000, List.of("Dragon", "Phoenix", "Archdemon"), (groupLevel, attackReduction) -> 30 * groupLevel * attackReduction);
 
+    @Getter
     private final int tier;
+    @Getter
     private final int baseXP;
     private final int baseHPMultiplier;
+    @Getter
     private final List<String> names;
     private final BiFunction<Integer, Integer, Integer> damageCalculation;
 
@@ -30,18 +35,6 @@ public enum MonsterTier {
 
     public int calculateAttackDamage(int groupLevel, int attackReduction) {
         return damageCalculation.apply(groupLevel, attackReduction);
-    }
-
-    public int getTier() {
-        return tier;
-    }
-
-    public int getBaseXP() {
-        return baseXP;
-    }
-
-    public List<String> getNames() {
-        return names;
     }
 
     public int calculateHP(int groupLevel) {

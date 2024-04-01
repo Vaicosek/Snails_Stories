@@ -7,8 +7,8 @@ public class Assassin extends Hero {
 
 
 
-    public Assassin(int XP, int level, int HP, List<String> abilityNames) {
-        super(XP, level, HP, abilityNames);
+    public Assassin(int xp, int level, int hp, List<String> abilityNames) {
+        super(xp, level, hp, abilityNames);
         this.name = "Assassin";
     }
 

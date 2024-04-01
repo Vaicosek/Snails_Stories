@@ -16,8 +16,8 @@ public class DeathStrike implements NormalAbilityTemplate {
     @Override
     public void cast(HeroTemplate hero, MonsterBase currentMonster) {
         int lowHP = 100 + (hero.getLevel() * 100) / 20;
-        int totalDamage = currentMonster.getHP() / 20;
-        if (hero.getHP() < lowHP) {
+        int totalDamage = currentMonster.getHp() / 20;
+        if (hero.getHp() < lowHP) {
             setDamage(totalDamage);
         }
     }

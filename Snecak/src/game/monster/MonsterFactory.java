@@ -25,7 +25,7 @@ public class MonsterFactory {
             String randomName = selectedTier.getRandomName();
             int hp = selectedTier.calculateHP(groupLevel);
             int xp = selectedTier.calculateXP(groupLevel);
-            // Now create the MonsterBase with the properties from the selected tier
+
             monsters.add(new MonsterBase(randomName, groupLevel, hp, xp, selectedTier));
         }
         return monsters;

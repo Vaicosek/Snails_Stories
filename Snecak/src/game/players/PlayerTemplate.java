@@ -1,7 +1,6 @@
 package game.players;
 
-import itemshandling.ItemBase;
-
+import game.itemshandling.ItemBase;
 
 import java.util.List;
 

@@ -18,7 +18,7 @@ public class FuriousStrike implements NormalAbilityTemplate {
     public void cast(HeroTemplate hero, MonsterBase monster) {
         int damage =(hero.getAttack()/100) * 10 + hero.getAttack();
         setDamage(damage);
-        hero.setHP(hero.getHP() -  (hero.getLevel()*100/10));
+        hero.setHp(hero.getHp() -  (hero.getLevel()*100/10));
         System.out.println("Used " + getName() + "!");
     }
 

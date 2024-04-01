@@ -157,8 +157,6 @@ U
 %src/Game/abilities/MonsterKiller.java,c\b\cbfd84d51e8cca37149a29c21bd9bbebb5d6a055
 Q
 !src/Game/abilities/SpikeBomb.java,8\6\86f6aa831323294a99dced496a6b67172673ef48
-U
-%src/Game/mapvariables/BiomeModel.java,7\a\7ae2a8efb621ff80014dc6cc5a2647274a19eeed
 V
 &src/Game/mapvariables/DeckOfCards.java,c\1\c174bbe5545a884bdd1b73b678069a7410af003c
 X
@@ -263,8 +261,6 @@ U
 %src/game/abilities/MonsterKiller.java,b\3\b3fb84be701c0a969d894f2f9ecbe7de49f40e41
 Q
 !src/game/abilities/SpikeBomb.java,9\8\9856a5d9ba3bad85359464f31eb2b1498570a5dc
-U
-%src/game/mapvariables/BiomeModel.java,a\2\a286fa07901eb3abfedea5910fade6e8a6ac44ce
 V
 &src/game/mapvariables/DeckOfCards.java,4\8\484acc57e43d1fb94d31d3c16149a8e07526ad0b
 R
@@ -381,3 +377,9 @@ S
 #src/game/abilities/StrongHands.java,5\c\5c6fb6302a13c3b48c41c2610fa9772ef02a9d67
 [
 +src/game/abilities/TickAbilityTemplate.java,c\6\c63e2cd65dca69094972da2db7de8814701c9fc3
+b
+2src/game/heroAlliedEntities/AllyEntityFactory.java,e\2\e259b1c9f1fc46d68f6cdf1dd378df3b1031e35b
+b
+2src/game/heroalliedentities/AllyEntityFactory.java,d\7\d7bcb83e6dc89aed120068713e98210451a12e36
+V
+&src/game/mapvariables/BiomesModel.java,a\5\a5112416cbddd3948a2bc5b539c08cf18717cd54

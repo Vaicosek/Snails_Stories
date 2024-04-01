@@ -1,14 +1,14 @@
 
 b
-java:S1170	"!Make this final field static too.(âÓ§¤üÿÿÿÿJ$a31ba9c9-c7a4-45d5-ba90-87a8ecb8a29b
+java:S1170	"!Make this final field static too.(âÓ§¤üÿÿÿÿJ$e93aa798-dad5-41d8-a936-31ffcd45c6b9
 Â
-java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$94659268-2c27-4f71-b13d-a86dd8910b6e
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$a65a0876-adb2-47ec-84df-0368d9271fa9
 Â
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$7fe7e903-1aa5-4e7c-9012-d046e541a7dc
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$a0584d70-f25f-49b2-9cb2-b0ca1bf96d72
 ½
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$84da4219-e756-46ae-be88-2d79ce84f331
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$2ec499cc-d0c2-4a41-bfff-404e3d4f3e3f
 ½
-java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†ÍÁ„J$616dddb6-392a-4123-9d7a-efdbe05959dd
+java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†ÍÁ„J$518783e5-177e-43a0-a3cc-045e64ee34e8
 Â
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦çœÏıÿÿÿÿJ$5535340e-eaeb-401d-b9ba-c7c3811d94eb
-k	java:S106"+Replace this use of System.out by a logger.(äöâÿÿÿÿÿJ$314cec43-21d0-44c3-bdfe-b4542d382b34
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦çœÏıÿÿÿÿJ$8bff3c0e-a99e-4e24-b153-a7efbd32e074
+k	java:S106"+Replace this use of System.out by a logger.(äöâÿÿÿÿÿJ$fef212aa-9d49-4111-9ace-cd7b182e919d

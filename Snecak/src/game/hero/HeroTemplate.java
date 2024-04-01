@@ -3,6 +3,7 @@ package game.hero;
 import game.abilities.AbilityTemplate;
 import game.itemshandling.Armor;
 import game.itemshandling.Consumable;
+import game.itemshandling.ItemBase;
 import game.itemshandling.Weapon;
 import game.monster.MonsterBase;
 import game.players.Player;
@@ -10,17 +11,17 @@ import game.players.Player;
 import java.util.List;
 
 public interface HeroTemplate {
-    int getXP();
+    int getXp();
 
-    void setXP(int XP);
+    void setXp(int XP);
 
     int getLevel();
 
     void setLevel(int level);
 
-    int getHP();
+    int getHp();
 
-    void setHP(int HP);
+    void setHp(int HP);
 
     int getAttack();
 
@@ -38,12 +39,12 @@ public interface HeroTemplate {
 
     void gainAbility();
 
-    void equipWeapon(Weapon weapon);
+    void equipWeapon(ItemBase weapon);
 
 
     void unequipWeapon();
 
-    void equipArmor(Armor armor);
+    void equipArmor(ItemBase armor);
 
     void unequipArmor();
 
@@ -51,7 +52,7 @@ public interface HeroTemplate {
     void usePassiveMonsterAbilities(MonsterBase monster);
 
 
-    void equipWeapon2(Weapon weapon);
+    void equipWeapon2(ItemBase weapon2);
 
    int getEquippedArmorProtection();
     int getEquippedWeaponDamage();
@@ -62,11 +63,11 @@ public interface HeroTemplate {
 
     List<Consumable> getAvailableConsumables(HeroTemplate hero, Player player);
 
-    void destroyArmor(Armor armor, Player player);
+    void destroyArmor(ItemBase armor, Player player);
 
-    void destroyWeapon(Weapon weapon, Player player);
+    void destroyWeapon(ItemBase weapon, Player player);
 
-    Armor getEquippedArmor();
+    ItemBase getEquippedArmor();
 
-    Weapon getEquippedWeapon();
+    ItemBase getEquippedWeapon();
 }

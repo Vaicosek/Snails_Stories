@@ -1,8 +1,0 @@
-
-©
-java:S1319"hThe type of "monsters" should be an interface such as "List" rather than the implementation "ArrayList".(Ο±±γόÿÿÿÿJ$4b393895-6c5a-43f9-9a96-89e3c91c2c91
-
-java:S1104	"PMake Name a static final constant or non-public and provide accessors if needed.(υ¤όΰJ$1c1cfd16-ba08-40ff-a84e-4f393040c915
-•
-java:S1104"TMake monsters a static final constant or non-public and provide accessors if needed.(Ο±±γόÿÿÿÿJ$916f157d-73d4-43cb-98d5-20bf6f04200d
-	java:S116	"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(υ¤όΰJ$bb390b5f-72a3-49cc-a336-a31451f74661

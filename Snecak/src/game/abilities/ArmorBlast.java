@@ -65,7 +65,7 @@ public class ArmorBlast implements AreaAbilityTemplate {
 
         // Apply the effect to each monster
         for (MonsterBase monster : monsters) {
-            int damage = baseDamage + monster.getHP() / 10;
+            int damage = baseDamage + monster.getHp() / 10;
             // Use the takeDamage method to apply damage
             setDamage(damage);
            ;

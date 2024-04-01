@@ -1,12 +1,6 @@
 
-ˆ	java:S1123"FDefine and throw a dedicated exception instead of using a generic one.(íùÔœ8â¬×¿æ1J$f15d1253-6702-462d-9699-1cde3fab4561
-œ
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(à„²¨8ã¬×¿æ1J$94e27211-d1bc-4e7c-8e30-64ae9f5d46cc
+ˆ	java:S1126"FDefine and throw a dedicated exception instead of using a generic one.(íùÔœ8íÂ™¯é1J$776f5a8a-a26e-49d9-89f1-b21265c5b99c
 •
-java:S1104"RMake Height a static final constant or non-public and provide accessors if needed.(Ú†¿³8ã¬×¿æ1J$e0bdbe8e-db6e-49c6-8c39-a1b747d32ddf
-™
-java:S1104"QMake Width a static final constant or non-public and provide accessors if needed.( ‚ÍÛúÿÿÿÿ8ã¬×¿æ1J$9c8d5626-4f87-422c-84a7-7acce4bbcc2d
-“	java:S116"QRename this field "Height" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú†¿³8ç¬×¿æ1J$41b16179-5025-44b1-8a75-7846ef215113
-—	java:S116"PRename this field "Width" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ‚ÍÛúÿÿÿÿ8ç¬×¿æ1J$ffcc0ef8-0c17-4ccb-adb2-3dca4c5b4683
-›	java:S116M"YRename this field "PlayerPosition" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°“ù8ç¬×¿æ1J$3ee38f4a-eeac-4f89-ac93-6229655a1ac5
-r	java:S1067"+Replace this use of System.out by a logger.(úÚ¥±úÿÿÿÿ8ë¬×¿æ1J$aa19f801-493b-4f83-b694-7455931e6e3d
+java:S1104"RMake height a static final constant or non-public and provide accessors if needed.(ñ½8†»“¯é1J$6daddbcf-df7b-46c7-a822-5eb0c1b8804d
+”
+java:S1104"QMake width a static final constant or non-public and provide accessors if needed.(øÂ½8†»“¯é1J$928d3df2-169b-4b39-a769-9d8892d46c86

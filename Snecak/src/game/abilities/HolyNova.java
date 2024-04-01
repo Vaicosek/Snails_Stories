@@ -32,7 +32,7 @@ public class HolyNova implements AreaAbilityTemplate {
                 int heroDamage = Dice.getNextNumber(5, (10 + (hero.getLevel() * 5)));
                 int tier = monster.getTier();
                 double multiplier = TIER_MULTIPLIERS[tier - 1];
-                int monsterDamage = (int) (monster.getHP() * multiplier) + (5 * tier);
+                int monsterDamage = (int) (monster.getHp() * multiplier) + (5 * tier);
 
                 int totalDamage = heroDamage + monsterDamage;
                 monster.takeDamage(totalDamage);
