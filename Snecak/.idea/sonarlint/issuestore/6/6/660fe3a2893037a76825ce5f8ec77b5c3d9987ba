@@ -1,32 +1,32 @@
 
 Р
-java:S1226~"HIntroduce a new variable instead of reusing the parameter "totalDamage".(ЇРЦ≠ь€€€€8Геоке1J$bb7efa8e-5fa4-448a-9905-8c796234ed16
+java:S1226{"HIntroduce a new variable instead of reusing the parameter "totalDamage".(ЇРЦ≠ь€€€€8Геоке1J$3ee44b84-4559-4fb0-9ec2-ec5814e6e6a0
 О
-java:S1226И"EIntroduce a new variable instead of reusing the parameter "manaCost".(…ј≈ы€€€€€8Геоке1J$9b46eed3-7c01-459d-9e92-789e291f900b
+java:S1226Е"EIntroduce a new variable instead of reusing the parameter "manaCost".(…ј≈ы€€€€€8Геоке1J$9a33673e-7670-4665-9736-94b638d872af
 Е
-java:S1226Н"AIntroduce a new variable instead of reusing the parameter "name".(ц”тю8Геоке1J$234a3195-f0ae-4b32-a704-ede33a7b58b8
+java:S1226К"AIntroduce a new variable instead of reusing the parameter "name".(ц”тю8Геоке1J$8e1ec65c-addd-4fa8-8306-a632b02bb7a7
 …
-java:S1186s"АAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(≤міСы€€€€8Жеоке1J$a8776ca3-1af2-4e16-8ed2-73b62c7cf18f
-r	java:S106"+Replace this use of System.out by a logger.(лкЛв€€€€€8Кеоке1J$515eca60-7dde-4f27-82a5-05c5a5f6e3d8
-r	java:S106"+Replace this use of System.out by a logger.(ҐЩюфш€€€€8Кеоке1J$613ad963-be2e-4ec0-8aad-677e0c3aa0d2
-m	java:S106"+Replace this use of System.out by a logger.(оП“«8Кеоке1J$a172d4a0-f8f6-417a-8cbb-33a9672d4b87
-m	java:S106"+Replace this use of System.out by a logger.(Ев»®8Кеоке1J$70bd6c9a-93d7-443c-84e0-6174a6faace3
-m	java:S106"+Replace this use of System.out by a logger.(дјьџ8Кеоке1J$ae53d656-021f-4f87-ae44-34c088df5a46
-m	java:S1063"+Replace this use of System.out by a logger.(ЬЛц®8Меоке1J$0fb1a41b-55f0-4176-aecf-82afe570190e
-r	java:S1066"+Replace this use of System.out by a logger.(£∆ўџ€€€€€8Меоке1J$5421f678-590b-4980-9b9c-be966705d526
-m	java:S106@"+Replace this use of System.out by a logger.(дЧшђ8Неоке1J$ec9d306c-89ab-4f04-bdef-5eb6f761f29e
-r	java:S106D"+Replace this use of System.out by a logger.(Сџ—Жэ€€€€8Неоке1J$8cc35404-8166-44bc-9064-6ad764533c35
-m	java:S106G"+Replace this use of System.out by a logger.(еЛъґ8Неоке1J$70dd735c-7a88-47e8-92b3-1e0ae20a7716
-m	java:S106O"+Replace this use of System.out by a logger.(ќН»і8Оеоке1J$fd7633eb-5078-4967-a77d-91e6bd34eabd
-m	java:S106S"+Replace this use of System.out by a logger.(†ЋЫє8Оеоке1J$c6fd9987-e5fe-4eab-b039-c8db4d00ede2
-r	java:S106V"+Replace this use of System.out by a logger.(¶ЌЛ¶ш€€€€8Оеоке1J$175b9ee9-0202-4670-9ed5-74d88c5b063d
-r	java:S106^"+Replace this use of System.out by a logger.(ГйЮ”щ€€€€8Оеоке1J$5aa97395-35ce-4449-900c-e384e025c157
-r	java:S106b"+Replace this use of System.out by a logger.(бњ†Йщ€€€€8Оеоке1J$234cce17-687d-4276-80cb-34988c3b52fd
-r	java:S106e"+Replace this use of System.out by a logger.(ЕМзЫъ€€€€8Пеоке1J$268e6e7e-159e-4831-b205-2eba4e5cf55a
-r	java:S106m"+Replace this use of System.out by a logger.(—ҐИ≈ь€€€€8Пеоке1J$05d56821-2f2a-4bc7-ba30-b390fd9584d8
+java:S1186p"АAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(≤міСы€€€€8Жеоке1J$71cca4d6-bacd-424f-907a-5708a7f972f5
+r	java:S106"+Replace this use of System.out by a logger.(лкЛв€€€€€8Кеоке1J$02c2db34-c854-4489-afe2-c704e2af81f5
+r	java:S106"+Replace this use of System.out by a logger.(ҐЩюфш€€€€8Кеоке1J$f2ea1168-044b-41d1-ad5b-1a2da0aa2fa9
+m	java:S106"+Replace this use of System.out by a logger.(оП“«8Кеоке1J$36cec448-ec21-4676-aacd-ea3e991c3a59
+m	java:S106"+Replace this use of System.out by a logger.(Ев»®8Кеоке1J$ae2c9803-25c1-4c76-8ab5-1187ab565bb0
+m	java:S106"+Replace this use of System.out by a logger.(дјьџ8Кеоке1J$86b7d86c-9167-4d1e-a7b5-c55c915c20b9
+m	java:S1060"+Replace this use of System.out by a logger.(ЬЛц®8Меоке1J$efc5d819-b7fe-49ae-aee4-a6a8dcc99779
+r	java:S1063"+Replace this use of System.out by a logger.(£∆ўџ€€€€€8Меоке1J$362b2add-82db-4523-b0a0-bd0eff0441ee
+m	java:S106="+Replace this use of System.out by a logger.(дЧшђ8Неоке1J$16d3eb21-9968-4828-8f60-1e4ef12e3a51
+r	java:S106A"+Replace this use of System.out by a logger.(Сџ—Жэ€€€€8Неоке1J$2cdb9ab7-1d0d-4175-a1e4-55617452d454
+m	java:S106D"+Replace this use of System.out by a logger.(еЛъґ8Неоке1J$45703b55-9f9d-4745-a812-f53634b11c9d
+m	java:S106L"+Replace this use of System.out by a logger.(ќН»і8Оеоке1J$ad277052-420e-48eb-af23-067138f0b8b7
+m	java:S106P"+Replace this use of System.out by a logger.(†ЋЫє8Оеоке1J$1e9e86d2-140a-4efa-b4bf-fd0889682674
+r	java:S106S"+Replace this use of System.out by a logger.(¶ЌЛ¶ш€€€€8Оеоке1J$156ac542-47c5-4929-870a-a5709843b0e3
+r	java:S106["+Replace this use of System.out by a logger.(ГйЮ”щ€€€€8Оеоке1J$5c0006ba-7b76-4824-b86b-ef873f5de2ab
+r	java:S106_"+Replace this use of System.out by a logger.(бњ†Йщ€€€€8Оеоке1J$a06a85d3-3c86-4c9b-8ad7-a9696fc3a01a
+r	java:S106b"+Replace this use of System.out by a logger.(ЕМзЫъ€€€€8Пеоке1J$0dc4a670-f60f-452e-8252-d5e3438625a9
+r	java:S106j"+Replace this use of System.out by a logger.(—ҐИ≈ь€€€€8Пеоке1J$8896f75c-00ee-4917-a179-30f8ec2b3dda
 З
-java:S1854~"?Remove this useless assignment to local variable "totalDamage".(ЇРЦ≠ь€€€€8Реоке1J$c9ec68c8-db66-4e9e-8285-e4d8193c1e53
+java:S1854{"?Remove this useless assignment to local variable "totalDamage".(ЇРЦ≠ь€€€€8Реоке1J$dd28eb7a-36ee-4923-94e0-0a25958c3071
 Е
-java:S1854И"<Remove this useless assignment to local variable "manaCost".(…ј≈ы€€€€€8Сеоке1J$b8e46a0d-ebbc-4669-8683-718dff132687
+java:S1854Е"<Remove this useless assignment to local variable "manaCost".(…ј≈ы€€€€€8Сеоке1J$15d2fa10-5dc9-4f94-8b91-a50cd49d7e46
 |
-java:S1854Н"8Remove this useless assignment to local variable "name".(ц”тю8Сеоке1J$d13f9254-9ebd-4940-93b4-66f2fe0b1bce
+java:S1854К"8Remove this useless assignment to local variable "name".(ц”тю8Сеоке1J$0d7990a6-75c8-4660-9b13-a9fa7a6f7bdf

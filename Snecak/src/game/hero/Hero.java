@@ -28,11 +28,11 @@ public class Hero implements HeroTemplate {
     protected double mana;
     protected List<AbilityTemplate> abilities = new ArrayList<>();
     @Getter
-    protected Weapon equippedWeapon;
+    protected ItemBase equippedWeapon;
     @Getter
-    protected Weapon equippedWeapon2;
+    protected ItemBase equippedWeapon2;
     private static final Logger logger = Logger.getLogger(Hero.class.getName());
-    protected Armor equippedArmor;
+    protected ItemBase equippedArmor;
     private static final String EQUIPPED = "Equipped";
     private static final String UNEQUIPPED = "Unequipped";
 
@@ -184,16 +184,37 @@ public class Hero implements HeroTemplate {
         return heroAbilities;
     }
 
-    public void equipWeapon(Weapon weapon) {
-        unequipWeapon();
-        this.equippedWeapon = weapon;
-        logger.info(EQUIPPED + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
+    public void equipWeapon(ItemBase weapon) {
+        if (this.equippedWeapon == null) {
+            logger.warning("This item is not a weapon.");
+            return;
+        }
+        else {
+            unequipWeapon();
+            this.equippedWeapon = weapon;
+            logger.info("Equipped weapon: " + weapon.getName());
+        }
 
-        for (AbilityTemplate ability : abilities) {
-            if (ability.getName().equals("SharpWeapons") && ability.isUnlocked()) {
-                SharpWeapons sharpWeapons = new SharpWeapons();
-                sharpWeapons.applyBonus(this);
-            }
+        if (hasAbility("SharpWeapons")) {
+            SharpWeapons sharpWeapons = new SharpWeapons();
+            sharpWeapons.applyBonus(this);
+        }
+    }
+
+    public void equipWeapon2(ItemBase weapon2) {
+        if (this.equippedWeapon2 == null) {
+            logger.warning("This item is not a weapon.");
+            return;
+        }
+            else {
+            unequipWeapon2();
+            this.equippedWeapon = weapon2;
+            logger.info("Equipped weapon: " + weapon2.getName());
+        }
+
+        if (hasAbility("SharpWeapons")) {
+            SharpWeapons sharpWeapons = new SharpWeapons();
+            sharpWeapons.applyBonus(this);
         }
     }
 
@@ -207,72 +228,14 @@ public class Hero implements HeroTemplate {
     }
 
 
-    public void equipWeapon2(Weapon weapon) {
-        unequippedWeapon2();
-        this.equippedWeapon2 = weapon;
-        logger.info(EQUIPPED + weapon.getName() + " (Damage: " + weapon.getDamage() + ")");
-
-    }
-
-
-    public void unequippedWeapon2() {
+    public void unequipWeapon2() {
         if (this.equippedWeapon2 != null) {
             logger.info(UNEQUIPPED + this.equippedWeapon2.getName());
             this.equippedWeapon2 = null;
         }
     }
 
-    public void equipArmor(Armor armor) {
-        this.equippedArmor = armor;
-        logger.info(EQUIPPED + armor.getName() + " (Protection: " + armor.getProtection() + ")");
-    }
-
-    public int getEquippedArmorProtection() {
-        if (equippedArmor != null) {
-            return equippedArmor.getProtection();
-        } else {
-            // handle the case when no armor is equipped, for example, return a default value
-            return 0; // or any other default value
-        }
-    }
-
-    @Override
-    public int getEquippedWeaponDamage() {
-        if (equippedArmor != null) {
-            return equippedArmor.getDamage();
-        } else {
-            // handle the case when no armor is equipped, for example, return a default value
-            return 0; // or any other default value
-        }
-    }
-
-    public void unequipArmor() {
-        if (this.equippedArmor != null) {
-            logger.info(UNEQUIPPED + this.equippedArmor.getName());
-            this.equippedArmor = null;
-        } else {
-            logger.warning("No armor equipped.");
-        }
-    }
-
-    public void destroyArmor(Armor armor, Player player) {
-        if (armor != null) {
-            // Remove the armor from the hero's inventory
-            if (equippedArmor == armor) {
-                unequipArmor();  // Unequipped the armor if it's currently equipped
-            }
-
-            // Remove the armor from the inventory list
-            player.getInventory().removeItem(armor);
-
-            logger.info("Destroyed and removed " + armor.getName() + " from the inventory.");
-        } else {
-            logger.info("Cannot destroy null armor.");
-        }
-    }
-
-    @Override
-    public void destroyWeapon(Weapon weapon, Player player) {
+    public void destroyWeapon(ItemBase weapon, Player player) {
         if (weapon != null) {
             // Remove the armor from the hero's inventory
             if (equippedWeapon == weapon) {
@@ -288,8 +251,65 @@ public class Hero implements HeroTemplate {
         }
     }
 
+
     @Override
-    public Armor getEquippedArmor() {
+    public int getEquippedWeaponDamage() {
+        if (equippedArmor != null) {
+            return equippedArmor.getDamage();
+        } else {
+            return 0;
+        }
+    }
+
+
+    public boolean hasAbility(String abilityName) {
+        return abilities.stream()
+                .anyMatch(ability -> ability.getName().equals(abilityName) && ability.isUnlocked());
+    }
+
+
+
+    public void equipArmor(ItemBase armor) {
+        this.equippedArmor = armor;
+        logger.info(EQUIPPED + armor.getName() + " (Protection: " + armor.getProtection() + ")");
+    }
+
+    public void unequipArmor() {
+        if (this.equippedArmor != null) {
+            logger.info(UNEQUIPPED + this.equippedArmor.getName());
+            this.equippedArmor = null;
+        } else {
+            logger.warning("No armor equipped.");
+        }
+    }
+
+    public void destroyArmor(ItemBase armor, Player player) {
+        if (armor != null) {
+            // Remove the armor from the hero's inventory
+            if (equippedArmor == armor) {
+                unequipArmor();  // Unequipped the armor if it's currently equipped
+            }
+
+            // Remove the armor from the inventory list
+            player.getInventory().removeItem(armor);
+
+            logger.info("Destroyed and removed " + armor.getName() + " from the inventory.");
+        } else {
+            logger.info("Cannot destroy null armor.");
+        }
+    }
+
+
+    public int getEquippedArmorProtection() {
+        if (equippedArmor != null) {
+            return equippedArmor.getProtection();
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public ItemBase getEquippedArmor() {
         return equippedArmor;
     }
 
@@ -322,37 +342,6 @@ public class Hero implements HeroTemplate {
                 ((BonusAbilityTemplate) ability).applyBonus(this);
             }
         }
-    }
-
-
-    public List<Weapon> getAvailableWeapons(HeroTemplate hero, Player player) {
-        List<Weapon> availableWeapons = new ArrayList<>();
-        for (ItemBase item : player.getInventory().getItems()) {
-            if (item.getItemType() == ItemType.WEAPON) {
-                availableWeapons.add((Weapon) item);
-            }
-        }
-        return availableWeapons;
-    }
-
-    public List<Armor> getAvailableArmors(HeroTemplate hero, Player player) {
-        List<Armor> availableArmors = new ArrayList<>();
-        for (ItemBase item : player.getInventory().getItems()) {
-            if (item.getItemType() == ItemType.ARMOR) {
-                availableArmors.add((Armor) item);
-            }
-        }
-        return availableArmors;
-    }
-
-    public List<Consumable> getAvailableConsumables(HeroTemplate hero, Player player) {
-        List<Consumable> availableConsumables = new ArrayList<>();
-        for (ItemBase item : player.getInventory().getItems()) {
-            if (item.getItemType() == ItemType.CONSUMABLE) {
-                availableConsumables.add((Consumable) item);
-            }
-        }
-        return availableConsumables;
     }
 
 }

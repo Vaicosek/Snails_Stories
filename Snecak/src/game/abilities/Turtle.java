@@ -1,7 +1,6 @@
 package game.abilities;
 
 import game.hero.HeroTemplate;
-import game.itemshandling.Armor;
 import game.monster.MonsterBase;
 
 public class Turtle implements NormalAbilityTemplate {

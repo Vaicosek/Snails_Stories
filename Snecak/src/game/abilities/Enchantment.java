@@ -1,10 +1,7 @@
 package game.abilities;
 
 import game.hero.HeroTemplate;
-import game.itemshandling.Armor;
-import game.itemshandling.Consumable;
 import game.itemshandling.ItemBase;
-import game.itemshandling.Weapon;
 import game.players.Player;
 
 

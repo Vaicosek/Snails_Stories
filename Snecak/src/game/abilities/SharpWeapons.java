@@ -1,7 +1,6 @@
 package game.abilities;
 
 import game.hero.Hero;
-import game.itemshandling.Weapon;
 
 public class SharpWeapons implements BonusAbilityTemplate {
 

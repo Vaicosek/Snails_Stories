@@ -1,10 +1,7 @@
 package game.hero;
 
 import game.abilities.AbilityTemplate;
-import game.itemshandling.Armor;
-import game.itemshandling.Consumable;
 import game.itemshandling.ItemBase;
-import game.itemshandling.Weapon;
 import game.monster.MonsterBase;
 import game.players.Player;
 
@@ -57,12 +54,6 @@ public interface HeroTemplate {
    int getEquippedArmorProtection();
     int getEquippedWeaponDamage();
 
-    List<Weapon> getAvailableWeapons(HeroTemplate hero, Player player);
-
-    List<Armor> getAvailableArmors(HeroTemplate hero, Player player);
-
-    List<Consumable> getAvailableConsumables(HeroTemplate hero, Player player);
-
     void destroyArmor(ItemBase armor, Player player);
 
     void destroyWeapon(ItemBase weapon, Player player);
@@ -70,4 +61,6 @@ public interface HeroTemplate {
     ItemBase getEquippedArmor();
 
     ItemBase getEquippedWeapon();
+
+    boolean hasAbility(String abilityName);
 }
