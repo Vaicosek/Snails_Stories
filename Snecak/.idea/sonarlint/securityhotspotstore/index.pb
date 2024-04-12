@@ -371,3 +371,5 @@ b
 2src/game/heroalliedentities/AllyEntityFactory.java,d\7\d7bcb83e6dc89aed120068713e98210451a12e36
 V
 &src/game/mapvariables/BiomesModel.java,a\5\a5112416cbddd3948a2bc5b539c08cf18717cd54
+[
++src/game/itemshandling/InventoryAction.java,6\7\67ae1772a4d6c6a2460cc702a2fee1dddb711fc7

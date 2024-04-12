@@ -169,7 +169,7 @@ public class Hero implements HeroTemplate {
 
 
     @Override
-    public void SetMana(int mana) {
+    public void setMana(int mana) {
         this.mana = mana;
     }
 

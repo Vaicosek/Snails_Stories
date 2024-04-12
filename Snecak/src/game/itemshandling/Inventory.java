@@ -2,86 +2,76 @@ package game.itemshandling;
 
 import game.hero.HeroTemplate;
 import game.players.Player;
-import lombok.Getter;
-import java.util.*;
-import java.util.function.Supplier;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
-
-@Getter
 public class Inventory {
-    private final List<ItemBase> items = new ArrayList<>();
+    private List<ItemBase> items = new ArrayList<>();
     private static final Logger logger = Logger.getLogger(Inventory.class.getName());
-    private static final String INVALID_INPUT = "Invalid choice, Please enter a valid number.";
-    private static final String INPUT_QUIT = "or 'q' to cancel.";
-    private static final String DAMAGE = "Damage";
-    private final HeroTemplate hero;
-    private final Player player;
-    private final Map<Integer, Runnable> menuActions = new HashMap<>();
+    private HeroTemplate hero;
+    private Player player;
 
     public Inventory(HeroTemplate hero, Player player) {
         this.hero = hero;
         this.player = player;
-        initializeMenuActions();
     }
 
-    private void initializeMenuActions() {
-        menuActions.put(1, this::equipArmor);
-        menuActions.put(2, this::equipWeapon);
-        menuActions.put(3, this::useConsumable);
-        menuActions.put(4, this::printInventory);
-        menuActions.put(5, () -> {}); // No operation for quit, handled by breaking loop
-        addConditionalAction(6, this::isStrongHandsUnlocked, this::equipSecondWeapon);
-        addConditionalAction(7, this::isEnchantmentUnlocked, this::applyEnchantment);
+    public void selectAndEquipArmor() {
+        // Let the user select an armor from the inventory and call hero.equipArmor(armor)
     }
 
-    private void addConditionalAction(int key, Supplier<Boolean> conditionSupplier, Runnable action) {
-        menuActions.put(key, () -> {
-            if (Boolean.TRUE.equals(conditionSupplier.get())) {
-                action.run();
-            } else {
-                logger.info("This ability is not yet unlocked!");
+    public void selectAndEquipWeapon() {
+        // Let the user select a weapon from the inventory and call hero.equipWeapon(weapon)
+    }
+
+    public void selectAndUseConsumable() {
+        // Let the user select a consumable from the inventory and call hero.useConsumable(consumable)
+    }
+
+
+    public void displayMenuOptions() {
+        int optionNumber = 1;
+        for (InventoryAction action : InventoryAction.values()) {
+            if (action.isAvailable(hero)) {
+                logger.info(optionNumber + ". " + action.getDescription());
+                optionNumber++;
             }
-        });
-    }
-
-
-    public void openInventoryMenu() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            while (true) {
-                displayMenuOptions();
-                int choice = Integer.parseInt(scanner.nextLine());
-
-                Runnable action = menuActions.get(choice);
-                if (action != null) {
-                    action.run();
-                    if (choice == 5) break; // Quit
-                } else {
-                    logger.warning("Invalid choice. Please choose a valid option.");
-                }
-            }
-        } catch (Exception e) {
-            logger.warning("An error occurred: " + e.getMessage());
-        }
-    }
-
-
-
-    private void displayMenuOptions() {
-        logger.info("\nInventory Menu:");
-        logger.info("1. Equip Armor");
-        logger.info("2. Equip Weapon");
-        logger.info("3. Use Consumable");
-        logger.info("4. Browse Inventory");
-        logger.info("5. Quit Inventory");
-        if (hero.isStrongHandsUnlocked()) {
-            logger.info("6. Equip Second Weapon");
-        }
-        if (hero.isEnchantmentUnlocked()) {
-            logger.info("7. Apply Enchantment");
         }
         logger.info("Choose an option: ");
     }
+
+    public void openInventoryMenu() {
+        Scanner scanner = new Scanner(System.in);
+        displayMenuOptions(); // Make sure to display the options before entering the loop
+        while (true) {
+            String input = scanner.nextLine();
+            try {
+                int choice = Integer.parseInt(input) - 1;
+                if (choice >= 0 && choice < InventoryAction.values().length) {
+                    InventoryAction selectedAction = InventoryAction.values()[choice];
+                    if (selectedAction.isAvailable(hero)) {
+                        // Execute the selected action
+                        executeAction(selectedAction);
+                        if (selectedAction == InventoryAction.QUIT_INVENTORY) break;
+                    } else {
+                        logger.warning("This action is currently unavailable.");
+                    }
+                } else {
+                    logger.warning("Invalid choice. Please choose a valid option.");
+                }
+            } catch (NumberFormatException e) {
+                logger.warning("Invalid input. Please enter a number.");
+            }
+        }
+    }
+
+    private void executeAction(InventoryAction action) {
+        action.execute(this, hero);
+    }
+
 
     public boolean hasItemByName(String itemName) {
         for (ItemBase item : items) {

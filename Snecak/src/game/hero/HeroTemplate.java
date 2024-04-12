@@ -26,11 +26,9 @@ public interface HeroTemplate {
 
     String getName();
 
-    void setMana(int Mana);
+    void setMana(int mana);
 
     int getMana();
-
-    void SetMana(int mana);
 
     List<AbilityTemplate> getAbilities();
 
@@ -63,4 +61,8 @@ public interface HeroTemplate {
     ItemBase getEquippedWeapon();
 
     boolean hasAbility(String abilityName);
+
+    boolean canApplyEnchantment();
+
+    boolean canEquipSecondWeapon();
 }
