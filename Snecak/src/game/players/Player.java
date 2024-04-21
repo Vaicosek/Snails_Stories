@@ -1,8 +1,6 @@
 package game.players;
 
-import game.engine.GameEngine;
 import game.hero.*;
-import game.itemshandling.Inventory;
 import game.mapvariables.PositionModel;
 import game.abilities.EntityAbilityTemplate;
 import game.abilitiesmanagement.HeroAbilitiesManager;
@@ -18,19 +16,15 @@ public class Player {
     private HeroTemplate hero;
     @Setter
     private String name;
-
-    private final Inventory inventory;
     private static final Logger logger = Logger.getLogger(Player.class.getName());
-
-
-    public Player() {
-        this.inventory = new Inventory();
-    }
-
     @Setter
     private PositionModel previousPosition;
 
     private List<EntityAbilityTemplate> summonedEntities;
+
+    public Player() {
+
+    }
 
 
     public void increaseXP(int amount) {
@@ -45,8 +39,8 @@ public class Player {
 
     public void levelUp() {
         hero.setHp((hero.getLevel() * 100));
-        System.out.println("LVL UP");
-       hero.gainAbility();
+        logger.info("LVL UP");
+        hero.gainAbility();
     }
 
     public boolean isAlive() {

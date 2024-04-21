@@ -1,35 +1,74 @@
 package game.itemshandling;
 
 import game.hero.HeroTemplate;
-import game.players.Player;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class Inventory {
     private List<ItemBase> items = new ArrayList<>();
     private static final Logger logger = Logger.getLogger(Inventory.class.getName());
     private HeroTemplate hero;
-    private Player player;
+    private final Scanner scanner = new Scanner(System.in);
 
-    public Inventory(HeroTemplate hero, Player player) {
+    public Inventory(HeroTemplate hero) {
         this.hero = hero;
-        this.player = player;
+
     }
 
     public void selectAndEquipArmor() {
-        // Let the user select an armor from the inventory and call hero.equipArmor(armor)
+        List<ItemBase> armors = items.stream()
+                .filter(item -> item.getItemType() == ItemType.ARMOR)
+                .collect(Collectors.toList());
+        ItemBase selected = selectItemFromList(armors, "Armor");
+        if (selected != null) {
+            hero.equipArmor(selected);
+        }
     }
 
     public void selectAndEquipWeapon() {
-        // Let the user select a weapon from the inventory and call hero.equipWeapon(weapon)
+        List<ItemBase> weapons = items.stream()
+                .filter(item -> item.getItemType() == ItemType.WEAPON)
+                .collect(Collectors.toList());
+        ItemBase selected = selectItemFromList(weapons, "Weapon");
+        if (selected != null) {
+            hero.equipWeapon(selected);
+        }
     }
 
     public void selectAndUseConsumable() {
-        // Let the user select a consumable from the inventory and call hero.useConsumable(consumable)
+        List<ItemBase> consumables = items.stream()
+                .filter(item -> item.getItemType() == ItemType.CONSUMABLE)
+                .collect(Collectors.toList());
+        ItemBase selected = selectItemFromList(consumables, "Consumable");
+        if (selected != null) {
+            hero.useConsumable(selected);
+            logger.info("Used " + selected.getName());
+        }
     }
+
+    private ItemBase selectItemFromList(List<ItemBase> items, String itemType) {
+        if (items.isEmpty()) {
+            logger.info("No " + itemType + "s available.");
+            return null;
+        }
+        logger.info("Available " + itemType + "s:");
+        for (int i = 0; i < items.size(); i++) {
+            logger.info((i + 1) + ": " + items.get(i).getName() + " - " + items.get(i).getDescription());
+        }
+        logger.info("Enter the number of the " + itemType + " to equip, or 0 to cancel:");
+        String input = scanner.nextLine();
+        int choice = Integer.parseInt(input);
+        if (choice > 0 && choice <= items.size()) {
+            return items.get(choice - 1);
+        }
+        return null;
+    }
+
 
 
     public void displayMenuOptions() {
@@ -91,10 +130,26 @@ public class Inventory {
         return null;
     }
 
-    public void printInventory() {
-        logger.info("Inventory:");
-        for (ItemBase item : items) {
-            logger.info("- " + item.getName() + " (" + item.getItemType().getAttributeDisplay(item) + ")");
+    public static void printInventoryDirectly(Inventory inventory, HeroTemplate hero) {
+        if (inventory == null || inventory.items.isEmpty()) {
+            logger.info("Inventory is empty");
+            return;
+        }
+        logger.info("Listing all items in inventory");
+        for (ItemBase item : inventory.items) {
+            logger.info(item.getName() + " - " + item.getDescription());
         }
     }
+
+
+    public void removeItem(ItemBase armor) {
+
+    }
+
+
+    public static void quitDirectly(Inventory inventory, HeroTemplate hero) {
+        logger.info("Exiting inventory menu.");
+
+    }
 }
+

@@ -72,7 +72,7 @@ public class ArmorBlast implements AreaAbilityTemplate {
         }
 
         // Destroy the hero's equipped armor after the ability is used
-        hero.destroyArmor(hero.getEquippedArmor(), player);
+        hero.destroyArmor(hero.getEquippedArmor());
     }
 
     }

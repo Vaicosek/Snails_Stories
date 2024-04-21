@@ -1,4 +1,5 @@
 
-m	java:S1060"+Replace this use of System.out by a logger.(ÈÑÉî8ÚÅõ¯é1J$ad5e589e-9c94-442f-8773-b0ac9180c456
+Ä
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í¤ğí8ùšÑ½ï1J$3f9302af-cd80-4c8e-bd88-179694143b20
 {
-java:S1144M"8Remove this unused private "gainStartingAbility" method.(¡ôà8ŞÅõ¯é1J$a2ac14e6-b1fa-4a6c-a3d6-56423d9cc6a7
+java:S1144G"8Remove this unused private "gainStartingAbility" method.(¡ôà8È¥Ï½ï1J$faa13971-bbf3-40b9-97fb-80733a73739a

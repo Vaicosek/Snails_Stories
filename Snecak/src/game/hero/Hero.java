@@ -35,12 +35,14 @@ public class Hero implements HeroTemplate {
     protected ItemBase equippedArmor;
     private static final String EQUIPPED = "Equipped";
     private static final String UNEQUIPPED = "Unequipped";
+    private Inventory inventory;
 
-    public Hero(int xp, int level, int hp, List<String> abilityTypes) {
+    public Hero(int xp, int level, int hp, List<String> abilityTypes, List<ItemBase> inventoryItems) {
         this.xp = xp;
         this.level = level;
         this.hp = hp;
         initializeAbilities(abilityTypes);
+        this.inventory = new Inventory(this);
         calculateAttack();
     }
 
@@ -48,6 +50,10 @@ public class Hero implements HeroTemplate {
         this.abilities = abilityTypes.stream()
                 .map(AbilityFactory::createAbility)
                 .collect(Collectors.toList());
+    }
+
+    public Inventory getInventory() {
+        return this.inventory;
     }
 
 
@@ -135,11 +141,6 @@ public class Hero implements HeroTemplate {
     @Override
     public String getName() {
         return name;
-    }
-
-    @Override
-    public void setMana(int mana) {
-        this.mana = mana;
     }
 
     @Override
@@ -235,7 +236,7 @@ public class Hero implements HeroTemplate {
         }
     }
 
-    public void destroyWeapon(ItemBase weapon, Player player) {
+    public void destroyWeapon(ItemBase weapon)  {
         if (weapon != null) {
             // Remove the armor from the hero's inventory
             if (equippedWeapon == weapon) {
@@ -243,7 +244,7 @@ public class Hero implements HeroTemplate {
             }
 
             // Remove the armor from the inventory list
-            player.getInventory().removeItem(weapon);
+            weapon.removeItem(weapon);
 
             logger.info("Destroyed and removed " + weapon.getName() + " from the inventory.");
         } else {
@@ -261,12 +262,27 @@ public class Hero implements HeroTemplate {
         }
     }
 
+    public void useConsumable(ItemBase consumable) {
+        // Assuming consumable has an effect, like restoring health
+        this.hp += consumable.getHealth();
+        System.out.println("Used " + consumable.getName() + ", health increased by " + consumable.getHealth());
+    }
+
 
     public boolean hasAbility(String abilityName) {
         return abilities.stream()
                 .anyMatch(ability -> ability.getName().equals(abilityName) && ability.isUnlocked());
     }
 
+    @Override
+    public boolean canApplyEnchantment() {
+        return hasAbility("Enchantment");
+    }
+
+    @Override
+    public boolean canEquipSecondWeapon() {
+        return hasAbility("StrongHands");
+    }
 
 
     public void equipArmor(ItemBase armor) {
@@ -283,7 +299,7 @@ public class Hero implements HeroTemplate {
         }
     }
 
-    public void destroyArmor(ItemBase armor, Player player) {
+    public void destroyArmor(ItemBase armor ) {
         if (armor != null) {
             // Remove the armor from the hero's inventory
             if (equippedArmor == armor) {
@@ -291,7 +307,7 @@ public class Hero implements HeroTemplate {
             }
 
             // Remove the armor from the inventory list
-            player.getInventory().removeItem(armor);
+           removeItem(armor);
 
             logger.info("Destroyed and removed " + armor.getName() + " from the inventory.");
         } else {
@@ -345,3 +361,6 @@ public class Hero implements HeroTemplate {
     }
 
 }
+
+
+

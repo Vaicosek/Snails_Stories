@@ -3,7 +3,7 @@ package game.hero;
 import game.abilities.AbilityTemplate;
 import game.itemshandling.ItemBase;
 import game.monster.MonsterBase;
-import game.players.Player;
+
 
 import java.util.List;
 
@@ -52,9 +52,9 @@ public interface HeroTemplate {
    int getEquippedArmorProtection();
     int getEquippedWeaponDamage();
 
-    void destroyArmor(ItemBase armor, Player player);
+    void destroyArmor(ItemBase armor);
 
-    void destroyWeapon(ItemBase weapon, Player player);
+    void destroyWeapon(ItemBase weapon );
 
     ItemBase getEquippedArmor();
 
@@ -65,4 +65,6 @@ public interface HeroTemplate {
     boolean canApplyEnchantment();
 
     boolean canEquipSecondWeapon();
+
+    void useConsumable(ItemBase consumable);
 }

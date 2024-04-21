@@ -1,18 +1,23 @@
 package game.itemshandling;
 
 import game.hero.HeroTemplate;
+import lombok.Getter;
 
 
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
 public enum InventoryAction {
-    EQUIP_ARMOR("Equip Armor", HeroTemplate::alwaysTrue, Inventory::selectAndEquipArmor),
-    EQUIP_WEAPON("Equip Weapon", HeroTemplate::alwaysTrue, Inventory::selectAndEquipWeapon),
-    USE_CONSUMABLE("Use Consumable", HeroTemplate::alwaysTrue, Inventory::selectAndUseConsumable),
-    PRINT_INVENTORY("Browse Inventory", hero -> true, Inventory::printInventory),
-    QUIT_INVENTORY("Quit Inventory", hero -> true, (inventory, hero) -> inventory.quit());
+    EQUIP_ARMOR("Equip Armor", hero -> true, (inventory, hero) -> inventory.selectAndEquipArmor()),
+    EQUIP_WEAPON("Equip Weapon", hero -> true, (inventory, hero) -> inventory.selectAndEquipWeapon()),
+    USE_CONSUMABLE("Use Consumable", hero -> true, (inventory, hero) -> inventory.selectAndUseConsumable()),
+    PRINT_INVENTORY("Browse Inventory", hero -> true, Inventory::printInventoryDirectly),
+    QUIT_INVENTORY("Quit Inventory", hero -> true, Inventory::quitDirectly);
 
+
+
+
+    @Getter
     private final String description;
     private final Predicate<HeroTemplate> condition;
     private final BiConsumer<Inventory, HeroTemplate> action;
@@ -23,10 +28,6 @@ public enum InventoryAction {
         this.action = action;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public boolean isAvailable(HeroTemplate hero) {
         return condition.test(hero);
     }
@@ -35,8 +36,4 @@ public enum InventoryAction {
         action.accept(inventory, hero);
     }
 
-    // Helper method to always return true for simplification
-    public static boolean alwaysTrue(HeroTemplate hero) {
-        return true;
-    }
 }

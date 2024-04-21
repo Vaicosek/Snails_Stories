@@ -107,7 +107,7 @@ public class GameEngine {
         }
 
     private void openInventory(Player player) {
-        inventory.openInventoryMenu(player.getHero(),player);
+        inventory.openInventoryMenu();
     }
 
     public void move(Player player) {

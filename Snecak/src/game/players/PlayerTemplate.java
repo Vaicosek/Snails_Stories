@@ -26,13 +26,4 @@ public interface PlayerTemplate {
 
     void setY(int y);
 
-    List<ItemBase> getInventory();
-
-    void addItem(ItemBase item);
-
-    void removeItem(ItemBase item);
-
-    boolean hasItem(ItemBase item);
-
-    boolean hasItemByName(String itemName);
 }

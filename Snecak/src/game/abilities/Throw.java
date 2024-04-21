@@ -25,7 +25,7 @@ public class Throw implements ThrowAbilityTemplate {
 
     public void throwItem(Inventory inventory, MonsterBase monster) {
         Scanner scanner = new Scanner(System.in);
-        inventory.printInventory(); // Display the items in the inventory
+        inventory.printInventoryDirectly(); // Display the items in the inventory
 
         System.out.print("Enter the name of the item you want to throw: ");
         String itemName = scanner.nextLine();

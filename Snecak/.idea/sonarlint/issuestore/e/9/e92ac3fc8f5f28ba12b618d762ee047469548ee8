@@ -1,3 +1,15 @@
 
-r
-java:S1068"*Remove this unused "player" private field.(Ç¹Ù±úÿÿÿÿ8¬ÀœÇì1J$6bd23330-c3fd-4fae-8242-2f4a397dd2a7
+
+java:S26298"7Use the built-in formatting to construct this argument.(Šû¯”ıÿÿÿÿ8¹º÷ëí1J$ca26e0f1-ade3-49d7-828b-b8721cce72a8
+z
+java:S2629;"7Use the built-in formatting to construct this argument.(ÈöÁİ8¹º÷ëí1J$b1489ed5-eac7-4dad-925f-88ebbcef6d51
+
+java:S2629?"7Use the built-in formatting to construct this argument.(Ÿìûµıÿÿÿÿ8¹º÷ëí1J$a574776b-8d9a-45aa-ac21-95dfdd63b5c7
+Ê
+java:S1186‘"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(­›ÿÿÿÿÿ8¾º÷ëí1J$4781d76b-beb2-46b7-9891-a328bf0dd96e
+ƒ
+java:S1117V";Rename "scanner" which hides the field declared at line 16.(ù ƒ‘üÿÿÿÿ8Êº÷ëí1J$46d5167c-219c-47cd-a938-9781ad28adc4
+t
+java:S1172…"+Remove this unused method parameter "hero".(ŸĞ†‚ûÿÿÿÿ8Ïº÷ëí1J$d2dc9fd5-f52e-4670-aa26-600f1eeb2480
+~
+java:S1172–":Remove these unused method parameters "inventory", "hero".(ù¥„Ñ8Ğº÷ëí1J$03e4e35a-5766-49db-843e-99613c19c4e5
