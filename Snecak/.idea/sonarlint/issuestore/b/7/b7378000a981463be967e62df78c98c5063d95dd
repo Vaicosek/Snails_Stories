@@ -1,13 +1,13 @@
 
 Â
-java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$f0eb418c-77e1-4ed2-81fd-a39aa9420028
+java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç÷ƒ½şÿÿÿÿJ$b7d51104-d829-470e-8b18-f55390f75707
 Â
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$f22ef58a-06a1-4ab3-986b-258e324b00ca
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÌÌÿÿÿÿÿJ$d6e61c79-1e0f-43d3-88d3-7b4cc26584b1
 ½
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$0f1b355d-7a67-417e-8e41-c2ae44d7710a
+java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò’Š¯J$553df6d8-7703-44ba-9be5-b5cc55933e1f
 ½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(²²Ç»J$d86a00ea-5b58-40c1-b3e7-245933a3284e
-m	java:S106"+Replace this use of System.out by a logger.(†³‚œ8¼êå1J$3d04baf3-27d6-4f18-95c2-d2f5fefdd984
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(²²Ç»J$54291228-1196-4dca-9de0-e5e5d98b7fa0
+m	java:S106"+Replace this use of System.out by a logger.(†³‚œ8¼êå1J$cbd63bf7-6d20-45fd-9389-a778a6aad137
 h
 java:S1068
-",Remove this unused "manaCost" private field.(¡µ‚J$221fc3a5-a044-47a0-bbbc-5d7d346bc870
+",Remove this unused "manaCost" private field.(¡µ‚J$692652ef-f843-4ad0-bd7e-93f965a59731

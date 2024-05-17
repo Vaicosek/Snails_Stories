@@ -1,13 +1,11 @@
 
-
-java:S1104"UMake monsterXp a static final constant or non-public and provide accessors if needed.(“ËÛ×úÿÿÿÿ8”¬¯¯é1J$483a85db-2471-4be2-9928-de88cdfdd03d
 
-java:S1104@"[Make attackReduction a static final constant or non-public and provide accessors if needed.(æö×ì8”¬¯¯é1J$25096fcb-3086-4887-8fc7-4cc2e4509222
+java:S1104A"[Make attackReduction a static final constant or non-public and provide accessors if needed.(æö×ì8”¬¯¯é1J$8029b7a6-518d-49bc-8227-9503798680fc
 ¤
-java:S26299"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ûÂÿºüÿÿÿÿ8ªÿ²¯é1J$05266842-6561-4f39-964e-295b31c7864f
+java:S2629:"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ûÂÿºüÿÿÿÿ8ªÿ²¯é1J$53e9c5cc-8675-4954-90ea-3b01712d5251
 u
-java:S1172o"2Remove this unused method parameter "tauntRounds".(Îí¥„8µ¬¯¯é1J$006be3d8-6a78-444c-bb93-e39031c5f77d
+java:S1172p"2Remove this unused method parameter "tauntRounds".(Îí¥„8µ¬¯¯é1J$c092f909-776b-4f31-a6bc-c43588d8b006
 z
-java:S1172v"8Remove this unused method parameter "misdirectedRounds".(Òª‹"8¶¬¯¯é1J$60ec09ae-5613-4a0e-9294-4af509390b54
+java:S1172w"8Remove this unused method parameter "misdirectedRounds".(Òª‹"8¶¬¯¯é1J$796a756e-3f3c-4726-ae66-354f90fe1fad
 u
-java:S1144)"2Remove this unused private "getRandomName" method.(‘ÔŸØ8¶¬¯¯é1J$f0828006-5966-4ccb-a6c7-42ee73c846b5
+java:S1144*"2Remove this unused private "getRandomName" method.(‘ÔŸØ8¶¬¯¯é1J$0671518a-2323-440c-a199-5a50d359c06a

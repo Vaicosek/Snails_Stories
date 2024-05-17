@@ -1,13 +1,13 @@
 package game.itemshandling;
 
+import game.hero.HeroTemplate;
 import game.monster.Dice;
-import game.players.Player;
 
 public class ItemFactory {
 
-    public static ItemBase createRandomItem(Player player) {
+    public static ItemBase createRandomItem(HeroTemplate hero) {
         ItemType itemType = getRandomItemType(); // This selects a random ItemType
-        return itemType.createItem(player); // Delegate the creation logic entirely to the ItemType
+        return itemType.createItem(hero); // Delegate the creation logic entirely to the ItemType
     }
 
     public static ItemType getRandomItemType() {
@@ -22,10 +22,8 @@ public class ItemFactory {
         }
     }
 
-    public static void dropItem(Player player, Inventory inventory) {
-        ItemBase randomItem = createRandomItem(player);
+    public static void dropItem(HeroTemplate hero, Inventory inventory) {
+        ItemBase randomItem = createRandomItem(hero);
         inventory.addItem(randomItem);
     }
-
 }
-

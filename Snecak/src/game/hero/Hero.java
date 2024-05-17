@@ -4,12 +4,12 @@ import game.abilities.*;
 import game.itemshandling.*;
 import game.monster.Dice;
 import game.monster.MonsterBase;
-import game.players.Player;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -35,9 +35,10 @@ public class Hero implements HeroTemplate {
     protected ItemBase equippedArmor;
     private static final String EQUIPPED = "Equipped";
     private static final String UNEQUIPPED = "Unequipped";
+    @Getter
     private Inventory inventory;
 
-    public Hero(int xp, int level, int hp, List<String> abilityTypes, List<ItemBase> inventoryItems) {
+    public Hero(int xp, int level, int hp, List<String> abilityTypes) {
         this.xp = xp;
         this.level = level;
         this.hp = hp;
@@ -48,12 +49,29 @@ public class Hero implements HeroTemplate {
 
     private void initializeAbilities(List<String> abilityTypes) {
         this.abilities = abilityTypes.stream()
-                .map(AbilityFactory::createAbility)
+                .map(AbilityType::fromString)
+                .filter(Objects::nonNull)
+                .map(AbilityType::createInstance)
                 .collect(Collectors.toList());
     }
 
-    public Inventory getInventory() {
-        return this.inventory;
+
+
+
+    public void increaseXP(int amount) {
+        int actualXp = getXp() + amount;
+        if (actualXp >= 100) {
+            levelUp();
+            setLevel(getLevel() + 1);
+            setXp(0);
+
+        }
+    }
+
+    public void levelUp() {
+        setHp((getLevel() * 100));
+        logger.info("LVL UP");
+        gainAbility();
     }
 
 
@@ -125,14 +143,7 @@ public class Hero implements HeroTemplate {
         return true;
     }
 
-    public void increaseXP(int amount) {
-        this.xp += amount;
-        if (this.xp >= 100) {
-            this.level++;
-            this.xp = this.xp - 100;
-            gainAbility();
-        }
-    }
+
 
     public boolean isAlive() {
         return hp > 0;
@@ -244,7 +255,7 @@ public class Hero implements HeroTemplate {
             }
 
             // Remove the armor from the inventory list
-            weapon.removeItem(weapon);
+            inventory.removeItem(weapon);
 
             logger.info("Destroyed and removed " + weapon.getName() + " from the inventory.");
         } else {
@@ -307,7 +318,7 @@ public class Hero implements HeroTemplate {
             }
 
             // Remove the armor from the inventory list
-           removeItem(armor);
+            inventory.removeItem(armor);
 
             logger.info("Destroyed and removed " + armor.getName() + " from the inventory.");
         } else {

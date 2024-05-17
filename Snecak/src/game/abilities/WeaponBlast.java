@@ -29,7 +29,7 @@ public class WeaponBlast implements TickAbilityTemplate {
         for (MonsterBase currentMonster : monsters) {
             int damage = player.getHero().getEquippedWeaponDamage() * 2 + monster.getHp() / 10;
             setDamage(damage);
-            player.getHero().destroyWeapon(player.getHero().getEquippedWeapon(), player);
+            player.getHero().destroyWeapon(player.getHero().getEquippedWeapon());
             currentMonster.takeDamage(totalDamage);
         }
     }

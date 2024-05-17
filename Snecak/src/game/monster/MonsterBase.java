@@ -13,6 +13,7 @@ public class MonsterBase {
     public int hp;
     @Getter
     public int groupLevel;
+    @Getter
     public int monsterXp;
     @Getter
     public String name;

@@ -1,6 +1,7 @@
 package game.hero;
 
 import game.abilities.AbilityTemplate;
+import game.itemshandling.Inventory;
 import game.itemshandling.ItemBase;
 import game.monster.MonsterBase;
 
@@ -67,4 +68,11 @@ public interface HeroTemplate {
     boolean canEquipSecondWeapon();
 
     void useConsumable(ItemBase consumable);
+
+    public void increaseXP(int amount);
+
+    public void levelUp();
+
+
+    Inventory getInventory();
 }

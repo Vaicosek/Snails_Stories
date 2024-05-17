@@ -20,6 +20,11 @@ public class Inventory {
 
     }
 
+    public void addItem(ItemBase item) {
+        items.add(item);
+        logger.info(item.getName() + " has been added to your inventory.");
+    }
+
     public void selectAndEquipArmor() {
         List<ItemBase> armors = items.stream()
                 .filter(item -> item.getItemType() == ItemType.ARMOR)
@@ -130,7 +135,7 @@ public class Inventory {
         return null;
     }
 
-    public static void printInventoryDirectly(Inventory inventory, HeroTemplate hero) {
+    public void printInventoryDirectly(Inventory inventory) {
         if (inventory == null || inventory.items.isEmpty()) {
             logger.info("Inventory is empty");
             return;
@@ -142,14 +147,22 @@ public class Inventory {
     }
 
 
-    public void removeItem(ItemBase armor) {
-
+    public void removeItem(ItemBase item) {
+        if (item != null && items.contains(item)) {
+            items.remove(item);
+            logger.info(item.getName() + " has been removed from your inventory.");
+        } else {
+            logger.warning("Item not found in inventory.");
+        }
     }
 
 
     public static void quitDirectly(Inventory inventory, HeroTemplate hero) {
         logger.info("Exiting inventory menu.");
 
+    }
+
+    public void printInventoryDirectly(HeroTemplate heroTemplate) {
     }
 }
 

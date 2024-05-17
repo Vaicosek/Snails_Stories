@@ -373,3 +373,5 @@ V
 &src/game/mapvariables/BiomesModel.java,a\5\a5112416cbddd3948a2bc5b539c08cf18717cd54
 [
 +src/game/itemshandling/InventoryAction.java,6\7\67ae1772a4d6c6a2460cc702a2fee1dddb711fc7
+S
+#src/game/abilities/AbilityType.java,4\6\46a5e25132367c0518e829d382dc4ad9d5a76928

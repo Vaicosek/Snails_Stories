@@ -27,26 +27,6 @@ public class Player {
     }
 
 
-    public void increaseXP(int amount) {
-        int actualXp = hero.getXp() + amount;
-        if (actualXp >= 100) {
-            levelUp();
-            hero.setLevel(hero.getLevel() + 1);
-            hero.setXp(0);
-
-        }
-    }
-
-    public void levelUp() {
-        hero.setHp((hero.getLevel() * 100));
-        logger.info("LVL UP");
-        hero.gainAbility();
-    }
-
-    public boolean isAlive() {
-        return hero.getHp() > 0;
-    }
-
     public void pickHero() {
         Scanner scanner = new Scanner(System.in);
         logger.info("Please choose your hero by pressing number:");

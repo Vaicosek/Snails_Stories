@@ -26,7 +26,7 @@ public class Telekinesis implements ThrowAbilityTemplate {
         if (currentMana >= manaCost) {
             hero.setMana(currentMana - manaCost);
             System.out.println("Used " + getName() + "!");
-            throwItem(player.getInventory(), monster); // Throw an item from the inventory at the monster
+            throwItem(player.getHero().getInventory(), monster); // Throw an item from the inventory at the monster
 
         } else {
             System.out.println("Not enough mana to use " + getName() + " or it's not your turn.");
@@ -35,7 +35,7 @@ public class Telekinesis implements ThrowAbilityTemplate {
 
     public void throwItem(Inventory inventory, MonsterBase monster) {
         Scanner scanner = new Scanner(System.in);
-        inventory.printInventoryDirectly(); // Display the items in the inventory
+        inventory.printInventoryDirectly(inventory); // Display the items in the inventory
 
         System.out.print("Enter the name of the item you want to throw: ");
         String itemName = scanner.nextLine();

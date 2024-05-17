@@ -2,12 +2,14 @@ package game.itemshandling;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 public class ItemBase {
 
     @Getter
     protected final ItemType itemType;
-    private final String description;
+    @Setter
+    private String description;
     @Setter
     protected int damage;
     @Setter
@@ -16,7 +18,6 @@ public class ItemBase {
     protected int protection;
     @Setter
     protected String name;
-
 
     public ItemBase(ItemType itemType, String description, int damage, int health, int protection, String name) {
         this.itemType = itemType;
@@ -28,6 +29,6 @@ public class ItemBase {
     }
 
     public String getDescription() {
-        return (String.format("%s: Damage=%d, Health=%d, Protection=%d",name, damage, health, protection));
+        return description != null ? description : String.format("%s: Damage=%d, Health=%d, Protection=%d", name, damage, health, protection);
     }
 }

@@ -1,6 +1,5 @@
 package game.engine;
 
-import game.itemshandling.Inventory;
 import game.mapvariables.GameMap;
 import game.monster.MonsterBase;
 import game.players.Player;
@@ -12,7 +11,6 @@ import java.util.logging.Logger;
 
 public class GameEngine {
 
-    private final Inventory inventory = new Inventory();
     Player[] players;
     GameMap gameMap;
     private final GameStartedEventSource gameStartedEventSource = new GameStartedEventSource();
@@ -55,7 +53,7 @@ public class GameEngine {
             logger.log(Level.INFO, () -> String.format("Enter name for player %d: ", finalI + 1));
             player.setName(scanner.nextLine());
             player.pickHero();
-            player.levelUp();
+            player.getHero().levelUp();
             players[i] = player;
             gameMap.addPlayer(player);
 
@@ -107,7 +105,7 @@ public class GameEngine {
         }
 
     private void openInventory(Player player) {
-        inventory.openInventoryMenu();
+        player.getHero().getInventory().openInventoryMenu();
     }
 
     public void move(Player player) {
